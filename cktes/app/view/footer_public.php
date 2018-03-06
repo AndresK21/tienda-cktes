@@ -10,7 +10,7 @@
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Correo electr&oacute;nico</h5>
             <ul>
-            <li><i class="small material-icons">email</i><a class="grey-text text-lighten-3 valign-wrapper"  href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blanck"> mipintura@gmail.com</a></li>
+            <li><i class="small material-icons">email</i><a class="grey-text text-lighten-3 valign-wrapper"  href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blanck"> M-Tec System@gmail.com</a></li>
             </ul>
         </div>
         </div>

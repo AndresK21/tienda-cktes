@@ -53,7 +53,7 @@
                       <!-- BOTON DE INICIAR Sesi&oacute;n -->
                       <div class="row">
                         <div class="input-field col s12">
-                          <a class="blue waves-effect waves-light btn ">Iniciar Sesi&oacute;n</a>
+                          <a class="cktes waves-effect waves-light btn ">Iniciar Sesi&oacute;n</a>
                         </div>
                       </div>
                     </form>
@@ -113,7 +113,7 @@
                   </div>
                     <!-- BOTON INICIAR Sesi&oacute;n -->
                     <div class="input-field col l6 m6 s12">
-                      <a class="blue waves-effect waves-light btn">Iniciar Sesi&oacute;n</a>
+                      <a class="cktes waves-effect waves-light btn">Iniciar Sesi&oacute;n</a>
                     </div>
                     <div class="white-text">.</div>
                     <div class="white-text">.</div>

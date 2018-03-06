@@ -18,12 +18,12 @@
         <main>
                 <!-- PARALAX DE DIVISION -->
                 <div class="parallax-container">
-                    <div class="parallax"><img src="../web/img/paralaxagua.jpg"></div>
+                    <div class="parallax"><img src="../web/img/paralax3colores.png"></div>
                 </div>
             <!-- CONTENEDOR PRINCIPAL -->
             <div class="container"> 
                 <!--CATEGORIA -->
-                <h4 class="left-align">Pintura de Agua</h4>
+                <h4 class="left-align">Categoria 2</h4>
                 <!-- BUSQUEDA -->
                 <div class="row">
                         <div class="col s8">
@@ -39,9 +39,9 @@
                     <div class="input-field col s4">
                         <select>
                             <option value="" disabled selected>Presentaciones</option>
-                            <option value="1">Medio Gal&oacute;n</option>
-                            <option value="2">Gal&oacute;n</option>
-                            <option value="3">Cubeta</option>
+                            <option value="1">Presentacion</option>
+                            <option value="2">Presentacion</option>
+                            <option value="3">Presentacion</option>
                         </select>   
                         <label>Escoja una Presentaci&oacute;n</label>
                     </div>
@@ -56,9 +56,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura l&aacute;tex blanco ostra high standard.</p>
+                                <p>LEDS de 1.5 Voltios.</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal1" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura l&aacute;tex blanco ostra high standard</p><br>
+                                                        <p>LEDS de 1.5 Voltios</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -93,7 +93,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -165,9 +165,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>GAL</p>
-                                <p>Pintura pro l&aacute;tex blanco hueso.</p>
+                                <p>Integrado N555.</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal2" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -179,7 +179,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura pro l&aacute;tex blanco hueso.</p><br>
+                                                        <p>Integrado N555.</p><br>
                                                         <p>Presentaci&oacute;n&#58; Gal&ioacute;n</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -202,7 +202,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -274,9 +274,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura pro l&aacute;tex marfil</p>
+                                <p>Kit de Resistencias</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal3"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal3"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal3" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -288,7 +288,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura pro l&aacute;tex marfil</p><br>
+                                                        <p>Kit de Resistencias</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -311,7 +311,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -378,14 +378,14 @@
                     <div class="col s12 m6 l3">
                         <div class="card sticky-action">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="../web/img/producto4.jpg">
+                                <img class="activator" src="../web/img/img/producto4.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura pro l&aacute;tex azul </p>
+                                <p>Ejemplo </p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal4" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -393,11 +393,11 @@
                                             <h5 class="header">A&ntilde;adir al Carrito</h5>
                                             <div class="card horizontal">
                                                 <div class="card-image">
-                                                    <img src="../web/img/producto4.jpg">
+                                                    <img src="../web/img/img/producto4.jpg">
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura l&aacute;tex azul</p><br>
+                                                        <p>Ejemplo</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -420,7 +420,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -495,9 +495,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura l&aacute;tex blanco ostra high standard.</p>
+                                <p>LEDS de 1.5 Voltios.</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal1" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -509,7 +509,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura l&aacute;tex blanco ostra high standard</p><br>
+                                                        <p>LEDS de 1.5 Voltios</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -532,7 +532,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -604,9 +604,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>GAL</p>
-                                <p>Pintura pro l&aacute;tex blanco hueso.</p>
+                                <p>Integrado N555.</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal2" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -618,7 +618,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura pro l&aacute;tex blanco hueso.</p><br>
+                                                        <p>Integrado N555.</p><br>
                                                         <p>Presentaci&oacute;n&#58; Gal&ioacute;n</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -641,7 +641,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -713,9 +713,9 @@
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura pro l&aacute;tex marfil</p>
+                                <p>Kit de Resistencias</p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal3"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal3"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal3" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -727,7 +727,7 @@
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura pro l&aacute;tex marfil</p><br>
+                                                        <p>Kit de Resistencias</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -750,7 +750,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -817,14 +817,14 @@
                     <div class="col s12 m6 l3">
                         <div class="card sticky-action">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="../web/img/producto4.jpg">
+                                <img class="activator" src="../web/img/img/producto4.jpg">
                             </div>
                             <div class="card-content">
                                 <span class="tooltipped card-title activator blue-text text-darker-1" data-position="top"  data-delay="50" data-tooltip="A&ntilde;adir Valoraci&oacute;n">&#36;25.00<i class="material-icons right">more_vert</i></span>
                                 <p>CUB</p>
-                                <p>Pintura pro l&aacute;tex azul </p>
+                                <p>Ejemplo </p>
                                 <!-- BOTON DE COMPRA -->
-                                <a class=" blue waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
+                                <a class=" cktes waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right">shopping_cart</i>A&ntilde;adir </a>
                                 <!-- MODAL DE COMPRA -->
                                 <div id="modal4" class="modal modal-fixed-footer">
                                     <div class="modal-content">
@@ -832,11 +832,11 @@
                                             <h5 class="header">A&ntilde;adir al Carrito</h5>
                                             <div class="card horizontal">
                                                 <div class="card-image">
-                                                    <img src="../web/img/producto4.jpg">
+                                                    <img src="../web/img/img/producto4.jpg">
                                                 </div>
                                                 <div class="card-stacked">
                                                     <div class="card-content">
-                                                        <p>Pintura l&aacute;tex azul</p><br>
+                                                        <p>Ejemplo</p><br>
                                                         <p>Presentaci&oacute;n&#58; Cubeta</p><br>
                                                         <div class="input-field">
                                                         <input placeholder="1" id="cantidad" type="number" class="validate">
@@ -859,7 +859,7 @@
                                 <div class="white-text">.</div>
 
                                 <!-- BOTON DE COMENTARIOS -->
-                                <a class="blue tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
+                                <a class="cktes tooltipped waves-effect waves-light btn modal-trigger halfway-fab"  href="#modal5" type="submit" name="action" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios">Rese&ntilde;as
                                     <i class="material-icons">comment</i>
                                 </a>
                                 <!-- MODAL DE COMENTARIOS -->
@@ -927,7 +927,7 @@
                 <!-- PAGINAS -->
                 <ul class="pagination center">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="blue white-text ligactive"><a href="#!">1</a></li>
+                    <li class="cktes white-text ligactive"><a href="#!">1</a></li>
                     <li class="waves-effect"><a href="#!">2</a></li>
                     <li class="waves-effect"><a href="#!">3</a></li>
                     <li class="waves-effect"><a href="#!">4</a></li>

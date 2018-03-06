@@ -2,9 +2,9 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="categoria_aceite.php">Categoria1</a></li>
+    <li><a href="categoria_aceite.php">Categoria 1</a></li>
     <li class="divider"></li>
-    <li><a href="categoria_agua.php">Agua</a></li>
+    <li><a href="categoria_agua.php">Categoria 2</a></li>
 </ul>
 <ul id="dropdown3" class="dropdown-content">
     <li><a href="categoria_aceite.php">Desarrollo de productos</a></li>
@@ -13,9 +13,9 @@
 </ul>
 <!-- Dropdown Structure Mobile -->
 <ul id="dropdown2" class="dropdown-content">
-    <li><a href="categoria_aceite.php">Aceite</a></li>
+    <li><a href="categoria_aceite.php">Categoria 1</a></li>
     <li class="divider"></li>
-    <li><a href="categoria_agua.php">Agua</a></li>
+    <li><a href="categoria_agua.php">Categoria 2</a></li>
 </ul>
 <ul id="dropdown4" class="dropdown-content">
     <li><a href="categoria_aceite.php">Desarrollo de productos</a></li>
