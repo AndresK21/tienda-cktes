@@ -12,8 +12,8 @@
             <div class="navbar-fixed">  
                 <nav>
                 <!--Navbar Color gris azulado-->
-                    <div class="nav-wrapper  indigo accent-2">
-                    <img class="brand-logo" src="../web/img/mipintura.png">
+                    <div class="nav-wrapper grey darken-3">
+                    <a class="brand-logo">Logo</a>
                     </div>
                 </nav>
             </div>
@@ -32,13 +32,13 @@
                                     <img class="responsive-img" src="../web/img/pintura.jpg">
                                     <div class="input-field col s12">
                                         <input id="usuario" type="text" class="validate">
-                                        <label class="blue-grey-text text-darken-4" for="usuario">Nombre de usuario</label>
+                                        <label class="black-text" for="usuario">Nombre de usuario</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="contrasena" type="text" class="validate">
-                                        <label class="blue-grey-text text-darken-4" for="contrasena">Contrase&ntilde;a</label>
+                                        <label class="black-text" for="contrasena">Contrase&ntilde;a</label>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <a class="modal-trigger" href="#modal_contra">&iquest;Olvido su contrase&ntilde;a&#63;</a>
                             </div>
                             <div class="right-align">
-                                <a href="dashboard.php" class="btn blue-grey darken-4">Iniciar sesi&oacute;n</a>
+                                <a href="dashboard.php" class="btn grey darken-3">Iniciar sesi&oacute;n</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input id="tipo" type="text" class="validate">
-                                                <label for="tipo" class="blue-grey-text text-darken-4">Correo electr&oacute;nico</label>
+                                                <label for="tipo" class="black-text">Correo electr&oacute;nico</label>
                                             </div>
                                         </div>
                                     </form>

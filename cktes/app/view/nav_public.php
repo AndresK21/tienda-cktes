@@ -27,7 +27,7 @@
 <nav>
     <!--Navbar Color Azul-->
     <div class="nav-wrapper cktes">
-        <img class="brand-logo" src="../web/img/mipintura.png">
+        <a class="brand-logo">Logo</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
         <li><a href="index.php">Inicio</a></li>

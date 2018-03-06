@@ -26,7 +26,7 @@
                 <div class="row z-depth-2">
                     <div class="col l6 m6 s12">
                         <img class="responsive-img" src="../web/img/usuario.png">
-                        <a class="waves-effect waves-light btn blue-grey darken-4"><i class="material-icons left">archive</i>Cambiar foto</a>
+                        <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">archive</i>Cambiar foto</a>
                     </div>
                     
                     <div class="white-text">.</div>
@@ -78,7 +78,7 @@
 
                                     <div class="row">
                                         <div class="col s12 right-align">
-                                            <a class="waves-effect waves-light btn blue-grey darken-4"><i class="material-icons left">save</i>Guardar cambios</a>
+                                            <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">save</i>Guardar cambios</a>
                                         </div>
                                     </div>
                                 </form>

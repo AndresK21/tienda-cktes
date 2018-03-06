@@ -19,7 +19,7 @@
 
             <!--Boton fijo en la pantalla para agregar nuevos usuarios-->
             <div class="fixed-action-btn">
-                <a class="btn-floating btn-large modal-trigger blue-grey darken-3 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="#modal2">
+                <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="#modal2">
                     <i class="large material-icons">add</i>
                 </a>
             </div>
@@ -33,9 +33,9 @@
 
                         <div class="">
                             <div class="input-field">
-                            <i class="material-icons blue-grey-text text-darken-4 prefix">search</i>
+                            <i class="material-icons grey-text darken-3 prefix">search</i>
                             <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input" class="blue-grey-text text-darken-4">Buscar usuario</label>
+                            <label for="autocomplete-input" class="black-text">Buscar usuario</label>
                             </div>
                         </div>
                             
@@ -112,25 +112,25 @@
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input id="nombre" type="text" class="validate">
-                                                <label for="nombree" class="blue-grey-text text-darken-4">Nombre completo</label>
+                                                <label for="nombree" class="black-text">Nombre completo</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input id="usuario" type="text" class="validate">
-                                                <label for="usuario" class="blue-grey-text text-darken-4">Nombre de usuario</label>
+                                                <label for="usuario" class="black-text">Nombre de usuario</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input id="contrasena" type="text" class="validate">
-                                                <label for="contrasena" class="blue-grey-text text-darken-4">Contrase&ntilde;a</label>
+                                                <label for="contrasena" class="black-text">Contrase&ntilde;a</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input id="correo" type="email" class="validate">
-                                                <label for="correo" class="blue-grey-text text-darken-4">Correo electr&oacute;nico</label>
+                                                <label for="correo" class="black-text">Correo electr&oacute;nico</label>
                                             </div>
                                         </div>
                                         <p>
@@ -173,19 +173,19 @@
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="nombres" class="blue-grey-text text-darken-4">Nombre completo</label>
+                                                <label for="nombres" class="black-text">Nombre completo</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="usuario" class="blue-grey-text text-darken-4">Nombre de usuario</label>
+                                                <label for="usuario" class="black-text">Nombre de usuario</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="email" class="blue-grey-text text-darken-4">Correo electr&oacute;nico</label>
+                                                <label for="email" class="black-text">Correo electr&oacute;nico</label>
                                             </div>
                                         </div>
                                         <p>
