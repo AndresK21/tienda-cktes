@@ -2,7 +2,7 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="categoria_aceite.php">Aceite</a></li>
+    <li><a href="categoria_aceite.php">Categoria1</a></li>
     <li class="divider"></li>
     <li><a href="categoria_agua.php">Agua</a></li>
 </ul>

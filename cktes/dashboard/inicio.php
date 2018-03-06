@@ -29,7 +29,7 @@
                                 <span class="card-title"><h4>Iniciar sesi&oacute;n</h4></span>
                                 <div class="center-align">
                                 <div class="row">
-                                    <img class="responsive-img" src="../web/img/pintura.jpg">
+                                    <img class="responsive-img imagen_sesion" src="../web/img/pintura.jpg">
                                     <div class="input-field col s12">
                                         <input id="usuario" type="text" class="validate">
                                         <label class="black-text" for="usuario">Nombre de usuario</label>

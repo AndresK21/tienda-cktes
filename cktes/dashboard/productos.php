@@ -212,6 +212,7 @@
                     <!--Lugar donde se insertara la imagen del producto-->
                     <div class="card-image">
                         <img src="">
+                        <div class="white-text">.</div>
                         <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">archive</i>Cambiar foto</a>
                     </div>
                     <div class="card-stacked">
@@ -459,6 +460,7 @@
                 <div class="card horizontal">
                     <div class="card-image">
                         <img src="../web/img/producto1.jpg">
+                        <div class="white-text">.</div>
                         <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">archive</i>Cambiar foto</a>
                     </div>
                     <div class="card-stacked">
@@ -548,6 +550,7 @@
                 <div class="card horizontal">
                     <div class="card-image">
                         <img src="../web/img/producto2.jpg">
+                        <div class="white-text">.</div>
                         <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">archive</i>Cambiar foto</a>
                     </div>
                     <div class="card-stacked">
@@ -639,6 +642,7 @@
                 <div class="card horizontal">
                     <div class="card-image">
                         <img src="../web/img/producto3.jpg">
+                        <div class="white-text">.</div>
                         <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">archive</i>Cambiar foto</a>
                     </div>
                     <div class="card-stacked">

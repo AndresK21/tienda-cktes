@@ -3,6 +3,11 @@
     max-width: 50px;
 }
 
+.imagen_sesion{
+    max-height: 450px;
+    max-width: 450px;
+}
+
 .espacio_inf{
     margin-bottom: 64px; 
 }
