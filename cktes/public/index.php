@@ -55,7 +55,7 @@
                   <img src="../web/img/producto1.jpg">
                   <span class="card-title black-text">&#36;25.00</span>
                   <!-- MODAL DE VALORACIONES -->
-                  <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                  <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                   <div id="modal9" class="modal bottom-sheet">
                     <div class="modal-content">
                       <!-- COMENTARIOS -->
@@ -126,7 +126,7 @@
                     <img src="../web/img/producto2.jpg">
                     <span class="card-title black-text">&#36;25.00</span>
                     <!-- MODAL DE VALORACIONES -->
-                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                       <div id="modal9" class="modal bottom-sheet">
                         <div class="modal-content">
                           <h4>Este producto tiene 5 estrellas</h4>
@@ -181,7 +181,7 @@
                     <img src="../web/img/producto3.jpg">
                     <span class="card-title black-text">&#36;25.00</span>
                     <!-- MODAL DE VALORACIONES -->
-                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                       <div id="modal9" class="modal bottom-sheet">
                         <div class="modal-content">
                           <h4>Este producto tiene 5 estrellas</h4>
@@ -248,7 +248,7 @@
                   <img src="../web/img/producto1.jpg">
                   <span class="card-title black-text">&#36;25.00</span>
                   <!-- MODAL DE VALORACIONES -->
-                  <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                  <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                   <div id="modal9" class="modal bottom-sheet">
                     <div class="modal-content">
                       <!-- COMENTARIOS -->
@@ -319,7 +319,7 @@
                     <img src="../web/img/producto2.jpg">
                     <span class="card-title black-text">&#36;25.00</span>
                     <!-- MODAL DE VALORACIONES -->
-                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                       <div id="modal9" class="modal bottom-sheet">
                         <div class="modal-content">
                           <h4>Este producto tiene 5 estrellas</h4>
@@ -374,7 +374,7 @@
                     <img src="../web/img/producto3.jpg">
                     <span class="card-title black-text">&#36;25.00</span>
                     <!-- MODAL DE VALORACIONES -->
-                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">star</i></a>
+                    <a class="btn tooltipped btn-floating modal-trigger halfway-fab waves-effect waves cktes"  href="#modal9" data-position="bottom" data-delay="50" data-tooltip="Ver Comentarios"><i class="material-icons">message</i></a>
                       <div id="modal9" class="modal bottom-sheet">
                         <div class="modal-content">
                           <h4>Este producto tiene 5 estrellas</h4>
