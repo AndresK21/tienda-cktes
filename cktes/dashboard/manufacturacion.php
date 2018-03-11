@@ -5,7 +5,7 @@
         <?php
             include('../app/view/referencias_dash.php');
         ?>
-        <title>Dashboard-Usuarios</title>
+        <title>Dashboard-Manufacturaci&oacute;n</title>
     </head>
     <body>
         <header>

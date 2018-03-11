@@ -3,7 +3,7 @@
     <head>
         <!--Archivo maestro que contiene las referencias-->
         <?php
-            include('../app/view/referencias.php');
+            include('../app/view/referencias_dash.php');
         ?>
         <title>Dashboard-Perfil</title>
     </head>

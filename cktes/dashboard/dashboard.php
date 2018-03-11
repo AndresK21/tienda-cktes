@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <?php
-            include('../app/view/referencias.php');
+            include('../app/view/referencias_dash.php');
         ?>
         <title>Dashboard</title>
     </head>

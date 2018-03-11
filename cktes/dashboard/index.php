@@ -6,7 +6,7 @@
         ?>
         <title>Dashboard-Iniciar sesi&oacute;n</title>
     </head>
-    <body>
+    <body class="imagen_fondo">
 
         <header>
             <div class="navbar-fixed">  
@@ -23,30 +23,33 @@
             <!--Formulario de inicio de sesion-->
             <div class="container">
                 <div class="row">
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m6 l6 offset-l3 offset-m3">
                         <div class="card grey lighten-4">
                             <div class="card-content">
                                 <span class="card-title"><h4>Iniciar sesi&oacute;n</h4></span>
                                 <div class="center-align">
-                                <div class="row">
-                                    <img class="responsive-img imagen_sesion" src="../web/img/pintura.jpg">
-                                    <div class="input-field col s12">
-                                        <input id="usuario" type="text" class="validate">
-                                        <label class="black-text" for="usuario">Nombre de usuario</label>
+                                    <div class="row">
+                                        <img class="responsive-img imagen_sesion circle" src="../web/img/paralaxinicio2.jpg">
+                                        <div class="input-field col s12">
+                                            <input id="usuario" type="text" class="validate">
+                                            <label class="black-text" for="usuario">Nombre de usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="contrasena" type="text" class="validate">
+                                            <label class="black-text" for="contrasena">Contrase&ntilde;a</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="contrasena" type="text" class="validate">
-                                        <label class="black-text" for="contrasena">Contrase&ntilde;a</label>
-                                    </div>
+                                <div class="left-align">
+                                    <a class="modal-trigger" href="#modal_contra">&iquest;Olvido su contrase&ntilde;a&#63;</a>
                                 </div>
-                            </div>
-                            <div class="left-align">
-                                <a class="modal-trigger" href="#modal_contra">&iquest;Olvido su contrase&ntilde;a&#63;</a>
-                            </div>
-                            <div class="right-align">
-                                <a href="dashboard.php" class="btn grey darken-3">Iniciar sesi&oacute;n</a>
+                                <div class="white-text">.</div>
+
+                                <div class="right-align">
+                                    <a href="dashboard.php" class="btn grey darken-3">Iniciar sesi&oacute;n</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,10 +89,28 @@
 
         </main>
 
-        <!--Archivo maestro que contiene el footer-->
-        <?php
-            include('../app/view/footer_dash.php');
-        ?>
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+                <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text center-align">Comun&iacute;cate con nosotros</h5>
+                        <p class="grey-text text-lighten-4 center-align">Ll&aacute;manos</p>
+                        <p class="grey-text text-lighten-4 center-align">(503) 2277-7777</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Correo electr&oacute;nico</h5>
+                    <ul>
+                        <li><i class="small  material-icons">email</i><a class="grey-text text-lighten-3 valign-wrapper"  href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blanck"> desarrolladores@gmail.com</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Copyright DDS
+                </div>
+            </div>
+        </footer>
         
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../web/js/main.js"></script>

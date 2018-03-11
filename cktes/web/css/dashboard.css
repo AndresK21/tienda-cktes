@@ -8,8 +8,8 @@
 }
 
 .imagen_sesion{
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 250px;
+    max-width: 250px;
 }
 
 .espacio_inf{
@@ -33,6 +33,16 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
+
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
 }
 
 main {
