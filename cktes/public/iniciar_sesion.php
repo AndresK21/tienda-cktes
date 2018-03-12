@@ -150,7 +150,6 @@
       </div>
       </div>   
     </main>
-    </main>
       <!--Archivo maestro que contiene el footer-->
       <?php
           include('../app/view/footer_public.php');
