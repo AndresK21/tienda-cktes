@@ -278,32 +278,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
-                                                <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="tipo_placa" class="black-text">Producto solicitado</label>
+                                                <textarea disabled value="I am not editable" id="disabled" type="text" class="materialize-textarea"></textarea>
+                                                <label for="producto" class="black-text">Producto solicitado</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="sustrato" class="black-text">Cantidad</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field ">
-                                                <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="tamano" class="black-text">Tama&ntilde;o</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field ">
-                                                <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="capas" class="black-text">N&uacute;mero de capas</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field ">
-                                                <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="capas" class="black-text">Cantidad</label>
+                                                <label for="cantidad" class="black-text">Cantidad</label>
                                             </div>
                                         </div>
                                         <div class="row">
