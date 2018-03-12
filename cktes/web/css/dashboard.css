@@ -5,7 +5,7 @@
 
 @font-face{
     font-family: "Caviar";  
-    src: url('../../fonts/CaviarDreams.ttf') format('truetype');
+    src: url('../../fonts/caviar/') format('truetype');
 }
 
 .imagen_fondo{
@@ -34,12 +34,6 @@
     padding-bottom: 15px; 
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
 header, main, footer {
     padding-left: 300px;
 }
@@ -48,6 +42,12 @@ header, main, footer {
     header, main, footer {
       padding-left: 0;
     }
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {

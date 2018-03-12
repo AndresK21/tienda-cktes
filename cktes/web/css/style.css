@@ -5,7 +5,7 @@
 
 @font-face{
     font-family: "Caviar";  
-    src: url('../../fonts/CaviarDreams.ttf') format('truetype');
+    src: url('../../fonts/xaviar/') format('truetype');
 }
 
 .imagen_fondo{
