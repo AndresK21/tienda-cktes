@@ -35,6 +35,16 @@
 	color: #888;
 }
 
+
+.espacio_inf{
+  margin-bottom: 64px; 
+}
+
+.espacio{
+  padding-left: 15px;
+  padding-bottom: 15px; 
+}
+
 .cktes{
   background-color: #121C2C !important;
 }
@@ -45,6 +55,11 @@
 }
 .cktes2{
   background-color: #A4A4A4 !important;
+}
+
+.imagen{
+  max-height: 50px;
+  max-width: 50px;
 }
 
 @font-face{
