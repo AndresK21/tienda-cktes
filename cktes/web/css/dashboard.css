@@ -3,6 +3,11 @@
     max-width: 50px;
 }
 
+@font-face{
+    font-family: "Caviar";  
+    src: url('../../fonts/CaviarDreams.ttf') format('truetype');
+}
+
 .imagen_fondo{
     background-image: url("../img/1.jpg")
 }

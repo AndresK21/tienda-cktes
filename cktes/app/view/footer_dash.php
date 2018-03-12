@@ -1,4 +1,4 @@
-<<footer class="page-footer grey darken-3 hide-on-large-only">
+<footer class="page-footer grey darken-3 hide-on-large-only">
     <div class="container">
         <div class="row">
         <div class="col l6 s12">

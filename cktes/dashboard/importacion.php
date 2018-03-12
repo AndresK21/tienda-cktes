@@ -21,10 +21,10 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs black-text">
-                        <li class="tab col s3"><a class="active black-text" href="#test1">Pedidos nuevos</a></li>
-                        <li class="tab col s3"><a class="black-text" href="#test2">Pedidos completados</a></li>
-                        <li class="tab col s3"><a class="black-text" href="#test3">Sustratos</a></li>
-                        <li class="tab col s3"><a class="black-text" href="#test4">Tipos de placa</a></li>
+                        <li class="tab col s6"><a class="active black-text" href="#test1">Pedidos normales</a></li>
+                        <li class="tab col s6"><a class="black-text" href="#test2">Pedidos especiales</a></li>
+                        <!--<li class="tab col s3"><a class="black-text" href="#test3">Sustratos</a></li>
+                        <li class="tab col s3"><a class="black-text" href="#test4">Tipos de placa</a></li>-->
                     </ul>
                 </div>
 
@@ -52,44 +52,50 @@
                             <!--muestra la lista de pedidos-->
                             <div class="col s12">
                                     
-                                    <table class="bordered highlight responsive-table z-depth-2">
+                                    <table class="bordered highlight responsive-table espacio_inf">
                                         <thead class="grey darken-3 white-text">
-                                        <tr>
-                                            <th>Pedidos</th>
-                                            <th>Estado del pedido</th>
-                                            <th></th>
-                                        </tr>
+                                            <tr>
+                                                <th>Cliente</th>
+                                                <th>Nombre</th>
+                                                <th>Cantidad</th>
+                                                <th>Estado</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
                                         </thead>
 
                                         <tbody>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Nuevo pedido</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Nuevo pedido</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Nuevo pedido</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Nuevo pedido</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Nuevo pedido</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>En desarrollo</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>En desarrollo</p></td>
-                                        </tr>
+                                        <!--Producto de ejemplo 1-->
+                                            <tr>
+                                                <td>Nombre del cliente</td>
+                                                <td>Computadoras embebidas</td>
+                                                <td>25</td>
+                                                <td>Importaci&oacute;n nueva</td>
+                                                <td>
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal1"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
+                                                </td>
+                                            </tr>
+                                            <!--Producto de ejemplo 2-->
+                                            <tr>
+                                                <td>Nombre del cliente</td>
+                                                <td>Dev Kit</td>
+                                                <td>25</td>
+                                                <td>Importaci&oacute;n nueva</td>
+                                                <td>
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal2"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->                             
+                                                </td>
+                                            </tr>
+                                            <!--Producto de ejemplo 3-->
+                                            <tr>
+                                                <td>Nombre del cliente</td>
+                                                <td>Sensor de teperatura</td>
+                                                <td>15</td>
+                                                <td>Importaci&oacute;n nueva</td>
+                                                <td>
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal3"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
+                                                </td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
 
@@ -127,8 +133,11 @@
                                     <table class="bordered highlight responsive-table z-depth-2">
                                         <thead class="grey darken-3 white-text">
                                         <tr>
-                                            <th>Pedidos</th>
+                                            <th>Cliente</th>
                                             <th>Estado del pedido</th>
+                                            <th>Producto solicitado</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -136,31 +145,45 @@
                                         <tbody>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>25</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>50</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>50</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>25</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>25</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>50</p></td>
                                         </tr>
                                         <tr>
                                             <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                            <td><p>Completado</p></td>
+                                            <td><p>Importaci&oacute;n nueva</p></td>
+                                            <td><p>Producto</p></td>
+                                            <td><p>15</p></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -170,140 +193,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                <!--Contenido del tab de sustratos-->
-                <div id="test3" class="col s12">
-                
-                    <!-- Barra de busqueda -->
-                    <div class="container">
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                    <i class="material-icons prefix">search</i>
-                                    <input type="text" id="autocomplete-input" class="autocomplete">
-                                    <label for="autocomplete-input">Buscar sustrato</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
-                    <div class="fixed-action-btn">
-                        <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo sustrato" href="#modal1">
-                            <i class="large material-icons">add</i>
-                        </a>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-
-                            <!--muestra la lista de sustratos existentes-->
-                            <div class="col s12">
-                                    
-                                    <table class="bordered highlight responsive-table z-depth-2">
-                                        <thead class="grey darken-3 white-text">
-                                        <tr>
-                                            <th>Sustrato</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">Baquelita</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal3"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">Fibra de vidrio</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal3"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!--Contenido del tab de tipos de placa-->
-                <div id="test4" class="col s12">
-                
-                    <!-- Barra de busqueda -->
-                    <div class="container">
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                    <i class="material-icons prefix">search</i>
-                                    <input type="text" id="autocomplete-input" class="autocomplete">
-                                    <label for="autocomplete-input">Buscar tipo de placa</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
-                    <div class="fixed-action-btn">
-                        <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="#modal2">
-                            <i class="large material-icons">add</i>
-                        </a>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-
-                            <!--muestra la lista de usuarios existentes-->
-                            <div class="col s12">
-                                    
-                                    <table class="bordered highlight responsive-table z-depth-2">
-                                        <thead class="grey darken-3 white-text">
-                                        <tr>
-                                            <th>Tipo de placa</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB básico 1 layer</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB básico 2 layer</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB intermedio 1 Layer</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB intermedio 2 Layer</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB Pro Layer 1</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="modal-trigger espacio" href="">PCB Pro Layer 2</td>
-                                            <td><a class="waves-effect waves-light modal-trigger" href="#modal4"><i class="material-icons blue-text text-darken3">edit</i></a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
 
             </div>
 
@@ -390,13 +279,13 @@
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="tipo_placa" class="black-text">Tipo de placa</label>
+                                                <label for="tipo_placa" class="black-text">Producto solicitado</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
-                                                <label for="sustrato" class="black-text">Sustrato</label>
+                                                <label for="sustrato" class="black-text">Cantidad</label>
                                             </div>
                                         </div>
                                         <div class="row">
