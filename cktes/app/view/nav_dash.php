@@ -29,8 +29,8 @@
         <img src="../web/img/1.jpg">
     </div>
     <a href="editar_perfil.php"><img class="circle" src="../web/img/usuario.png"></a>
-    <a href="editar_perfil.php"><span class="white-text name">John Doe</span></a>
-    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    <a href="editar_perfil.php"><span class="white-text name">Juan Perez</span></a>
+    <a href="#!email"><span class="white-text email">juanperezk@gmail.com</span></a>
     </div></li>
     <li><a href="dashboard.php">Dashboard</a></li>
     <li><a href="usuarios.php">Usuarios</a></li>

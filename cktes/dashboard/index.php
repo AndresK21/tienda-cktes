@@ -32,7 +32,7 @@
                                         <img class="responsive-img imagen_sesion circle" src="../web/img/paralaxinicio2.jpg">
                                         <div class="input-field col s12">
                                             <input id="usuario" type="text" class="validate">
-                                            <label class="black-text" for="usuario">Nombre de usuario</label>
+                                            <label class="black-text" for="usuario">Correo electr&oacute;nico</label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -95,7 +95,7 @@
                 <div class="col l6 s12">
                     <h5 class="white-text center-align">Comun&iacute;cate con nosotros</h5>
                         <p class="grey-text text-lighten-4 center-align">Ll&aacute;manos</p>
-                        <p class="grey-text text-lighten-4 center-align">(503) 2277-7777</p>
+                        <p class="grey-text text-lighten-4 center-align">(503) 2245-6378</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Correo electr&oacute;nico</h5>

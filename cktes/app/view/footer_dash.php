@@ -4,7 +4,7 @@
         <div class="col l6 s12">
             <h5 class="white-text center-align">Comun&iacute;cate con nosotros</h5>
                 <p class="grey-text text-lighten-4 center-align">Ll&aacute;manos</p>
-                <p class="grey-text text-lighten-4 center-align">(503) 2277-7777</p>
+                <p class="grey-text text-lighten-4 center-align">(503) 2245-6378</p>
         </div>
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Correo electr&oacute;nico</h5>
