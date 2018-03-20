@@ -5,7 +5,7 @@
         <?php
             include('../app/view/referencias_dash.php');
         ?>
-        <title>Dashboard-Manufacturaci&oacute;n</title>
+        <title>Dashboard-Importaci&oacute;n</title>
     </head>
     <body>
         <header>
@@ -72,7 +72,7 @@
                                                 <td>25</td>
                                                 <td>Importaci&oacute;n nueva</td>
                                                 <td>
-                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal1"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal5"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
                                                 </td>
                                             </tr>
                                             <!--Producto de ejemplo 2-->
@@ -82,17 +82,17 @@
                                                 <td>25</td>
                                                 <td>Importaci&oacute;n nueva</td>
                                                 <td>
-                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal2"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->                             
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal5"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->                             
                                                 </td>
                                             </tr>
                                             <!--Producto de ejemplo 3-->
                                             <tr>
                                                 <td>Nombre del cliente</td>
-                                                <td>Sensor de teperatura</td>
+                                                <td>Sensor de temperatura</td>
                                                 <td>15</td>
                                                 <td>Importaci&oacute;n nueva</td>
                                                 <td>
-                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal3"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
+                                                    <a class="waves-effect waves-light modal-trigger espacio tooltipped" data-position="right" data-delay="50" data-tooltip="Editar producto" href="#modal5"><i class="material-icons blue-text text-darken-3 prefix">edit</i></a>  <!-- Modal Trigger -->
                                                 </td>
                                             </tr>
 

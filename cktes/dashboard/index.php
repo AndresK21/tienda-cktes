@@ -20,6 +20,10 @@
         </header>
         <main>
             
+        <?php
+echo $_SERVER['HTTP_USER_AGENT'];
+?> 
+
             <!--Formulario de inicio de sesion-->
             <div class="container">
                 <div class="row">
