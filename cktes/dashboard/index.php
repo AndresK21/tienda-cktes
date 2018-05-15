@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <?php
-            include('../app/view/referencias.php');
+            include('../app/views/referencias.php');
         ?>
         <title>Dashboard-Iniciar sesi&oacute;n</title>
     </head>
@@ -119,6 +119,6 @@ echo $_SERVER['HTTP_USER_AGENT'];
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../web/js/main.js"></script>
         <script type="text/javascript" src="../web/js/ini.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script type="text/javascript" src="../web/js/materialize.min.js"></script>
     </body>
 </html>

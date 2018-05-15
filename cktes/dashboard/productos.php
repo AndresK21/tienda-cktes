@@ -3,7 +3,7 @@
     <head>
         <!--Archivo maestro que contiene las referencias-->
         <?php
-            include('../app/view/referencias_dash.php');
+            include('../app/views/referencias_dash.php');
         ?>
         <title>Dashboard-Productos</title>
     </head>
@@ -11,7 +11,7 @@
     <header>
         <!--Archivo maestro que contiene la barra de navegacion-->
         <?php
-            include('../app/view/nav_dash.php');
+            include('../app/views/nav_dash.php');
         ?>
     </header>
 
@@ -1029,12 +1029,12 @@
 
         <!--Archivo maestro que contiene el footer-->
         <?php
-            include('../app/view/footer_dash.php');
+            include('../app/views/footer_dash.php');
         ?>
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../web/js/main.js"></script>
         <script type="text/javascript" src="../web/js/ini.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script type="text/javascript" src="../web/js/materialize.min.js"></script>
     </body>
 </html>

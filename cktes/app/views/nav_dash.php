@@ -51,6 +51,7 @@
             </li>
         </ul>
     </li>
+    <li><a href="base.php">Base de datos</a></li>
     <li><a href="index.php">Cerrar sesi&oacute;n</a></li>
 </ul>
 
@@ -83,5 +84,6 @@
                     </li>
                 </ul>
             </li>
+            <li><a href="base.php">Base de datos</a></li>
             <li><a href="index.php">Cerrar sesi&oacute;n</a></li>
         </ul>
