@@ -7,6 +7,9 @@
     font-family: "Caviar";  
     src: url('../fonts/CaviarDreams.ttf') format('truetype');
   }
+  body{
+    font-family: 'Caviar', serif;
+  }
   
   
   /*** typography ***/
@@ -290,5 +293,13 @@
     }
     
   }
-  
+
+  /*** CSS LOGIN ***/
+
+  #FondoLogin{
+    background-color: #283842;
+  }
+  #FondoTabLogin{
+    background-color: #46575C;
+  }
   
