@@ -13,21 +13,22 @@
                 <a href="#test2">INICIAR SESI&Oacute;N</a>
             </li>
         </ul>
-        <div id="test1" class="col s12">
+        <div id="test1" class="col s12 container">
             <h4 class="center white-text">Registrate Gratis</h4>
             <div class="row">
-                <form class="col s12">
+                <form class="col s12 ">
                     <div class="input-field col s6">
-                        <input id="Nombres" name="nombres" type="text" class="validate transparent white-text">
+                        <input id="Nombres" name="nombres" type="text" class="validate transparent white-text"/required>
                         <label for="last_name">Nombres</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="Apellidos" name="apellidos" type="text" class="validate transparent white-text">
+                        <input id="Apellidos" name="apellidos" type="text" class="validate transparent white-text"/required>
                         <label for="last_name">Apellidos</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email" name="correo" type="email" class="validate transparent white-text">
+                        <input id="email" name="correo" type="email" class="validate transparent white-text " /required>
                         <label for="email">Correo Electr&oacute;nico</label>
+                        
                     </div>
                     <div class="input-field col s6">
                         <select class="white-text caviar">
@@ -39,39 +40,39 @@
                         <label>Tipo</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="password" name="contraseña" type="password" class="validate transparent white-text">
+                        <input id="password" name="contraseña" type="password" class="validate transparent white-text"/required>
                         <label for="password">Contrase&ntilde;a</label>
                     </div>
-                    <div class="file-field input-field col s5">
-                    <div class="btn red lighten-1">
-                    <i class="material-icons">image</i>
-                        <input type="file">
+                    <div class="input-field col s6">
+                        <input id="password2" name="contraseña_verificar" type="password" class="validate transparent white-text"/required>
+                        <label for="password2">Verificar Contrase&ntilde;a</label>
                     </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                    <div class="col s12 m12 l12 center">
+                        <button class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
+                        <div class="transparent-text">.</div>
+                        <div class="transparent-text">.</div>
                     </div>
-                    </div>
-                    <div class="col l12 center">
-                    <a class="waves-effect waves-light btn-large red lighten-1">Iniciar Sesión</a>
-                    </div>
+                    
                 </form>
             </div>
 
         </div>
-        <div id="test2" class="col s12">
+        <div id="test2" class="col s12 container">
             <h4 class="center white-text">Bienvenido Otra Vez</h4>
             <div class="row">
             <form class="col s12">
                 <div class="input-field col l12 s12">
-                    <input id="email" name="correo_existente" type="email" class="validate transparent white-text">
+                    <input id="email2" name="correo_existente" type="email" class="validate transparent white-text">
                     <label for="correo_existente">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password" name="contraseña_existente" type="password" class="validate transparent white-text">
+                    <input id="password3" name="contraseña_existente" type="password" class="validate transparent white-text">
                     <label for="password">Contrase&ntilde;a</label>
                 </div>
-                <div class="col l12 center">
-                <a class="waves-effect waves-light btn-large red lighten-1">Iniciar Sesión</a>
+                <div class="col s12 m12 l12 center">
+                <button class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
+                <div class="transparent-text">.</div>
+                <div class="transparent-text">.</div>
                 </div>
             </form>
         </div>
