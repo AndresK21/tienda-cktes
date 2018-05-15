@@ -5,7 +5,7 @@
   
   @font-face{
     font-family: "Caviar";  
-    src: url('../font/CaviarDreams.ttf') format('truetype');
+    src: url('../fonts/CaviarDreams.ttf') format('truetype');
   }
   
   
@@ -234,8 +234,27 @@
     -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   }
-  
-  
+  #iconomenucart {
+    width: 35px;
+    height: 25px;
+    top: -22px;
+    right: 82px;
+    position: absolute;
+    padding: 20px;
+    cursor: pointer;
+    color: #FF5252 !important;
+  }
+  #iconomenuuser {
+    width: 35px;
+    height: 25px;
+    top: -22px;
+    right: 200px;
+    position: absolute;
+    padding: 20px;
+    cursor: pointer;
+    color: #FF5252 !important;
+  }
+
   
   @media (max-width: 768px) {
     .menu-list {
@@ -248,6 +267,7 @@
     .div-gradient .img-gradient {
       background-position: 50% 0px !important;
     }
+    
   }
   @-webkit-keyframes fadeInRight {
     0% {
@@ -268,6 +288,7 @@
       opacity: 1;
       left: 0;
     }
+    
   }
   
   
