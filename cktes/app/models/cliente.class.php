@@ -1,32 +1,73 @@
 <?php
-class Tipo_cliente extends Validator{
+class Cliente extends Validator{
 	//Declaración de propiedades
-	private $id_tipo_cliente = null;
-	private $tipo_cliente = null;
+	private $id_cliente = null;
+    private $nombres = null;
+    private $apellidos = null;
+    private $correo = null;
+    private $contrasena = null;
+    private $imagen = null;
+    private $id_tipo_cliente = null;
 
 	//Métodos para sobrecarga de propiedades
-	public function setId_tipo($value){
+	public function setId_cliente($value){
 		if($this->validateId($value)){
-			$this->id_tipo_cliente = $value;
+			$this->id_cliente = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getId_tipo(){
-		return $this->id_tipo_cliente;
+	public function getId_cliente(){
+		return $this->id_cliente;
 	}
 	
-	public function setTipo_cliente($value){
-		if($this->validateAlphanumeric($value, 1, 50)){
-			$this->tipo_cliente = $value;
+	public function setNombres($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->nombres = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getTipo_cliente(){
-		return $this->tipo_cliente;
+	public function getNombres(){
+		return $this->nombres;
+    }
+    
+    public function setApellidos($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->apellidos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getApellidos(){
+		return $this->apellidos;
+    }
+    
+    public function setCorreo($value){
+		if($this->validateEmail($value)){
+			$this->correo = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCorreo(){
+		return $this->correo;
+    }
+    
+    public function set($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->nombres = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getNombres(){
+		return $this->nombres;
 	}
 
 	//Metodos para el manejo del CRUD
