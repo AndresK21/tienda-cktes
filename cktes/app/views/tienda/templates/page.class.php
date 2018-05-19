@@ -41,7 +41,7 @@ if(isset($_SESSION['Id_cliente'])){
           <span class='middle'></span>
           <span class='bottom'></span>
         </div>
-        <a href='../tienda/carrito.php'>
+        <a href='../../tienda/acceder.php'>
           <span id='iconomenuuser'>
             <i class='fas fa-user'></i>
           </span>
@@ -91,7 +91,7 @@ else {
             <span class='middle'></span>
             <span class='bottom'></span>
           </div>
-          <a href='../tienda/carrito.php'>
+          <a href='../tienda/acceder.php'>
             <span id='iconomenucart'>
               <i class='fas fa-user'></i>
             </span>
