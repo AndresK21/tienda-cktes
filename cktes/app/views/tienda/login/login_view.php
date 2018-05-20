@@ -56,7 +56,7 @@
             </div>
         </div>
         <div id="test2" class="col s12 container">
-            <h4 class="center white-text">Bienvenido Otra Vez!</h4>
+            <h4 class="center white-text">Bienvenido Otra Vez!!</h4>
             <div class="row">
             <form class="col s12">
                 <div class="input-field col l12 s12">
