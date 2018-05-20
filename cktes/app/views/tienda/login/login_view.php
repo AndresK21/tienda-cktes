@@ -52,7 +52,6 @@
                         <div class="transparent-text">.</div>
                         <div class="transparent-text">.</div>
                     </div>
-                    
                 </form>
             </div>
 
