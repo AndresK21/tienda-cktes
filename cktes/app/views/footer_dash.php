@@ -7,7 +7,7 @@
                 <p class="grey-text text-lighten-4 center-align">(503) 2245-6378</p>
         </div>
         <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Correo electr&oacute;nico</h5>
+            <h5 class="white-text"> electr&oacute;nico</h5>
             <ul>
                 <li><i class="small  material-icons">email</i><a class="grey-text text-lighten-3 valign-wrapper"  href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blanck"> desarrolladores@gmail.com</a></li>
             </ul>
