@@ -70,16 +70,16 @@ class Cliente extends Validator{
 		return $this->correo;
     }
     
-    public function set($value){
+    public function setContrasena($value){
 		if($this->validateAlphanumeric($value, 1, 80)){
-			$this->nombres = $value;
+			$this->contrasena = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getNombres(){
-		return $this->nombres;
+	public function getContrasena(){
+		return $this->contrasena;
 	}
 
 	//Metodos para el manejo del CRUD
