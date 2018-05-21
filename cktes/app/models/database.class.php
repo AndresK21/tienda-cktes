@@ -8,8 +8,8 @@ class Database{
     private function connect(){
         $server = "localhost";
         $database = "cktes";
-        $username = "andres";
-        $password = "andres21";
+        $username = "cktes";
+        $password = "expo2018";
         try{
             @self::$connection = new PDO("mysql:host=$server; dbname=$database; charset=utf8", $username, $password);
         }catch(PDOException $exception){
