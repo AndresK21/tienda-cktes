@@ -1,7 +1,7 @@
 <?php 
 require_once("../app/helpers/validator.class.php");
- require_once("../app/helpers/component.class.php"); 
-class Page extends Component{ 
+require_once("../app/helpers/component.class.php");
+require_once("../app/models/database.class.php");class Page extends Component{ 
 public static function templateHeader($title){ 
 session_start();
 ini_set("date.timezone","America/El_Salvador");

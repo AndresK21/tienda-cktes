@@ -1,5 +1,5 @@
 <?php
-require_once("../app/models/tienda/categorias.class.php"); //Llama el modelo Categoria
+require_once("../app/models/categorias.class.php"); //Llama el modelo Categoria
 try{
 	$marca = new Marca;
 	$marcas = $marca->getMarcas(); // Obtiene las marcas

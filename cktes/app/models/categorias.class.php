@@ -18,7 +18,7 @@ class Marca extends Validator{
     }
     
 	public function setMarca($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
+		if($this->validateAlphanumeric($value)){
 			$this->marca = $value;
 			return true;
 		}else{
@@ -31,21 +31,21 @@ class Marca extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getMarcas(){
-		$sql = "SELECT id_marca, marca FROM marca ORDER BY marca";
+		$sql = "SELECT id_marca, marca FROM marca";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchMarca($value){
+	public function searchMarcas($value){
 		$sql = "SELECT id_marca, marca FROM marca WHERE marca LIKE ? ORDER BY marca";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createMarca(){
+	public function createMarcas(){
 		$sql = "INSERT INTO marca(marca) VALUES (?)";
 		$params = array($this->marca);
 		return Database::executeRow($sql, $params);
 	}
-	public function readMarca(){
+	public function readMarcas(){
 		$sql = "SELECT marca FROM marca WHERE id_marca = ?";
 		$params = array($this->id_marca);
 		$marca = Database::getRow($sql, $params);
@@ -56,12 +56,12 @@ class Marca extends Validator{
 			return null;
 		}
 	}
-	public function updateMarca(){
+	public function updateMarcas(){
 		$sql = "UPDATE marca SET marca= ? WHERE id_marca = ?";
 		$params = array($this->marca, $this->id_marca);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteMarca(){
+	public function deleteMarcas(){
 		$sql = "DELETE FROM marca WHERE id_marca = ?";
 		$params = array($this->id_marca);
 		return Database::executeRow($sql, $params);
