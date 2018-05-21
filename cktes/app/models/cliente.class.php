@@ -2,6 +2,7 @@
 class Cliente extends Validator{
 	//Declaración de propiedades
 	private $id_cliente = null;
+	private $estado_cliente=null;
     private $nombres = null;
     private $apellidos = null;
     private $correo = null;
@@ -20,6 +21,17 @@ class Cliente extends Validator{
 	}
 	public function getId_cliente(){
 		return $this->id_cliente;
+	}
+	public function setEstado_cliente($value){
+		if($this->validateId($value)){
+			$this->setEstado_cliente = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado_cliente(){
+		return $this->estado_cliente;
 	}
 	
 	public function setNombres($value){
@@ -107,5 +119,6 @@ class Cliente extends Validator{
 		$params = array($this->id_tipo_cliente);
 		return Database::executeRow($sql, $params);
 	}
+
 }
 ?>
