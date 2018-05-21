@@ -20,6 +20,7 @@ print("
   <link rel='stylesheet' href='../web/css/materialize.min.css'>
   <link href='../web/css/icon.css' rel='stylesheet'>
   <link rel='stylesheet' href='../web/css/normalize.min.css'>
+  <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
   <link rel='stylesheet' href='../web/css/style_tienda.css'>
 </head>
 
@@ -137,8 +138,8 @@ public static function templateFooter(){
           </div>
     </footer>
     <!--Import jQuery before materialize.js-->
-    <script type='text/javascript' src='../web/js/main.js'></script>
     <script type='text/javascript' src='../web/js/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='../web/js/main.js'></script>
     <script type='text/javascript' src='../web/js/tienda.js'></script>
     <script type='text/javascript' src='../web/js/materialize.min.js'></script>
     <script src='../web/js/fontawesom.js'></script>
