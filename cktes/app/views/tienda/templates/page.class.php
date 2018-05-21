@@ -61,7 +61,7 @@ if(isset($_SESSION['Id_cliente'])){
                 <a href='../tienda/index.php'>Tienda</a>
               </li>
               <li class='col s12'>
-                <a href='../tienda/categoria.php'>Categoria</a>
+              <a href='../tienda/categorias.php'>Categoria</a>
               </li>
               <li class='col s12'>
                 <a href='../tienda/servicios.php'>Servicios</a>
@@ -106,7 +106,7 @@ else {
                   <a href='../tienda/index.php'>Tienda</a>
                 </li>
                 <li class='col s12'>
-                  <a href='../tienda/categoria.php'>Categoria</a>
+                  <a href='../tienda/categorias.php'>Categoria</a>
                 </li>
                 <li class='col s12'>
                   <a href='../tienda/servicios.php'>Servicios</a>

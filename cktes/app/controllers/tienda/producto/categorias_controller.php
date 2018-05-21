@@ -1,10 +1,10 @@
 <?php
-require_once("../app/models/categoria.class.php");
+require_once("../app/models/tienda/categorias.class.php"); //Llama el modelo Categoria
 try{
-	$categoria = new Categoria;
-	$categorias = $categoria->getCategorias();
-	if($categorias){
-		require_once("../app/views/public/producto/categorias_view.php");
+	$marca = new Marca;
+	$marcas = $marca->getMarcas(); // Obtiene las marcas
+	if($marcas){
+		require_once("../app/views/tienda/categorias/categorias_view.php");//Muestra la vista de las categorias
 	}else{
 		Page::showMessage(3, "No hay categorías disponibles", null);
 	}

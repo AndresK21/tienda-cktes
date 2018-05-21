@@ -10,7 +10,13 @@
   body{
     font-family: 'Caviar', serif;
   }
-  
+  .cktes{
+    background-color: #121C2C !important;
+}
+
+.cktes2{
+    background-color: #A4A4A4 !important;
+}
   
   /*** typography ***/
   .title {
@@ -306,4 +312,11 @@
   {
     width: 100%;
   }
-  
+
+/*** CSS CATEGORIAS ***/
+
+  .titulosTienda{
+    font-size: 9vh;
+    border-color: #000;
+    border-bottom-style: solid;
+    }
