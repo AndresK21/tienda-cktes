@@ -53,10 +53,10 @@
     <?php
     foreach($marcas as $marca){
         print("
-    <div class='col s12 m10 offset-m1 l6'>
+    <div class='col s12 m8 offset-m2 l4'>
         <div class='card horizontal hoverable'>
             <div class='card-image'>
-                <img class='hide-on-small-only' src='../web/img/card.jpg'>
+                <img class='hide-on-small-only' src='../web/img/card2.jpg'>
             </div>
             <div class='card-stacked'>
                 <div class='card-content'>
