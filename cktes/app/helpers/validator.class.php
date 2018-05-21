@@ -2,6 +2,8 @@
 class Validator{
 	private $imageName = null;
 	private $imageError = null;
+	private $archiveError = null;
+	private $archiveName = null;
 
 	public function getImageName(){
 		return $this->imageName;
@@ -22,6 +24,20 @@ class Validator{
 				break;
 			default:
 				$error = "Ocurrió un problema con la imagen";
+		}
+		return $error;
+	}
+
+	public function getArchiveName(){
+		return $this->archiveName;
+	}
+	public function getArchiveError(){
+		switch($this->archiveError){
+			case 1:
+				$error = "No se puede guardar el archivo";
+				break;
+			default:
+				$error = "Ocurrió un problema con el archivo";
 		}
 		return $error;
 	}
@@ -73,6 +89,26 @@ class Validator{
 			$this->imageError = 4;
 			return false;
      	}
+	}
+
+	public function validateArchive($file, $value, $path){
+		if $extension == 'gerber'{
+			if($value){
+				$archive = $value;
+			}else{
+				$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+				$image = uniqid().".".$extension;
+			}
+
+			$url = $path.$image;
+			if(move_uploaded_file($file['tmp_name'], $url)){
+				$this->archiveName = $archive;
+				return true;
+			}else{
+				$this->archiveError = 1;
+				return false;
+			}
+		}
 	}
 
 	public function validateEmail($email){

@@ -1,52 +1,65 @@
 <?php
-class Desarrollo extends Validator{
+class Empleado extends Validator{
 	//Declaración de propiedades
-	private $id_desarrollo = null;
-    private $mensaje = null;
-    private $archivo = null;
-    private $id_tipo_desarrollo = null;
-    private $id_cliente = null;
+	private $id_empleado = null;
+    private $nombres = null;
+    private $apellidos = null;
+    private $imagen = null;
+    private $correo_electronico = null;
+    private $contrasena = null;
+    private $id_permiso = null;
 
     //Métodos para sobrecarga de propiedades
-    public function setId_desarrollo($value){
+    public function setId_empleado($value){
 		if($this->validateId($value)){
-			$this->id_desarrollo = $value;
+			$this->id_empleado = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getId_desarrollo(){
-		return $this->id_desarrollo;
+	public function getId_empleado(){
+		return $this->id_empleado;
     }
     
-	public function setMensaje($value){
-		if($this->validateAlphanumeric($value, 1, 550)){
-			$this->mensaje = $value;
+	public function setNombres($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->nombres = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getMensaje(){
-		return $this->mensaje;
+	public function getNombres(){
+		return $this->nombres;
     }
-    
 
-    public function setArchivo($file){
-		if($this->validateArchive($file, $this->archivo, "../../web/archivo/desarrollo/")){
-			$this->archivo = $this->getArchiveName();
+    public function setApellidos($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->apellidos = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getArchivo(){
+	public function getApellidos(){
+		return $this->apellidos;
+    }
+    
+    public function setImagen($file){
+		if($this->validateImage($file, $this->imagen, "../../web/img/categorias/", 300, 300)){
+			$this->imagen = $this->getImageName();
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getImagen(){
 		return $this->imagen;
 	}
-	public function unsetArchivo(){
-		if(unlink("../../web/archivo/desarrollo/".$this->archivo)){
-			$this->archivo = null;
+	public function unsetImagen(){
+		if(unlink("../../web/img/categorias/".$this->imagen)){
+			$this->imagen = null;
 			return true;
 		}else{
 			return false;
@@ -98,6 +111,7 @@ class Desarrollo extends Validator{
 		$params = array($this->id_desarrollo);
 		$desarrollo = Database::getRow($sql, $params);
 		if($desarrollo){
+            $this-> = $desarrollo['marca'];
             $this->mensaje = $desarrollo['mensaje'];
             $this->archivo = $desarrollo['archivo'];
             $this->id_tipo_desarrollo = $desarrollo['id_tipo_desarrollo'];
