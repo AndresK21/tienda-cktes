@@ -48,7 +48,7 @@
                         <label for="password2">Verificar Contrase&ntilde;a</label>
                     </div>
                     <div class="col s12 m12 l12 center">
-                        <button class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
+                        <button name="registrar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
                         <div class="transparent-text">.</div>
                         <div class="transparent-text">.</div>
                     </div>
@@ -68,7 +68,7 @@
                     <label for="password">Contrase&ntilde;a</label>
                 </div>
                 <div class="col s12 m12 l12 center">
-                <button class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
+                <button name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
                 <div class="transparent-text">.</div>
                 <div class="transparent-text">.</div>
                 </div>
