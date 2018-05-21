@@ -18,15 +18,15 @@
             <div class="row">
                 <form class="col s12 ">
                     <div class="input-field col s6">
-                        <input id="Nombres" name="nombres" type="text" class="validate transparent white-text"/required>
+                        <input id="Nombres" name="nombres" type="text" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
                         <label for="last_name">Nombres</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="Apellidos" name="apellidos" type="text" class="validate transparent white-text"/required>
+                        <input id="Apellidos" name="apellidos" type="text" class="validate transparent white-text" value='<?php print($usuario->getApellidos()) ?>'/required>
                         <label for="last_name">Apellidos</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email" name="correo" type="email" class="validate transparent white-text " /required>
+                        <input id="email" name="correo" type="email" class="validate transparent white-text " value='<?php print($usuario->getCorreo()) ?>'/required>
                         <label for="email">Correo Electr&oacute;nico</label>
                         
                     </div>
@@ -40,7 +40,7 @@
                         <label>Tipo</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="password" name="contraseña" type="password" class="validate transparent white-text"/required>
+                        <input id="password" name="contraseña" type="password" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
                         <label for="password">Contrase&ntilde;a</label>
                     </div>
                     <div class="input-field col s6">
