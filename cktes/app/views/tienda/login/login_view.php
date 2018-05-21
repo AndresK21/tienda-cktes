@@ -30,17 +30,13 @@
                         <label for="email">Correo Electr&oacute;nico</label>
                         
                     </div>
+                    <div class="input-field col s6">   
+                    <?php
+                    Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->get(), $producto->getTipos());
+                    ?>
+                </div>
                     <div class="input-field col s6">
-                        <select class="white-text caviar">
-                            <option value="" disabled selected>Seleccione su opci&oacute;n</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Tipo</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="password" name="contraseña" type="password" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
+                        <input id="password" name="contraseña" type="password" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
                         <label for="password">Contrase&ntilde;a</label>
                     </div>
                     <div class="input-field col s6">
