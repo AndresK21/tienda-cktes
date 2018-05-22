@@ -42,7 +42,7 @@ class Desarrollo extends Validator{
 		}
 	}
 	public function getArchivo(){
-		return $this->imagen;
+		return $this->archivo;
 	}
 	public function unsetArchivo(){
 		if(unlink("../../web/archivo/desarrollo/".$this->archivo)){
