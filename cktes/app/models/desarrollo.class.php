@@ -54,7 +54,7 @@ class Desarrollo extends Validator{
 	}
     
     public function setId_tipo($value){
-		if($this->validateId($value){
+		if($this->validateId($value)){
 			$this->id_tipo_desarrollo = $value;
 			return true;
 		}else{
@@ -66,7 +66,7 @@ class Desarrollo extends Validator{
     }
     
     public function setId_cliente($value){
-		if($this->validateId($value){
+		if($this->validateId($value)){
 			$this->id_cliente = $value;
 			return true;
 		}else{

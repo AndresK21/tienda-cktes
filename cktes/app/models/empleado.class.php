@@ -66,68 +66,114 @@ class Empleado extends Validator{
 		}
 	}
     
-    public function setId_tipo($value){
-		if($this->validateId($value){
-			$this->id_tipo_desarrollo = $value;
+    public function setCorreo($value){
+		if($this->validateEmail($value)){
+			$this->correo_electronico = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getId_tipo(){
-		return $this->id_tipo_desarrollo;
+	public function getCorreo(){
+		return $this->correo_electronico;
     }
     
-    public function setId_cliente($value){
-		if($this->validateId($value){
-			$this->id_cliente = $value;
+    public function setContrasena($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->contrasena = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getId_cliente(){
-		return $this->id_cliente;
+	public function getContrasena(){
+		return $this->contrasena;
+	}
+
+	public function setId_permiso($value){
+		if($this->validateId($value)){
+			$this->id_permiso = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_permiso(){
+		return $this->id_permiso;
+	}
+
+	//Métodos para manejar la sesión del usuario
+	public function checkCorreo(){
+		$sql = "SELECT id_empleado FROM empleado WHERE correo_electronico = ?";
+		$params = array($this->correo_electronico);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->id_empleado = $data['id_empleado'];
+			$this->correo_electronico = $data['correo_electronico'];
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function checkPassword(){
+		$sql = "SELECT contrasena FROM empleado WHERE id_empleado = ?";
+		$params = array($this->id_empleado);
+		$data = Database::getRow($sql, $params);
+		if(password_verify($this->contrasena, $data['contrasena'])){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function changePassword(){
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+		$sql = "UPDATE empleado SET contrasena = ? WHERE id_empleado = ?";
+		$params = array($hash, $this->id_empleado);
+		return Database::executeRow($sql, $params);
+	}
+	public function logOut(){
+		return session_destroy();
 	}
 
 	//Metodos para el manejo del CRUD
-	public function getDesarrollos(){
-		$sql = "SELECT id_desarrollo, mensaje, archivo, id_tipo_desarrollo, id_cliente FROM desarrollo ORDER BY id_desarrollo";
+	public function getEmpleado(){
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso FROM empleado ORDER BY id_empleado";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchDesarrollo($value){
-		$sql = "SELECT id_desarrollo, mensaje, archivo, tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) INNER JOIN clientes USING(id_cliente) WHERE mensaje LIKE ? ORDER BY id_desarrollo";
-		$params = array("%$value%");
+	public function searchEmpleado($value){
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_empleado";
+		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createDesarrollo(){
-		$sql = "INSERT INTO desarrollo(mensaje, archivo, id_tipo_desarrollo, id_cliente) VALUES (?, ?, ?, ?)";
-		$params = array($this->mensaje, $this->archivo, $this->id_tipo_desarrollo, $this->id_cliente);
+	public function createEmpleado(){
+		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso) VALUES (?, ?, ?, ?, ?, ?)";
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso);
 		return Database::executeRow($sql, $params);
 	}
-	public function readDesarrollo(){
-		$sql = "SELECT mensaje, archivo, id_tipo_desarrollo, id_cliente FROM desarrollo WHERE id_desarrollo = ? ORDER BY id_desarrollo";
-		$params = array($this->id_desarrollo);
-		$desarrollo = Database::getRow($sql, $params);
-		if($desarrollo){
-            $this-> = $desarrollo['marca'];
-            $this->mensaje = $desarrollo['mensaje'];
-            $this->archivo = $desarrollo['archivo'];
-            $this->id_tipo_desarrollo = $desarrollo['id_tipo_desarrollo'];
-            $this->id_cliente = $desarrollo['id_cliente'];
+	public function readEmpleado(){
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
+		$params = array($this->id_empleado);
+		$empleado = Database::getRow($sql, $params);
+		if($empleado){
+            $this->nombres = $empleado['nombres'];
+            $this->apellidos = $empleado['apellidos'];
+            $this->imagen = $empleado['imagen'];
+			$this->correo_electronico = $empleado['correo_electronico'];
+			$this->contrasena = $empleado['contrasena'];
+			$this->id_permiso = $empleado['id_permiso'];
 			return true;
 		}else{
 			return null;
 		}
 	}
-	public function updateMarca(){
-		$sql = "UPDATE desarrollo SET mensaje = ?, archivo = ?, id_tipo_desarrollo = ?, id_cliente = ? WHERE id_desarrollo = ?";
-		$params = array($this->mensaje, $this->archivo, $this->id_tipo_desarrollo, $this->id_cliente, $this->id_desarrollo);
+	public function updateEmpleado(){
+		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ? WHERE id_empleado = ?";
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_desarrollo);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteDesarrollo(){
-		$sql = "DELETE FROM desarrollo WHERE id_desarrollo = ?";
+	public function deleteEmpleado(){
+		$sql = "DELETE FROM empleado WHERE id_empleado = ?";
 		$params = array($this->id_desarrollo);
 		return Database::executeRow($sql, $params);
 	}

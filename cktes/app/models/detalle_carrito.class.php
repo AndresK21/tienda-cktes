@@ -32,20 +32,8 @@ class Detalle extends Validator{
     }
     
     public function setId_carrito($value){
-		if($this->validateId($value){
+		if($this->validateId($value)){
 			$this->id_carrito = $value;
-			return true;
-		}else{
-			return false;
-		}
-	}
-	public function getId_caarrito(){
-		return $this->id_carrito;
-    }
-    
-    public function setId_producto($value){
-		if($this->validateId($value){
-			$this->id_producto = $value;
 			return true;
 		}else{
 			return false;
@@ -53,6 +41,18 @@ class Detalle extends Validator{
 	}
 	public function getId_carrito(){
 		return $this->id_carrito;
+    }
+    
+    public function setId_producto($value){
+		if($this->validateId($value)){
+			$this->id_producto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_producto(){
+		return $this->id_producto;
 	}
 
 	//Metodos para el manejo del CRUD
@@ -74,11 +74,11 @@ class Detalle extends Validator{
 	public function readDetalle(){
 		$sql = "SELECT cantidad, id_carrito, id_producto FROM detalle_carrito WHERE id_detalle = ? ORDER BY id_detalle";
 		$params = array($this->id_detalle);
-		$detalle< = Database::getRow($sql, $params);
-		if($detalle<){
-            $this->cantidad = $detalle<['cantidad'];
-            $this->id_carrito = $detalle<['id_carrito'];
-            $this->id_producto = $detalle<['id_producto'];
+		$detalle = Database::getRow($sql, $params);
+		if($detalle){
+            $this->cantidad = $detalle['cantidad'];
+            $this->id_carrito = $detalle['id_carrito'];
+            $this->id_producto = $detalle['id_producto'];
 			return true;
 		}else{
 			return null;
@@ -86,7 +86,7 @@ class Detalle extends Validator{
 	}
 	public function updateDetalle(){
 		$sql = "UPDATE detalle_carrito SET cantidad = ?, id_carrito = ?, id_producto = ? WHERE id_detalle = ?";
-		$params = array($this->cantidad, $this->id_carrito, $this->, $this->id_carrito, $this->id_detalle);
+		$params = array($this->cantidad, $this->id_carrito, $this->id_producto, $this->id_detalle);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteDetalle(){
