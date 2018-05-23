@@ -35,17 +35,17 @@ class Tipo_cliente extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchCategoria($value){
+	public function searchTipo_cliente($value){
 		$sql = "SELECT * FROM tipo_cliente WHERE tipo_cliente LIKE ? ORDER BY id_tipo_cliente";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createCategoria(){
+	public function createTipo_cliente(){
 		$sql = "INSERT INTO tipo_cliente(tipo_cliente) VALUES(?)";
 		$params = array($this->tipo_cliente);
 		return Database::executeRow($sql, $params);
 	}
-	public function readCategoria(){
+	public function readTipo_cliente(){
 		$sql = "SELECT tipo_cliente FROM tipo_cliente WHERE id_tipo_cliente = ?";
 		$params = array($this->id_tipo_cliente);
 		$tipo = Database::getRow($sql, $params);
@@ -56,12 +56,12 @@ class Tipo_cliente extends Validator{
 			return null;
 		}
 	}
-	public function updateCategoria(){
+	public function updateTipo_cliente(){
 		$sql = "UPDATE tipo_cliente SET tipo_cliente = ? WHERE id_tipo_cliente = ?";
 		$params = array($this->tipo_cliente, $this->id_tipo_cliente,);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteCategoria(){
+	public function deleteTipo_cliente(){
 		$sql = "DELETE FROM tipo_cliente WHERE id_tipo_cliente = ?";
 		$params = array($this->id_tipo_cliente);
 		return Database::executeRow($sql, $params);

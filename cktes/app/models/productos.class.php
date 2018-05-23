@@ -1,53 +1,46 @@
 <?php
 class Producto extends Validator{
 	//Declaración de propiedades
-	private $id_empleado = null;
-    private $nombres = null;
-    private $apellidos = null;
+	private $id_producto = null;
+    private $nombre = null;
     private $imagen = null;
-    private $correo_electronico = null;
-    private $contrasena = null;
-    private $id_permiso = null;
+    private $descripcion = null;
+    private $ficha_tecnica = null;
+    private $cantidad = null;
+	private $precio = null;
+	private $tamano = null;
+	private $id_presentacion = null;
+	private $id_proveedor = null;
+	private $id_marca = null;
+	private $id_estado = null;
 
     //Métodos para sobrecarga de propiedades
-    public function setId_empleado($value){
+    public function setId_producto($value){
 		if($this->validateId($value)){
-			$this->id_empleado = $value;
+			$this->id_producto = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getId_empleado(){
-		return $this->id_empleado;
+	public function getId_Producto(){
+		return $this->id_producto;
     }
     
-	public function setNombres($value){
+	public function setNombre($value){
 		if($this->validateAlphanumeric($value, 1, 80)){
-			$this->nombres = $value;
+			$this->nombre = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getNombres(){
-		return $this->nombres;
-    }
-
-    public function setApellidos($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
-			$this->apellidos = $value;
-			return true;
-		}else{
-			return false;
-		}
+	public function getNombre(){
+		return $this->nombre;
 	}
-	public function getApellidos(){
-		return $this->apellidos;
-    }
-    
-    public function setImagen($file){
-		if($this->validateImage($file, $this->imagen, "../../web/img/categorias/", 300, 300)){
+	
+	public function setImagen($file){
+		if($this->validateImage($file, $this->imagen, "../../web/img/productos/", 500, 500)){
 			$this->imagen = $this->getImageName();
 			return true;
 		}else{
@@ -58,123 +51,167 @@ class Producto extends Validator{
 		return $this->imagen;
 	}
 	public function unsetImagen(){
-		if(unlink("../../web/img/categorias/".$this->imagen)){
+		if(unlink("../../web/img/productos/".$this->imagen)){
 			$this->imagen = null;
 			return true;
 		}else{
 			return false;
 		}
 	}
-    
-    public function setCorreo($value){
-		if($this->validateEmail($value)){
-			$this->correo_electronico = $value;
+
+    public function setDescripcion($value){
+		if($this->validateAlphanumeric($value, 1, 100)){
+			$this->descripcion = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getCorreo(){
-		return $this->correo_electronico;
+	public function getDescripcion(){
+		return $this->descripcion;
     }
     
-    public function setContrasena($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
-			$this->contrasena = $value;
+    public function setFicha($value){
+		if($this->validateAlphanumeric($value, 1, 550)){
+			$this->ficha_tecnica = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getContrasena(){
-		return $this->contrasena;
+	public function getFicha(){
+		return $this->ficha_tecnica;
+    }
+    
+    public function setCantidad($value){
+		if($this->validateAlphanumeric($value, 1, 11)){
+			$this->cantidad = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCantidad(){
+		return $this->cantidad;
 	}
 
-	public function setId_permiso($value){
-		if($this->validateId($value)){
-			$this->id_permiso = $value;
+	public function setPrecio($value){
+		if($this->validateMoney($value)){
+			$this->precio = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
 	public function getId_permiso(){
-		return $this->id_permiso;
+		return $this->precio;
 	}
 
-	//Métodos para manejar la sesión del usuario
-	public function checkCorreo(){
-		$sql = "SELECT id_empleado FROM empleado WHERE correo_electronico = ?";
-		$params = array($this->correo_electronico);
-		$data = Database::getRow($sql, $params);
-		if($data){
-			$this->id_empleado = $data['id_empleado'];
-			$this->correo_electronico = $data['correo_electronico'];
+	public function setTamano($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->tamano = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function checkPassword(){
-		$sql = "SELECT contrasena FROM empleado WHERE id_empleado = ?";
-		$params = array($this->id_empleado);
-		$data = Database::getRow($sql, $params);
-		if(password_verify($this->contrasena, $data['contrasena'])){
+	public function getTamano(){
+		return $this->tamano;
+	}
+
+	public function setId_presentacion($value){
+		if($this->validateId($value)){
+			$this->id_presentacion = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function changePassword(){
-		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "UPDATE empleado SET contrasena = ? WHERE id_empleado = ?";
-		$params = array($hash, $this->id_empleado);
-		return Database::executeRow($sql, $params);
+	public function getId_Presentacion(){
+		return $this->id_presentacion;
 	}
-	public function logOut(){
-		return session_destroy();
+	
+	public function setId_proveedor($value){
+		if($this->validateId($value)){
+			$this->id_proveedor = $value;
+			return true;
+		}else{
+			return false;
+		}
 	}
+	public function getId_proveedor(){
+		return $this->id_proveedor;
+	}
+	
+	public function setId_marca($value){
+		if($this->validateId($value)){
+			$this->id_marca = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_marca(){
+		return $this->id_marca;
+	}
+	
+	public function setId_estado($value){
+		if($this->validateId($value)){
+			$this->id_estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_estado(){
+		return $this->id_estado;
+    }
 
 	//Metodos para el manejo del CRUD
-	public function getEmpleado(){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso FROM empleado ORDER BY id_empleado";
+	public function getProducto(){
+		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos ORDER BY id_producto";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchEmpleado($value){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_empleado";
-		$params = array("%$value%", "%$value%");
+	public function searchProducto($value){
+		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, estado FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN estado USING(id_estado) WHERE nombre LIKE ? ORDER BY id_producto";
+		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createEmpleado(){
-		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso);
+	public function createProducto(){
+		$sql = "INSERT INTO productoss(nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado);
 		return Database::executeRow($sql, $params);
 	}
-	public function readEmpleado(){
-		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
-		$params = array($this->id_empleado);
-		$empleado = Database::getRow($sql, $params);
-		if($empleado){
-            $this->nombres = $empleado['nombres'];
-            $this->apellidos = $empleado['apellidos'];
-            $this->imagen = $empleado['imagen'];
-			$this->correo_electronico = $empleado['correo_electronico'];
-			$this->contrasena = $empleado['contrasena'];
-			$this->id_permiso = $empleado['id_permiso'];
+	public function readProducto(){
+		$sql = "SELECT nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$params = array($this->id_producto);
+		$producto = Database::getRow($sql, $params);
+		if($producto){
+            $this->nombre = $producto['nombre'];
+            $this->imagen = $producto['imagen'];
+            $this->desccripcion = $producto['descripcion'];
+			$this->ficha_tecnica = $producto['ficha_tecnica'];
+			$this->cantidad = $producto['cantidad'];
+			$this->precio = $producto['precio'];
+			$this->tamano = $producto['tamano'];
+			$this->id_presentacion = $producto['id_presentacion'];
+			$this->id_proveedor = $producto['id_proveedor'];
+			$this->id_marca = $producto['id_marca'];
+			$this->id_estado = $producto['id_estado'];
 			return true;
 		}else{
 			return null;
 		}
 	}
-	public function updateEmpleado(){
-		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ? WHERE id_empleado = ?";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_desarrollo);
+	public function updateProducto(){
+		$sql = "UPDATE productos SET nombre = ?, imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ? WHERE id_producto = ?";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteEmpleado(){
-		$sql = "DELETE FROM empleado WHERE id_empleado = ?";
-		$params = array($this->id_desarrollo);
+	public function deleteProducto(){
+		$sql = "DELETE FROM productos WHERE id_producto = ?";
+		$params = array($this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
 }
