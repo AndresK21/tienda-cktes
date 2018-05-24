@@ -20,53 +20,92 @@ class Valoracion extends Validator{
 		return $this->id_valoracion;
     }
     
-	public function setSustrato($value){
-		if($this->validateAlphanumeric($value, 1, 50)){
-			$this->sustrato = $value;
+	public function setEstrellas($value){
+		if($this->validateAlphanumeric($value, 1, 5)){
+			$this->estrellas = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getSustrato(){
-		return $this->sustrato;
+	public function getEstrellas(){
+		return $this->estrellas;
+	}
+	
+	public function setComentario($value){
+		if($this->validateAlphanumeric($value, 1, 250)){
+			$this->comentario = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getComentario(){
+		return $this->comentario;
+	}
+	
+	public function setId_producto($value){
+		if($this->validateId($value)){
+			$this->id_producto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_producto(){
+		return $this->id_producto;
+	}
+	
+	public function setId_cliente($value){
+		if($this->validateId($value)){
+			$this->id_cliente = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_cliente(){
+		return $this->id_cliente;
     }
 
 	//Metodos para el manejo del CRUD
-	public function getSustratos(){
-		$sql = "SELECT id_sustrato, sustrato FROM sustrato ORDER BY id_sustrato";
+	public function getValoracion(){
+		$sql = "SELECT id_valoracion, estrellas, comentario, id_producto, id_cliente FROM valoraciones ORDER BY id_valoracion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchSustrato($value){
-		$sql = "SELECT id_sustrato, sustrato FROM sustrato WHERE sustrato LIKE ? ORDER BY id_sustrato";
+	public function searchValoracion($value){
+		$sql = "SELECT id_valoracion, estrellas, comentario, nombre, nombres, apellidos FROM valoraciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE comentario LIKE ? ORDER BY id_valoracion";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createSustrato(){
-		$sql = "INSERT INTO sustrato(sustrato) VALUES (?)";
-		$params = array($this->sustrato);
+	public function createValoracion(){
+		$sql = "INSERT INTO valoraciones(estrellas, comentario, id_producto, id_cliente) VALUES (?, ?, ?, ?)";
+		$params = array($this->estrellas, $this->comentarios, $this->id_producto, $this->id_cliente);
 		return Database::executeRow($sql, $params);
 	}
-	public function readSustrato(){
-		$sql = "SELECT sustrato FROM sustrato WHERE id_sustrato = ? ORDER BY id_sutrato";
-		$params = array($this->id_sustrato);
-		$sustrato = Database::getRow($sql, $params);
-		if($sutrato){
-            $this->sustrato = $sutrato['sustrato'];
+	public function readValoracion(){
+		$sql = "SELECT estrellas, comentario, id_producto, id_cliente FROM valoraciones WHERE id_valoracion = ? ORDER BY id_valoracion";
+		$params = array($this->id_valoracion);
+		$svaloracion = Database::getRow($sql, $params);
+		if($valoracion){
+			$this->estrellas = $valoracion['estrellas'];
+			$this->comentario = $valoracion['comentario'];
+			$this->id_producto = $valoracion['id_producto'];
+			$this->id_cliente = $valoracion['id_cliente'];
 			return true;
 		}else{
 			return null;
 		}
 	}
-	public function updateSustrato(){
-		$sql = "UPDATE sustrato SET sustrato = ? WHERE id_sustrato = ?";
-		$params = array($this->sustrato, $this->id_sustrato);
+	public function updateValoracion(){
+		$sql = "UPDATE valoraciones SET estrellas = ?, comentario = ?, id_producto = ?, id_cliente = ? WHERE id_valoracion = ?";
+		$params = array($this->estrellas, $this->comentario, $this->id_producto, $this->id_cliente, $this->id_valoracion);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteSustrato(){
-		$sql = "DELETE FROM sustrato WHERE id_sustrato = ?";
-		$params = array($this->id_sustrato);
+	public function deleteValoracion(){
+		$sql = "DELETE FROM valoraciones WHERE id_valoracion = ?";
+		$params = array($this->id_valoracion);
 		return Database::executeRow($sql, $params);
 	}
 }
