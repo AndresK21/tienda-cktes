@@ -16,12 +16,12 @@
   </form>
   </div> 
 <div class="container">
-  <div class="row">
+  <div class="row center">
 
 <?php
 foreach ($importaciones as $importacion ) {
   print("  
-<div class='col s6'>
+<div class='col s12 m6 l6 center'>
     <div class='carta'>
   <div class='contenedor'>
     <img height='407' width='300' class='contenedor' src='../web/img/productos/$importacion[url_imagen]'>
@@ -49,36 +49,18 @@ foreach ($importaciones as $importacion ) {
     <div class='contents'>
       <table>
         <tr>
-          <th>Tamaño</th>
-          <th>Cantidades Disponibles</th>
+          <th>Tamaño:</th>
+          <th>Cantidades Disponibles:</th>
         </tr>
         <tr>
           <td>$importacion[tamano]</td>
           <td>$importacion[cantidad]</td>
         </tr>
         <tr>
-          <th>Something</th>
-          <th>Something</th>
+          <th>Descripcion:</th>
         </tr>
         <tr>
-          <td>200mm</td>
-          <td>200mm</td>
-        </tr>
-        <tr>
-          <th>Something</th>
-          <th>Something</th>
-        </tr>
-        <tr>
-          <td>200mm</td>
-          <td>200mm</td>
-        </tr>
-        <tr>
-          <th>Something</th>
-          <th>Something</th>
-        </tr>
-        <tr>
-          <td>200mm</td>
-          <td>200mm</td>
+          <td>$importacion[descripcion]</td>
         </tr>
       </table>
     </div>

@@ -137,7 +137,7 @@ class Importaciones extends Validator{
 		if($producto){
 			$this->nombre = $producto['nombre'];
 			$this->descripcion = $producto['descripcion'];
-			$this->precio = $producto['precioVestimenta'];
+			$this->precio = $producto['precio'];
 			$this->imagen = $producto['url_imagen'];
 			return true;
 		}else{

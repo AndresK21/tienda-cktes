@@ -18,11 +18,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><img class='responsive-img' src='../web/img/productos/dev.png'></td>
-        <td>Producto de prueba</td>
-        <td>descripción de prueba</td>
-        <td>$20.10</td>
-        <td><input id='cantidad' type='number' min='1'></td>
+        <td><img class='responsive-img' src='../web/img/productos/".$importacion->getImagen()."'></td>
+        <td>".$importacion->getNombre()."</td>
+        <td>".$importacion->getDescripcion()."</td>
+        <td>$".$importacion->getPrecio()."</td>
+        <td><input id='cantidad' type='number' min='1' max='".$importacion->getPrecio()."'></td>
       </tr>
     ");
 

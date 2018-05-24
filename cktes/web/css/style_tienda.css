@@ -447,7 +447,7 @@
 }
 .carta .inside {
   z-index: 9;
-  background: #92879B;
+  background: #121c2c;
   width: 140px;
   height: 140px;
   position: absolute;
@@ -469,7 +469,7 @@
   right: 0;
   top: 0;
   border-radius: 0;
-  height: 80%;
+  height: 83%;
 }
 .carta .inside:hover .icon {
   opacity: 0;
@@ -501,4 +501,8 @@
 
 #cantidad {
   width: 60px;
+}
+
+.icono_ini{
+  padding: 0px 27px;
 }
