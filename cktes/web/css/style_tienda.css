@@ -192,9 +192,6 @@
   .sandwich {
     width: 35px;
     height: 25px;
-    top: 15px;
-    right: 18px;
-    position: absolute;
     padding: 20px;
     cursor: pointer;
   }
@@ -320,3 +317,188 @@
     border-color: #000;
     border-bottom-style: solid;
     }
+    
+  .corre{
+  font-size: 20px !important;
+  padding: 10px !important;
+}
+
+.carta {
+  width: 300px;
+  height: 500px;
+  background: white;
+  overflow: hidden;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0;
+  transform: scale(0.95);
+  transition: box-shadow 0.5s, transform 0.5s;
+}
+.carta:hover {
+  transform: scale(1);
+  box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+}
+.carta .contenedor {
+  width: 100%;
+}
+.carta .contenedor .arr_car{
+  height: 80%;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+}
+.carta .contenedor .baj_car {
+  width: 200%;
+  height: 20%;
+  transition: transform 0.5s;
+}
+.carta .contenedor .baj_car.clicked {
+  transform: translateX(-50%);
+}
+.carta .contenedor .baj_car h1 {
+  margin: 0;
+  padding: 0;
+}
+.carta .contenedor .baj_car p {
+  margin: 0;
+  padding: 0;
+}
+.carta .contenedor .baj_car .lef_car {
+  height: 100%;
+  width: 50%;
+  background: #f4f4f4;
+  position: relative;
+  float: left;
+}
+.carta .contenedor .baj_car .lef_car .details {
+  padding: 20px;
+  float: left;
+  width: calc(70% - 40px);
+}
+.carta .contenedor .baj_car .lef_car .buy {
+  float: right;
+  width: calc(30% - 2px);
+  height: 100%;
+  background: #f1f1f1;
+  transition: background 0.5s;
+  border-left: solid thin rgba(0, 0, 0, 0.1);
+}
+.carta .contenedor .baj_car .lef_car .buy i {
+  font-size: 30px;
+  padding: 30px;
+  color: #254053;
+  transition: transform 0.5s;
+}
+.carta .contenedor .baj_car .lef_car .buy:hover {
+  background: #A6CDDE;
+}
+.carta .contenedor .baj_car .lef_car .buy:hover i {
+  transform: translateY(5px);
+  color: #00394B;
+}
+.carta .contenedor .baj_car .right {
+  width: 50%;
+  background: #A6CDDE;
+  color: white;
+  float: right;
+  height: 200%;
+  overflow: hidden;
+}
+.carta .contenedor .baj_car .right .details {
+  padding: 20px;
+  float: right;
+  width: calc(70% - 40px);
+}
+.carta .contenedor .baj_car .right .done {
+  width: calc(30% - 2px);
+  float: left;
+  transition: transform 0.5s;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+}
+.carta .contenedor .baj_car .right .done i {
+  font-size: 30px;
+  padding: 30px;
+  color: white;
+}
+.carta .contenedor .baj_car .right .remove {
+  width: calc(30% - 1px);
+  clear: both;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+  background: #BC3B59;
+  transition: transform 0.5s, background 0.5s;
+}
+.carta .contenedor .baj_car .right .remove:hover {
+  background: #9B2847;
+}
+.carta .contenedor .baj_car .right .remove:hover i {
+  transform: translateY(5px);
+}
+.carta .contenedor .baj_car .right .remove i {
+  transition: transform 0.5s;
+  font-size: 30px;
+  padding: 30px;
+  color: white;
+}
+.carta .contenedor .baj_car .right:hover .remove, .carta .contenedor .baj_car .right:hover .done {
+  transform: translateY(-100%);
+}
+.carta .inside {
+  z-index: 9;
+  background: #92879B;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  border-radius: 0px 0px 200px 200px;
+  transition: all 0.5s, border-radius 2s, top 1s;
+  overflow: hidden;
+}
+.carta .inside .icon {
+  position: absolute;
+  right: 85px;
+  top: 85px;
+  color: white;
+  opacity: 1;
+}
+.carta .inside:hover {
+  width: 100%;
+  right: 0;
+  top: 0;
+  border-radius: 0;
+  height: 80%;
+}
+.carta .inside:hover .icon {
+  opacity: 0;
+  right: 15px;
+  top: 15px;
+}
+.carta .inside:hover .contents {
+  opacity: 1;
+  transform: scale(1);
+  transform: translateY(0);
+}
+.carta .inside .contents {
+  padding: 5%;
+  opacity: 0;
+  transform: scale(0.5);
+  transform: translateY(-200%);
+  transition: opacity 0.2s, transform 0.8s;
+}
+.carta .inside .contents table {
+  text-align: left;
+  width: 100%;
+}
+.carta .inside .contents h1, .carta .inside .contents p, .carta .inside .contents table {
+  color: white;
+}
+.carta .inside .contents p {
+  font-size: 13px;
+}
+
+#cantidad {
+  width: 60px;
+}

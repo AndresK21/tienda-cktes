@@ -91,7 +91,7 @@ class Validator{
      	}
 	}
 
-	public function validateArchive($file, $value, $path){
+/*	public function validateArchive($file, $value, $path){
 		if $extension == 'gerber'{
 			if($value){
 				$archive = $value;
@@ -109,7 +109,7 @@ class Validator{
 				return false;
 			}
 		}
-	}
+	}*/
 
 	public function validateEmail($email){
 		if(filter_var($email, FILTER_VALIDATE_EMAIL)){
