@@ -20,12 +20,11 @@
 
 <?php
 foreach ($importaciones as $importacion ) {
-  print("
-  <div class= 'row'>  
+  print("  
 <div class='col s6'>
     <div class='carta'>
   <div class='contenedor'>
-    <img class='contenedor' src='../web/img/productos/$importacion[url_imagen]'>
+    <img height='407' width='300' class='contenedor' src='../web/img/productos/$importacion[url_imagen]'>
     <div class='arr_car'></div>
     <div class='baj_car'>
       <div class='lef_car'>

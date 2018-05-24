@@ -69,20 +69,20 @@ class Page extends Component{
     else {
     print("
     <header>
-      <div class='navbar-fixed'>
-        <nav>
-            <div class='nav-wrapper'>
+      < <div class='navbar-fixed'>
+                <nav>
+                <div class='nav-wrapper'>
               <a href='index.php'><span>CKT</span> <span>ES</span></a>
-              <a href='index.php'>
-                <span id='iconomenuuser1'>
-                  <i class='fas fa-user'></i>
-                </span>
-              </a>
-            </div>  
-            <div class='sandwich' id='btn'>
+              <ul class='right'>
+              <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i></span></a></li>
+               
+            <li><div class='sandwich' id='btn'>
               <span class='top'></span>
               <span class='middle'></span>
               <span class='bottom'></span>
+            </div></li>
+             </ul>
+
             </div>           
             <div class='menu' id='menu'> 
               <div class='menu-list'>    

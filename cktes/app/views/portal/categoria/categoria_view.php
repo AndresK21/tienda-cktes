@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-content">
                             <a href="importaciones.php" class="indigo-text darken-4">
-                            <p><b ></b><br><h5><b>PRÓXIMOS PRODUCTOS</b></h5></p></a>
+                            <p><b ></b><br><h5><b>ORDENA PRODUCTOS</b></h5></p></a>
                         </div>
             </div>
         </div> 
