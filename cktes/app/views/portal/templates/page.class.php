@@ -117,13 +117,13 @@ class Page extends Component{
       
     </div>
   </footer>
-            
               <script src='../web/js/jquery-3.3.1.min.js'></script>
               <script src='../web/js/portal.js'></script>
               <script src='../web/js/materialize.min.js'></script>
               <script src='../web/js/fontawesom.js'></script>
               <script src='../web/js/stats.min.js'></script>
               <script src='../web/js/index.js'></script>
+              <script src='../web/js/split.js'></script>
         </body>
         </html>
 		");
