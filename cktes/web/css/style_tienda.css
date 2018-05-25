@@ -609,3 +609,6 @@ body {
     transform: skew(30deg);
     margin-left: 1000px;
 }
+.tamanoSL{
+ height:400px !important;
+}

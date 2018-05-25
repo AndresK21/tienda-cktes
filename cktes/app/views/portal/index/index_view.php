@@ -1,6 +1,9 @@
 
     <main>
-            <img class="responsive-img indeximage " src="../web/img/2.jpg"> 
+            <div class="parallax-container">
+      <div class="parallax"><img src="../web/img/2.jpg"> </div>
+    </div>
+
         <h2 class="center"><b>CKTES</b></h2>
         <h3 class="center">Micro-empresa salvadoreña fabricadora de producto e importación de materiales electrónicos</h3>
       

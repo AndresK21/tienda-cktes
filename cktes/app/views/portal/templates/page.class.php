@@ -123,7 +123,6 @@ class Page extends Component{
               <script src='../web/js/fontawesom.js'></script>
               <script src='../web/js/stats.min.js'></script>
               <script src='../web/js/index.js'></script>
-              <script src='../web/js/split.js'></script>
         </body>
         </html>
 		");
