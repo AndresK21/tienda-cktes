@@ -1,15 +1,15 @@
 <?php
-require_once("../../app/models/usuario.class.php");
+require_once("../../app/models/empleado.class.php");
 try{
     if(isset($_POST['cambiar'])){
-        $usuario = new Usuario;
+        $usuario = new Empleado;
         $_POST = $usuario->validateForm($_POST);
-        if($usuario->setId($_SESSION['id_usuario'])){
+        if($usuario->setId_empleado($_SESSION['id_empleado'])){
             if($_POST['clave_actual_1'] == $_POST['clave_actual_2']){
-                if($usuario->setClave($_POST['clave_actual_1'])){
+                if($usuario->setContrasena($_POST['clave_actual_1'])){
                     if($usuario->checkPassword()){
                         if($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']){
-                            if($usuario->setClave($_POST['clave_nueva_1'])){
+                            if($usuario->setContrasena($_POST['clave_nueva_1'])){
                                 if($usuario->changePassword()){
                                     Page::showMessage(1, "Clave cambiada", "index.php");
                                 }else{
@@ -37,5 +37,5 @@ try{
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../../app/views/dashboard/account/password_view.php");
+require_once("../../app/views/dashboard/cuenta/password_view.php");
 ?>

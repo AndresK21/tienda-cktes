@@ -1,6 +1,6 @@
 <?php
-require_once("../../app/models/usuario.class.php");
-$object = new Usuario;
+require_once("../../app/models/empleado.class.php");
+$object = new Empleado;
 if($object->logOut()){
     Page::showMessage(1, "Autenticación eliminada", "login.php");
 }else{

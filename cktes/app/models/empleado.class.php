@@ -47,7 +47,7 @@ class Empleado extends Validator{
     }
     
     public function setImagen($file){
-		if($this->validateImage($file, $this->imagen, "../../web/img/categorias/", 300, 300)){
+		if($this->validateImage($file, $this->imagen, "../../web/img/empleados/", 300, 300)){
 			$this->imagen = $this->getImageName();
 			return true;
 		}else{
@@ -58,7 +58,7 @@ class Empleado extends Validator{
 		return $this->imagen;
 	}
 	public function unsetImagen(){
-		if(unlink("../../web/img/categorias/".$this->imagen)){
+		if(unlink("../../web/img/empleados/".$this->imagen)){
 			$this->imagen = null;
 			return true;
 		}else{
@@ -104,12 +104,16 @@ class Empleado extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkCorreo(){
-		$sql = "SELECT id_empleado FROM empleado WHERE correo_electronico = ?";
+		$sql = "SELECT id_empleado, correo_electronico, nombres, apellidos, imagen, id_permiso FROM empleado WHERE correo_electronico = ?";
 		$params = array($this->correo_electronico);
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->id_empleado = $data['id_empleado'];
 			$this->correo_electronico = $data['correo_electronico'];
+			$this->nombres = $data['nombres'];
+			$this->apellidos = $data['apellidos'];
+			$this->imagen = $data['imagen'];
+			$this->id_permiso = $data['id_permiso'];
 			return true;
 		}else{
 			return false;
@@ -147,8 +151,9 @@ class Empleado extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function createEmpleado(){
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso);
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){
@@ -169,7 +174,7 @@ class Empleado extends Validator{
 	}
 	public function updateEmpleado(){
 		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ? WHERE id_empleado = ?";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_desarrollo);
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteEmpleado(){

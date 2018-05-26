@@ -17,21 +17,21 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="contrasen" name="contrasena" type="text" class="validate" value='<?php print($object->getContrasena()) ?>' />
+                                    <input id="contrasen" name="contrasena" type="password" class="validate" value='<?php print($object->getContrasena()) ?>' required/>
                                     <label class="black-text" for="contrasen">Contrase&ntilde;a</label>
                                 </div>
                             </div>
-                        </form>
 
-                    </div>
-                    <div class="left-align">
-                        <a class="modal-trigger" href="#modal_contra">&iquest;Olvido su contrase&ntilde;a&#63;</a>
-                    </div>
-                    <div class="white-text">.</div>
+                        </div>
+                        <div class="left-align">
+                            <a class="modal-trigger" href="#modal_contra">&iquest;Olvido su contrase&ntilde;a&#63;</a>
+                        </div>
+                        <div class="white-text">.</div>
 
-                    <div class="right-align">
-						<button type='submit' name='iniciar' class='btn grey darken-3 waves-effect'>Iniciar sesi&oacute;n</button>
-					</div>
+                        <div class="right-align">
+                            <button type='submit' name='iniciar' class='btn grey darken-3 waves-effect'>Iniciar sesi&oacute;n</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
