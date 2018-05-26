@@ -31,7 +31,7 @@
 <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
     <h4>Estad&iacute;sticas de visitas</h4>
-        <img class="responsive-img" src="../web/img/dashboard/estadisticas.jpg" alt="estadistica">
+        <img class="responsive-img" src="../../web/img/dashboard/estadisticas.jpg" alt="estadistica">
     </div>
     <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Salir</a>

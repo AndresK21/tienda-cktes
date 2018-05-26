@@ -15,7 +15,6 @@ class Page extends Component{
                 <meta charset='utf-8'>
                 <!--Import Google Icon Font-->
                 <link href='../../web/css/icon.css' rel='stylesheet'>
-                <link href='../../web/css/dashboard.css' rel='stylesheet'>
                 <!--Import materialize.css-->
                 <link type='text/css' rel='stylesheet' href='../../web/css/materialize.min.css'  media='screen,projection'/>
                 <!--Let browser know website is optimized for mobile-->
@@ -270,7 +269,7 @@ class Page extends Component{
 	public static function templateFooter(){
 		print("
 				</main>
-				<footer class='page-footer grey darken-3 hide-on-large-only'>
+				<footer class='page-footer grey darken-3'>
                     <div class='container'>
                         <div class='row'>
                         <div class='col l6 s12'>

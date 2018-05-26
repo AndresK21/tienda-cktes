@@ -1,13 +1,13 @@
 <?php
-require_once("../../app/models/usuario.class.php");
+require_once("../../app/models/empleado.class.php");
 try{
 	if(isset($_GET['id'])){
-		if($_GET['id'] != $_SESSION['id_usuario']){
-			$usuario = new Usuario;
-			if($usuario->setId($_GET['id'])){
-				if($usuario->readUsuario()){
+		if($_GET['id'] != $_SESSION['id_empleado']){
+			$usuario = new Empleado;
+			if($usuario->setId_empleado($_GET['id'])){
+				if($usuario->readEmpleado()){
 					if(isset($_POST['eliminar'])){
-						if($usuario->deleteUsuario()){
+						if($usuario->deleteEmpleado()){
 							Page::showMessage(1, "Usuario eliminado", "index.php");
 						}else{
 							throw new Exception(Database::getException());

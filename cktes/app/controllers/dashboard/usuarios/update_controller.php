@@ -1,17 +1,17 @@
 <?php
-require_once("../../app/models/usuario.class.php");
+require_once("../../app/models/empleado.class.php");
 try{
     if(isset($_GET['id'])){
-        $usuario = new Usuario;
-        if($usuario->setId($_GET['id'])){
-            if($usuario->readUsuario()){
+        $usuario = new Empleado;
+        if($usuario->setId_empleado($_GET['id'])){
+            if($usuario->readEmpleado()){
                 if(isset($_POST['actualizar'])){
                     $_POST = $usuario->validateForm($_POST);
                     if($usuario->setNombres($_POST['nombres'])){
                         if($usuario->setApellidos($_POST['apellidos'])){
                             if($usuario->setCorreo($_POST['correo'])){
-                                if($usuario->setAlias($_POST['alias'])){
-                                    if($usuario->updateUsuario()){
+                                if($usuario->setId_permiso(isset($_POST['id_permiso'])?1:2)){ //Establece que el id_permiso solo puede ser 1 o 2
+                                    if($usuario->updateEmpleado()){
                                         Page::showMessage(1, "Usuario modificado", "index.php");
                                     }else{
                                         throw new Exception(Database::getException());
