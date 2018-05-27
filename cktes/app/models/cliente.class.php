@@ -8,7 +8,8 @@ class Cliente extends Validator{
     private $correo = null;
     private $contrasena = null;
     private $imagen = null;
-    private $id_tipo_cliente = null;
+	private $id_tipo_cliente = null;
+	private $carrito = null;
 
 	//Métodos para sobrecarga de propiedades
 	public function setId_cliente($value){
@@ -21,6 +22,17 @@ class Cliente extends Validator{
 	}
 	public function getId_cliente(){
 		return $this->id;
+	}
+	public function setCarrito($value){
+		if($this->validateId($value)){
+			$this->carrito = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCarrito(){
+		return $this->carrito;
 	}
 	public function setEstado_cliente($value){
 		if($this->validateId($value)){
@@ -70,8 +82,8 @@ class Cliente extends Validator{
 		return $this->correo;
     }
     
-    public function setContrasena($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
+	public function setContrasena($value){
+		if($this->validatePassword($value)){
 			$this->contrasena = $value;
 			return true;
 		}else{
@@ -94,7 +106,7 @@ class Cliente extends Validator{
 	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT Id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND estado_cliente=3";
+		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND estado_cliente=3";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
@@ -115,7 +127,6 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
-	
 	public function changePassword(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = "UPDATE cliente SET Contraseña = ? WHERE Id_cliente = ?";
@@ -143,6 +154,18 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
+	public function maxId(){
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito) AND id_cliente = ?";
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->estado_cliente = $data['estado_carrito'];
+			$this->carrito = $data['id_carrito'];	
+			return true;
+		}else{
+			return false;
+		}
+	}
 		//Se crea la nueva compra 
 		public function createCarrito(){
 			$sql = "INSERT INTO carrito(fecha,id_cliente, estado_carrito) VALUES(?, ?, ?)";
@@ -152,6 +175,11 @@ class Cliente extends Validator{
 			return Database::executeRow($sql, $params);
 		}
 	//Metodos para el manejo del CRUD
+	public function getUsuarios(){
+		$sql = "SELECT id_cliente, estado_cliente, nombres, apellidos,correo_electronico, contrasena,url_imagen, id_tipo_cliente FROM clientes WHERE estado_cliente=3 ";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function getTipo_clientes(){
 		$sql = "SELECT id_tipo_cliente, tipo_cliente FROM tipo_cliente ORDER BY id_tipo_cliente";
 		$params = array(null);

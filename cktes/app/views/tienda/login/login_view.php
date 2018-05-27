@@ -55,17 +55,17 @@
         <div id="test2" class="col s12 container">
             <h4 class="center white-text">&#161;Bienvenido Otra Vez&#33;</h4>
             <div class="row">
-            <form class="col s12">
+            <form method="post" class="col s12">
                 <div class="input-field col l12 s12">
-                    <input id="email2" name="correo_existente" type="email" class="validate transparent white-text">
+                    <input id="email2" name="correo_existente" type="email" class="validate transparent white-text" value='<?php print($usuario->getCorreo()) ?>' required/>
                     <label for="correo_existente">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password3" name="contraseña_existente" type="password" class="validate transparent white-text">
+                    <input id="password3" name="clave_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>>
                     <label for="password">Contrase&ntilde;a</label>
                 </div>
                 <div class="col s12 m12 l12 center">
-                <button name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
+                <button type= "submit" name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
                 <div class="transparent-text">.</div>
                 <div class="transparent-text">.</div>
                 </div>

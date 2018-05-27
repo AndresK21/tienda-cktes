@@ -16,7 +16,7 @@ try{
                                 if($usuario->setContrasena($_POST['clave1'])){
                                     // Se crea el usuario (cliente)
                                     if($usuario->createUsuario()){   
-                                        Page::showMessage(1, "Usuario registrado", "categorias.php");
+                                        Page::showMessage(1, "Usuario registrado, debe iniciar sesion", "acceder.php");
                                         $usuario->maxCliente();
                                         $usuario->CreateCarrito();
                                     }else{
@@ -50,3 +50,49 @@ try{
 }
 require_once("../app/views/tienda/login/login_view.php");
 ?>
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+try{
+	if($usuario->getUsuarios()){$usuario->getId_cliente();
+		if(isset($_POST['iniciar'])){
+			$_POST = $usuario->validateForm($_POST);
+			if($usuario->setCorreo($_POST['correo_existente'])){
+				// Se verifica la existencia del correo y que tenga un estado "Activo"
+				if($usuario->checkAlias()){
+					if($usuario->setContrasena($_POST['clave_existente'])){
+						// Se verifica que la clave que ingrese sea correcta
+						if($usuario->checkPassword()){
+							//Si el usuario y la contraseña son correctos se inicia sesión
+							$_SESSION['id_cliente'] = $usuario->getId_cliente();
+							$_SESSION['correo_electronico'] = $usuario->getCorreo();
+							//Esta funcion es para obtener el maximo Id de la compra
+							$usuario->maxId();  
+							$_SESSION['id_carrito'] = $usuario->getCarrito();
+							//Se hace la comparación de que si la compra ya esta finalizada o no
+							if($usuario->getEstado() == 6){
+								//Si el estado esta en finalizado se crea una nueva compra
+								$usuario->CreateCompra();        
+						}
+							Page::showMessage(1, "Autenticación correcta", "acceder.php");
+							}else{
+								throw new Exception("Clave incorrecta");
+							}
+						}else{
+							throw new Exception("Clave menor a 6 caracteres");
+						}
+					}else{
+						throw new Exception("Cuenta bloqueada");
+					}
+				}else{
+					throw new Exception("Cuenta incorrecto");
+				}
+			}		
+	}else{
+		Page::showMessage(3, "No hay usuarios disponibles", "categorias.php");
+	}
+}catch(Exception $error){
+	Page::showMessage(2, $error->getMessage(), null);
+}
+require_once("../app/views/tienda/login/login_view.php");
+?>
+
