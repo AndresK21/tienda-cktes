@@ -45,14 +45,9 @@ try{
      
     }
     
-}catch(Exception $error){
-    Page::showMessage(2, $error->getMessage(), null);
-}
-require_once("../app/views/tienda/login/login_view.php");
-?>
-<?php
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-try{
+    $usuario = new Cliente;
 	if($usuario->getUsuarios()){$usuario->getId_cliente();
 		if(isset($_POST['iniciar'])){
 			$_POST = $usuario->validateForm($_POST);
@@ -71,7 +66,7 @@ try{
 							//Se hace la comparación de que si la compra ya esta finalizada o no
 							if($usuario->getEstado() == 6){
 								//Si el estado esta en finalizado se crea una nueva compra
-								$usuario->CreateCompra();        
+								$usuario->CreateCarrito();        
 						}
 							Page::showMessage(1, "Autenticación correcta", "acceder.php");
 							}else{
@@ -88,7 +83,7 @@ try{
 				}
 			}		
 	}else{
-		Page::showMessage(3, "No hay usuarios disponibles", "categorias.php");
+		Page::showMessage(3, "No hay usuarios disponibles", "acceder.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
