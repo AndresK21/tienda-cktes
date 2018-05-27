@@ -133,7 +133,7 @@ class Cliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
-		$sql = "SELECT MAX(Id_cliente) as cliente FROM cliente";
+		$sql = "SELECT MAX(id_cliente) as cliente FROM clientes";
 		$params = array(null);
 		$data = Database::getRow($sql, $params);
 		if($data){

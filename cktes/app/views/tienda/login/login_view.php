@@ -7,10 +7,10 @@
     <div class="container" id="FondoLogin">
         <ul id="FondoTabLogin" class="tabs tabs-fixed-width tab-demo z-depth-1">
             <li class="tab">
-                <a class="active" href="#test1">REGISTRARSE</a>
+                <a  href="#test1">REGISTRARSE</a>
             </li>
             <li class="tab">
-                <a href="#test2">INICIAR SESI&Oacute;N</a>
+                <a class="active" href="#test2">INICIAR SESI&Oacute;N</a>
             </li>
         </ul>
         
