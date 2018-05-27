@@ -10,7 +10,7 @@ try{
             if($usuario->setNombres($_POST['nombres'])){
                 if($usuario->setApellidos($_POST['apellidos'])){
                     if($usuario->setCorreo($_POST['correo'])){
-                        if($producto->setTipoCliente($_POST['tipo_cliente'])){
+                        if($usuario->setTipoCliente($_POST['tipo_cliente'])){
                             // Se verifica que las dos claves sean iguales
                             if($_POST['clave1'] == $_POST['clave2']){
                                 if($usuario->setContrasena($_POST['clave1'])){

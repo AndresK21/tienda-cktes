@@ -1,7 +1,7 @@
 <?php
 class Cliente extends Validator{
 	//Declaración de propiedades
-	private $id_cliente = null;
+	private $id= null;
 	private $estado_cliente=null;
     private $nombres = null;
     private $apellidos = null;
@@ -13,14 +13,14 @@ class Cliente extends Validator{
 	//Métodos para sobrecarga de propiedades
 	public function setId_cliente($value){
 		if($this->validateId($value)){
-			$this->id_cliente = $value;
+			$this->id = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
 	public function getId_cliente(){
-		return $this->id_cliente;
+		return $this->id;
 	}
 	public function setEstado_cliente($value){
 		if($this->validateId($value)){

@@ -13,10 +13,11 @@
                 <a href="#test2">INICIAR SESI&Oacute;N</a>
             </li>
         </ul>
+        
         <div id="test1" class="col s12 container">
             <h4 class="center white-text">Registrate Gratis</h4>
             <div class="row">
-                <form class="col s12 ">
+                <form  method='post' class="col s12 ">
                     <div class="input-field col s6">
                         <input id="Nombres" name="nombres" type="text" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
                         <label for="last_name">Nombres</label>
@@ -44,7 +45,7 @@
                         <label for="password2">Verificar Contrase&ntilde;a</label>
                     </div>
                     <div class="col s12 m12 l12 center">
-                        <button name="registrar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
+                        <button  type='submit' name="registrar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
                         <div class="transparent-text">.</div>
                         <div class="transparent-text">.</div>
                     </div>
