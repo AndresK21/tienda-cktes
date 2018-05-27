@@ -65,9 +65,20 @@ try{
 		$data_tipo = $tipo_p->getTipo_productos();
 	}
 
-
-
-
+	$impuesto = new Impuesto;
+	if(isset($_POST['buscar_impuesto'])){
+		$_POST = $impuesto->validateForm($_POST);
+		$data_impuesto = $impuesto->searchImpuesto($_POST['busqueda_impuesto']);
+		if($data_impuesto){
+			$rows = count($data_impuesto);
+			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
+		}else{
+			Page::showMessage(4, "No se encontraron resultados", null);
+			$data_impuesto = $impuesto->getImpuesto();
+		}
+	}else{
+		$data_impuesto = $impuesto->getImpuesto();
+	}
 
 
 	if($data){
