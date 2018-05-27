@@ -25,7 +25,6 @@
         </div>
     <main class="caviar">
         <div class="container">
-            
             <h4 class="titulo1 centro">Categoria 1</h4>
         </div>  
         <!-- Seccion de Buscar y Combobox -->

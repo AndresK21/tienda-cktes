@@ -44,9 +44,7 @@
     </ul>
 </div>
 <!--TITULO Categorias-->
-<div class="container">
-    <h2 class="titulosTienda center-align truncate">Categorias</h2>
-</div>
+    <h2 class="center-align truncate"><b>CATEGORIAS</b></h2>
 <!-- CATEGORIAS -->
 <div class="row">
     <!-- PRODUCTOS -->
@@ -64,8 +62,7 @@
                     </span>
                 </div>
                 <div class='card-action'>
-                    <button class='cktes waves-effect waves-light btn modal-trigger TamañodelBotonLogin' href='productos_categorias.php?id=$marca[id_marca]'>
-                        <i class='material-icons right'>launch</i>Ver M&aacute;s</button>
+                <a href='productos_categorias.php?id=$marca[id_marca]' class='cktes waves-effect waves-light btn modal-trigger TamañodelBotonLogin'><i class='material-icons right'>launch</i>Ver M&aacute;s</a>
                 </div>
             </div>
         </div>
