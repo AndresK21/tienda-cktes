@@ -50,7 +50,7 @@ class Marca extends Validator{
 		$params = array($this->id_marca);
 		$marca = Database::getRow($sql, $params);
 		if($marca){
-            $this->nombres = $marca['marca'];
+            $this->marca = $marca['marca'];
 			return true;
 		}else{
 			return null;

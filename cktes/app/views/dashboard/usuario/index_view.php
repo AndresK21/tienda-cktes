@@ -7,23 +7,24 @@
     </a>
 </div>
 
-<div class="row">
-    <form class="col s12" method="post" enctype='multipart/form-data'>
-        <!--muestra la lista de usuarios existentes-->
-        <div class="col s10">
-            <div class="input-field">
-                <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                <input type="text" id="input" name='busqueda'>
-                <label for="input" class="black-text">Buscar usuario por nombre o apellido</label>
+<div class="container">
+    <div class="row">
+        <form class="col s12" method="post" enctype='multipart/form-data'>
+            <!--muestra la lista de usuarios existentes-->
+            <div class="col s10">
+                <div class="input-field">
+                    <i class="material-icons grey-text text-darken-3 prefix">search</i>
+                    <input type="text" id="input" name='busqueda'>
+                    <label for="input" class="black-text">Buscar usuario por nombre o apellido</label>
+                </div>
             </div>
-        </div>
-        <div class="input-field col s2">
-            <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
-        </div>
-    </form>
-</div>
+            <div class="input-field col s2">
+                <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+            </div>
+        </form>
+    </div>
 
-<div class="row">
+    <div class="row">
         <table class="bordered highlight responsive-table z-depth-2">
             <thead class="grey darken-3 white-text">
                 <tr>
@@ -54,3 +55,4 @@
             </tbody>
         </table>
     </div>
+</div>

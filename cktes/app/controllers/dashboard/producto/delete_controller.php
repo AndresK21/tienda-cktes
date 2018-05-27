@@ -1,9 +1,9 @@
 <?php
-require_once("../../app/models/producto.class.php");
+require_once("../../app/models/productos.class.php");
 try{
 	if(isset($_GET['id'])){
 		$producto = new Producto;
-		if($producto->setId($_GET['id'])){
+		if($producto->setId_Producto($_GET['id'])){
 			if($producto->readProducto()){
 				if(isset($_POST['eliminar'])){
 					if($producto->deleteProducto()){

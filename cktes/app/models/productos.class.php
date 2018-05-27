@@ -103,7 +103,7 @@ class Producto extends Validator{
 			return false;
 		}
 	}
-	public function getId_permiso(){
+	public function getPrecio(){
 		return $this->precio;
 	}
 
@@ -127,7 +127,7 @@ class Producto extends Validator{
 			return false;
 		}
 	}
-	public function getId_Presentacion(){
+	public function getId_presentacion(){
 		return $this->id_presentacion;
 	}
 	
@@ -168,18 +168,39 @@ class Producto extends Validator{
     }
 
 	//Metodos para el manejo del CRUD
+	public function getPresentacion(){
+		$sql = "SELECT id_presentacion, presentacion FROM presentaciones";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getProveedor(){
+		$sql = "SELECT id_proveedor, proveedor FROM proveedores";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getMarcas(){
+		$sql = "SELECT id_marca, marca FROM marca";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getEstado(){
+		$sql = "SELECT id_estado, estado FROM estado WHERE id_tipo_estado = 1";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+
 	public function getProducto(){
-		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos ORDER BY id_producto";
+		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, productos.id_estado FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) ORDER BY id_producto";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchProducto($value){
-		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, estado FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN estado USING(id_estado) WHERE nombre LIKE ? ORDER BY id_producto";
+		$sql = "SELECT id_producto, nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, estado FROM productos INNER JOIN estado USING(id_estado) INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) WHERE nombre LIKE ? ORDER BY id_producto";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function createProducto(){
-		$sql = "INSERT INTO productoss(nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO productos(nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado);
 		return Database::executeRow($sql, $params);
 	}

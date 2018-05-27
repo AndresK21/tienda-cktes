@@ -32,19 +32,25 @@ class Presentacion extends Validator{
 
     public function setId_tipo($value){
 		if($this->validateId($value)){
-			$this->id_tipo_productos = $value;
+			$this->id_tipo_producto = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
 	public function getId_tipo(){
-		return $this->id_tipo_productos;
+		return $this->id_tipo_producto;
     }
 
 	//Metodos para el manejo del CRUD
+	public function getTipos(){
+		$sql = "SELECT id_tipo_producto, tipo_producto FROM tipo_producto";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+
 	public function getPresentaciones(){
-		$sql = "SELECT id_presentacion, presentacion, id_tipo_producto FROM presentaciones ORDER BY id_presentacion";
+		$sql = "SELECT id_presentacion, presentacion, tipo_producto FROM presentaciones INNER JOIN tipo_producto USING(id_tipo_producto) ORDER BY id_presentacion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
@@ -63,7 +69,7 @@ class Presentacion extends Validator{
 		$params = array($this->id_presentacion);
 		$presentacion = Database::getRow($sql, $params);
 		if($presentacion){
-            $this->presentacion = presentaciono['presentacion'];
+            $this->presentacion = $presentacion['presentacion'];
             $this->id_tipo_producto = $presentacion['id_tipo_producto'];
 			return true;
 		}else{

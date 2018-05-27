@@ -46,11 +46,11 @@ class Tipo_producto extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readTipo_producto(){
-		$sql = "SELECT tipo_producto FROM tipo_producto WHERE id_tipo_producto = ? ORDER BY id_sutrato";
+		$sql = "SELECT tipo_producto FROM tipo_producto WHERE id_tipo_producto = ? ORDER BY id_tipo_producto";
 		$params = array($this->id_tipo_producto);
 		$tipo_producto = Database::getRow($sql, $params);
-		if($sutrato){
-            $this->tipo_producto = $sutrato['tipo_producto'];
+		if($tipo_producto){
+            $this->tipo_producto = $tipo_producto['tipo_producto'];
 			return true;
 		}else{
 			return null;

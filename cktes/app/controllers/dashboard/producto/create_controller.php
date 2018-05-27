@@ -1,5 +1,5 @@
 <?php
-require_once("../../app/models/producto.class.php");
+require_once("../../app/models/productos.class.php");
 try{
     $producto = new Producto;
     if(isset($_POST['crear'])){
@@ -7,30 +7,44 @@ try{
         if($producto->setNombre($_POST['nombre'])){
             if($producto->setPrecio($_POST['precio'])){
                 if($producto->setDescripcion($_POST['descripcion'])){
-                    if($producto->setCategoria($_POST['categoria'])){
-                        if($producto->setEstado(isset($_POST['estado'])?1:0)){
-                            if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-                                if($producto->setImagen($_FILES['archivo'])){
-                                    if($producto->createProducto()){
-                                        Page::showMessage(1, "Producto creado", "index.php");
-                                    }else{
-                                        if($producto->unsetImagen()){
-                                            throw new Exception(Database::getException());
+                    if($producto->setFicha($_POST['ficha'])){
+                        if($producto->setId_estado(isset($_POST['estado'])?1:2)){
+                            if($producto->setTamano($_POST['tamano'])){
+                                if($producto->setCantidad($_POST['cantidad'])){
+                                    if($producto->setId_marca($_POST['marca'])){
+                                        if($producto->setId_proveedor($_POST['proveedor'])){
+                                            if($producto->setId_presentacion($_POST['presentacion'])){
+                                                if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                                                    if($producto->setImagen($_FILES['archivo'])){
+                                                        if($producto->createProducto()){
+                                                            Page::showMessage(1, "Producto creado", "index.php");
+                                                        }
+                                                    }else{
+                                                        throw new Exception($producto->getImageError());
+                                                    }
+                                                }else{
+                                                    throw new Exception("Seleccione una imagen");
+                                                }
+                                            }else{
+                                                throw new Exception("Seleccione una presentacion");
+                                            }
                                         }else{
-                                            throw new Exception("Elimine la imagen manualmente");
+                                            throw new Exception("Seleccione un proveedor");
                                         }
+                                    }else{
+                                        throw new Exception("Seleccione una marca");
                                     }
                                 }else{
-                                    throw new Exception($producto->getImageError());
+                                    throw new Exception("Ingrese una cantidad");
                                 }
                             }else{
-                                throw new Exception("Seleccione una imagen");
+                                throw new Exception("Ingrese un tamaño");
                             }
                         }else{
                             throw new Exception("Estado incorrecto");
                         }
                     }else{
-                        throw new Exception("Seleccione una categoría");
+                        throw new Exception("Ingrese una ficha tecnica");
                     }
                 }else{
                     throw new Exception("Descripción incorrecta");

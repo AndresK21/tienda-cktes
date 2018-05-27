@@ -9,8 +9,8 @@
 /**
  * Define database parameters here
  */
-define("DB_USER", 'andres');
-define("DB_PASSWORD", 'andres21');
+define("DB_USER", 'cktes');
+define("DB_PASSWORD", 'expo2018');
 define("DB_NAME", 'cktes');
 define("DB_HOST", 'localhost');
 define("BACKUP_DIR", 'C:\Users\andre\Desktop\BACKUP-all'); // Comment this line to use same script's directory ('.')
