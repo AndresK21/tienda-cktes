@@ -13,12 +13,12 @@ try{
                         if($producto->setTipoCliente($_POST['tipo_cliente'])){
                             // Se verifica que las dos claves sean iguales
                             if($_POST['clave1'] == $_POST['clave2']){
-                                if($usuario->setClave($_POST['clave1'])){
+                                if($usuario->setContrasena($_POST['clave1'])){
                                     // Se crea el usuario (cliente)
                                     if($usuario->createUsuario()){   
                                         Page::showMessage(1, "Usuario registrado", "categorias.php");
                                         $usuario->maxCliente();
-                                        $usuario->CreateCompra();
+                                        $usuario->CreateCarrito();
                                     }else{
                                         throw new Exception(Database::getException());
                                     }
@@ -30,11 +30,11 @@ try{
                             }
                         
                         }else{
-                            throw new Exception("Correo incorrecto");
+                            throw new Exception("tipo incorrecto");
                         }
                     
                     }else{
-                        throw new Exception("Telefono incorrecto");
+                        throw new Exception("Correoincorrecto");
                     }
                 }else{
                     throw new Exception("Apellidos incorrectos");

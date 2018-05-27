@@ -36,11 +36,11 @@
                     ?>
                 </div>
                     <div class="input-field col s6">
-                        <input id="password" name="contraseña" type="password" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
+                        <input id="password" name="clave1" type="password" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
                         <label for="password">Contrase&ntilde;a</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="password2" name="contraseña_verificar" type="password" class="validate transparent white-text"/required>
+                        <input id="password2" name="clave2" type="password" class="validate transparent white-text"/required>
                         <label for="password2">Verificar Contrase&ntilde;a</label>
                     </div>
                     <div class="col s12 m12 l12 center">

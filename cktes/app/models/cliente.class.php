@@ -94,11 +94,11 @@ class Cliente extends Validator{
 	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT Id_cliente, Id_compra, compra.Estado_compra FROM cliente INNER JOIN compra USING(Id_cliente) WHERE Correo = ? AND Estado_cliente=1";
+		$sql = "SELECT Id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND estado_cliente=3";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->id = $data['Id_cliente'];
+			$this->id = $data['id_cliente'];
 			
 			return true;
 		}else{
@@ -106,10 +106,10 @@ class Cliente extends Validator{
 		}
 	}
 	public function checkPassword(){
-		$sql = "SELECT Contraseña FROM cliente WHERE Id_cliente = ?";
+		$sql = "SELECT contrasena FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
-		if(password_verify($this->clave, $data['Contraseña'])){
+		if(password_verify($this->contrasena, $data['contrasena'])){
 			return true;
 		}else{
 			return false;
@@ -127,11 +127,30 @@ class Cliente extends Validator{
 	}
 	public function createUsuario(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente,nombres,apellidos, Telefono, Correo, Contraseña) VALUES(?, ?, ?, ?, ?,?)";
-		$estadouser= 1;
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->telefono, $this->correo,  $hash);
+		$sql = "INSERT INTO clientes(estado_cliente,nombres,apellidos, correo_electronico,contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		$estadouser= 3;
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
 		return Database::executeRow($sql, $params);
-    }
+	}
+	public function maxCliente(){
+		$sql = "SELECT MAX(Id_cliente) as cliente FROM cliente";
+		$params = array(null);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->id = $data['cliente'];	
+			return true;
+		}else{
+			return false;
+		}
+	}
+		//Se crea la nueva compra 
+		public function createCarrito(){
+			$sql = "INSERT INTO carrito(fecha,id_cliente, estado_carrito) VALUES(?, ?, ?)";
+			$fechaa = date('y-m-d');
+			$estadoo = 5;
+			$params = array($fechaa, $this->id, $estadoo);
+			return Database::executeRow($sql, $params);
+		}
 	//Metodos para el manejo del CRUD
 	public function getTipo_clientes(){
 		$sql = "SELECT id_tipo_cliente, tipo_cliente FROM tipo_cliente ORDER BY id_tipo_cliente";

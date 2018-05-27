@@ -20,8 +20,8 @@ print("
   <link rel='stylesheet' href='../web/css/materialize.min.css'>
   <link href='../web/css/icon.css' rel='stylesheet'>
   <link rel='stylesheet' href='../web/css/normalize.min.css'>
-  <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
   <link rel='stylesheet' href='../web/css/style_tienda.css'>
+  <script type='text/javascript' src='../web/js/sweetalert.min.js'></script>
 </head>
 
 <body>
