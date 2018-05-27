@@ -2,7 +2,7 @@
 class Cliente extends Validator{
 	//Declaración de propiedades
 	private $id= null;
-	private $estado_cliente=null;
+	private $estado=null;
     private $nombres = null;
     private $apellidos = null;
     private $correo = null;
@@ -10,9 +10,10 @@ class Cliente extends Validator{
     private $imagen = null;
 	private $id_tipo_cliente = null;
 	private $carrito = null;
+	private $estado_carrito = null;
 
 	//Métodos para sobrecarga de propiedades
-	public function setId_cliente($value){
+	public function setId($value){
 		if($this->validateId($value)){
 			$this->id = $value;
 			return true;
@@ -20,7 +21,7 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
-	public function getId_cliente(){
+	public function getId(){
 		return $this->id;
 	}
 	public function setCarrito($value){
@@ -34,16 +35,27 @@ class Cliente extends Validator{
 	public function getCarrito(){
 		return $this->carrito;
 	}
-	public function setEstado_cliente($value){
+	public function setEstado($value){
 		if($this->validateId($value)){
-			$this->setEstado_cliente = $value;
+			$this->estado = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getEstado_cliente(){
-		return $this->estado_cliente;
+	public function getEstado(){
+		return $this->estado;
+	}
+	public function setEstado_carrito($value){
+		if($this->validateId($value)){
+			$this->estado_carrito = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado_carrito(){
+		return $this->estado_carrito;
 	}
 	
 	public function setNombres($value){
@@ -111,7 +123,7 @@ class Cliente extends Validator{
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->id = $data['id_cliente'];
-			
+			$this->carrito = $data['id_carrito'];
 			return true;
 		}else{
 			return false;
@@ -159,7 +171,7 @@ class Cliente extends Validator{
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->estado_cliente = $data['estado_carrito'];
+			$this->estado = $data['estado_carrito'];
 			$this->carrito = $data['id_carrito'];	
 			return true;
 		}else{
