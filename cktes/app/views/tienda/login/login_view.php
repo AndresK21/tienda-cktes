@@ -32,7 +32,7 @@
                     </div>
                     <div class="input-field col s6">   
                     <?php
-                    Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->get(), $producto->getTipos());
+                    Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->getTipoCliente(), $usuario->getTipos());
                     ?>
                 </div>
                     <div class="input-field col s6">
