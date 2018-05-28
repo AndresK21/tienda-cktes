@@ -38,6 +38,7 @@ class Page extends Component{
                   <ul id='dropdown' class='dropdown-content'>
                           <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
                           <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
+                          <li><a href='historial.php'><i class='material-icons'>shopping_cart</i>Historial</a></li>
                           <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
                   </ul>
                   <li><div class='sandwich' id='btn'>

@@ -175,7 +175,7 @@ public function readCarrito(){
 		    return Database::executeRow($sql, $params);
 					}
 	public function readHistorialdetalle(){
-			$sql = "SELECT Id_detalle, Imagen, Nombre_juguete, Precio_juguete, Cantidad, Existencias FROM detalle_compra INNER JOIN juguete USING(Id_juguete) WHERE Id_compra =?";
+			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad, productos.cantidad FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito =?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 						
@@ -201,7 +201,7 @@ public function readCarrito(){
 		return Database::executeRow($sql, $params);
 	}
 	public function readHistorial(){
-		$sql = "SELECT Id_compra, Id_cliente,Fecha, Nombre_estado FROM compra INNER JOIN estado ON compra.Estado_compra= estado.Id_estado  WHERE Id_cliente = ? AND Estado_compra = 4";
+		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND Estado_compra = 6";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 					
