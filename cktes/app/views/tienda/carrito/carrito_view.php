@@ -1,9 +1,5 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<!--TITULO Categorias-->
-<h2 class="center-align truncate"><b>CARRITO</b></h2>
+<!--Viista del carrito-->
+<img class="responsive-img animated swing" src="../web/images/productos/banner9.png">
 <div class="container">
 <table class=" highlight" >
 <!--Elementos que poseerá la tabla-->
@@ -30,7 +26,7 @@
             <td>$detalle[nombre]</td>
             <td>$detalle[precio]</td>
             <td>$detalle[cantidad]</td>
-            <td>$$subtotal</td>
+            <td>$subtotal</td>
             <td>
             <a  href='update.php?id=$detalle[id_detalle]'class='blue-text' ><i class='material-icons'>mode_edit</i></a>
             <a href='delete.php?id=$detalle[id_detalle]' class='red-text'><i class='material-icons'>delete</i></a>
@@ -45,7 +41,7 @@
     <div class="col s12 m6 l12 ">
       <div class="card  grey lighten-3 ">
         <div class="card-content black-text ">                                                                 
-           <?php print("<p class='right'> <b>TOTAL  </b> $ $total ");?>
+           <?php print("<p class='right'> <b>TOTAL  </b>  $total ");?>
          </div>                                   
       </div>
       <form method='post'>

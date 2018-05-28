@@ -46,11 +46,11 @@ class Sustrato extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readSustrato(){
-		$sql = "SELECT sustrato FROM sustrato WHERE id_sustrato = ? ORDER BY id_sustrato";
+		$sql = "SELECT sustrato FROM sustrato WHERE id_sustrato = ? ORDER BY id_sutrato";
 		$params = array($this->id_sustrato);
 		$sustrato = Database::getRow($sql, $params);
-		if($sustrato){
-            $this->sustrato = $sustrato['sustrato'];
+		if($sutrato){
+            $this->sustrato = $sutrato['sustrato'];
 			return true;
 		}else{
 			return null;
