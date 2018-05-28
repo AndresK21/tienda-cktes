@@ -270,7 +270,7 @@
                                 <!--Formulario ineditable donde se muestra la informacion del pedido-->
                                 <div class="">
                                     <form class="">
-                                    <div class="row">
+                                        <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
                                                 <label for="cliente" class="black-text">Cliente</label>
