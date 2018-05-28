@@ -61,7 +61,7 @@
                                                 <td>$row[cantidad]</td>
                                                 <td>$row[estado]</td>
                                                 <td>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_pedido.php?id=$row[id_reservacion]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update.php?id=$row[id_reservacion]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
                                                 </td>
                                             </tr>
                                             ");
