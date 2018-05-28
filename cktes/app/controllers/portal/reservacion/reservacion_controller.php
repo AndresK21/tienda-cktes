@@ -1,11 +1,14 @@
 <?php
 //Controlador para llamar la vista de la seccion "Reservación"
 require_once("../app/models/portal/importaciones.class.php");
+//se verifica si hay usuario registrado
 if(isset($_SESSION['id_cliente'])){
 try{
+	//se verifica si hay un id en la pagina
 	if(isset($_GET['id'])){
 		$importacion = new Importaciones;
 		if($importacion->setId($_GET['id'])){
+			//Se lee la importaciones
 			if($importacion->readImportacion()){
 				 require_once("../app/views/portal/reservacion/reservacion_view.php");
 			}else{

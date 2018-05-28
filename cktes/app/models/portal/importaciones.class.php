@@ -150,11 +150,13 @@ class Importaciones extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	//SOLO busca las importaciones con el id de producto = 2 osea de importaciones
 	public function searchONLYProducto($value){
 		$sql = "SELECT * FROM productos WHERE nombre LIKE ? AND id_tipo_producto = 2 ORDER BY nombre";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
+	//Se lee los productos y se ponen en las variables 
 	public function readImportacion(){
 		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? AND id_tipo_producto = 2 ORDER BY id_producto";
 		$params = array($this->id);
@@ -172,6 +174,7 @@ class Importaciones extends Validator{
 			return null;
 		}
 	}
+	//se crea las reservaciones 
 	public function createReservacion(){
 		$sql = "INSERT INTO reservaciones(id_producto, id_cliente, cantidad, fecha, hora, id_estado) VALUES(?, ?, ?, ?, ?, ?)";
 		$fecha = date("Y/m/d");
@@ -180,11 +183,12 @@ class Importaciones extends Validator{
 		$params = array($this->id, $this->cliente, $this->cantidad, $fecha, $hora, $estado);
 		return Database::getRows($sql, $params);
 	}
+	//se verifica las existencias de las productos
 	public function Existencias_productos(){
 		$sql = "SELECT cantidad FROM productos WHERE id_producto = ?";
 		$params = array($this->id);
 		return Database::getRows($sql, $params);
-	}
+	}//Validacion extra
 	public function readImportaciones(){
 		$sql = "SELECT * FROM reservaciones WHERE id_producto = ? AND id_cliente = ? AND id_estado = 5";
 		$params = array($this->id ,$this->cliente);
