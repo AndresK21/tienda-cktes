@@ -191,5 +191,11 @@ class Importaciones extends Validator{
 		return Database::getRows($sql, $params);
 	}
 
+	public function cargarReservaciones(){
+		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
+		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
+
 }
 ?>
