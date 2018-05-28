@@ -48,19 +48,19 @@ try{
 		$data3 = $sustrato->getSustratos();
     }
 
-    $pedido = new Pedido;
-	if(isset($_POST['buscar'])){
-		$_POST = $pedido->validateForm($_POST);
-		$data = $pedido->searchPedidon($_POST['busqueda']);
-		if($data){
-			$rows = count($data);
+    $tipo = new Tipo_placa;
+	if(isset($_POST['buscar_tipo'])){
+		$_POST = $tipo->validateForm($_POST);
+		$data4 = $tipo->searchTipo_placa($_POST['busqueda_tipo']);
+		if($data4){
+			$rows = count($data4);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data = $pedido->getPedidon();
+			$data4 = $tipo->getTipo_placas();
 		}
 	}else{
-		$data = $pedido->getPedidon();
+		$data4 = $tipo->getTipo_placas();
     }
 
     

@@ -30,7 +30,7 @@ class Tipo_placa extends Validator{
     }
 
 	//Metodos para el manejo del CRUD
-	public function getSTipo_placas(){
+	public function getTipo_placas(){
 		$sql = "SELECT id_tipo_placa, tipo_placa FROM tipo_placa ORDER BY id_tipo_placa";
 		$params = array(null);
 		return Database::getRows($sql, $params);
