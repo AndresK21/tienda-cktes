@@ -24,12 +24,21 @@
             ");
             if(isset($_SESSION['id_cliente'])){
             print(" 
-            <button type='submit' name='agregar' class='btn waves-effect waves-light cktes tooltipped' data-tooltip='Realizar Compra'>
-            <i class='material-icons'>add_shopping_cart</i>A&ntilde;adir al Carrito</button>
-        </div>
-    </div>
-</div>
-</form>
+         <div class='card-action'>
+                            <form method='post'>
+                                <div class='row center'>
+                                    <div class='input-field col s12 m6'>
+                                        <i class='material-icons prefix'>list</i>
+                                        <input id='cantidad' type='number' name='cantidad' min='1' max=".$producto->getExistencias()." class='validate'>
+                                        <label for='cantidad'>Cantidad</label>
+                                    </div>
+                                    <div class='input-field col s12 m6 l12 '>
+                                    <button type='submit' name='agregar' class='btn waves-effect waves-light cktes tooltipped' data-tooltip='Realizar Compra'>
+                                    <i class='material-icons'>add_shopping_cart</i>A&ntilde;adir al Carrito</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
 ");
 }
 else{

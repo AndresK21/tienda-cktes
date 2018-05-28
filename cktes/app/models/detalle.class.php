@@ -148,8 +148,8 @@ class Detalle extends Validator{
 		
 }
 public function readCarrito(){
-        $sql = "SELECT Id_juguete, detalle_compra.Id_compra, Cantidad, Estado_compra FROM detalle_compra INNER JOIN compra ON detalle_compra.Id_compra = compra.Id_compra WHERE Id_juguete = ? AND detalle_compra.Id_compra = ? AND Estado_compra =3 ";
-		$params = array($this->juguete , $this->compra);
+        $sql = "SELECT id_producto, detalle_carrito.id_carrito, detalle_carrito.cantidad, estado_carrito FROM detalle_carrito INNER JOIN carrito ON detalle_carrito.id_carrito = carrito.id_carrito WHERE id_producto = ? AND detalle_carrito.id_carrito = ? AND estado_carrito=5 ";
+		$params = array($this->producto , $this->compra);
 		return Database::getRows($sql, $params);
 	}
 	public function Modificarexistencia(){
