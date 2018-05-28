@@ -29,7 +29,7 @@
             <td>$subtotal</td>
             <td>
             <a  href='update.php?id=$detalle[id_detalle]'class='blue-text' ><i class='material-icons'>mode_edit</i></a>
-            <a href='delete.php?id=$detalle[id_detalle]' class='red-text'><i class='material-icons'>delete</i></a>
+            <a href='delete.php?id=$detalle[id_detalle]' class='red-text'><i class='material-icons'>remove_shopping_cart</i></a>
             </td>
           </tr>
         ");
