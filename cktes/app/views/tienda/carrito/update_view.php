@@ -1,9 +1,14 @@
+<!--ESPACIO-->
+<div class="white-text">.</div>
+<div class="white-text">.</div>
+<div class="white-text">.</div>
+<div class="white-text">.</div>
 <?php
 //Vista para modificar la cantidad de productos en el carrito
 //Se obtiene ele maximo de existencias 
        print("
 <div class='container cantidad'>
-	<h4  class='cyan-text center'>Actualizar cantidad del producto </h4>
+	<h4  class='black-text center'>Actualizar cantidad del producto </h4>
 <form method='post' enctype='multipart/form-data'>
    
         <div class='input-field col s12 m6'>
