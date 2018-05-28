@@ -2,7 +2,7 @@
 class Cliente extends Validator{
 	//Declaración de propiedades
 	private $id= null;
-	private $estado_cliente=null;
+	private $estado=null;
     private $nombres = null;
     private $apellidos = null;
     private $correo = null;
@@ -10,9 +10,10 @@ class Cliente extends Validator{
     private $imagen = null;
 	private $id_tipo_cliente = null;
 	private $carrito = null;
+	private $estado_carrito = null;
 
 	//Métodos para sobrecarga de propiedades
-	public function setId_cliente($value){
+	public function setId($value){
 		if($this->validateId($value)){
 			$this->id = $value;
 			return true;
@@ -20,7 +21,7 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
-	public function getId_cliente(){
+	public function getId(){
 		return $this->id;
 	}
 	public function setCarrito($value){
@@ -34,16 +35,27 @@ class Cliente extends Validator{
 	public function getCarrito(){
 		return $this->carrito;
 	}
-	public function setEstado_cliente($value){
+	public function setEstado($value){
 		if($this->validateId($value)){
-			$this->setEstado_cliente = $value;
+			$this->estado = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getEstado_cliente(){
-		return $this->estado_cliente;
+	public function getEstado(){
+		return $this->estado;
+	}
+	public function setEstado_carrito($value){
+		if($this->validateId($value)){
+			$this->estado_carrito = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado_carrito(){
+		return $this->estado_carrito;
 	}
 	
 	public function setNombres($value){
@@ -106,12 +118,11 @@ class Cliente extends Validator{
 	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND estado_cliente=3";
+		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND Estado_cliente=3";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->id = $data['id_cliente'];
-			
+			$this->id = $data['id_cliente'];			
 			return true;
 		}else{
 			return false;
@@ -127,6 +138,7 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
+	
 	public function changePassword(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = "UPDATE cliente SET Contraseña = ? WHERE Id_cliente = ?";
@@ -136,8 +148,9 @@ class Cliente extends Validator{
 	public function logOut(){
 		return session_destroy();
 	}
+
 	public function createUsuario(){
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO clientes(estado_cliente,nombres,apellidos, correo_electronico,contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
 		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
@@ -155,11 +168,11 @@ class Cliente extends Validator{
 		}
 	}
 	public function maxId(){
-		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito) AND id_cliente = ?";
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->estado_cliente = $data['estado_carrito'];
+			$this->estado = $data['estado_carrito'];
 			$this->carrito = $data['id_carrito'];	
 			return true;
 		}else{

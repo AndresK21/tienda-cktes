@@ -42,33 +42,26 @@ try{
             }else{
                 throw new Exception("Nombres incorrectos");
             }
-     
     }
-    
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $usuario = new Cliente;
-	if($usuario->getUsuarios()){$usuario->getId_cliente();
+    if($usuario->getUsuarios())
+    {$usuario->getId();
 		if(isset($_POST['iniciar'])){
 			$_POST = $usuario->validateForm($_POST);
 			if($usuario->setCorreo($_POST['correo_existente'])){
 				// Se verifica la existencia del correo y que tenga un estado "Activo"
 				if($usuario->checkAlias()){
-					if($usuario->setContrasena($_POST['clave_existente'])){
+					if($usuario->setContrasena($_POST['contrasena_existente'])){
 						// Se verifica que la clave que ingrese sea correcta
 						if($usuario->checkPassword()){
 							//Si el usuario y la contraseña son correctos se inicia sesión
-							$_SESSION['id_cliente'] = $usuario->getId_cliente();
+							$_SESSION['id_cliente'] = $usuario->getId();
 							$_SESSION['correo_electronico'] = $usuario->getCorreo();
 							//Esta funcion es para obtener el maximo Id de la compra
 							$usuario->maxId();  
 							$_SESSION['id_carrito'] = $usuario->getCarrito();
-							//Se hace la comparación de que si la compra ya esta finalizada o no
-							if($usuario->getEstado() == 6){
-								//Si el estado esta en finalizado se crea una nueva compra
-								$usuario->CreateCarrito();        
-						}
-							Page::showMessage(1, "Autenticación correcta", "acceder.php");
+							//Se hace la comparación de que si la compra ya esta finalizada o no  
+							Page::showMessage(1, "Autenticación correcta", "principal.php");
 							}else{
 								throw new Exception("Clave incorrecta");
 							}
@@ -83,11 +76,19 @@ try{
 				}
 			}		
 	}else{
-		Page::showMessage(3, "No hay usuarios disponibles", "acceder.php");
+		Page::showMessage(3, "No hay usuarios disponibles", "registrar.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
 }
 require_once("../app/views/tienda/login/login_view.php");
 ?>
+
+
+
+
+
+
+
+
 

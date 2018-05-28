@@ -25,4 +25,36 @@ else{
 	Page::showMessage(3,"Debes haber iniciado sesion", "index.php");
 }
 
+try{    
+	$comprar = new Importaciones;
+        if(isset($_POST['comprar'])){
+            $_POST = $comprar->validateForm($_POST);
+            if($comprar->setCantidad($_POST['cantidad'])){
+                if($comprar->setCliente($_SESSION['id_cliente'])){
+                    if($comprar->setId($_GET['id'])){
+                        if(!$comprar->readImportaciones()){
+                           if(!$comprar->createReservacion()){
+                                        Page::showMessage(1, "Añadido al carrito", null);
+                                    }else{
+                                        throw new Exception(Database::getException());
+                                    }
+                                }
+                                else{
+                                Page::showMessage(3, "Este producto ya esta agregado", null);
+                    }
+                }else{
+                        throw new Exception("Producto incorrecto");
+                    }
+                }else{
+                    throw new Exception("Usuario incorrectos");
+                }
+            }else{
+                throw new Exception("Cantidad incorrectos");
+            }
+        }
+}catch(Exception $error){
+    Page::showMessage(2, $error->getMessage(), null);
+}
+
+
 ?>

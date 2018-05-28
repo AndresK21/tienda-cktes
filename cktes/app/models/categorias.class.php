@@ -31,7 +31,7 @@ class Marca extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getMarcas(){
-		$sql = "SELECT id_marca, marca FROM marca";
+		$sql = "SELECT id_marca, marca FROM marca ORDER BY marca ASC";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

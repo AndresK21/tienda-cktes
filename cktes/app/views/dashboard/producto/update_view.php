@@ -63,6 +63,11 @@
     <div class="row">
         <div class="input-field col s12 m6 l6">
             <?php
+                Page::showSelect("Tipo de producto", "tipo", $producto->getId_tipo(), $producto->getTipo());
+            ?>
+        </div>
+        <div class="input-field col s12 m6 l6">
+            <?php
                 Page::showSelect("Estado", "estado", $producto->getId_estado(), $producto->getEstado());
             ?>
         </div>

@@ -34,6 +34,7 @@ class Page extends Component{
                 <div class='nav-wrapper'>
               <a href='index.php'><span>CKT</span> <span>ES</span></a>
               <ul class='right'>
+              <li><a href='reservacion.php'><span><i class='fas fa-shopping-cart'></i></span></a></li>
               <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i><span/><span class='corre'>$_SESSION[correo_electronico]</span></a></li>
                <ul id='dropdown' class='dropdown-content'>
                       <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>

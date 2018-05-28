@@ -58,11 +58,11 @@
             <form method="post" class="col s12">
                 <div class="input-field col l12 s12">
                     <input id="email2" name="correo_existente" type="email" class="validate transparent white-text" value='<?php print($usuario->getCorreo()) ?>' required/>
-                    <label for="correo_existente">Correo Electr&oacute;nico</label>
+                    <label for="email2">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password3" name="clave_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>>
-                    <label for="password">Contrase&ntilde;a</label>
+                    <input id="password3" name="contrasena_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>>
+                    <label for="password3">Contrase&ntilde;a</label>
                 </div>
                 <div class="col s12 m12 l12 center">
                 <button type= "submit" name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>

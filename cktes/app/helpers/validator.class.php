@@ -143,6 +143,14 @@ class Validator{
 		}
 	}
 
+	public function validateNumber($value){
+		if(preg_match("/^[0-9]/", $value)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	public function validatePassword($value){
 		if(strlen($value) > 5){
 			return true;
