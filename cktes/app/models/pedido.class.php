@@ -232,19 +232,19 @@ class Pedido extends Validator{
 		$params = array($this->id_pedido);
 		$pedido = Database::getRow($sql, $params);
 		if($pedido){
+			$this->id_pedido = $pedido['id_pedido'];
+			$this->id_cliente = $pedido['id_cliente'];
+			$this->id_empleado = $pedido['id_empleado'];
+			$this->id_estado = $pedido['id_estado'];
 			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
-			$this->id_placa = $pedido['id_placa'];
+			$this->nombres = $pedido['nombres'];
+			$this->apellidos = $pedido['apellidos'];
+			$this->tipo_placa = $pedido['tipo_placa'];
+			$this->sustrato = $pedido['sustrato'];
+			$this->medidas = $pedido['medidas'];
+			$this->capas = $pedido['capas'];
+			$this->cantidad = $pedido['cantidad'];
+			$this->estado = $pedido['estado'];
 			return true;
 		}else{
 			return null;
