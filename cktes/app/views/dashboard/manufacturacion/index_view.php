@@ -241,7 +241,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="#create_tipo">
+            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="create_tipo.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -287,7 +287,5 @@
             </div>
         </div>
     </div>
-
-
 
 </div>
