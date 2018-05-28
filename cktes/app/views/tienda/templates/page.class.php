@@ -54,7 +54,7 @@ class Page extends Component{
                           <li class='col s12'><a class='container' href='#'>Portal</a></li>
                           <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
                           <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
-                          <li class='col s12'><a class='container' href='pcb.php'>Carrito</a></li>
+                          <li class='col s12'><a class='container' href='carrito.php'>Carrito</a></li>
                         </ul>
                       </div>
                   </div>
