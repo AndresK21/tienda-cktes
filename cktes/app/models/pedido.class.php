@@ -104,7 +104,7 @@ class Pedido extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getPedido(){
-		$sql = "SELECT id_pedido, fecha, archivo, id_cliente, id_empleado, id_estado, id_placa FROM pedido ORDER BY id_pedido";
+		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) ORDER BY id_pedido";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
