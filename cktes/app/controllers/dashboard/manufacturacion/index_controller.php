@@ -6,16 +6,16 @@ try{
 	$pedido = new Pedido;
 	if(isset($_POST['buscar'])){
 		$_POST = $pedido->validateForm($_POST);
-		$data = $pedido->searchPedido($_POST['busqueda']);
+		$data = $pedido->searchPedidon($_POST['busqueda']);
 		if($data){
 			$rows = count($data);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data = $pedido->getPedido();
+			$data = $pedido->getPedidon();
 		}
 	}else{
-		$data = $pedido->getPedido();
+		$data = $pedido->getPedidon();
     }
     
 
