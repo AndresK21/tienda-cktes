@@ -5,7 +5,7 @@
     <form method="post">
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getNombres()).print(' ').print($pedido->getApellidos()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getNombres()." ".$pedido->getApellidos()) ?>" id="disabled" type="text" class="validate" />
                 <label for="cliente" class="black-text">Cliente</label>
             </div>
             <div class="input-field col s12 m6 l6">
