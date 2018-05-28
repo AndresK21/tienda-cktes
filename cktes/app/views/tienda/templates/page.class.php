@@ -38,12 +38,8 @@ class Page extends Component{
                   <ul id='dropdown' class='dropdown-content'>
                           <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
                           <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
-<<<<<<< HEAD
-                          <li><a href='../account/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
-=======
                           <li><a href='historial.php'><i class='material-icons'>shopping_cart</i>Historial</a></li>
                           <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
->>>>>>> 7f02bc283382c9ef0fea87ab95d6d7d51f61d810
                   </ul>
                   <li><div class='sandwich' id='btn'>
                     <span class='top'></span>
@@ -107,7 +103,7 @@ class Page extends Component{
 	public static function templateFooter(){
     print("	
     </main>
-    <footer class='page-footer indigo darken-4'>
+    <footer id='colorfooter' class='page-footer indigo darken-4'>
     <div class='container'>
       <div class='row'>
       <p class='text-muted'><b>CKT-ES, SA. de CV.</b></p><br>
