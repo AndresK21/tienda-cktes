@@ -118,12 +118,11 @@ class Cliente extends Validator{
 	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND estado_cliente=3";
+		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND Estado_cliente=3";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->id = $data['id_cliente'];
-			$this->carrito = $data['id_carrito'];
+			$this->id = $data['id_cliente'];			
 			return true;
 		}else{
 			return false;
@@ -139,6 +138,7 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
+	
 	public function changePassword(){
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = "UPDATE cliente SET Contraseña = ? WHERE Id_cliente = ?";
@@ -148,8 +148,9 @@ class Cliente extends Validator{
 	public function logOut(){
 		return session_destroy();
 	}
+
 	public function createUsuario(){
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO clientes(estado_cliente,nombres,apellidos, correo_electronico,contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
 		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
@@ -167,7 +168,7 @@ class Cliente extends Validator{
 		}
 	}
 	public function maxId(){
-		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito) AND id_cliente = ?";
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if($data){
