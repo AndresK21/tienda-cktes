@@ -1,11 +1,19 @@
 <?php
-require_once("../app/models/producto.class.php");
+require_once("../app/models/productos.class.php"); //Llama el modelo Categoria
+require_once("../app/models/valoraciones.class.php");
 try{
 	if(isset($_GET['id'])){
 		$producto = new Producto;
-		if($producto->setId($_GET['id'])){
-			if($producto->readProducto()){
-				require_once("../app/views/public/producto/detalle_view.php");
+		$valoraciones = new Valoracion;
+		if($producto->setId_producto($_GET['id'])){
+			if($producto->readProducto2()){
+				if($valoraciones->setId_producto($_GET['id'])){
+					$valoracion2 = $valoraciones->getValoracionesProducto();
+					$valoracion3 = $valoraciones->getEstrellasPromedio();
+				}else{
+					throw new Exception("Valoracion incorrecta");
+				}
+
 			}else{
 				throw new Exception("Producto inexistente");
 			}
@@ -16,6 +24,7 @@ try{
 		throw new Exception("Seleccione producto");
 	}
 }catch(Exception $error){
-	Page::showMessage(3, $error->getMessage(), "index.php");
+	Page::showMessage(3, $error->getMessage(), "producto_categorias.php");
 }
+require_once("../app/views/tienda/productos/detalle_view.php");
 ?>

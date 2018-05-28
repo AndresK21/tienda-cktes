@@ -16,7 +16,7 @@ try{
 	$producto = new Producto;
 	if(isset($_POST['buscar_producto'])){ // Al momento de buscar
 		$_POST = $producto->validateForm($_POST);
-		$data_productos = $producto->searchProducto2($_POST['busqueda_producto']); // Campos a llenar Nombre del producto y la presentacion del mismo
+		$data_productos = $producto->searchProducto2($_POST['busqueda_producto'] , $_GET['id']); // Campos a llenar Nombre del producto y la presentacion del mismo
 		if($data_productos){
 			$rows = count($data_productos);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);

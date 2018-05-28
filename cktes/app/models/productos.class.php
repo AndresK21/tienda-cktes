@@ -13,8 +13,37 @@ class Producto extends Validator{
 	private $id_proveedor = null;
 	private $id_marca = null;
 	private $id_estado = null;
+	private $id_tipo_producto = null;
+	
+	private $proveedor = null;
+	private $marca = null;
+	private $existencias = null;
 
-    //Métodos para sobrecarga de propiedades
+	//Métodos para sobrecarga de propiedades
+
+	public function setmarca($value){
+		if($this->validateAlphanumeric($value)){
+			$this->marca = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getmarca(){
+		return $this->marca;
+	}
+	public function setExistencias($value){
+		if($this->validateAlphanumeric($value)){
+			$this->existencias = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getExistencias(){
+		return $this->existencias;
+	}
+
     public function setId_producto($value){
 		if($this->validateId($value)){
 			$this->id_producto = $value;
@@ -165,6 +194,17 @@ class Producto extends Validator{
 	}
 	public function getId_estado(){
 		return $this->id_estado;
+	}
+	public function setId_tipo_producto($value){
+		if($this->validateId($value)){
+			$this->setId_tipo_producto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_tipo_producto(){
+		return $this->Id_tipo_producto;
     }
 
 	//Metodos para el manejo del CRUD
@@ -222,15 +262,15 @@ class Producto extends Validator{
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function searchProducto2($value, $value1){
+	public function searchProducto2($value, $value2){
 		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio, productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, marca.marca, tipo_producto.tipo_producto 
 		FROM productos
-		INNER JOIN marca ON productos.id_marca = marca.id_marca 
+		INNER JOIN marca ON productos.id_marca = marca.id_marca
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
 		INNER JOIN proveedores ON productos.id_proveedor = proveedores.id_proveedor 
 		INNER JOIN tipo_producto ON productos.id_tipo_producto = tipo_producto.id_tipo_producto 
 		WHERE productos.nombre = ? AND productos.id_marca = ? AND productos.id_estado = 1 AND proveedores.id_estado = 3";
-		$params = array("%$value%", $value1);
+		$params = array("%$value%", $value2);
 		return Database::getRows($sql, $params);
 
 	}
@@ -255,6 +295,29 @@ class Producto extends Validator{
 			$this->id_proveedor = $producto['id_proveedor'];
 			$this->id_marca = $producto['id_marca'];
 			$this->id_estado = $producto['id_estado'];
+			return true;
+		}else{
+			return null;
+		}
+	}
+
+	public function readProducto2(){
+		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$params = array($this->id_producto);
+		$producto = Database::getRow($sql, $params);
+		if($producto){
+			$this->nombre = $producto['nombre'];
+			$this->imagen = $producto['imagen'];
+            $this->desccripcion = $producto['descripcion'];
+			$this->ficha_tecnica = $producto['ficha_tecnica'];
+			$this->cantidad = $producto['cantidad'];
+			$this->precio = $producto['precio'];
+			$this->tamano = $producto['tamano'];
+			$this->id_presentacion = $producto['id_presentacion'];
+			$this->id_proveedor = $producto['id_proveedor'];
+			$this->id_marca = $producto['id_marca'];
+			$this->id_estado = $producto['id_estado'];
+			$this->id_tipo_producto = $producto['id_tipo_producto'];
 			return true;
 		}else{
 			return null;
