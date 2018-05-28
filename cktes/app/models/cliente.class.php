@@ -167,7 +167,7 @@ class Cliente extends Validator{
 		}
 	}
 	public function maxId(){
-		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito) AND id_cliente = ?";
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if($data){

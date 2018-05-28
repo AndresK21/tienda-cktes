@@ -60,11 +60,7 @@ try{
 							//Esta funcion es para obtener el maximo Id de la compra
 							$usuario->maxId();  
 							$_SESSION['id_carrito'] = $usuario->getCarrito();
-							//Se hace la comparación de que si la compra ya esta finalizada o no
-							if($usuario->getEstado() == 4){
-								//Si el estado esta en finalizado se crea una nueva compra
-								$usuario->CreateCompra();        
-						}
+							//Se hace la comparación de que si la compra ya esta finalizada o no  
 							Page::showMessage(1, "Autenticación correcta", "principal.php");
 							}else{
 								throw new Exception("Clave incorrecta");
