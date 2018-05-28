@@ -136,8 +136,8 @@ class Reservacion extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function searchReservacion($value){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE estado LIKE ? ORDER BY id_reservacion";
-		$params = array("%$value%");
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_reservacion";
+		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function createReservacion(){
