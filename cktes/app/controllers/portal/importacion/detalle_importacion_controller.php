@@ -3,9 +3,9 @@ require_once("../app/models/portal/importaciones.class.php");
 
 try{
 	if(isset($_GET['id'])){
-		$producto = new Producto;
+		$producto = new Importaciones;
 		if($producto->setId($_GET['id'])){
-			if($producto->readProducto()){
+			if($producto->readImportacion()){
 				require_once("../app/vistas/public/productos/detalles_view.php");
 			}else{
 				throw new Exception("Producto inexistente");
@@ -19,5 +19,6 @@ try{
 }catch(Exception $error){
 	Page::showMessage(3, $error->getMessage(), "index.php");
 }
+
 
 ?>

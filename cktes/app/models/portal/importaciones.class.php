@@ -9,6 +9,8 @@ class Importaciones extends Validator{
 	private $cantidad = null;
 	private $precio = null;
 	private $tamano = null;
+	private $cliente = null;
+	private $estado = null;
 
 	//Métodos para sobrecarga de propiedades
 	//ESTE ES EL ID DE LA IMPORTACION
@@ -117,33 +119,77 @@ class Importaciones extends Validator{
 	public function getCantidad(){
 		return $this->cantidad;
 	}
+	//ESTE ES EL Cliente ID DE LA IMPORTACION
+	public function setCliente($value){
+		if($this->validateId($value)){
+			$this->cliente = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCliente(){
+		return $this->cliente;
+	}
+	//ESTE ES EL Estado DE LA IMPORTACION
+	public function setEstado($value){
+		if($this->validateId($value)){
+			$this->estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado(){
+		return $this->estado;
+	}
 	
-
 	//Metodos para el manejo del CRUD
 	public function getImportacionesONLY(){
-		$sql = "SELECT * from productos";
+		$sql = "SELECT * from productos where id_tipo_producto = 2";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchONLYProducto($value){
-		$sql = "SELECT * FROM productos WHERE nombre LIKE ? ORDER BY nombre";
+		$sql = "SELECT * FROM productos WHERE nombre LIKE ? AND id_tipo_producto = 2 ORDER BY nombre";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function readImportacion(){
-		$sql = "SELECT * FROM productos WHERE id_producto = ?";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? AND id_tipo_producto = 2 ORDER BY id_producto";
 		$params = array($this->id);
-		$producto = Database::getRow($sql, $params);
-		if($producto){
-			$this->nombre = $producto['nombre'];
-			$this->descripcion = $producto['descripcion'];
-			$this->precio = $producto['precio'];
-			$this->imagen = $producto['url_imagen'];
+		$importacion = Database::getRow($sql, $params);
+		if($importacion){
+            $this->nombre = $importacion['nombre'];
+            $this->imagen = $importacion['url_imagen'];
+            $this->descripcion = $importacion['descripcion'];
+			$this->ficha_tecnica = $importacion['ficha_tecnica'];
+			$this->cantidad = $importacion['cantidad'];
+			$this->precio = $importacion['precio'];
+			$this->tamano = $importacion['tamano'];
 			return true;
 		}else{
 			return null;
 		}
 	}
-	
+	public function createReservacion(){
+		$sql = "INSERT INTO reservaciones(id_producto, id_cliente, cantidad, fecha, hora, id_estado) VALUES(?, ?, ?, ?, ?, ?)";
+		$fecha = date("Y/m/d");
+        $hora = date("h:i:s");
+		$estado = 5;
+		$params = array($this->id, $this->cliente, $this->cantidad, $fecha, $hora, $estado);
+		return Database::getRows($sql, $params);
+	}
+	public function Existencias_productos(){
+		$sql = "SELECT cantidad FROM productos WHERE id_producto = ?";
+		$params = array($this->id);
+		return Database::getRows($sql, $params);
+	}
+	public function readImportaciones(){
+		$sql = "SELECT * FROM reservaciones WHERE id_producto = ? AND id_cliente = ? AND id_estado = 5";
+		$params = array($this->id ,$this->cliente);
+		return Database::getRows($sql, $params);
+	}
+
 }
 ?>
