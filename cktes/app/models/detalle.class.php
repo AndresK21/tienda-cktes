@@ -163,14 +163,14 @@ public function readCarrito(){
 			return Database::getRows($sql, $params);
 			}
 	public function getCarrito(){
-			$sql = "SELECT Id_detalle, Nombre_juguete , Precio_juguete , juguete.Imagen , Cantidad , detalle_compra.Id_juguete ,Existencias FROM detalle_compra INNER JOIN juguete USING(Id_juguete) WHERE 	Id_compra=?";
+			$sql = "SELECT id_detalle, nombre, precio , productos.url_imagen , detalle_carrito.cantidad , detalle_carrito.id_producto , productos.cantidad as Existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito=?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 				}
 	public function Comprar(){
-			$sql = "UPDATE compra SET Estado_compra = ?, Fecha=? WHERE Id_compra = ?";
+			$sql = "UPDATE carrito SET estado_carrito = ?, fecha=? WHERE id_carrito = ?";
 			$fechaa = date('y/m/d');
-			$estadofinalizado = 4;
+			$estadofinalizado = 6;
 		    $params = array($estadofinalizado,$fechaa,$this->compra);
 		    return Database::executeRow($sql, $params);
 					}
@@ -181,15 +181,24 @@ public function readCarrito(){
 						
 					}
 	public function maxId(){
-		$sql = "SELECT Id_compra FROM compra WHERE Id_compra= (SELECT MAX(Id_compra) FROM compra) AND Id_cliente = ?";
-		$params = array($this->cliente);
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
+		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->compra = $data['Id_compra'];	
+			$this->estado = $data['estado_carrito'];
+			$this->carrito = $data['id_carrito'];	
 			return true;
 		}else{
 			return false;
 		}
+	}
+	//Se crea la nueva compra 
+	public function createCarrito(){
+		$sql = "INSERT INTO carrito(fecha,id_cliente, estado_carrito) VALUES(?, ?, ?)";
+		$fechaa = date('y-m-d');
+		$estadoo = 5;
+		$params = array($fechaa, $this->id, $estadoo);
+		return Database::executeRow($sql, $params);
 	}
 	public function readHistorial(){
 		$sql = "SELECT Id_compra, Id_cliente,Fecha, Nombre_estado FROM compra INNER JOIN estado ON compra.Estado_compra= estado.Id_estado  WHERE Id_cliente = ? AND Estado_compra = 4";
