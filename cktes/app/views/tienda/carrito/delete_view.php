@@ -1,8 +1,3 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
 <!--Vista para eliminar productos-->
 <form method='post'>
 	<div class='row center-align'>

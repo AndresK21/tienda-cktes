@@ -22,14 +22,32 @@
                     <div class='card-content'>
                     <p><b>Precio (US$) ".$producto->getPrecio()."</b></p>
             ");
-            ?>
             
+            if(isset($_SESSION['id_cliente'])){
+                            print("
+                            
             <button type='submit' name='agregar' class='btn waves-effect waves-light cktes tooltipped' data-tooltip='Realizar Compra'>
             <i class='material-icons'>add_shopping_cart</i>A&ntilde;adir al Carrito</button>
         </div>
     </div>
 </div>
 </form>
+");
+}
+else{
+    print("
+
+        <div class='row'>
+        <div class='col s12 center'>
+        <span class='cyan-text'>NO PUEDE AÑADIR AL CARRITO SIN INICIAR SESION</span>
+        </div>
+    
+        </div>
+        
+        ");
+}
+
+?>
 
 <!-- ESTRELLAS -->
 <?php

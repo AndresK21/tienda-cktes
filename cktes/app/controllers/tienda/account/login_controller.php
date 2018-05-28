@@ -61,7 +61,7 @@ try{
 							$usuario->maxId();  
 							$_SESSION['id_carrito'] = $usuario->getCarrito();
 							//Se hace la comparación de que si la compra ya esta finalizada o no  
-							Page::showMessage(1, "Autenticación correcta", "categorias.php");
+							Page::showMessage(1, "Autenticación correcta", "principal.php");
 							}else{
 								throw new Exception("Clave incorrecta");
 							}

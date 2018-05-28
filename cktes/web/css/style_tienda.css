@@ -7,6 +7,9 @@ body {
   main {
     flex: 1 0 auto;
   }
+  #colorfooter{
+    background-color: #121C2C !important;
+    }
 ::-webkit-scrollbar {
     display: none;
   }

@@ -84,7 +84,7 @@ try{
 	if($data){
 		require_once("../../app/views/dashboard/producto/index_view.php");
 	}else{
-		require_once("../../app/views/dashboard/producto/index_view.php");
+		Page::showMessage(4, "No hay productos disponibles", "create.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), "../cuenta/");

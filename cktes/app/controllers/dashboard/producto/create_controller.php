@@ -14,20 +14,16 @@ try{
                                     if($producto->setId_marca($_POST['marca'])){
                                         if($producto->setId_proveedor($_POST['proveedor'])){
                                             if($producto->setId_presentacion($_POST['presentacion'])){
-                                                if($producto->setId_tipo($_POST['tipo'])){
-                                                    if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-                                                        if($producto->setImagen($_FILES['archivo'])){
-                                                            if($producto->createProducto()){
-                                                                Page::showMessage(1, "Producto creado", "index.php");
-                                                            }
-                                                        }else{
-                                                            throw new Exception($producto->getImageError());
+                                                if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                                                    if($producto->setImagen($_FILES['archivo'])){
+                                                        if($producto->createProducto()){
+                                                            Page::showMessage(1, "Producto creado", "index.php");
                                                         }
                                                     }else{
-                                                        throw new Exception("Seleccione una imagen");
+                                                        throw new Exception($producto->getImageError());
                                                     }
                                                 }else{
-                                                    throw new Exception("Seleccione un tipo de producto");
+                                                    throw new Exception("Seleccione una imagen");
                                                 }
                                             }else{
                                                 throw new Exception("Seleccione una presentacion");
