@@ -4,7 +4,7 @@
 
 <!--Formulario para insertar marcas-->
 <div class="row">
-    <form class="col s12" method="post">
+    <form method="post">
         <div class="row">
             <div class="input-field col s12">
                 <input id="marca1" name="marca" type="text" class="validate"  value='<?php print($marca->getMarca())?>' required />

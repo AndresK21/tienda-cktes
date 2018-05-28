@@ -33,19 +33,19 @@ try{
 		$data2 = $pedidoc->getPedidoc();
     }
 
-    $pedido = new Pedido;
-	if(isset($_POST['buscar'])){
-		$_POST = $pedido->validateForm($_POST);
-		$data = $pedido->searchPedidon($_POST['busqueda']);
-		if($data){
-			$rows = count($data);
+    $sustrato = new Sustrato;
+	if(isset($_POST['buscar_sustrato'])){
+		$_POST = $sustrato->validateForm($_POST);
+		$data3 = $sustrato->searchSustratos($_POST['busqueda_sustrato']);
+		if($data3){
+			$rows = count($data3);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data = $pedido->getPedidon();
+			$data3 = $sustrato->getSustratos();
 		}
 	}else{
-		$data = $pedido->getPedidon();
+		$data3 = $sustrato->getSustratos();
     }
 
     $pedido = new Pedido;
