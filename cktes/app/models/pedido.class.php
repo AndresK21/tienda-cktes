@@ -109,8 +109,8 @@ class Pedido extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function searchPedido($value){
-		$sql = "SELECT id_pedido, fecha, archivo, clientes.nombres, empleado.nombres, estado, id_placa FROM pedido INNER JOIN clientes USING(id_cliente) INNER JOIN empleado USING(id_empleado) INNER JOIN estado USING(id_estado) WHERE fecha LIKE ? ORDER BY id_pedido";
-		$params = array("%$value%");
+		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_pedido";
+		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function createPedido(){
