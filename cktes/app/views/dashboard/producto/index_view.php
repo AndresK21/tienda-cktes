@@ -63,7 +63,7 @@
                             foreach($data as $row){
                                 print("
                                 <tr>
-                                    <td><img src='../../web/img/productos/$row[imagen]' class='materialboxed' width='50' height='50'></td>
+                                    <td><img src='../../web/img/productos/$row[url_imagen]' class='materialboxed' width='50' height='50'></td>
                                     <td>$row[nombre]</td>
                                     <td>$row[cantidad]</td>
                                     <td>$row[precio]</td>
