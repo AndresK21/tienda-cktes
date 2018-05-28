@@ -129,7 +129,13 @@ class Reservacion extends Validator{
 		return $this->nombre;
     }
 
-	//Metodos para el manejo del CRUD
+    //Metodos para el manejo del CRUD
+    public function getEstados(){
+		$sql = "SELECT id_estado, estado FROM estado WHERE id_tipo_estado = 6";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+
 	public function getReservacion(){
 		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) ORDER BY id_reservacion";
 		$params = array(null);

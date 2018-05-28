@@ -17,21 +17,21 @@
         </div>
         <div class="row">
             <div class="input-field ">
-                <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($reservacion->getCantidad())?>" id="disabled" type="text" class="validate">
                 <label for="cantidad" class="black-text">Cantidad</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <select>
-                    <option value="" disabled selected>Elija un estado</option>
-                    <option value="1">Nuevo pedido</option>
-                    <option value="2">Operando</option>
-                    <option value="3">En desarrollo</option>
-                    <option value="3">Completado</option>
-                </select>
-                <label class="black-text">Estado</label>
+                <?php
+                    Page::showSelect("Estado", "estado", $reservacion->getId_estado(), $reservacion->getEstados());
+                ?>
             </div>
         </div>
         <a class="waves-effect waves-light btn grey darken-3"><i class="material-icons left">cloud_download</i>Descargar archivo</a>
     </form>
+</div>
+<div class="col s12 right-align">
+    <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
+    <button type='submit' name='actualizar' class='btn waves-effect blue-grey darken-4'><i class='material-icons'>save</i>Guardar</button>
+</div>
