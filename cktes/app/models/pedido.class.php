@@ -7,7 +7,16 @@ class Pedido extends Validator{
     private $id_empleado = null;
     private $id_estado = null;
     private $archivo = null;
-    private $id_placa = null;
+	private $id_placa = null;
+	
+	private $nombres = null;
+	private $apellidos = null;
+	private $estado = null;
+	private $tipo_placa = null;
+	private $sustrato = null;
+	private $medida = null;
+	private $capas = null;
+	private $cantidad = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_pedido($value){
@@ -102,6 +111,96 @@ class Pedido extends Validator{
 		return $this->id_placa;
 	}
 
+
+	public function setNombres($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->nombres = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getNombres(){
+		return $this->nombres;
+	}
+	public function setApellidos($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->apellidos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getApellidos(){
+		return $this->apellidos;
+	}
+	public function setEstado($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado(){
+		return $this->estado;
+	}
+	public function setTipo_placa($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->tipo_placa = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getTipo_placa(){
+		return $this->tipo_placa;
+	}
+	public function setSustrato($value){
+		if($this->validateAlphanumeric($value, 1, 40)){
+			$this->sustrato = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getSustrato(){
+		return $this->sustrato;
+	}
+	public function setMedida($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->medida = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getMedida(){
+		return $this->medida;
+	}
+	public function setCapas($value){
+		if($this->validateAlphanumeric($value, 1, 5)){
+			$this->capas = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCapas(){
+		return $this->capas;
+	}
+	public function setCantidad($value){
+		if($this->validateAlphanumeric($value, 1, 5)){
+			$this->cantidad = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCantidad(){
+		return $this->cantidad;
+    }
+
 	//Metodos para el manejo del CRUD
 	public function getPedidon(){
 		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_estado = 7 ORDER BY id_pedido";
@@ -129,15 +228,22 @@ class Pedido extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readPedido(){
-		$sql = "SELECT fecha, archivo, id_cliente, id_empleado, id_estado, id_placa FROM pedido WHERE id_pedido = ? ORDER BY id_pedido";
+		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_pedido = ? ORDER BY id_pedido";
 		$params = array($this->id_pedido);
 		$pedido = Database::getRow($sql, $params);
 		if($pedido){
-            $this->fecha = $pedido['fecha'];
-            $this->archivo = $pedido['archivo'];
-            $this->id_cliente = $pedido['id_cliente'];
-			$this->id_empleado = $pedido['id_empleado'];
-			$this->id_estado = $pedido['id_estado'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
+			$this->id_placa = $pedido['id_placa'];
 			$this->id_placa = $pedido['id_placa'];
 			return true;
 		}else{
