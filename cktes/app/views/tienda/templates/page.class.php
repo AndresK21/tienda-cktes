@@ -39,11 +39,15 @@ class Page extends Component{
                           <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
                           <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                           <li><a href='historial.php'><i class='material-icons'>shopping_cart</i>Historial</a></li>
                           <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
 =======
                           <li><a href='../account/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
 >>>>>>> parent of 6e24ee8... dsadsadsdsaads
+=======
+                          <li><a href='../account/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
+>>>>>>> parent of 16ab737... Merge branch 'master' of https://github.com/AndresK21/tienda-cktes
                   </ul>
                   <li><div class='sandwich' id='btn'>
                     <span class='top'></span>
