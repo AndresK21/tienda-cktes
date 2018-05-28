@@ -221,7 +221,7 @@
                                 <!--Formulario ineditable donde se muestra la informacion de la idea-->
                                 <div class="">
                                     <form class="">
-                                        <div class="row">
+                                    <div class="row">
                                             <div class="input-field ">
                                                 <input disabled value="I am not editable" id="disabled" type="number" class="validate">
                                                 <label for="cliente" class="black-text">Cliente</label>
@@ -300,7 +300,7 @@
                                 <!--Formulario para enviar mensaje-->
                                 <div class="row">
                                     <form class="">
-                                        <div class="row">
+                                    <div class="row">
                                             <div class="input-field ">
                                                 <input id="correo" type="text" class="validate">
                                                 <label for="correo" class="black-text">Correo electr&oacute;nico</label>
