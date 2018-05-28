@@ -154,7 +154,7 @@ public function readCarrito(){
 	}
 	public function Modificarexistencia(){
 		    $sql = "UPDATE productos SET cantidad = ? WHERE id_producto = ?";
-			$params = array($this->cantidad, $this->juguete);
+			$params = array($this->cantidad, $this->producto);
 			return Database::executeRow($sql, $params);
 		}
 	public function getExistenciaas(){
