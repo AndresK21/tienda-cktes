@@ -202,6 +202,12 @@ class Pedido extends Validator{
     }
 
 	//Metodos para el manejo del CRUD
+	public function getEstados(){
+		$sql = "SELECT id_estado, estado FROM estado WHERE id_tipo_estado = 5";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	
 	public function getPedidon(){
 		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_estado = 7 ORDER BY id_pedido";
 		$params = array(null);
@@ -241,7 +247,7 @@ class Pedido extends Validator{
 			$this->apellidos = $pedido['apellidos'];
 			$this->tipo_placa = $pedido['tipo_placa'];
 			$this->sustrato = $pedido['sustrato'];
-			$this->medidas = $pedido['medidas'];
+			$this->medida = $pedido['medida'];
 			$this->capas = $pedido['capas'];
 			$this->cantidad = $pedido['cantidad'];
 			$this->estado = $pedido['estado'];
