@@ -35,18 +35,18 @@ class Tipo_desarrollo extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
-	public function searchTipo_desasrrollo($value){
+	public function searchTipo_desarrollo($value){
 		$sql = "SELECT id_tipo_desarrollo, tipo_desarrollo FROM tipo_desarrollo WHERE tipo_desarrollo LIKE ? ORDER BY id_tipo_desarrollo";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
-	public function createTipo_desasrrollo(){
+	public function createTipo_desarrollo(){
 		$sql = "INSERT INTO tipo_desarrollo(tipo_desarrollo) VALUES (?)";
 		$params = array($this->tipo_desarrollo);
 		return Database::executeRow($sql, $params);
 	}
-	public function readTipo_desasrrollo(){
-		$sql = "SELECT tipo_desarrollo FROM tipo_desarrollo WHERE id_tipo_desarrollo = ? ORDER BY idtipo_desarrollo";
+	public function readTipo_desarrollo(){
+		$sql = "SELECT tipo_desarrollo FROM tipo_desarrollo WHERE id_tipo_desarrollo = ? ORDER BY id_tipo_desarrollo";
 		$params = array($this->id_tipo_desarrollo);
 		$tipo_desarrollo = Database::getRow($sql, $params);
 		if($tipo_desarrollo){
@@ -56,12 +56,12 @@ class Tipo_desarrollo extends Validator{
 			return null;
 		}
 	}
-	public function updateTipo_desasrrollo(){
+	public function updateTipo_desarrollo(){
 		$sql = "UPDATE tipo_desarrollo SET tipo_desarrollo = ? WHERE id_tipo_desarrollo = ?";
 		$params = array($this->tipo_desarrollo, $this->id_tipo_desarrollo);
 		return Database::executeRow($sql, $params);
 	}
-	public function deleteTipo_desasrrollo(){
+	public function deleteTipo_desarrollo(){
 		$sql = "DELETE FROM tipo_desarrollo WHERE id_tipo_desarrollo = ?";
 		$params = array($this->id_tipo_desarrollo);
 		return Database::executeRow($sql, $params);

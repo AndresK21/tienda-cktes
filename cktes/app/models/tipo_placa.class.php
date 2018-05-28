@@ -5,7 +5,7 @@ class Tipo_placa extends Validator{
     private $tipo_placa = null;
 
     //Métodos para sobrecarga de propiedades
-    public function setId_sustrato($value){
+    public function setId_tipo_placa($value){
 		if($this->validateId($value)){
 			$this->id_tipo_placa = $value;
 			return true;
@@ -13,7 +13,7 @@ class Tipo_placa extends Validator{
 			return false;
 		}
 	}
-	public function getId_sustrato(){
+	public function getId_tipo_placa(){
 		return $this->id_tipo_placa;
     }
     
@@ -46,11 +46,11 @@ class Tipo_placa extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readTipo_placa(){
-		$sql = "SELECT tipo_placa FROM tipo_placa WHERE id_tipo_placa = ? ORDER BY idtipo_placa";
+		$sql = "SELECT tipo_placa FROM tipo_placa WHERE id_tipo_placa = ? ORDER BY id_tipo_placa";
 		$params = array($this->id_tipo_placa);
 		$tipo_placa = Database::getRow($sql, $params);
-		if(tipo_placa){
-            $this->tipo_placa = tipo_placa['tipo_placa'];
+		if($tipo_placa){
+            $this->tipo_placa = $tipo_placa['tipo_placa'];
 			return true;
 		}else{
 			return null;
