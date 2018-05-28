@@ -42,7 +42,7 @@
                             <thead class="grey darken-3 white-text">
                                 <tr>
                                     <th>Cliente</th>
-                                    <th>Nombre</th>
+                                    <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Estado</th>
                                     <th></th>

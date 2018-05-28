@@ -7,6 +7,7 @@ class Reservacion extends Validator{
     private $hora = null;
     private $id_producto = null;
     private $id_cliente = null;
+    private $id_estado = null;
 
     private $nombres = null;
     private $apellidos = null;
@@ -82,6 +83,17 @@ class Reservacion extends Validator{
 	public function getId_cliente(){
 		return $this->id_cliente;
     }
+    public function setId_estado($value){
+		if($this->validateId($value)){
+			$this->id_estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_estado(){
+		return $this->id_estado;
+    }
 
 
     public function setNombres($value){
@@ -152,7 +164,7 @@ class Reservacion extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readReservacion(){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, reservaciones.id_estado FROM reservaciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE id_reservacion = ? ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.id_producto, reservaciones.id_cliente, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, reservaciones.id_estado FROM reservaciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE id_reservacion = ? ORDER BY id_reservacion";
 		$params = array($this->id_reservacion);
 		$proveedor = Database::getRow($sql, $params);
 		if($proveedor){
@@ -164,6 +176,8 @@ class Reservacion extends Validator{
             $this->nombres = $proveedor['nombres'];
             $this->apellidos = $proveedor['apellidos'];
             $this->id_estado = $proveedor['id_estado'];
+            $this->id_cliente = $proveedor['id_cliente'];
+            $this->id_producto = $proveedor['id_producto'];
 			return true;
 		}else{
 			return null;
