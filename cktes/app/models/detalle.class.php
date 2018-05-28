@@ -201,7 +201,7 @@ public function readCarrito(){
 		return Database::executeRow($sql, $params);
 	}
 	public function readHistorial(){
-		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND Estado_compra = 6";
+		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND estado_carrito = 6";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 					
