@@ -79,7 +79,7 @@ class Empleado extends Validator{
     }
     
     public function setContrasena($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
+		if($this->validatePassword($value)){
 			$this->contrasena = $value;
 			return true;
 		}else{

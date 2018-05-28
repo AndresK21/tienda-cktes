@@ -38,7 +38,7 @@ class Page extends Component{
                   <ul id='dropdown' class='dropdown-content'>
                           <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
                           <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
-                          <li><a href='../account/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
+                          <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
                   </ul>
                   <li><div class='sandwich' id='btn'>
                     <span class='top'></span>
@@ -54,7 +54,7 @@ class Page extends Component{
                           <li class='col s12'><a class='container' href='#'>Portal</a></li>
                           <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
                           <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
-                          <li class='col s12'><a class='container' href='pcb.php'>Carrito</a></li>
+                          <li class='col s12'><a class='container' href='carrito.php'>Carrito</a></li>
                         </ul>
                       </div>
                   </div>

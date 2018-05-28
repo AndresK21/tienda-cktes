@@ -11,6 +11,7 @@ class Importaciones extends Validator{
 	private $tamano = null;
 	private $cliente = null;
 	private $estado = null;
+	private $producto = null;
 
 	//Métodos para sobrecarga de propiedades
 	//ESTE ES EL ID DE LA IMPORTACION
@@ -143,6 +144,18 @@ class Importaciones extends Validator{
 	public function getEstado(){
 		return $this->estado;
 	}
+	//ESTE ES EL Estado DE LA IMPORTACION
+	public function setProducto($value){
+		if($this->validateId($value)){
+			$this->producto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getProducto(){
+		return $this->producto;
+	}
 	
 	//Metodos para el manejo del CRUD
 	public function getImportacionesONLY(){
@@ -188,6 +201,21 @@ class Importaciones extends Validator{
 	public function readImportaciones(){
 		$sql = "SELECT * FROM reservaciones WHERE id_producto = ? AND id_cliente = ? AND id_estado = 5";
 		$params = array($this->id ,$this->cliente);
+		return Database::getRows($sql, $params);
+	}
+
+	public function cargarReservaciones(){
+		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
+		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
+
+	public function comprarReservacion(){
+		$sql = "UPDATE reservaciones SET id_estado = ? , fecha = ? , hora = ? WHERE id_cliente = ? AND id_reservacion = ? AND id_estado = 5";
+		$fecha = date("Y/m/d");
+        $hora = date("h:i:s");
+        $estado = 6;
+		$params = array($estado ,$fecha ,$hora ,$this->cliente ,$this->id);
 		return Database::getRows($sql, $params);
 	}
 
