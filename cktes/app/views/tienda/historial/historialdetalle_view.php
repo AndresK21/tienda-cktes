@@ -33,7 +33,7 @@ foreach($detalles as $detalle){
     </thead>
     <tbody>
       <tr>
-        <td><img class='responsive-img' src='../web/images/productos/$detalle[url_imagen]'></td>
+        <td><img class='responsive-img' height='75' width='100' src='../web/img/productos/$detalle[url_imagen]'></td>
         <td class='green-text'>$detalle[nombre]</td>
         <td class='green-text'>$detalle[precio]</td>
         <td class='green-text'>$detalle[cantidad]</td>
