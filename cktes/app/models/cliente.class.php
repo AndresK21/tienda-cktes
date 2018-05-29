@@ -140,8 +140,8 @@ class Cliente extends Validator{
 	}
 	
 	public function changePassword(){
-		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = "UPDATE cliente SET Contraseña = ? WHERE Id_cliente = ?";
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+		$sql = "UPDATE clientes SET contrasena = ? WHERE id_cliente = ?";
 		$params = array($hash, $this->id);
 		return Database::executeRow($sql, $params);
 	}
@@ -233,6 +233,26 @@ class Cliente extends Validator{
 		$sql = "SELECT id_tipo_cliente, tipo_cliente FROM tipo_cliente";
 		$params = array(null);
 		return Database::getRows($sql, $params);
+	}
+	public function readUsuario(){
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico FROM clientes WHERE id_cliente = ?";
+		$params = array($this->id);
+		$cliente = Database::getRow($sql, $params);
+		if($cliente){
+            $this->estado = $cliente['estado_cliente'];
+			$this->nombres = $cliente['nombres'];
+            $this->apellidos = $cliente['apellidos'];
+			$this->correo = $cliente['correo_electronico'];
+			
+			return true;
+		}else{
+			return null;
+		}
+	}
+	public function updateUsuario(){
+		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ? WHERE id_cliente = ?";
+		$params = array($this->nombres, $this->apellidos, $this->correo,  $this->id);
+		return Database::executeRow($sql, $params);
 	}
 
 }

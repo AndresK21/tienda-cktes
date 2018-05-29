@@ -36,8 +36,8 @@ class Page extends Component{
                   <ul class='right'>
                   <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i><span/><span class='corre'>$_SESSION[correo_electronico]</span></a></li>
                   <ul id='dropdown' class='dropdown-content'>
-                          <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
-                          <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
+                          <li><a href='perfil.php'><i class='material-icons'>face</i>Editar perfil</a></li>
+                          <li><a href='contrasena.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
                           <li><a href='historial.php'><i class='material-icons'>shopping_cart</i>Historial</a></li>
                           <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
                   </ul>
