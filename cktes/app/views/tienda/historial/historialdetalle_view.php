@@ -16,7 +16,7 @@
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Subtotal</th>
-
+                <th>Valoraci&oacute;n</th>
             </tr>
 
             <?php
@@ -38,6 +38,7 @@ foreach($detalles as $detalle){
         <td class='green-text'>$detalle[precio]</td>
         <td class='green-text'>$detalle[cantidad]</td>
         <td class='green-text'>$$subtotal</td>
+        <td><a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='right' data-delay='50' data-tooltip='Valorar' href='valoracion.php?id=$detalle[id_producto]'><i class='material-icons blue-grey-text text-darken-4 prefix'>comment</i></a></td>
 
       </tr>
     ");

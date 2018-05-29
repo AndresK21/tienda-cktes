@@ -66,18 +66,21 @@
 <div class="row">
     <div class="col s12 m12 l8 offset-l2">
     <ul class="collection with-header">
-        <li class="collection-header center"><h4>Comentarios</h4></li>
+    <li class="collection-header center"><h4>Comentarios</h4></li>
+    </ul>
     <?php
         foreach($valoracion2 as $valoracionesR){
         print(" 
+        <ul class='collection'>
             <li class='collection-item avatar'>
             <i class='cktes material-icons circle'>comment</i>
             <span class='card-title'><b>$valoracionesR[correo_electronico]</b></span>
             <p>$valoracionesR[comentario]</p>
             </li>
         </ul>
-    </div>
+    
         ");
         }
     ?>
+</div>
 </div>

@@ -84,6 +84,18 @@ class Valoracion extends Validator{
 		$params = array($this->id_producto);
 		return Database::getRows($sql, $params);
 	}
+	public function getValoracionesP(){
+		$sql = "SELECT ROUND(AVG(estrellas))AS estrella,valoraciones.id_producto, valoraciones.id_valoracion, cliente.nombre_usuario, valoraciones.comentario FROM valoraciones INNER JOIN cliente ON cliente.id_cliente = valoraciones.id_cliente WHERE id_producto = ? ";
+		$params = array($this->id_producto);
+		return Database::getRows($sql, $params);
+	}
+
+	public function getValoraciones2(){
+		$sql = "SELECT id_valoracion, comentario, id_producto FROM valoraciones WHERE id_producto = ?";
+		$params = array($this->id_producto);
+		return Database::getRows($sql, $params);
+	}
+
 	public function searchValoracion($value){
 		$sql = "SELECT id_valoracion, estrellas, comentario, nombre, nombres, apellidos FROM valoraciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE comentario LIKE ? ORDER BY id_valoracion";
 		$params = array("%$value%");
@@ -91,7 +103,7 @@ class Valoracion extends Validator{
 	}
 	public function createValoracion(){
 		$sql = "INSERT INTO valoraciones(estrellas, comentario, id_producto, id_cliente) VALUES (?, ?, ?, ?)";
-		$params = array($this->estrellas, $this->comentarios, $this->id_producto, $this->id_cliente);
+		$params = array($this->estrellas, $this->comentario, $this->id_producto, $this->id_cliente);
 		return Database::executeRow($sql, $params);
 	}
 	public function readValoracion(){
