@@ -11,6 +11,7 @@ class Importaciones extends Validator{
 	private $tamano = null;
 	private $cliente = null;
 	private $estado = null;
+	private $producto = null;
 
 	//Métodos para sobrecarga de propiedades
 	//ESTE ES EL ID DE LA IMPORTACION
@@ -143,6 +144,18 @@ class Importaciones extends Validator{
 	public function getEstado(){
 		return $this->estado;
 	}
+	//ESTE ES ELPRoducto IdDE LA IMPORTACION
+	public function setProducto($value){
+		if($this->validateId($value)){
+			$this->producto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getProducto(){
+		return $this->producto;
+	}
 	
 	//Metodos para el manejo del CRUD
 	public function getImportacionesONLY(){
@@ -207,6 +220,17 @@ class Importaciones extends Validator{
 	public function cargarReservaciones(){
 		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
 		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
+    
+    public function EliminarReservacion(){
+		$sql = "DELETE FROM reservaciones WHERE id_reservacion = ?";
+		$params = array($this->id);
+		return Database::getRows($sql, $params);
+	}
+	public function modificarReservacion(){
+		$sql = "UPDATE reservaciones SET cantidad = ? WHERE id_reservacion = ?";
+		$params = array($this->cantidad ,$this->id);
 		return Database::getRows($sql, $params);
 	}
 

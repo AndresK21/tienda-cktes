@@ -102,7 +102,8 @@ class Page extends Component{
     }
   }
 	public static function templateFooter(){
-    print("	
+    print("
+      </main>
     <footer class='page-footer indigo darken-4'>
     <div class='container'>
       <div class='row'>

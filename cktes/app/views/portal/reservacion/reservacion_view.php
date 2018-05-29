@@ -24,8 +24,8 @@
         <td>$importacion[cantidad]</td> 
         <td>$".$importacion['precio']*$importacion['cantidad']."</td>
         <td>
-        <a href='modificar.php?id=$importacion[id_reservacion]' class='blue-text modal-trigger' ><i class='material-icons'>mode_edit</i></a>
-        <a href='delete.php?id=$importacion[id_reservacion]' class='red-text'><i class='material-icons'>delete</i></a>
+        <a href='modificar_reservacion.php?id=$importacion[id_reservacion]' class='blue-text modal-trigger' ><i class='material-icons'>mode_edit</i></a>
+        <a href='delete_reservacion.php?id=$importacion[id_reservacion]' class='red-text'><i class='material-icons'>delete</i></a>
       </td>
       </tr>
     ");
