@@ -123,10 +123,10 @@ class Detalle extends Validator{
 			return null;
 		}
 	}
-	public function createCarrito(){
+	public function createCompra(){
 		$sql = "INSERT INTO carrito(fecha, id_cliente, estado_carrito) VALUES(?, ?, ?)";
 		$fechaa = date('y-m-d');
-		$estadoo = 5;
+		$estadoo = 3;
 		$params = array($fechaa, $this->cliente, $estadoo);
 		return Database::executeRow($sql, $params);
 	}
@@ -180,19 +180,26 @@ public function readCarrito(){
 			return Database::getRows($sql, $params);
 						
 					}
-					public function maxId(){
-						$sql = "SELECT id_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
-						$params = array($this->cliente);
-						$data = Database::getRow($sql, $params);
-						if($data){
-							$this->compra = $data['id_carrito'];	
-							return true;
-						}else{
-							return false;
-						}
-					}
+	public function maxId(){
+		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->estado = $data['estado_carrito'];
+			$this->carrito = $data['id_carrito'];	
+			return true;
+		}else{
+			return false;
+		}
+	}
 	//Se crea la nueva compra 
-
+	public function createCarrito(){
+		$sql = "INSERT INTO carrito(fecha,id_cliente, estado_carrito) VALUES(?, ?, ?)";
+		$fechaa = date('y-m-d');
+		$estadoo = 5;
+		$params = array($fechaa, $this->id, $estadoo);
+		return Database::executeRow($sql, $params);
+	}
 	public function readHistorial(){
 		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND estado_carrito = 6";
 		$params = array($this->cliente);

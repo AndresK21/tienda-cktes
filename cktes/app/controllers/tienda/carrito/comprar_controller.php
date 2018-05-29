@@ -26,7 +26,7 @@ if(isset($_POST['comprar'])){
                           Page::showMessage(1, "Compra Realizada", 'categorias.php');
                           //Se crea otra compra seleccionando el máximo Id
                           $comprar->setCliente($_SESSION['id_cliente']);
-                          $comprar->createCarrito();
+                          $comprar->createCompra();
                           $comprar->maxId();  
                           $_SESSION['id_carrito'] = $comprar->getCompra();
                         }
