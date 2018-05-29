@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2018 a las 10:37:40
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 29-05-2018 a las 04:55:03
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -275,6 +275,29 @@ INSERT INTO `estado` (`id_estado`, `estado`, `id_tipo_estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `importacion_especial`
+--
+
+CREATE TABLE `importacion_especial` (
+  `id_importacion` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `producto` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_estado` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `importacion_especial`
+--
+
+INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `producto`, `cantidad`, `id_cliente`, `id_estado`) VALUES
+(1, '2018-05-15', 'Este es el producto que necesito', 25, 9, 9),
+(2, '2018-05-15', 'Este es otro producto que necesito', 25, 13, 9);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `impuestos`
 --
 
@@ -418,7 +441,7 @@ INSERT INTO `presentaciones` (`id_presentacion`, `presentacion`, `id_tipo_produc
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
   `nombre` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `url_imagen` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `ficha_tecnica` varchar(550) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
@@ -435,7 +458,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre`, `imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`) VALUES
+INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`) VALUES
 (1, 'Conan', 'ultricies', 'erat vitae risus. Duis a', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 20, 9.73, '46381', 1, 1, 1, 1, 1),
 (2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 100, 4.69, '29558', NULL, 1, 2, 2, 1),
 (3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', -5, 8.97, '55284', 1, 2, 1, 1, 2),
@@ -696,6 +719,14 @@ ALTER TABLE `estado`
   ADD KEY `estado_ibfk_1` (`id_tipo_estado`);
 
 --
+-- Indices de la tabla `importacion_especial`
+--
+ALTER TABLE `importacion_especial`
+  ADD PRIMARY KEY (`id_importacion`),
+  ADD KEY `id_cliente` (`id_cliente`),
+  ADD KEY `id_estado` (`id_estado`);
+
+--
 -- Indices de la tabla `impuestos`
 --
 ALTER TABLE `impuestos`
@@ -837,7 +868,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `desarrollo`
 --
 ALTER TABLE `desarrollo`
-  MODIFY `id_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_carrito`
@@ -856,6 +887,12 @@ ALTER TABLE `empleado`
 --
 ALTER TABLE `estado`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `importacion_especial`
+--
+ALTER TABLE `importacion_especial`
+  MODIFY `id_importacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `impuestos`
@@ -915,13 +952,13 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
-  MODIFY `id_reservacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_reservacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sustrato`
 --
 ALTER TABLE `sustrato`
-  MODIFY `id_sustrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_sustrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_cliente`
@@ -933,7 +970,7 @@ ALTER TABLE `tipo_cliente`
 -- AUTO_INCREMENT de la tabla `tipo_desarrollo`
 --
 ALTER TABLE `tipo_desarrollo`
-  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_estado`
@@ -945,7 +982,7 @@ ALTER TABLE `tipo_estado`
 -- AUTO_INCREMENT de la tabla `tipo_placa`
 --
 ALTER TABLE `tipo_placa`
-  MODIFY `id_tipo_placa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_tipo_placa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_producto`
@@ -1001,6 +1038,13 @@ ALTER TABLE `empleado`
 --
 ALTER TABLE `estado`
   ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`id_tipo_estado`) REFERENCES `tipo_estado` (`id_tipo_estado`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `importacion_especial`
+--
+ALTER TABLE `importacion_especial`
+  ADD CONSTRAINT `importacion_especial_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `importacion_especial_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `manejo_impuesto`

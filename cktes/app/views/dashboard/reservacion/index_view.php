@@ -86,15 +86,20 @@
         <!-- Barra de busqueda -->
         <div class="container">
             <div class="row">
-                <div class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <i class="material-icons prefix">search</i>
-                        <input type="text" id="autocomplete-input" class="autocomplete">
-                        <label for="autocomplete-input">Buscar por estado</label>
+                <form method="post">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <i class="material-icons prefix">search</i>
+                                <input type="text" id="buscar_label" name='busqueda_impor'>
+                                <label for="buscar_label" class="black-text">Buscar pedido por nombre del cliente</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <button type='submit' name='buscar_impor' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <form>
             </div>
         </div>
 
@@ -117,48 +122,25 @@
                             </thead>
 
                             <tbody>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>25</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>50</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>50</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>25</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>25</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>50</p></td>
-                            </tr>
-                            <tr>
-                                <td class="modal-trigger espacio" href="#modal5">Nombre de cliente</td>
-                                <td><p>Importaci&oacute;n nueva</p></td>
-                                <td><p>Producto</p></td>
-                                <td><p>15</p></td>
-                            </tr>
+                                <?php
+                                    if($data2){
+                                        foreach($data2 as $row){
+                                            print("
+                                            <tr>
+                                                <td>$row[nombres] $row[apellidos]</td>
+                                                <td>$row[estado]</td>
+                                                <td>$row[producto]</td>
+                                                <td>$row[cantidad]</td>
+                                                <td>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_impor.php?id=$row[id_importacion]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
+                                                </td>
+                                            </tr>
+                                            ");
+                                        }
+                                    }else{
+
+                                    }
+                                ?>
                             </tbody>
                         </table>
 

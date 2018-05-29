@@ -5,26 +5,26 @@
     <form method="post">
         <div class="row">
             <div class="input-field ">
-                <input disabled value="<?php print($reservacion->getNombres()." ".$reservacion->getApellidos()) ?>" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($importacion->getNombres()." ".$importacion->getApellidos()) ?>" id="disabled" type="text" class="validate">
                 <label for="cliente" class="black-text">Cliente</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field ">
-                <input disabled value="<?php print($reservacion->getNombre())?>" id="disabled" type="text" class="validate"></input>
+                <input disabled value="<?php print($importacion->getProducto())?>" id="disabled" type="text" class="validate"></input>
                 <label for="producto" class="black-text">Producto solicitado</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field ">
-                <input disabled value="<?php print($reservacion->getCantidad())?>" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($importacion->getCantidad())?>" id="disabled" type="text" class="validate">
                 <label for="cantidad" class="black-text">Cantidad</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <?php
-                    Page::showSelect("Estado", "estado", $reservacion->getId_estado(), $reservacion->getEstados());
+                    Page::showSelect("Estado", "estado", $importacion->getId_estado(), $importacion->getEstados());
                 ?>
             </div>
         </div>

@@ -1,14 +1,14 @@
 <?php
-require_once("../../app/models/reservaciones.class.php");
+require_once("../../app/models/importaciones.class.php");
 try{
     if(isset($_GET['id'])){ //Llama al id de la maraca
-        $reservacion = new Reservacion;
-        if($reservacion->setId_Reservacion($_GET['id'])){ //Establece el id en una varible para usarla despues
-            if($reservacion->readReservacion()){
+        $importacion = new Importacion;
+        if($importacion->setId_Importacion($_GET['id'])){ //Establece el id en una varible para usarla despues
+            if($importacion->readImportacion()){
                 if(isset($_POST['editar'])){
-                    $_POST = $reservacion->validateForm($_POST);
-                    if($reservacion->setId_estado($_POST['estado'])){
-                        if($reservacion->updateReservacion()){
+                    $_POST = $importacion->validateForm($_POST);
+                    if($importacion->setId_estado($_POST['estado'])){
+                        if($importacion->updateImportacion()){
                             Page::showMessage(1, "importacion modificada", "index.php");
                         }else{
                             throw new Exception(Database::getException());
@@ -29,5 +29,5 @@ try{
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../../app/views/dashboard/reservacion/update_view.php");
+require_once("../../app/views/dashboard/reservacion/update_view2.php");
 ?>
