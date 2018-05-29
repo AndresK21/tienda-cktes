@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><img class='responsive-img' src='../web/images/productos/$detalle[url_imagen]'></td>
+            <td><img class='responsive-img' src='../web/img/productos/$detalle[url_imagen]'></td>
             <td>$detalle[nombre]</td>
             <td>$detalle[precio]</td>
             <td>$detalle[cantidad]</td>
