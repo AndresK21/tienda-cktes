@@ -36,7 +36,7 @@ try{
     $sustrato = new Sustrato;
 	if(isset($_POST['buscar_sustrato'])){
 		$_POST = $sustrato->validateForm($_POST);
-		$data3 = $sustrato->searchSustratos($_POST['busqueda_sustrato']);
+		$data3 = $sustrato->searchSustrato($_POST['busqueda_sustrato']);
 		if($data3){
 			$rows = count($data3);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);

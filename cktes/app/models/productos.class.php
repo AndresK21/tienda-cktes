@@ -280,7 +280,7 @@ class Producto extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readProducto(){
-		$sql = "SELECT nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
