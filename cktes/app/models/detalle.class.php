@@ -126,13 +126,12 @@ class Detalle extends Validator{
 	public function createCompra(){
 		$sql = "INSERT INTO carrito(fecha, id_cliente, estado_carrito) VALUES(?, ?, ?)";
 		$fechaa = date('y-m-d');
-		$estadoo = 3;
+		$estadoo = 5;
 		$params = array($fechaa, $this->cliente, $estadoo);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateDetalle(){
 		$sql = "UPDATE detalle_carrito SET cantidad = ? WHERE id_producto = ? AND id_carrito= ?";
-		
 		$params = array($this->cantidad, $this->producto, $this->compra);
 		return Database::executeRow($sql, $params);
 	}
@@ -182,7 +181,7 @@ public function readCarrito(){
 					}
 	public function maxId(){
 		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
-		$params = array($this->id);
+		$params = array($this->cliente);
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->estado = $data['estado_carrito'];
