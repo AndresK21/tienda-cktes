@@ -76,7 +76,7 @@ try{
 				}
 			}		
 	}else{
-		Page::showMessage(3, "No hay usuarios disponibles", "registrar.php");
+		Page::showMessage(3, "No hay usuarios disponibles", "acceder.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
