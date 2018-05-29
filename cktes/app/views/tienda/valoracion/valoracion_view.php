@@ -34,7 +34,7 @@
                     <div class="input-field col s12 l6">
                         <input id="hola" type="text" name="comentario"     >
                         <label for="hola">Comentar</label>
-                        <button class="btn tooltipped waves-effect waves-light" type="submit" name="valorar" data-position="botton" data-delay="50" data-tooltip="Enviar Comentario">Enviar</button>
+                        <button class="btn cktes tooltipped waves-effect waves-light" type="submit" name="valorar" data-position="botton" data-delay="50" data-tooltip="Enviar Comentario">Enviar</button>
                     </div>
                 </div>
         </div>
