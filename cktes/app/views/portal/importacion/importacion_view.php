@@ -24,7 +24,7 @@ foreach ($importaciones as $importacion ) {
 <div class='col s12 m6 l6 center'>
     <div class='carta'>
   <div class='contenedor'>
-    <img height='407' width='300' class='contenedor' src='../web/img/productos/$importacion[url_imagen]'>
+    <img height='407' width='300' class='contenedor' src='../web/img/productos/$importacion[imagen]'>
     <div class='arr_car'></div>
     <div class='baj_car'>
       <div class='lef_car'>
