@@ -171,12 +171,12 @@ class Importaciones extends Validator{
 	}
 	//Se lee los productos y se ponen en las variables 
 	public function readImportacion(){
-		$sql = "SELECT nombre, imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? AND id_tipo_producto = 2 ORDER BY id_producto";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado FROM productos WHERE id_producto = ? AND id_tipo_producto = 2 ORDER BY id_producto";
 		$params = array($this->id);
 		$importacion = Database::getRow($sql, $params);
 		if($importacion){
             $this->nombre = $importacion['nombre'];
-            $this->imagen = $importacion['imagen'];
+            $this->imagen = $importacion['url_imagen'];
             $this->descripcion = $importacion['descripcion'];
 			$this->ficha_tecnica = $importacion['ficha_tecnica'];
 			$this->cantidad = $importacion['cantidad'];
@@ -218,7 +218,7 @@ class Importaciones extends Validator{
 	}
 
 	public function cargarReservaciones(){
-		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
+		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2018 a las 04:55:03
+-- Tiempo de generación: 30-05-2018 a las 20:01:01
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -48,35 +48,38 @@ DELIMITER ;
 CREATE TABLE `carrito` (
   `id_carrito` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `id_cliente` int(11) DEFAULT NULL
+  `id_cliente` int(11) DEFAULT NULL,
+  `estado_carrito` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `carrito`
 --
 
-INSERT INTO `carrito` (`id_carrito`, `fecha`, `id_cliente`) VALUES
-(1, '2018-05-14', 1),
-(2, '2018-05-14', 2),
-(3, '2018-05-14', 3),
-(4, '2018-05-14', 4),
-(5, '2018-05-14', 5),
-(6, '2018-05-14', 6),
-(7, '2018-05-14', 7),
-(8, '2018-05-14', 8),
-(9, '2018-05-14', 9),
-(10, '2018-05-14', 10),
-(11, '2018-05-14', 11),
-(12, '2018-05-14', 12),
-(13, '2018-05-14', 13),
-(14, '2018-05-14', 14),
-(15, '2018-05-14', 15),
-(16, '2018-05-14', 16),
-(17, '2018-05-14', 17),
-(18, '2018-05-14', 18),
-(19, '2018-05-14', 19),
-(20, '2018-05-14', 20),
-(21, '2018-05-16', 21);
+INSERT INTO `carrito` (`id_carrito`, `fecha`, `id_cliente`, `estado_carrito`) VALUES
+(1, '2018-05-14', 1, NULL),
+(2, '2018-05-14', 2, NULL),
+(3, '2018-05-14', 3, NULL),
+(4, '2018-05-14', 4, NULL),
+(5, '2018-05-14', 5, NULL),
+(6, '2018-05-14', 6, NULL),
+(7, '2018-05-14', 7, NULL),
+(8, '2018-05-14', 8, NULL),
+(9, '2018-05-14', 9, NULL),
+(10, '2018-05-14', 10, NULL),
+(11, '2018-05-14', 11, NULL),
+(12, '2018-05-14', 12, NULL),
+(13, '2018-05-14', 13, NULL),
+(14, '2018-05-14', 14, NULL),
+(15, '2018-05-14', 15, NULL),
+(16, '2018-05-14', 16, NULL),
+(17, '2018-05-14', 17, NULL),
+(18, '2018-05-14', 18, NULL),
+(19, '2018-05-14', 19, NULL),
+(20, '2018-05-14', 20, NULL),
+(21, '2018-05-16', 21, NULL),
+(22, '2018-05-30', 22, NULL),
+(23, '2018-05-30', 22, 5);
 
 -- --------------------------------------------------------
 
@@ -90,7 +93,7 @@ CREATE TABLE `clientes` (
   `apellidos` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
   `correo_electronico` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
   `contrasena` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `url_imagen` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_tipo_cliente` int(11) DEFAULT NULL,
   `estado_cliente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -99,7 +102,7 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronico`, `contrasena`, `imagen`, `id_tipo_cliente`, `estado_cliente`) VALUES
+INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronico`, `contrasena`, `url_imagen`, `id_tipo_cliente`, `estado_cliente`) VALUES
 (1, 'Joseph', 'Mcpherson', 'Etiam@Namconsequat.org', 'lacus. Ut', 'justo nec', 1, NULL),
 (2, 'Skyler', 'Ferguson', 'montes.nascetur@Integervulputaterisus.org', 'eu enim.', 'Morbi', 2, NULL),
 (3, 'Armand', 'Mason', 'vel.convallis@orcitinciduntadipiscing.co.uk', 'euismod', 'ac turpis', 2, NULL),
@@ -120,7 +123,8 @@ INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronic
 (18, 'Justin', 'Blackburn', 'congue@necleoMorbi.net', 'tempor arcu.', 'Quisque purus', 1, NULL),
 (19, 'Elizabeth', 'Blackburn', 'urna@musDonecdignissim.ca', 'Mauris nulla.', 'varius', 2, NULL),
 (20, 'Nelle', 'Spears', 'libero.Integer.in@turpis.ca', 'magna.', 'iaculis quis,', 2, NULL),
-(21, 'Andres', 'Hneriquez', 'andres@gmsil.com', 'contrasena', ',jhfykyu', 1, NULL);
+(21, 'Andres', 'Hneriquez', 'andres@gmsil.com', 'contrasena', ',jhfykyu', 1, NULL),
+(22, 'Andres', 'Henriquez', 'andresdosmil@gmail.com', '$2y$10$VRsIJvuGXkNaS8imkHWRY.x4sPNzLbKvmnN2xkNNRWc', NULL, 1, 3);
 
 --
 -- Disparadores `clientes`
@@ -242,7 +246,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `id_permiso`) VALUES
-(22, 'Andres Oswaldo', 'Henriquez Gomez', '5b08cf91259b8.jpg', 'andresdosmil@gmail.com', '$2y$10$B608uvfxO55CEKm48a2WSeqOvZTmT1rosP7gYXPicwB5CggD2ZW3S', 1);
+(22, 'Andres Oswaldo', 'Henriquez Gomez', '5b08cf91259b8.jpg', 'andresdosmil@gmail.com', '$2y$10$ojUvB0Q.h3TnQmqQiOP2QeMRafFPt2/MIQfsgnmSglj/W1ZoOilNi', 1);
 
 -- --------------------------------------------------------
 
@@ -292,7 +296,7 @@ CREATE TABLE `importacion_especial` (
 --
 
 INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `producto`, `cantidad`, `id_cliente`, `id_estado`) VALUES
-(1, '2018-05-15', 'Este es el producto que necesito', 25, 9, 9),
+(1, '2018-05-15', 'Este es el producto que necesito', 25, 9, 10),
 (2, '2018-05-15', 'Este es otro producto que necesito', 25, 13, 9);
 
 -- --------------------------------------------------------
@@ -343,7 +347,7 @@ CREATE TABLE `marca` (
 --
 
 INSERT INTO `marca` (`id_marca`, `marca`) VALUES
-(1, 'Raspberry'),
+(1, 'Raspberry modificado'),
 (2, 'Marca 2');
 
 -- --------------------------------------------------------
@@ -369,7 +373,7 @@ CREATE TABLE `pedido` (
 
 INSERT INTO `pedido` (`id_pedido`, `fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES
 (1, '0000-00-00', 11, 22, 8, NULL, 2, 23),
-(2, '2018-05-22', 12, 22, 7, 'aeqrgf', 1, 12);
+(2, '0000-00-00', 12, 22, 7, NULL, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -420,17 +424,16 @@ INSERT INTO `placa` (`id_placa`, `capas`, `medida`, `id_tipo_placa`, `id_sustrat
 
 CREATE TABLE `presentaciones` (
   `id_presentacion` int(11) NOT NULL,
-  `presentacion` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `id_tipo_producto` int(11) DEFAULT NULL
+  `presentacion` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `presentaciones`
 --
 
-INSERT INTO `presentaciones` (`id_presentacion`, `presentacion`, `id_tipo_producto`) VALUES
-(1, '10 unidades', 1),
-(3, '100 unidades', 1);
+INSERT INTO `presentaciones` (`id_presentacion`, `presentacion`) VALUES
+(1, '10 unidades'),
+(3, '100 unidades');
 
 -- --------------------------------------------------------
 
@@ -460,16 +463,16 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`) VALUES
 (1, 'Conan', 'ultricies', 'erat vitae risus. Duis a', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 20, 9.73, '46381', 1, 1, 1, 1, 1),
-(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 100, 4.69, '29558', NULL, 1, 2, 2, 1),
+(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 100, 4.69, '29558', 3, 1, 2, 2, 1),
 (3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', -5, 8.97, '55284', 1, 2, 1, 1, 2),
-(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, '37494', NULL, 2, 2, 2, 1),
+(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, '37494', 3, 2, 2, 2, 1),
 (5, 'Julian', 'nisl', 'Donec porttitor tellus non magna. Nam ligula elit, pretium', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 46, 8.5, '35709', 1, 1, 2, 2, 2),
-(6, 'Mara', 'eget lacus.', 'semper tellus id nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 4, 4.51, '07624', NULL, 1, 1, 2, 2),
-(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 13, 6.39, '44854', NULL, 1, 1, 1, 1),
-(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 29, 1.99, '80369', NULL, 1, 2, 1, 2),
+(6, 'Mara', 'eget lacus.', 'semper tellus id nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 4, 4.51, '07624', 1, 1, 1, 2, 2),
+(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 13, 6.39, '44854', 1, 1, 1, 1, 1),
+(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 29, 1.99, '80369', 1, 1, 2, 1, 2),
 (9, 'Orla', 'quam', 'tristique senectus et netus et malesuada fames ac turpis egestas.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 37, 8.24, '70089', 1, 1, 2, 2, 1),
-(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 14, 9.47, '01601', NULL, 1, 1, 1, 1),
-(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, '77279', NULL, 2, 1, 2, 2),
+(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 14, 9.47, '01601', 3, 1, 1, 1, 1),
+(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, '77279', 1, 2, 1, 2, 2),
 (12, 'Candace', 'lectus. Cum', 'Sed auctor odio a purus. Duis elementum, dui quis accumsan', 'Lorem ipsum dolor sit amet, consectetuer', 25, 5.24, '09190', 1, 1, 2, 2, 1),
 (13, 'Giacomo', 'ac', 'nisi dictum augue malesuada malesuada. Integer id', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 58, 2.47, '24909', 1, 1, 1, 2, 1),
 (14, 'Ima', 'vulputate,', 'ornare tortor at risus. Nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', -3, 8.25, '35028', 1, 1, 2, 2, 2),
@@ -480,7 +483,8 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `
 (19, 'Russell', 'enim. Mauris', 'velit. Aliquam', 'Lorem ipsum dolor sit', 21, 9.06, '23157', 3, 1, 2, 1, 2),
 (20, 'Wade', 'Curabitur', 'risus. In mi pede, nonummy ut, molestie in, tempus eu,', 'Lorem ipsum', 74, 2.42, '31103', 1, 1, 1, 2, 1),
 (22, 'Producto 2', '5b09e71c2a62a.jpg', 'hjb', 'jh', 24, 2.25, '125 mm x 100 mm', 1, 1, 1, 1, 2),
-(23, 'Ejemplo', '5b0add35be823.png', 'thgtrh', 'ryhyryh', 21, 2.25, '125 mm x 100 mm', 1, 1, 1, 1, 2);
+(25, 'Producto 2', '5b0d63b936750.jpg', 'huy', 'flu', 34, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2),
+(26, 'Otra pintura', '5b0edf2dc83b5.jpg', 'vbv', 'cv', 23, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -524,7 +528,7 @@ CREATE TABLE `reservaciones` (
 
 INSERT INTO `reservaciones` (`id_reservacion`, `cantidad`, `fecha`, `hora`, `id_producto`, `id_cliente`, `id_estado`) VALUES
 (1, 23, '2018-05-10', '11:10:06', 11, 15, 9),
-(2, 12, '2018-05-14', '18:24:09', 12, 21, 9);
+(2, 12, '2018-05-14', '18:24:09', 12, 21, 10);
 
 -- --------------------------------------------------------
 
@@ -676,7 +680,8 @@ CREATE TABLE `valoraciones` (
 --
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`id_carrito`),
-  ADD KEY `carrito_ibfk_1` (`id_cliente`);
+  ADD KEY `carrito_ibfk_1` (`id_cliente`),
+  ADD KEY `estado_carrito` (`estado_carrito`);
 
 --
 -- Indices de la tabla `clientes`
@@ -774,8 +779,7 @@ ALTER TABLE `placa`
 -- Indices de la tabla `presentaciones`
 --
 ALTER TABLE `presentaciones`
-  ADD PRIMARY KEY (`id_presentacion`),
-  ADD KEY `presentaciones_ibfk_1` (`id_tipo_producto`);
+  ADD PRIMARY KEY (`id_presentacion`);
 
 --
 -- Indices de la tabla `productos`
@@ -856,13 +860,13 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `desarrollo`
@@ -940,7 +944,7 @@ ALTER TABLE `presentaciones`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -1004,7 +1008,8 @@ ALTER TABLE `valoraciones`
 -- Filtros para la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`estado_carrito`) REFERENCES `estado` (`id_estado`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `clientes`
@@ -1068,12 +1073,6 @@ ALTER TABLE `pedido`
 ALTER TABLE `placa`
   ADD CONSTRAINT `placa_ibfk_2` FOREIGN KEY (`id_sustrato`) REFERENCES `sustrato` (`id_sustrato`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `placa_ibfk_3` FOREIGN KEY (`id_tipo_placa`) REFERENCES `tipo_placa` (`id_tipo_placa`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `presentaciones`
---
-ALTER TABLE `presentaciones`
-  ADD CONSTRAINT `presentaciones_ibfk_1` FOREIGN KEY (`id_tipo_producto`) REFERENCES `tipo_producto` (`id_tipo_producto`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `productos`
