@@ -34,7 +34,7 @@ try{
                         }
                     
                     }else{
-                        throw new Exception("Correoincorrecto");
+                        throw new Exception("Correo incorrecto");
                     }
                 }else{
                     throw new Exception("Apellidos incorrectos");

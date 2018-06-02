@@ -8,13 +8,13 @@
             <label for="nombr" class="black-text">Nombre</label>
         </div>
         <div class="input-field col s12 m6 l6">
-            <textarea id="descripcio" name="descripcion" type="text" class="materialize-textarea" value='<?php print($producto->getDescripcion()) ?>' required ></textarea>
+            <textarea id="descripcio" name="descripcion" type="text" class="materialize-textarea" required ><?php print($producto->getDescripcion()) ?></textarea>
             <label for="descripcio" class="black-text">Descripci&oacute;n</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12 m6 l6">
-            <textarea id="fich" name="ficha" type="text" class="materialize-textarea" value='<?php print($producto->getFicha()) ?>' required ></textarea>
+            <textarea id="fich" name="ficha" type="text" class="materialize-textarea" required ><?php print($producto->getFicha()) ?></textarea>
             <label for="fich" class="black-text">Ficha t&eacute;cnica</label>
         </div>
         <div class="input-field col s12 m6 l6">
@@ -36,7 +36,7 @@
         <div class='file-field input-field col s12 m6 l6'>
             <div class='waves-effect waves-light btn grey darken-3'>
                 <span><i class='material-icons'>image</i></span>
-                <input type='file' name='archivo' required/>
+                <input type='file' name='archivo'/>
             </div>
             <div class='file-path-wrapper'>
                 <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>

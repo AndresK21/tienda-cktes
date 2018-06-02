@@ -18,16 +18,14 @@ try{
                                                     if($producto->setId_proveedor($_POST['proveedor'])){
                                                         if($producto->setId_presentacion($_POST['presentacion'])){
                                                             if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-                                                                if($producto->setImagen($_FILES['archivo'])){
-                                                                    if($producto->updateProducto()){
-                                                                        Page::showMessage(1, "Producto modificado", "index.php");
-                                                                    }
-                                                                }else{
+                                                                if(!$producto->setImagen($_FILES['archivo'])){
                                                                     throw new Exception($producto->getImageError());
                                                                 }
-                                                            }else{
-                                                                throw new Exception("Seleccione una imagen");
-                                                            }
+                                                                }if($producto->updateProducto()){
+                                                                    Page::showMessage(1, "Producto modificado", "index.php");
+                                                                }else{
+                                                                    throw new Exception("No se pudo modificar el producto");
+                                                                }
                                                         }else{
                                                             throw new Exception("Seleccione una presentacion");
                                                         }

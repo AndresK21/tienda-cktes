@@ -18,7 +18,7 @@
     print("
     <tbody>
       <tr>
-        <td><img class='responsive-img' src='../web/img/productos/$importacion[imagen]'></td>
+        <td><img class='responsive-img' src='../web/img/productos/$importacion[url_imagen]'></td>
         <td>$importacion[nombre]</td>
         <td>$$importacion[precio]</td>
         <td>$importacion[cantidad]</td> 

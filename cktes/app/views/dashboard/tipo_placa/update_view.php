@@ -1,5 +1,4 @@
 <div class="white-text">.</div>
-
 <div class="center-align"><h4>Modificar tipo de placa</h4></div> 
 
 <!--Formulario para insertar marcas-->

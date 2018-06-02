@@ -1,8 +1,8 @@
 <div class="white-text">.</div>
 <div class="center-align"><h4>Modificar sustrato</h4></div>
 
-<div class="container">
-    <form method="post">
+<div class="row">
+    <form class="col s12" method="post">
         <div class="row">
             <div class="input-field col s12">
                 <input id="sustrato" name="sustrato" type="text" class="validate" value='<?php print($sustrato->getSustrato())?>' required />

@@ -286,7 +286,7 @@ class Producto extends Validator{
 		if($producto){
             $this->nombre = $producto['nombre'];
             $this->imagen = $producto['url_imagen'];
-            $this->desccripcion = $producto['descripcion'];
+            $this->descripcion = $producto['descripcion'];
 			$this->ficha_tecnica = $producto['ficha_tecnica'];
 			$this->cantidad = $producto['cantidad'];
 			$this->precio = $producto['precio'];
