@@ -7,7 +7,8 @@ class Empleado extends Validator{
     private $imagen = null;
     private $correo_electronico = null;
     private $contrasena = null;
-    private $id_permiso = null;
+	private $id_permiso = null;
+	private $archivo = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
@@ -60,6 +61,26 @@ class Empleado extends Validator{
 	public function unsetImagen(){
 		if(unlink("../../web/img/empleados/".$this->imagen)){
 			$this->imagen = null;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function setArchivo($file){
+		if($this->validateArchive($file, $this->archivo, "../../web/archivo/")){
+			$this->archivo = $this->getArchiveName();
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getArchivo(){
+		return $this->archivo;
+	}
+	public function unsetArchivo(){
+		if(unlink("../../web/archivo/".$this->archivo)){
+			$this->archivo = null;
 			return true;
 		}else{
 			return false;
@@ -153,7 +174,7 @@ class Empleado extends Validator{
 	public function createEmpleado(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso);
+		$params = array($this->nombres, $this->apellidos, $this->archivo, $this->correo_electronico, $hash, $this->id_permiso);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){

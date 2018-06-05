@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2018 a las 20:01:01
+-- Tiempo de generación: 06-06-2018 a las 01:18:54
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -78,8 +78,10 @@ INSERT INTO `carrito` (`id_carrito`, `fecha`, `id_cliente`, `estado_carrito`) VA
 (19, '2018-05-14', 19, NULL),
 (20, '2018-05-14', 20, NULL),
 (21, '2018-05-16', 21, NULL),
-(22, '2018-05-30', 22, NULL),
-(23, '2018-05-30', 22, 5);
+(22, '2018-05-30', NULL, NULL),
+(23, '2018-05-30', NULL, 5),
+(24, '2018-06-04', 23, NULL),
+(25, '2018-06-04', 23, 5);
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,7 @@ CREATE TABLE `clientes` (
   `nombres` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
   `correo_electronico` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
-  `contrasena` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `contrasena` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `url_imagen` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_tipo_cliente` int(11) DEFAULT NULL,
   `estado_cliente` int(11) DEFAULT NULL
@@ -124,7 +126,7 @@ INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronic
 (19, 'Elizabeth', 'Blackburn', 'urna@musDonecdignissim.ca', 'Mauris nulla.', 'varius', 2, NULL),
 (20, 'Nelle', 'Spears', 'libero.Integer.in@turpis.ca', 'magna.', 'iaculis quis,', 2, NULL),
 (21, 'Andres', 'Hneriquez', 'andres@gmsil.com', 'contrasena', ',jhfykyu', 1, NULL),
-(22, 'Andres', 'Henriquez', 'andresdosmil@gmail.com', '$2y$10$VRsIJvuGXkNaS8imkHWRY.x4sPNzLbKvmnN2xkNNRWc', NULL, 1, 3);
+(23, 'Andres Oswaldo', 'Henriquez Gomez', 'andresdosmil@gmail.com', '$2y$10$zqVO3hNiiceveTkSnHL3j.wtfG6MvT1/pEG0YUUvGExMLwCTMMN2e', NULL, 1, 3);
 
 --
 -- Disparadores `clientes`
@@ -246,7 +248,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `id_permiso`) VALUES
-(22, 'Andres Oswaldo', 'Henriquez Gomez', '5b08cf91259b8.jpg', 'andresdosmil@gmail.com', '$2y$10$ojUvB0Q.h3TnQmqQiOP2QeMRafFPt2/MIQfsgnmSglj/W1ZoOilNi', 1);
+(22, 'Andres Oswaldo', 'Henriquez Gomez', '5b08cf91259b8.jpg', 'andresdosmil@gmail.com', '$2y$10$ojUvB0Q.h3TnQmqQiOP2QeMRafFPt2/MIQfsgnmSglj/W1ZoOilNi', 1),
+(23, 'Diego Edgardo', 'Guzman Huezo', '5b16b00a15f44.zip', 'diego@gmail.com', '$2y$10$FpjPFrHwajBmYZrXvyYiiekGuFQWTGfN1Io7./ovs17I9k75Gvq6i', 2);
 
 -- --------------------------------------------------------
 
@@ -860,13 +863,13 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `desarrollo`
@@ -884,7 +887,7 @@ ALTER TABLE `detalle_carrito`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
