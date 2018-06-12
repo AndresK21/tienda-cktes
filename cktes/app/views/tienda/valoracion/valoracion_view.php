@@ -15,16 +15,16 @@
             <h4><span class="card-title grey-text text-darken-4">Realiza una puntuación:</span></h4>
             <!-- ESTRELLAS -->
             <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" value="5">
-                <label for="radio1">★</label>
-                <input id="radio2" type="radio" name="estrellas" value="4">
-                <label for="radio2">★</label>
-                <input id="radio3" type="radio" name="estrellas" value="3">
-                <label for="radio3">★</label>
-                <input id="radio4" type="radio" name="estrellas" value="2">
-                <label for="radio4">★</label>
-                <input id="radio5" type="radio" name="estrellas" value="1">
-                <label for="radio5">★</label>
+                <input class="input_estrellas" id="radio1" type="radio" name="estrellas" value="5">
+                <label class="label_estrellas" for="radio1">★</label>
+                <input class="input_estrellas" id="radio2" type="radio" name="estrellas" value="4">
+                <label class="label_estrellas" for="radio2">★</label>
+                <input class="input_estrellas" id="radio3" type="radio" name="estrellas" value="3">
+                <label class="label_estrellas" for="radio3">★</label>
+                <input class="input_estrellas" id="radio4" type="radio" name="estrellas" value="2">
+                <label class="label_estrellas" for="radio4">★</label>
+                <input class="input_estrellas" id="radio5" type="radio" name="estrellas" value="1">
+                <label class="label_estrellas" for="radio5">★</label>
                 </p>
             </div>
             <!-- COMENTARIOS -->

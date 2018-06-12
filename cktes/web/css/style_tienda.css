@@ -328,7 +328,32 @@ body {
     border-color: #000;
     border-bottom-style: solid;
     }
+  
+      input[type="radio"] {
+      display: none;
+      }
+      
+      label.label_estrellas {
+      color: grey;
+      font-size: 40px;
+      }
+      
+      .clasificacion {
+      direction: rtl;
+      unicode-bidi: bidi-override;
+      }
+      
+      label.label_estrellas:hover,
+      label:hover ~ label.label_estrellas {
+      color: orange;
+      cursor: pointer;
+      }
+      
+      input[type="radio"]:checked ~ label.label_estrellas {
+      color: orange;
+      }
     
+
   .corre{
   font-size: 20px !important;
   padding: 10px !important;
