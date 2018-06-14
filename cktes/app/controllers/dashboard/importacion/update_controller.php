@@ -8,10 +8,14 @@ try{
                 if(isset($_POST['editar'])){
                     $_POST = $reservacion->validateForm($_POST);
                     if($reservacion->setId_estado($_POST['estado'])){
-                        if($reservacion->updateReservacion()){
-                            Page::showMessage(1, "importacion modificada", "index.php");
+                        if($reservacion->setFecha_estimada($_POST['fecha'])){
+                            if($reservacion->updateReservacion()){
+                                Page::showMessage(1, "importacion modificada", "index.php");
+                            }else{
+                                throw new Exception(Database::getException());
+                            }
                         }else{
-                            throw new Exception(Database::getException());
+                            throw new Exception("Fecha incorrecta");
                         }
                     }else{
                         throw new Exception("Seleccione un estado");

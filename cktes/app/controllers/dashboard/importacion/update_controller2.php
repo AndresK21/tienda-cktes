@@ -8,10 +8,14 @@ try{
                 if(isset($_POST['editar'])){
                     $_POST = $importacion->validateForm($_POST);
                     if($importacion->setId_estado($_POST['estado'])){
-                        if($importacion->updateImportacion()){
-                            Page::showMessage(1, "importacion modificada", "index.php");
+                        if($importacion->setFecha_estimada($_POST['fecha'])){
+                            if($importacion->updateImportacion()){
+                                Page::showMessage(1, "importacion modificada", "index.php");
+                            }else{
+                                throw new Exception(Database::getException());
+                            }
                         }else{
-                            throw new Exception(Database::getException());
+                            throw new Exception("Fecha incorrecta");
                         }
                     }else{
                         throw new Exception("Seleccione un estado");

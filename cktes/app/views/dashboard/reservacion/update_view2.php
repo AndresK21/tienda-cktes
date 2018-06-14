@@ -22,6 +22,12 @@
             </div>
         </div>
         <div class="row">
+            <div class="input-field ">
+                <input value="<?php print($importacion->getFecha_estimada())?>" name="fecha" id="fech" type="text" class="datepicker"/>
+                <label for="fech" class="black-text">Fecha estimada de entrega</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12">
                 <?php
                     Page::showSelect("Estado", "estado", $importacion->getId_estado(), $importacion->getEstados());

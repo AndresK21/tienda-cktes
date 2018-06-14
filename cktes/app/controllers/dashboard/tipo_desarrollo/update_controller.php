@@ -7,14 +7,18 @@ try{
             if($tipo->readTipo_desarrollo()){
                 if(isset($_POST['actualizar'])){
                     $_POST = $tipo->validateForm($_POST);
-                    if($tipo->setTipo_desarrollo($_POST['tipo'])){
+                    if($tipo->setDescripcion($_POST['descripcion'])){
+                        if($tipo->setTipo_desarrollo($_POST['tipo'])){
                             if($tipo->updateTipo_desarrollo()){ //Modifica la marca
                                 Page::showMessage(1, "Tipo de desarrollo modificado", "index.php");
                             }else{
                                 throw new Exception(Database::getException());
-                            }                   
+                            }
+                        }else{
+                            throw new Exception("Tipo de desarrollo incorrecto");
+                        }                       
                     }else{
-                        throw new Exception("Tipo de desarrollo incorrecto");
+                        throw new Exception("Descripcion incorrecta");
                     } 
                 }
             }else{

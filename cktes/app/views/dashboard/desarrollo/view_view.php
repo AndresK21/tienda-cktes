@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <textarea disabled value="<?php print($desarrollo->getMensaje())?>" id="disabled" type="text" class="materialize-textarea"></textarea>
+                <textarea disabled value="<?php print($desarrollo->getMensaje())?>" id="disabled" type="text" class="materialize-textarea"><?php print($desarrollo->getMensaje())?></textarea>
                 <label for="mensaje" class="black-text">Mensaje</label>
             </div>
             <div class="input-field col s12 m6 l6">

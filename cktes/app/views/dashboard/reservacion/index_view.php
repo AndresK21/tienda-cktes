@@ -44,6 +44,7 @@
                                     <th>Cliente</th>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
+                                    <th>Fecha estimada</th>
                                     <th>Estado</th>
                                     <th></th>
                                     <th></th>
@@ -59,6 +60,7 @@
                                                 <td>$row[nombres] $row[apellidos]</td>
                                                 <td>$row[nombre]</td>
                                                 <td>$row[cantidad]</td>
+                                                <td>$row[fecha_estimada]</td>
                                                 <td>$row[estado]</td>
                                                 <td>
                                                     <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update.php?id=$row[id_reservacion]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
@@ -116,6 +118,7 @@
                                 <th>Estado del pedido</th>
                                 <th>Producto solicitado</th>
                                 <th>Cantidad</th>
+                                <th>Fecha estimada</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -131,6 +134,7 @@
                                                 <td>$row[estado]</td>
                                                 <td>$row[producto]</td>
                                                 <td>$row[cantidad]</td>
+                                                <td>$row[fecha_estimada]</td>
                                                 <td>
                                                     <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_impor.php?id=$row[id_importacion]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
                                                 </td>

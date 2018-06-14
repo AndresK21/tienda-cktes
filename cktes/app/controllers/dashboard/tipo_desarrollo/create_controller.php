@@ -5,10 +5,14 @@ try{
     if(isset($_POST['crear'])){ //El controlador funciona con el ñpost con ese nombre
         $_POST = $tipo->validateForm($_POST);
         if($tipo->setTipo_desarrollo($_POST['tipo'])){
-            if($tipo->createTipo_desarrollo()){ //Se crea la marca
-                Page::showMessage(1, "Tipo de desarrollo creado", "index.php");
+            if($tipo->setDescripcion($_POST['descripcion'])){
+                if($tipo->createTipo_desarrollo()){ //Se crea la marca
+                    Page::showMessage(1, "Tipo de desarrollo creado", "index.php");
+                }else{
+                    throw new Exception(Database::getException());
+                }
             }else{
-                throw new Exception(Database::getException());
+                throw new Exception("Descripcion incorrecta");
             }
         }else{
             throw new Exception("Tipo de desarrollo incorrecto");

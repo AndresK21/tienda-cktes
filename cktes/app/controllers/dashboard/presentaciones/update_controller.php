@@ -8,16 +8,11 @@ try{
                 if(isset($_POST['actualizar'])){
                     $_POST = $presentacion->validateForm($_POST);
                     if($presentacion->setPresentacion($_POST['presentacion'])){
-                        if($presentacion->setId_tipo($_POST['tipo'])){
-                            if($presentacion->updatePresentacion()){ //Modifica la presentacion
-                                Page::showMessage(1, "Presentacion modificada", "index.php");
-                            }else{
-                                throw new Exception(Database::getException());
-                            }
+                        if($presentacion->updatePresentacion()){ //Modifica la presentacion
+                            Page::showMessage(1, "Presentacion modificada", "index.php");
                         }else{
-                            throw new Exception("Tipo de producto incorrecto");
-                        }    
-                        
+                            throw new Exception(Database::getException());
+                        }                       
                     }else{
                         throw new Exception("Presentacion incorrecto");
                     }

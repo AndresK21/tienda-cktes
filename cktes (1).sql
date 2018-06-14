@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2018 a las 01:18:54
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.2.1
+-- Tiempo de generación: 14-06-2018 a las 05:17:58
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -290,6 +290,7 @@ CREATE TABLE `importacion_especial` (
   `fecha` date NOT NULL,
   `producto` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `fecha_estimada` date DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
   `id_estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -298,9 +299,9 @@ CREATE TABLE `importacion_especial` (
 -- Volcado de datos para la tabla `importacion_especial`
 --
 
-INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `producto`, `cantidad`, `id_cliente`, `id_estado`) VALUES
-(1, '2018-05-15', 'Este es el producto que necesito', 25, 9, 10),
-(2, '2018-05-15', 'Este es otro producto que necesito', 25, 13, 9);
+INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `producto`, `cantidad`, `fecha_estimada`, `id_cliente`, `id_estado`) VALUES
+(1, '2018-05-15', 'Este es el producto que necesito', 25, '2018-10-27', 9, 10),
+(2, '2018-05-15', 'Este es otro producto que necesito', 25, '2018-12-14', 13, 9);
 
 -- --------------------------------------------------------
 
@@ -520,6 +521,7 @@ CREATE TABLE `reservaciones` (
   `cantidad` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
+  `fecha_estimada` date DEFAULT NULL,
   `id_producto` int(11) DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
   `id_estado` int(11) DEFAULT NULL
@@ -529,9 +531,9 @@ CREATE TABLE `reservaciones` (
 -- Volcado de datos para la tabla `reservaciones`
 --
 
-INSERT INTO `reservaciones` (`id_reservacion`, `cantidad`, `fecha`, `hora`, `id_producto`, `id_cliente`, `id_estado`) VALUES
-(1, 23, '2018-05-10', '11:10:06', 11, 15, 9),
-(2, 12, '2018-05-14', '18:24:09', 12, 21, 10);
+INSERT INTO `reservaciones` (`id_reservacion`, `cantidad`, `fecha`, `hora`, `fecha_estimada`, `id_producto`, `id_cliente`, `id_estado`) VALUES
+(1, 23, '2018-05-10', '11:10:06', '2018-11-23', 11, 15, 9),
+(2, 12, '2018-05-14', '18:24:09', '2018-10-25', 12, 21, 10);
 
 -- --------------------------------------------------------
 
@@ -579,6 +581,7 @@ INSERT INTO `tipo_cliente` (`id_tipo_cliente`, `tipo_cliente`) VALUES
 
 CREATE TABLE `tipo_desarrollo` (
   `id_tipo_desarrollo` int(11) NOT NULL,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_desarrollo` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -586,14 +589,14 @@ CREATE TABLE `tipo_desarrollo` (
 -- Volcado de datos para la tabla `tipo_desarrollo`
 --
 
-INSERT INTO `tipo_desarrollo` (`id_tipo_desarrollo`, `tipo_desarrollo`) VALUES
-(1, 'PCB-arte	'),
-(2, 'Industria/agro'),
-(4, 'Comercio/servicios'),
-(5, 'Gobierno'),
-(6, 'Emprendedores'),
-(7, 'Independientes'),
-(8, 'Estudiantes');
+INSERT INTO `tipo_desarrollo` (`id_tipo_desarrollo`, `descripcion`, `tipo_desarrollo`) VALUES
+(1, 'Descripcion de lo que consiste el PCB arte', 'PCB arte'),
+(2, 'Descripcion de lo que consiste el Industria Agro', 'Industria agro'),
+(4, 'Descripcion de lo que consiste el Comercio servicios', 'Comercio servicios'),
+(5, 'Descripcion de lo que consiste el Gobierno', 'Gobierno'),
+(6, 'Descripcion de lo que consiste el Emprendedores', 'Emprendedores'),
+(7, 'Descripcion de lo que consiste el Independientes', 'Independientes'),
+(8, 'Descripcion de lo que consiste el Estudiantes', 'Estudiantes');
 
 -- --------------------------------------------------------
 
@@ -941,13 +944,13 @@ ALTER TABLE `placa`
 -- AUTO_INCREMENT de la tabla `presentaciones`
 --
 ALTER TABLE `presentaciones`
-  MODIFY `id_presentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_presentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -977,7 +980,7 @@ ALTER TABLE `tipo_cliente`
 -- AUTO_INCREMENT de la tabla `tipo_desarrollo`
 --
 ALTER TABLE `tipo_desarrollo`
-  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_estado`

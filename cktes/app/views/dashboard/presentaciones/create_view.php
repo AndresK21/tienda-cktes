@@ -10,11 +10,6 @@
                 <label for="presenta" class="blue-grey-text text-darken-4">Presentaci&oacute;n</label>
             </div>
         </div>
-        <div class="input-field col s12">
-            <?php
-                Page::showSelect("Tipo de producto", "tipo", $presentaciones->getId_tipo(), $presentaciones->getTipos());
-            ?>
-        </div>
         <div class="row">
             <div class="col s12 right-align">
                 <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>

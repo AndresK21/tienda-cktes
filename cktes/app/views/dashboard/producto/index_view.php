@@ -189,7 +189,6 @@
                 <thead class="grey darken-3 white-text">
                     <tr>
                         <th>Presentaci&oacute;n</th>
-                        <th>Tipo de producto</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -201,7 +200,6 @@
                                 print("
                                 <tr>
                                     <td>$presentacion[presentacion]</td>
-                                    <td>$presentacion[tipo_producto]</td>
                                     <td>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar producto' href='update_presentacion.php?id=$presentacion[id_presentacion]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar producto' href='delete_presentacion.php?id=$presentacion[id_presentacion]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>

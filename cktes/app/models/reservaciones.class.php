@@ -4,7 +4,8 @@ class Reservacion extends Validator{
 	private $id_reservacion = null;
     private $cantidad = null;
     private $fecha = null;
-    private $hora = null;
+		private $hora = null;
+		private $fecha_estimada = null;
     private $id_producto = null;
     private $id_cliente = null;
     private $id_estado = null;
@@ -93,7 +94,18 @@ class Reservacion extends Validator{
 	}
 	public function getId_estado(){
 		return $this->id_estado;
-    }
+		}
+		public function setFecha_estimada($value){
+			if($this->validateAlphanumeric($value, 1, 20)){
+				$this->fecha_estimada = $value;
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public function getFecha_estimada(){
+			return $this->fecha_estimada;
+			}
 
 
     public function setNombres($value){
@@ -149,29 +161,30 @@ class Reservacion extends Validator{
 	}
 
 	public function getReservacion(){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) ORDER BY id_reservacion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchReservacion($value){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_reservacion";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function createReservacion(){
-		$sql = "INSERT INTO reservaciones(cantidad, fecha, hora, id_producto, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->cantidad, $this->fecha, $this->hora, $this->id_producto, $this->id_cliente, $this->id_estado);
+		$sql = "INSERT INTO reservaciones(cantidad, fecha, hora, fecha_estimada, id_producto, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$params = array($this->cantidad, $this->fecha, $this->hora, $this->fecha_estimada, $this->id_producto, $this->id_cliente, $this->id_estado);
 		return Database::executeRow($sql, $params);
 	}
 	public function readReservacion(){
-		$sql = "SELECT id_reservacion, reservaciones.id_producto, reservaciones.id_cliente, reservaciones.cantidad, fecha, hora, nombre, nombres, apellidos, reservaciones.id_estado FROM reservaciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE id_reservacion = ? ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.id_producto, reservaciones.id_cliente, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, reservaciones.id_estado FROM reservaciones INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE id_reservacion = ? ORDER BY id_reservacion";
 		$params = array($this->id_reservacion);
 		$proveedor = Database::getRow($sql, $params);
 		if($proveedor){
             $this->id_reservacion = $proveedor['id_reservacion'];
             $this->cantidad = $proveedor['cantidad'];
             $this->fecha = $proveedor['fecha'];
-            $this->hora = $proveedor['hora'];
+						$this->hora = $proveedor['hora'];
+						$this->fecha_estimada = $proveedor['fecha_estimada'];
             $this->nombre = $proveedor['nombre'];
             $this->nombres = $proveedor['nombres'];
             $this->apellidos = $proveedor['apellidos'];
@@ -184,8 +197,8 @@ class Reservacion extends Validator{
 		}
 	}
 	public function updateReservacion(){
-		$sql = "UPDATE reservaciones SET cantidad = ?, fecha = ?, hora = ?, id_producto = ?, id_cliente = ?, id_estado = ? WHERE id_reservacion = ?";
-		$params = array($this->cantidad, $this->fecha, $this->hora, $this->id_producto, $this->id_cliente, $this->id_estado, $this->id_reservacion);
+		$sql = "UPDATE reservaciones SET cantidad = ?, fecha = ?, hora = ?, fecha_estimada = ?, id_producto = ?, id_cliente = ?, id_estado = ? WHERE id_reservacion = ?";
+		$params = array($this->cantidad, $this->fecha, $this->hora, $this->fecha_estimada, $this->id_producto, $this->id_cliente, $this->id_estado, $this->id_reservacion);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteReservacion(){

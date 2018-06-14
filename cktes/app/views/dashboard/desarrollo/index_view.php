@@ -110,6 +110,7 @@
                             <thead class="grey darken-3 white-text">
                             <tr>
                                 <th>Tipo de desarrollo</th>
+                                <th>Descripci&oacute;n</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -122,6 +123,7 @@
                                             print("
                                             <tr>
                                                 <td>$row[tipo_desarrollo]</td>
+                                                <td>$row[descripcion]</td>
                                                 <td>
                                                     <a href='update.php?id=$row[id_tipo_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>edit</i></a>
                                                     <a href='delete.php?id=$row[id_tipo_desarrollo]' class='red-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Responder mensaje'><i class='material-icons'>delete</i></a>

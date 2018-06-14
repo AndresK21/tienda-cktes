@@ -8,4 +8,5 @@ $( document ).ready(function(){
     $('select').material_select();
     $('.tooltipped').tooltip({delay: 50});
     $(".button-collapse").sideNav();
+    $('.datepicker').datepicker(open());
 })
