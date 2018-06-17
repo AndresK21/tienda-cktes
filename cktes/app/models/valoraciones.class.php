@@ -20,14 +20,9 @@ class Valoracion extends Validator{
 		return $this->id_valoracion;
     }
     
-	public function setEstrellas($value){
-		if($this->validateAlphanumeric($value, 1, 5)){
-			$this->estrellas = $value;
-			return true;
-		}else{
-			return false;
-		}
-	}
+	public function setEstrellas($value){ 
+		$this->estrellas = $value;
+}
 	public function getEstrellas(){
 		return $this->estrellas;
 	}
@@ -75,7 +70,7 @@ class Valoracion extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function getValoracionesProducto(){
-		$sql = "SELECT valoraciones.id_producto, valoraciones.id_valoracion, clientes.correo_electronico, valoraciones.comentario FROM valoraciones INNER JOIN clientes ON clientes.id_cliente = valoraciones.id_cliente WHERE id_producto = ? ";
+		$sql = "SELECT valoraciones.id_producto, valoraciones.id_valoracion, clientes.correo_electronico, valoraciones.comentario FROM valoraciones INNER JOIN clientes ON clientes.id_cliente = valoraciones.id_cliente WHERE id_producto = ?  AND valoraciones.comentario IS NOT NULL  ";
 		$params = array($this->id_producto);
 		return Database::getRows($sql, $params);
 	}
@@ -103,7 +98,7 @@ class Valoracion extends Validator{
 	}
 	public function createValoracion(){
 		$sql = "INSERT INTO valoraciones(estrellas, comentario, id_producto, id_cliente) VALUES (?, ?, ?, ?)";
-		$params = array($this->estrellas, $this->comentario, $this->id_producto, $this->id_cliente);
+		$params = array($this->estrellas, $this->comentario	, $this->id_producto, $this->id_cliente);
 		return Database::executeRow($sql, $params);
 	}
 	public function readValoracion(){
