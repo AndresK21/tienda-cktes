@@ -2,7 +2,7 @@
 <div class="center-align"><h4>Detalles del pedido</h4></div>
 
 <div class="container">
-    <form method="post">
+    <form method="post" enctype='multipart/form-data'>
         <div class="row">
             <div class="input-field ">
                 <input disabled value="<?php print($reservacion->getNombres()." ".$reservacion->getApellidos()) ?>" id="disabled" type="text" class="validate">
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="input-field ">
                 <input value="<?php print($reservacion->getFecha_estimada())?>" name="fecha" id="fech" type="text" class="datepicker"/>
-                <label for="fech" class="black-text">Fecha estimada de entrega</label>
+                <label for="fech" class="black-text">Fecha estimada de entrega <?php print($reservacion->getFecha_estimada())?></label>
             </div>
         </div>
         <div class="row">

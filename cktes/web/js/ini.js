@@ -1,4 +1,4 @@
-$( document ).ready(function(){
+$(document).ready(function(){
     $(".button-collapse").sideNav();
     $('.slider').slider();
     $('.parallax').parallax();
@@ -8,5 +8,9 @@ $( document ).ready(function(){
     $('select').material_select();
     $('.tooltipped').tooltip({delay: 50});
     $(".button-collapse").sideNav();
-    $('.datepicker').datepicker(open());
+    $('.datepicker').pickadate({
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        format:'yyyy-mm-dd',
+        autoClose: true
+    });
 })

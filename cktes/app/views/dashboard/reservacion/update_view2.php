@@ -2,7 +2,7 @@
 <div class="center-align"><h4>Detalles del pedido</h4></div>
 
 <div class="container">
-    <form method="post">
+    <form method="post" enctype='multipart/form-data'>
         <div class="row">
             <div class="input-field ">
                 <input disabled value="<?php print($importacion->getNombres()." ".$importacion->getApellidos()) ?>" id="disabled" type="text" class="validate">

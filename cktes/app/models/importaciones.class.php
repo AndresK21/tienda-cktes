@@ -84,16 +84,12 @@ class Importacion extends Validator{
 		}
 		
 		public function setFecha_estimada($value){
-			if($this->validateAlphanumeric($value, 1, 20)){
-				$this->fecha_estimada = $value;
-				return true;
-			}else{
-				return false;
-			}
+			$this->fecha_estimada = $value;
+			return true;
 		}
 		public function getFecha_estimada(){
 			return $this->fecha_estimada;
-			}
+		}
 
 
     public function setNombres($value){

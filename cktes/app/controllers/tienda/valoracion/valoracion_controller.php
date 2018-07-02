@@ -22,7 +22,7 @@ $valoraciones = new Valoracion;
                 }
                 if($estrella || $comentario){
                     if($valoraciones->createValoracion()){ // metodo crear valoracion
-                        Page::showMessage(1, "Valoracion creada", "../cuenta/compras.php");
+                        Page::showMessage(1, "Valoracion creada", "../tienda/historial.php");
                     }else{
                         Page::showMessage(3, "Valoracion no creada",null);
                     }    

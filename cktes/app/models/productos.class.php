@@ -101,7 +101,7 @@ class Producto extends Validator{
     }
     
     public function setFicha($value){
-		if($this->validateAlphanumeric($value, 1, 550)){
+		if($this->validateAlphabetic($value, 1, 550)){
 			$this->ficha_tecnica = $value;
 			return true;
 		}else{
@@ -262,7 +262,7 @@ class Producto extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function searchProducto($value){
-		$sql = "SELECT id_producto, nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, estado, id_tipo_producto FROM productos INNER JOIN estado USING(id_estado) INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) WHERE nombre LIKE ? ORDER BY id_producto";
+		$sql = "SELECT id_producto, nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) WHERE nombre LIKE ? ORDER BY id_producto";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}

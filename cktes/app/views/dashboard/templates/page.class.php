@@ -19,6 +19,7 @@ class Page extends Component{
                 <!--Import materialize.css-->
                 <link type='text/css' rel='stylesheet' href='../../web/css/materialize.min.css'  media='screen,projection'/>
                 <!--Let browser know website is optimized for mobile-->
+                <script type='text/javascript' src='../../web/js/Chart.bundle.min.js'></script>
                 <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 			</head>
