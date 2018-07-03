@@ -34,12 +34,12 @@ class Page extends Component{
                 <div class='nav-wrapper'>
               <a href='index.php'><span>CKT</span> <span>ES</span></a>
               <ul class='right'>
-              <li><a href='reservacion.php'><span><i class='fas fa-shopping-cart'></i></span></a></li>
+              <li><a href='reservacion.php'><span><i class='fas fa-book'></i></span></a></li>
               <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i><span/><span class='corre'>$_SESSION[correo_electronico]</span></a></li>
                <ul id='dropdown' class='dropdown-content'>
-                      <li><a href='../account/profile.php'><i class='material-icons'>face</i>Editar perfil</a></li>
-                      <li><a href='../account/password.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
-                      <li><a href='../account/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
+                      <li><a href='../tienda/perfil.php'><i class='material-icons'>face</i>Editar perfil</a></li>
+                      <li><a href='../tienda/contrasena.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
+                      <li><a href='../tienda/logout.php'><i class='material-icons'>clear</i>Salir</a></li>
                     </ul>
             <li><div class='sandwich' id='btn'>
               <span class='top'></span>
@@ -52,7 +52,7 @@ class Page extends Component{
               <div class='menu' id='menu'>
                 <div class='menu-list'>
                   <ul class='row'>
-                    <li class='col s12'><a class='container' href='#'>Tienda</a></li>
+                    <li class='col s12'><a class='container' href='../tienda/categorias.php'>Tienda</a></li>
                     <li class='col s12'><a class='container' href='nosotros.php'>Nosotros</a></li>
                     <li class='col s12'><a class='container' href='pcb.php'>PCB</a></li>
                     <li class='col s12'><a class='container' href='categoria.php'>Importacion</a></li>
@@ -75,7 +75,7 @@ class Page extends Component{
                 <div class='nav-wrapper'>
               <a href='index.php'><span>CKT</span> <span>ES</span></a>
               <ul class='right'>
-              <li><a href='#' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
+              <li><a href='../tienda/acceder.php' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
                
             <li><div class='sandwich' id='btn'>
               <span class='top'></span>
@@ -88,7 +88,7 @@ class Page extends Component{
             <div class='menu' id='menu'> 
               <div class='menu-list'>    
                 <ul class='row'>
-                  <li class='col s12'><a href='#'>Tienda</a></li>
+                  <li class='col s12'><a href='../tienda/categorias.php'>Tienda</a></li>
                   <li class='col s12'><a href='nosotros.php'>Nosotros</a></li>
                 </ul>
                 </div>

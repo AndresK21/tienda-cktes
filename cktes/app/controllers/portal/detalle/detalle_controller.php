@@ -26,6 +26,7 @@ try{
 else{
 	Page::showMessage(3,"Debes haber iniciado sesion", "index.php");
 }
+
 //aqui empieza el try para comprar
 try{    
 	$comprar = new Importaciones;
@@ -35,18 +36,31 @@ try{
             if($comprar->setCantidad($_POST['cantidad'])){
                 if($comprar->setCliente($_SESSION['id_cliente'])){
                     if($comprar->setId($_GET['id'])){
-                        //luego se manda a leer el producto
-                        if(!$comprar->readImportaciones()){
-                            //luego se manda a crear la reservacion
-                           if(!$comprar->createReservacion()){
-                                        Page::showMessage(1, "Añadido al carrito", null);
-                                    }else{
-                                        throw new Exception(Database::getException());
-                                    }
-                                }
-                                else{
-                                Page::showMessage(3, "Este producto ya esta agregado", null);
-                    }
+                        $cantidad = $comprar->readImportaciones();
+                        if ($cantidad) {
+                            $total = $cantidad[0]['cantidad'] + $_POST['cantidad'];
+                            $comprar->setCantidad($total);
+                            $comprar->setId($cantidad[0]['id_reservacion']);
+                            if ($comprar->modificarReservacion()) {
+                                Page::showMessage(1, 'Cantidad sumada', 'index.php');
+                            }
+                            else
+                            {
+                                throw new Exception("No se pudo realizar tu reservación en este momento");
+                                
+                            }
+                        }else{
+                            if ($comprar->createReservacion()) {
+                                
+                                 Page::showMessage(1, 'Reservacion realizada', 'index.php');
+                            }
+                            else
+                            {
+                                throw new Exception(Database::getException());
+                                
+                            }
+                           
+                        }
                 }else{
                         throw new Exception("Producto incorrecto");
                     }

@@ -37,13 +37,13 @@
                         <input id='cantidad' type='text' name='cantidad' class='validate'/>
                         <label for='cantidad'>Cantidad</label>
                     </div>           
-                    
-                    <div class='input-field col s12 m6'>
-                        <i class='material-icons prefix'>beenhere</i>
-                        <input id='sustrato' type='text' name='sustrato' class='validate'/>
-                        <label for='sustrato'>Sustrato</label>
+                     <!--<div class='input-field col s12 m6'>
+                       <?php
+                            //Page::showSelect("Sustrato", "sustrato", $pcb->getSustrato(), $pcb->getTipo_Sustrato());
+                        ?>--> 
                         <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons left">add_shopping_cart</i><b>Agregar al carrito</b></a><br><br><br><br><br>
-                    </div>
+                   <!-- </div> -->  
+                    
                 </form>
                 
             </div>
@@ -53,8 +53,10 @@
             <br>
             <h5 class="center indigo-text darken-4"><b>Dejanos tus dudas</b></h5> 
                 <form>
-                    <h6><b>Asunto</b></h6> 
+                    <h6><b>Correo</b></h6> 
                     <input id='correo' type='email' name='correo' class='validate'/>
+                    <h6><b>Asunto</b></h6> 
+                    <input id='asunto' name='asunto' class='validate'/>
                     <h6><b>Mensaje</b></h6>
                     <textarea id="textarea1" class="materialize-textarea"></textarea>
                     <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons right">send</i><b>Enviar</b></a><br><br><br><br><br>

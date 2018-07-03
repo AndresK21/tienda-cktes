@@ -186,15 +186,15 @@ class Importaciones extends Validator{
 		}else{
 			return null;
 		}
-	}
+	} 
 	//se crea las reservaciones 
 	public function createReservacion(){
-		$sql = "INSERT INTO reservaciones(id_producto, id_cliente, cantidad, fecha, hora, id_estado) VALUES(?, ?, ?, ?, ?, ?)";
-		$fecha = date("Y/m/d");
+		$sql = "INSERT INTO reservaciones(cantidad, fecha, 	hora, id_producto, id_cliente, id_estado) VALUES(?, ?, ?, ?, ?, ?)";
+		$fecha = date("Y-m-d");
         $hora = date("h:i:s");
-		$estado = 5;
-		$params = array($this->id, $this->cliente, $this->cantidad, $fecha, $hora, $estado);
-		return Database::getRows($sql, $params);
+		$estado = 9;
+		$params = array($this->cantidad, $fecha, $hora, $this->id, $this->cliente, $estado);
+		return Database::executeRow($sql, $params);
 	}
 	//se verifica las existencias de las productos
 	public function Existencias_productos(){
@@ -203,7 +203,7 @@ class Importaciones extends Validator{
 		return Database::getRows($sql, $params);
 	}//Validacion extra
 	public function readImportaciones(){
-		$sql = "SELECT * FROM reservaciones WHERE id_producto = ? AND id_cliente = ? AND id_estado = 5";
+		$sql = "SELECT * FROM reservaciones WHERE id_producto = ? AND id_cliente = ? AND id_estado = 9";
 		$params = array($this->id ,$this->cliente);
 		return Database::getRows($sql, $params);
 	}
@@ -218,7 +218,7 @@ class Importaciones extends Validator{
 	}
 
 	public function cargarReservaciones(){
-		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 5";
+		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 9";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}
@@ -231,7 +231,7 @@ class Importaciones extends Validator{
 	public function modificarReservacion(){
 		$sql = "UPDATE reservaciones SET cantidad = ? WHERE id_reservacion = ?";
 		$params = array($this->cantidad ,$this->id);
-		return Database::getRows($sql, $params);
+		return Database::executeRow($sql, $params);
 	}
 
 }

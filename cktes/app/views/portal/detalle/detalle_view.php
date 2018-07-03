@@ -31,15 +31,7 @@ print("
                         <p class='centrar_detalle'><b>$".$importacion->getPrecio()."</b></p>
                         </div>
                         </div>
-                        <div class='row lineaazul'>
-                        <div class='col s6 m6 l6'>
-                        <p class='letra detalle_letra'>Stock:</p>
-                        </div>
-                        <div class='col s6 m6 l6'>
-                        <p class='centrar_detalle'>".$importacion->getCantidad()."</p>
-                        </div>
-                        </div>
-
+                        
                     </div>");
                   if(isset($_SESSION['id_cliente'])){
                     print("
@@ -48,7 +40,7 @@ print("
                             <div class='row center'>
                                 <div class='input-field col s12 m6'>
                                     <i class='material-icons prefix'>list</i>
-                                    <input id='cantidad' type='number' name='cantidad' min='1' max='".$importacion->getCantidad()."' class='validate black-text'>
+                                    <input id='cantidad' type='number' name='cantidad' min='1' max='100' class='validate black-text'>
                                     <label for='cantidad'>Cantidad</label>
                                 </div>
                                 <div class='input-field col s12 m6'>

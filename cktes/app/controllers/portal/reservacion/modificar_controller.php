@@ -6,6 +6,8 @@ require_once("../app/models/portal/importaciones.class.php");
 //-----------------------------------------------------------------------------------------
 try{    
 	$actualizarReser = new Importaciones;
+    $actualizarReser->setId($_GET['id']);
+    $cant = $actualizarReser->cargarReservaciones();
         if(isset($_POST['actualizar'])){
             $_POST = $actualizarReser->validateForm($_POST);
                     if($actualizarReser->setId($_GET['id'])){

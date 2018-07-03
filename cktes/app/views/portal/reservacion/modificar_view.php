@@ -6,7 +6,7 @@
    
         <div class='input-field col s12 m6'>
           	<i class='material-icons prefix'>shopping_cart</i>
-          	<input id='cantidad' type='number' name='cantidad' class='validate' min='1'  required/>
+          	<input id='cantidad' type='number' name='cantidad' class='validate' min='1'  value='".$cant[0]['cantidad']."'/>
           	<label for='cantidad'>Cantidad</label>
         </div>
 	<div class='row center-align'>

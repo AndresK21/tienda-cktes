@@ -50,11 +50,9 @@ foreach ($importaciones as $importacion ) {
       <table>
         <tr>
           <th>Tamaño:</th>
-          <th>Cantidades Disponibles:</th>
         </tr>
         <tr>
           <td>$importacion[tamano]</td>
-          <td>$importacion[cantidad]</td>
         </tr>
         <tr>
           <th>Descripcion:</th>
