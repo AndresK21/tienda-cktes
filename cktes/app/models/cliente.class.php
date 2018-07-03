@@ -255,5 +255,26 @@ class Cliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 
+	public function deleteCliente(){
+		$sql = "DELETE FROM clientes WHERE id_cliente = ?";
+		$params = array($this->id);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function getClientes(){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes ORDER BY apellidos";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getClientes2($empieza, $por_pagina){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes ORDER BY apellidos LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function searchCliente($value){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY apellidos";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
 }
 ?>

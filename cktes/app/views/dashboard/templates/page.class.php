@@ -51,6 +51,7 @@ class Page extends Component{
                     </div></li>
                     <li><a href='../cuenta/index.php'>Dashboard</a></li>
                     <li><a href='../usuarios/index.php'>Usuarios</a></li>
+                    <li><a href='../clientes/index.php'>Clientes</a></li>
                     <li><a href='../productos/index.php'>Productos</a></li>
                     <li class='no-padding'>
                         <ul class='collapsible collapsible-accordion'>
