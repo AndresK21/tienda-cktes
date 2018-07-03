@@ -22,6 +22,15 @@
                 <input id="email" name="correo" type="email" class="validate" value='<?php print($usuario->getCorreo()) ?>' required />
                 <label for="email">Correo electr&oacute;nico</label>
             </div>
+            <div class='file-field input-field col s12 m6 l6'>
+            <div class='waves-effect waves-light btn grey darken-3'>
+                <span><i class='material-icons'>image</i></span>
+                <input type='file' name='archivo'/>
+            </div>
+            <div class='file-path-wrapper'>
+                <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>
+            </div>
+        </div>
         </div>
 
         <div class="white-text">.</div>

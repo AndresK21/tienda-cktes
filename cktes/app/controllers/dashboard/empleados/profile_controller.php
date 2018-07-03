@@ -9,12 +9,17 @@ try{
                 if($usuario->setNombres($_POST['nombres'])){
                     if($usuario->setApellidos($_POST['apellidos'])){
                         if($usuario->setCorreo($_POST['correo'])){
-                            if($usuario->updateEmpleado()){
-                                $_SESSION['correo_electronico'] = $usuario->getCorreo();
-                                Page::showMessage(1, "Perfil modificado", "index.php");
-                            }else{
-                                throw new Exception(Database::getException());
-                            }
+                            if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                                if(!$usuario->setImagen($_FILES['archivo'])){
+                                    throw new Exception($producto->getImageError());
+                                }
+                                }if($usuario->updateEmpleado()){
+                                    $_SESSION['correo_electronico'] = $usuario->getCorreo();
+                                    $_SESSION['imagen'] = $usuario->getImagen();
+                                    Page::showMessage(1, "Perfil modificado", "index.php");
+                                }else{
+                                    throw new Exception("No se pudo modificar el perfil");
+                                }
                         }else{
                             throw new Exception("Correo incorrecto");
                         }
