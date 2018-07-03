@@ -46,8 +46,8 @@ class Page extends Component{
                         <img src='../../web/img/1.jpg'>
                     </div>
                     <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                    <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                    <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                    <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
+                    <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
                     </div></li>
                     <li><a href='../cuenta/index.php'>Dashboard</a></li>
                     <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -93,8 +93,8 @@ class Page extends Component{
                                 <img src='../../web/img/1.jpg'>
                             </div>
                             <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                            <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                            <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                            <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
+                            <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
                             </div></li>
                             <li><a href='../cuenta/index.php'>Dashboard</a></li>
                             <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -157,8 +157,8 @@ class Page extends Component{
                     <img src='../../web/img/1.jpg'>
                 </div>
                 <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
+                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
                 </div></li>
                 <li><a href='../cuenta/index.php'>Dashboard</a></li>
                 <li><a href='../productos/index.php'>Productos</a></li>
@@ -202,8 +202,8 @@ class Page extends Component{
                             <img src='../../web/img/1.jpg'>
                         </div>
                         <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
+                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
                         </div></li>
                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                         <li><a href='../productos/index.php'>Productos</a></li>

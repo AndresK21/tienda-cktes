@@ -10,9 +10,9 @@ try{
 					if($object->setContrasena($_POST['contrasena'])){
 						if($object->checkPassword()){
 							$_SESSION['id_empleado'] = $object->getId_empleado();
-							$_SESSION['correo_electronico'] = $object->getCorreo();
-							$_SESSION['nombres'] = $object->getNombres();
-							$_SESSION['apellidos'] = $object->getApellidos();
+							$_SESSION['correo_electronico2'] = $object->getCorreo();
+							$_SESSION['nombres2'] = $object->getNombres();
+							$_SESSION['apellidos2'] = $object->getApellidos();
 							$_SESSION['imagen'] = $object->getImagen();
 							$_SESSION['id_permiso'] = $object->getId_permiso();
 							Page::showMessage(1, "Autenticación correcta", "index.php");
