@@ -32,7 +32,7 @@ class Page extends Component{
                     <nav>
                     <!--Navbar Color gris-->
                         <div class='nav-wrapper grey darken-3'>
-                            <a class='brand-logo'></a>
+                            <img class='brand-logo' src='../../web/img/logo_1.png' />
                             <a href='#' data-activates='slide-out2' class='button-collapse'><i class='material-icons'>menu</i></a>
                         </div>
                     </nav>
@@ -143,7 +143,7 @@ class Page extends Component{
                 <nav>
                 <!--Navbar Color gris-->
                     <div class='nav-wrapper grey darken-3'>
-                        <a class='brand-logo'></a>
+                        <img class='brand-logo' src='../../web/img/logo_1.png' />
                         <a href='#' data-activates='slide-out2' class='button-collapse'><i class='material-icons'>menu</i></a>
                     </div>
                 </nav>
@@ -251,7 +251,7 @@ class Page extends Component{
 					<nav>
 					<!--Navbar Color gris-->
 						<div class='nav-wrapper grey darken-3'>
-						<img class='brand-logo' src='../../web/img/mipintura.png'>
+						<img class='brand-logo' src='../../web/img/logo_1.png' />
 						</div>
 					</nav>
 				</div>
