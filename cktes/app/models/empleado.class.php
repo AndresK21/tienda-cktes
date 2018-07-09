@@ -142,7 +142,7 @@ class Empleado extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getEmpleado(){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) ORDER BY id_empleado";
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) ORDER BY id_empleado";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
@@ -182,6 +182,13 @@ class Empleado extends Validator{
 		$sql = "DELETE FROM empleado WHERE id_empleado = ?";
 		$params = array($this->id_empleado);
 		return Database::executeRow($sql, $params);
+	}
+
+	//Metodos para reportes
+	public function getEmpleado2(){
+		$sql = "SELECT id_empleado, nombres, apellidos, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) ORDER BY id_empleado";
+		$params = array(null);
+		return Database::getRows($sql, $params);
 	}
 }
 ?>
