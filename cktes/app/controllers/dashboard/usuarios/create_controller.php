@@ -17,7 +17,7 @@ try{
                                         throw new Exception(Database::getException());
                                     }
                                 }else{
-                                    throw new Exception($usuario->getArchiveError());
+                                    throw new Exception($usuario->getImageError());
                                 }
                             }else{
                                 throw new Exception("Seleccione una imagen");
@@ -26,7 +26,7 @@ try{
                             throw new Exception("Clave menor a 6 caracteres");
                         }                     
                     }else{
-                        throw new Exception("Alias incorrecto");
+                        throw new Exception("Permiso incorrecto");
                     }
                 }else{
                     throw new Exception("Correo incorrecto");
