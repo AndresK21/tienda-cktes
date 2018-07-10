@@ -17,9 +17,15 @@ try{
                                                 if($producto->setId_tipo_producto($_POST['tipo'])){
                                                     if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                                                         if($producto->setImagen($_FILES['archivo'])){
-                                                            if($producto->createProducto()){
-                                                                Page::showMessage(1, "Producto creado", "index.php");
-                                                            }
+                                                            if($producto->setId_impuesto($_POST['impuesto'])){
+                                                                if($producto->createProducto()){
+                                                                    Page::showMessage(1, "Producto creado", "index.php");
+                                                                }else{
+                                                                    throw new Exception(Database::getException());
+                                                                }
+                                                            }else{
+                                                                throw new Exception("Seleccione un impuesto");
+                                                            }  
                                                         }else{
                                                             throw new Exception($producto->getImageError());
                                                         }

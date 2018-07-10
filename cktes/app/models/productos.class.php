@@ -14,6 +14,7 @@ class Producto extends Validator{
 	private $id_marca = null;
 	private $id_estado = null;
 	private $id_tipo_producto = null;
+	private $id_impuesto = null;
 	
 	private $proveedor = null;
 	private $marca = null;
@@ -54,6 +55,18 @@ class Producto extends Validator{
 	}
 	public function getId_Producto(){
 		return $this->id_producto;
+	}
+	
+	public function setId_impuesto($value){
+		if($this->validateId($value)){
+			$this->id_impuesto = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_impuesto(){
+		return $this->id_impuesto;
     }
     
 	public function setNombre($value){
@@ -253,6 +266,11 @@ class Producto extends Validator{
 	}
 	public function getTipos(){
 		$sql = "SELECT id_tipo_producto, tipo_producto FROM tipo_producto";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getImpuestos(){
+		$sql = "SELECT id_impuesto, nombre, porcentaje FROM impuestos";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

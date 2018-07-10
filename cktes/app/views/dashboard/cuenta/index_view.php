@@ -88,7 +88,7 @@
 		<?php
 			print("
 			<div class='center-align'>
-				<a href='../../app/view/dashboard/empleado/reporte_ventas.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de ventas'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+				<a href='../reportes/ventas.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de ventas'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
 			</div>
 			");
 		?>
@@ -98,7 +98,7 @@
 		<?php
 			print("
 			<div class='center-align'>
-				<a href='../../app/view/dashboard/empleado/reporte_cliente.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de clientes'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+				<a href='../reportes/cliente_ventas.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de clientes'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
 			</div>
 			");
 		?>

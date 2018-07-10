@@ -1,5 +1,6 @@
 <?php
 require_once("../../app/models/cliente.class.php");
+require_once("../../app/models/tipo_cliente.class.php");
 try{
 
 	//cantidad de registros por página
@@ -28,6 +29,23 @@ try{
 	}else{
 		$data = $cliente->getClientes2($empieza, $por_pagina);
 	}
+
+	//Controlador de clientes
+	$tipo = new Tipo_cliente;
+	if(isset($_POST['buscar_tipo'])){
+		$_POST = $tipo->validateForm($_POST);
+		$data2 = $tipo->searchTipo_cliente($_POST['busqueda_tipo']);
+		if($data2){
+			$rows = count($data2);
+			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
+		}else{
+			Page::showMessage(4, "No se encontraron resultados", null);
+			$data2 = $tipo->getTipo_clientes();
+		}
+	}else{
+		$data2 = $tipo->getTipo_clientes();
+	}
+
 	if($data){
 		require_once("../../app/views/dashboard/clientes/index_view.php");
 	}else{
