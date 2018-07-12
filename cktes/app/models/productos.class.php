@@ -307,7 +307,7 @@ class Producto extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readProducto(){
-		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -323,6 +323,7 @@ class Producto extends Validator{
 			$this->id_marca = $producto['id_marca'];
 			$this->id_estado = $producto['id_estado'];
 			$this->id_tipo_producto = $producto['id_tipo_producto'];
+			$this->id_impuesto = $producto['id_impuesto'];
 			return true;
 		}else{
 			return null;
@@ -352,8 +353,8 @@ class Producto extends Validator{
 		}
 	}
 	public function updateProducto(){
-		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ? WHERE id_producto = ?";
-		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_producto);
+		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ?, id_impuesto = ? WHERE id_producto = ?";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteProducto(){

@@ -73,6 +73,13 @@
         </div>
     </div>
     <div class="row">
+        <div class="input-field col s12 m6 l6">
+            <?php
+                Page::showSelect("Impuestos", "impuesto", $producto->getId_impuesto(), $producto->getImpuestos());
+            ?>
+        </div>
+    </div>
+    <div class="row">
         <div class="col s12 right-align">
             <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
             <button type='submit' name='actualizar' class='btn waves-effect blue-grey darken-4'><i class='material-icons'>save</i>Guardar</button>
