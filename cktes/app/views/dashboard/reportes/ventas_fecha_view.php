@@ -6,6 +6,9 @@
         // Cabecera de p�gina
         function Header()
         {
+            $fech1 = date_create($_GET['fech1']);
+            $fech2 = date_create($_GET['fech2']);
+
             // Logo
             //$this->Image('../../../../web/img/mipintura_negro1.png',10,8,40);
             // Arial bold 15
@@ -13,7 +16,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             // T�tulo
-            $this->Cell(40,10,'Clientes con mas ventas',0,0,'C');
+            $this->Cell(35,10,'Ventas desde '.date_format($fech1 , 'd-m-Y').' al '.date_format($fech2, 'd-m-Y'),0,0,'C');
             // Salto de l�nea
             $this->Ln(20);
         }
@@ -34,6 +37,8 @@
         // Una tabla m�s completa
         function ImprovedTable($header, $result)
         {   
+            $total = null;
+            $fecha = null;
             // Colores, ancho de línea y fuente en negrita
             $this->SetFillColor(14,28,44);
             $this->SetTextColor(255);
@@ -41,7 +46,7 @@
             $this->SetLineWidth(.3);
             $this->SetFont('','B');
             // Anchuras de las columnas
-            $w = array(85, 70, 35);
+            $w = array(75, 27, 25, 25, 25);
             // Cabeceras
             for($i=0;$i<count($header);$i++)
                 $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -55,14 +60,30 @@
             $fill = false;
             foreach($result as $row)
             {
-                $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LR',0,'L',$fill);
-                $this->Cell($w[1],6,$row['correo_electronico'],'LR',0,'L',$fill);
+                $fecha = date_create($row['fecha']);
+
+                $this->Cell($w[0],6,$row['nombre'],'LR',0,'L',$fill);
+                $this->Cell($w[1],6,date_format($fecha, 'd-m-Y'),'LR',0,'L',$fill);
                 $this->Cell($w[2],6,$row['cant'],'LR',0,'L',$fill);
+                $this->Cell($w[3],6,'$'.$row['precio'],'LR',0,'L',$fill);
+                $this->Cell($w[4],6,'$'.number_format($row['venta'], 2),'LR',0,'L',$fill);
+
+                $total = $total + $row['venta'];
                 $this->Ln();
                 $fill = !$fill;
             }
             // L�nea de cierre
             $this->Cell(array_sum($w),0,'','T');
+
+            $this->Ln();
+            $this->Cell($w[0],0,null,'LR');
+            $this->Cell($w[1],0,null,'LR');
+            $this->Cell($w[2],0,null,'LR');
+            $this->Cell($w[3],7,'Total:','LB',0,'R',$fill);
+
+            $total = number_format($total, 2);
+
+            $this->Cell($w[4],7,'$'.$total,'RB',0,'L',$fill);
         }
     }
 ?>

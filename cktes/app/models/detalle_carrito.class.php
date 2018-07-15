@@ -107,5 +107,11 @@ class Detalle extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+
+	public function getVentasFecha($fecha1, $fecha2){
+		$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto AS id, nombre, precio, precio*SUM(detalle_carrito.cantidad) AS venta, carrito.fecha AS fecha FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE carrito.fecha BETWEEN ? AND ? GROUP BY id_producto";
+		$params = array("$fecha1", "$fecha2");
+		return Database::getRows($sql, $params);
+	}
 }
 ?>

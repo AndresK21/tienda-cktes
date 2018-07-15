@@ -39,6 +39,23 @@
 <div class="row">
 	<div class='col s12'>
 		<div class="center-align"><h5>Ventas en rango de fechas</h5></div>
+		<form method='post'>
+			<div class='row'>
+				<div class='input-field col s12 m5 l5'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha1' type='text' name='fecha_1' class="datepicker"/>
+					<label for='fecha1'>Fecha inicial</label>
+				</div>
+				<div class='input-field col s12 m5 l5'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha2' type='text' name='fecha_2' class="datepicker"/>
+					<label for='fecha2'>Fecha final</label>
+				</div>
+				<div class="input-field col s12 m2 l2 center-align">
+					<button type='submit' name='generar' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Generar grafico'><i class='material-icons'>search</i>Generar</button>
+				</div>
+			</div>
+		</form>
 		<canvas id="myChart6" height="112"></canvas>
 	</div>
 </div>
@@ -105,14 +122,41 @@
 		<div class="center-align"><h5>Clientes con m&aacute;s compras</h5></div>
 	</div>
 	<div class='col s12 m4 l4'>
-		<?php
-			print("
-			<div class='center-align'>
-				<a href='../../app/view/dashboard/usuarios/reporte.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de empleados'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+		<form method='post'>
+			<div class='row'>
+				<div class='input-field col s12 m6 l6'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha11' type='text' name='fecha_11' class="datepicker"/>
+					<label for='fecha11'>Fecha inicial</label>
+				</div>
+				<div class='input-field col s12 m6 l6'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha22' type='text' name='fecha_22' class="datepicker"/>
+					<label for='fecha22'>Fecha final</label>
+				</div>
 			</div>
-			");
+			<div class='center-align'>
+				<button type='submit' name='reporte6' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar las fechas'>Ingresar</button>
+			</div>
+		</form>
+		
+		<?php
+			if(isset($_POST['reporte6'])){
+				print("
+					<div class='center-align'>
+					<a href='../reportes/ventas_fecha.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]&fech1=$_POST[fecha_11]&fech2=$_POST[fecha_22]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de clientes'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+					</div>
+				");
+			}else{
+				print("
+					No se pudo
+				");
+			}	
 		?>
+		
 		<div class="center-align"><h5>Ventas por fecha</h5></div>
+		<?php print("$_POST[fecha_11]"); ?>
+		<?php print("$_POST[fecha_22]"); ?>
 	</div>
 </div>
 
@@ -213,7 +257,7 @@
 					$sql = "SELECT ROUND(AVG(estrellas), 1) AS estrellas, valoraciones.id_producto, nombre FROM valoraciones INNER JOIN productos USING(id_producto) WHERE id_tipo_producto = 2 GROUP BY id_producto ORDER BY estrellas DESC LIMIT 5";
 					$params = array(null);
 					$result = Database::getRows($sql, $params);
-
+					
 					foreach($result as $row){
 				?> //Cerramos la etiqueta php porque los siguientes resultados tienen que ser tipo "String" Y porque los siguientes valores se debn separar por coma para JS
 
@@ -233,7 +277,7 @@
 						$sql = "SELECT ROUND(AVG(estrellas), 1) AS estrellas, valoraciones.id_producto, nombre FROM valoraciones INNER JOIN productos USING(id_producto) WHERE id_tipo_producto = 2 GROUP BY id_producto ORDER BY estrellas DESC LIMIT 5";
 						$params = array(null);
 						$result = Database::getRows($sql, $params);
-
+						
 						foreach($result as $row){
 					?> //Cerramos la etiqueta php porque los siguientes valores se debn separar por coma para JS
 
@@ -643,38 +687,97 @@
 		}
 	}, 5000);
 
-
+</script>
+<script>
 	var ctx = document.getElementById("myChart6").getContext('2d');
 	var myChart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+			labels: [
+				/*Se abre la etiqueta de php para hacer la consulta, la consulta devuelve varios valores
+				por eso se utiliza el "foreach", en esta primera instancia solo se necesitan los nombres
+				de los productos.*/ 
+				<?php
+					$fecha1 = $_POST['fecha_1'];
+					$fecha2 = $_POST['fecha_2'];
+
+					/*$idioma = "SET lc_time_names ='es_SV'";
+					Database::getRows($idioma, null);*/
+
+					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto AS id, nombre, precio, precio*SUM(detalle_carrito.cantidad) AS venta, carrito.fecha AS fecha FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) GROUP BY fecha";
+					$params = array($fecha1, $fecha2);
+					$result = Database::getRows($sql, $params);
+
+					foreach($result as $row){
+				?> //Cerramos la etiqueta php porque los siguientes resultados tienen que ser tipo "String" Y porque los siguientes valores se debn separar por coma para JS
+
+					'<?php print("$row[fecha]"); ?>', //Se usan las comillas simples para indicar a JavaSccript que los valores son de tipo String
+
+				<?php //Se vuelve a abrir la etiqueta php para añadir la llave faltante del codigo del Foreach
+					}
+				?>
+			],
 			datasets: [{
-				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
+				label: '$ de venta',
+				data: [
+					/*Se abre la etiqueta de php para hacer la consulta, la consulta devuelve varios valores
+					por eso se utiliza el "foreach", en esta primera instancia solo se necesitan los nombres
+					de los productos.*/ 
+					<?php
+						$fecha1 = $_POST['fecha_1'];
+						$fecha2 = $_POST['fecha_2'];
+
+						/*$idioma = "SET lc_time_names ='es_SV'";
+						Database::getRows($idioma, null);*/
+
+						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto AS id, nombre, precio, ROUND(precio*SUM(detalle_carrito.cantidad), 2) AS venta, carrito.fecha AS fecha FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) GROUP BY fecha";
+						$params = array($fecha1, $fecha2);
+						$result = Database::getRows($sql, $params);
+
+						foreach($result as $row){
+					?> //Cerramos la etiqueta php porque los siguientes resultados tienen que ser tipo "String" Y porque los siguientes valores se debn separar por coma para JS
+
+						'<?php print("$row[venta]"); ?>', //Se usan las comillas simples para indicar a JavaSccript que los valores son de tipo String
+
+					<?php //Se vuelve a abrir la etiqueta php para añadir la llave faltante del codigo del Foreach
+						}
+					?>
+				],
 				backgroundColor: [
-					'rgba(255, 99, 132, 0.4)',
-					'rgba(54, 162, 235, 0.4)',
-					'rgba(255, 206, 86, 0.4)',
-					'rgba(75, 192, 192, 0.4)',
-					'rgba(153, 102, 255, 0.4)',
-					'rgba(255, 159, 64, 0.4)'
+					'rgba(24, 42, 51, 1)',
+					'rgba(76, 91, 92, 1)',
+					'rgba(174, 171, 152, 1)',
+					'rgba(229, 90, 124, 1)',
+					'rgba(69, 190, 252, 1)',
+					'rgba(213, 185, 66, 1)',
+					'rgba(0, 21, 20, 1)',
+					'rgba(85, 5, 39, 1)',
+					'rgba(164, 3, 31, 1)',
+					'rgba(10, 46, 54, 1)'
 				],
 				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
+					'rgba(24, 42, 51, 1)',
+					'rgba(76, 91, 92, 1)',
+					'rgba(174, 171, 152, 1)',
+					'rgba(229, 90, 124, 1)',
+					'rgba(69, 190, 252, 1)',
+					'rgba(213, 185, 66, 1)',
+					'rgba(0, 21, 20, 1)',
+					'rgba(85, 5, 39, 1)',
+					'rgba(164, 3, 31, 1)',
+					'rgba(10, 46, 54, 1)'
 				],
-				hoverBackgroundColor: [
-					'rgba(255, 99, 132, 0.8)',
-					'rgba(54, 162, 235, 0.8)',
-					'rgba(255, 206, 86, 0.8)',
-					'rgba(75, 192, 192, 0.8)',
-					'rgba(153, 102, 255, 0.8)',
-					'rgba(255, 159, 64, 0.8)'
+				hoverBackground: [
+					'rgba(24, 42, 51, 10)',
+					'rgba(76, 91, 92, 10)',
+					'rgba(174, 171, 152, 90)',
+					'rgba(229, 90, 124, 90)',
+					'rgba(69, 190, 252, 90)',
+					'rgba(213, 185, 66, 90)',
+					'rgba(0, 21, 20, 90)',
+					'rgba(85, 5, 39, 90)',
+					'rgba(164, 3, 31, 90)',
+					'rgba(10, 46, 54, 90)'
 				],
 				borderWidth: 2
 			}]

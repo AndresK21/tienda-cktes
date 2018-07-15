@@ -13,7 +13,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             // T�tulo
-            $this->Cell(100,10,'Ventas',0,0,'C');
+            $this->Cell(35,10,'Ventas',0,0,'C');
             // Salto de l�nea
             $this->Ln(20);
         }
@@ -37,9 +37,9 @@
             $total = null;
             $fecha = null;
             // Colores, ancho de línea y fuente en negrita
-            $this->SetFillColor(56,132,195);
+            $this->SetFillColor(14,28,44);
             $this->SetTextColor(255);
-            $this->SetDrawColor(56,132,195);
+            $this->SetDrawColor(14,28,44);
             $this->SetLineWidth(.3);
             $this->SetFont('','B');
             // Anchuras de las columnas
@@ -50,7 +50,7 @@
             $this->Ln();
 
             // Restauración de colores y fuentes
-            $this->SetFillColor(224,235,255);
+            $this->SetFillColor(214,214,214);
             $this->SetTextColor(0);
             $this->SetFont('');
             // Datos
