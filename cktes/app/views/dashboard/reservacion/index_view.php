@@ -38,7 +38,7 @@
                 <!--muestra la lista de pedidos-->
                 <div class="col s12">
                         
-                        <table class="bordered highlight responsive-table espacio_inf">
+                        <table class="bordered highlight responsive-table z-depth-2">
                             <thead class="grey darken-3 white-text">
                                 <tr>
                                     <th>Cliente</th>
@@ -132,7 +132,7 @@
                                             <tr>
                                                 <td>$row[nombres] $row[apellidos]</td>
                                                 <td>$row[estado]</td>
-                                                <td>$row[producto]</td>
+                                                <td>$row[nombre]</td>
                                                 <td>$row[cantidad]</td>
                                                 <td>$row[fecha_estimada]</td>
                                                 <td>

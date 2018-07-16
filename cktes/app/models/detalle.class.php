@@ -203,9 +203,14 @@ public function readCarrito(){
 		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND estado_carrito = 6";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
-					
-				}
+	}
 	  
-
+	//Metodos para reportes
+	public function clienteVenta($venta){
+		$sql = "SELECT ROUND(SUM(detalle_carrito.cantidad*precio), 2) AS venta, id_cliente, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) WHERE (SELECT ROUND(SUM(detalle_carrito.cantidad*precio), 2) AS venta FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente)) >= ? Group BY id_cliente";
+		$params = array($venta);
+		return Database::getRows($sql, $params);
+	}
+	
 }
 ?>

@@ -13,7 +13,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             // T�tulo
-            $this->Cell(40,10,'Clientes registrados',0,0,'C');
+            $this->Cell(40,10,'Importaciones pendientes',0,0,'C');
             // Salto de l�nea
             $this->Ln(20);
         }
@@ -41,7 +41,7 @@
             $this->SetLineWidth(.3);
             $this->SetFont('','B');
             // Anchuras de las columnas
-            $w = array(55, 55, 85);
+            $w = array(75, 70, 25, 25);
             // Cabeceras
             for($i=0;$i<count($header);$i++)
                 $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -55,9 +55,10 @@
             $fill = false;
             foreach($result as $row)
             {
-                $this->Cell($w[0],6,$row['apellidos'],'LR',0,'L',$fill);
-                $this->Cell($w[1],6,$row['nombres'],'LR',0,'L',$fill);
-                $this->Cell($w[2],6,$row['correo_electronico'],'LR',0,'L',$fill);
+                $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LR',0,'L',$fill);
+                $this->Cell($w[1],6,$row['nombre'],'LR',0,'L',$fill);
+                $this->Cell($w[2],6,$row['cantidad'],'LR',0,'L',$fill);
+                $this->Cell($w[3],6,$row['fecha'],'LR',0,'L',$fill);
                 $this->Ln();
                 $fill = !$fill;
             }

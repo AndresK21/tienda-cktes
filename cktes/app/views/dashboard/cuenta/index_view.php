@@ -64,7 +64,7 @@
 
 <div class='row'>
 	<div class='col s12 m4 l4'>
-		<div class="center-align"><h5>Productos vendidos seg&uacute;n marca</h5></div>
+		<div class="center-align"><h5>Productos m&aacute;s vendidos seg&uacute;n marca</h5></div>
 		<form method='post'>
 			<div class='row'>
 				<div class="input-field col s12 m6 l6">
@@ -120,22 +120,33 @@
 		</form>
 		<canvas id="myChart9" height="125"></canvas>
 	</div>
+	<div class='col s12 m6 l6'>
+		<div class="center-align"><h5>Productos m&aacute;s vendidos seg&uacute;n fecha</h5></div>
+		<form method='post'>
+			<div class='row'>
+				<div class='input-field col s12 m4 l4'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha1111' type='text' name='fecha_1111' class="datepicker"/>
+					<label for='fecha1111'>Fecha inicial</label>
+				</div>
+				<div class='input-field col s12 m4 l4'>
+					<i class='material-icons prefix'>date_range</i>
+					<input id='fecha2222' type='text' name='fecha_2222' class="datepicker"/>
+					<label for='fecha2222'>Fecha final</label>
+				</div>
+				<div class="input-field col s12 m2 l2 center-align">
+					<button type='submit' name='generar5' class='btn waves-effect waves-light blue-grey darken-4 white-text tooltipped' data-tooltip='Generar grafico'>Generar</button>
+				</div>
+			</div>
+		</form>
+		<canvas id="myChart10" height="125"></canvas>
+	</div>
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="white-text">.</div>
+<div class="white-text">.</div>
 <div class="white-text">.</div>
 <div class="center-align"><h3>Reportes</h3></div>
 <div class="white-text">.</div>
@@ -198,6 +209,7 @@
 	</div>
 </div>
 
+<div class="white-text">.</div>
 <div class="white-text">.</div>
 
 <div class="row">
@@ -347,14 +359,39 @@
 		
 	</div>
 	<div class='col s12 m6 l6'>
-		<?php
-			print("
-			<div class='center-align'>
-				<a href='../reportes/cliente_ventas.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de clientes'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+		<div class="center-align"><h5>Clientes con compras mayores a:</h5></div>
+		<form method='post'>
+			<div class='row'>
+				<div class="input-field col s12">
+					<input id="vent" name="venta" type="number" class="validate" max="9999.99" min="0.01" step="any"/>
+					<label for="venta" class="black-text">Precio</label>
+				</div>
+				<div class='center-align'>
+					<button type='submit' name='reporte10' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar el monto'>Ingresar</button>
+				</div>
 			</div>
-			");
+			
+		</form>
+		
+		<?php
+			if(isset($_POST['reporte10'])){
+				if($_POST['venta'] <= 0){
+					throw new Exception("Por favor ingrese datos validos");
+				}else{
+					print("
+						<div class='center-align'>
+							<a href='../reportes/clientes_compras.php?id=$_SESSION[nombres2]&id2=$_SESSION[apellidos2]&vent=$_POST[venta]' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de clientes'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+						</div>
+					");
+				}
+			}else{
+				print("
+				<div class='center-align'>
+					<i class='material-icons blue-grey-text text-darken-4 large prefix tooltipped' data-tooltip='Seleccione una tipo de importacion'>content_paste</i>
+				</div>
+				");
+			}	
 		?>
-		<div class="center-align"><h5>Clientes con m&aacute;s compras</h5></div>
 	</div>
 </div>
 
@@ -1355,6 +1392,115 @@
 			
 			scales: {
 				
+			}
+		}
+	}, 5000);
+</script>
+
+<script>
+	var ctx = document.getElementById("myChart10").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: [
+				/*Se abre la etiqueta de php para hacer la consulta, la consulta devuelve varios valores
+				por eso se utiliza el "foreach", en esta primera instancia solo se necesitan los nombres
+				de los productos.*/ 
+				<?php
+
+					if(isset($_POST['generar5'])){
+						$_SESSION['fec1'] = $_POST['fecha_1111'];
+						$_SESSION['fec2'] = $_POST['fecha_2222'];
+					}
+
+					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto, nombre , carrito.fecha FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) WHERE id_tipo_producto = 2 AND fecha BETWEEN ? and ? GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
+					$params = array($_SESSION['fec1'], $_SESSION['fec2']);
+					$result = Database::getRows($sql, $params);
+
+					foreach($result as $row){
+				?> //Cerramos la etiqueta php porque los siguientes resultados tienen que ser tipo "String" Y porque los siguientes valores se debn separar por coma para JS
+
+					'<?php print("$row[nombre]"); ?>', //Se usan las comillas simples para indicar a JavaSccript que los valores son de tipo String
+
+				<?php //Se vuelve a abrir la etiqueta php para añadir la llave faltante del codigo del Foreach
+					}
+				?>
+			],
+
+			datasets: [{
+				label: 'Cantidad',
+				data: [
+					/*Se abre la etiqueta de php para hacer la consulta, la consulta devuelve varios valores
+					por eso se utiliza el "foreach", en esta segunda instancia solo se necesitan los valores
+					de los respectivos productos.*/
+					<?php
+
+						if(isset($_POST['generar5'])){
+							$_SESSION['fec1'] = $_POST['fecha_1111'];
+							$_SESSION['fec2'] = $_POST['fecha_2222'];
+						}
+
+						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto, nombre , carrito.fecha FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) WHERE id_tipo_producto = 2 AND fecha BETWEEN ? and ? GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
+						$params = array($_SESSION['fec1'], $_SESSION['fec2']);
+						$result = Database::getRows($sql, $params);
+
+						foreach($result as $row){
+					?> //Cerramos la etiqueta php porque los siguientes valores se debn separar por coma para JS
+
+						<?php print("$row[cant]"); ?>, //Aqui NO se usan las comillas simples porque los valores son de tipo numericos
+
+					<?php //Se vuelve a abrir la etiqueta php para añadir la llave faltante del codigo del Foreach
+						}
+					?>
+				],
+				backgroundColor: [
+					'rgba(14, 28, 44, 1)',
+					'rgba(76, 91, 92, 1)',
+					'rgba(214, 214, 214, 1)',
+					'rgba(229, 90, 124, 1)',
+					'rgba(58, 202, 236, 1)',
+					'rgba(255, 227, 98, 1)',
+					'rgba(1, 94, 182, 1)',
+					'rgba(85, 5, 39, 1)',
+					'rgba(164, 3, 31, 1)',
+					'rgba(10, 46, 54, 1)'
+				],
+				borderColor: [
+					'rgba(14, 28, 44, 1)',
+					'rgba(76, 91, 92, 1)',
+					'rgba(214, 214, 214, 1)',
+					'rgba(229, 90, 124, 1)',
+					'rgba(58, 202, 236, 1)',
+					'rgba(255, 227, 98, 1)',
+					'rgba(1, 94, 182, 1)',
+					'rgba(85, 5, 39, 1)',
+					'rgba(164, 3, 31, 1)',
+					'rgba(10, 46, 54, 1)'
+				],
+				hoverBackground: [
+					'rgba(14, 28, 44, 10)',
+					'rgba(76, 91, 92, 10)',
+					'rgba(214, 214, 214, 90)',
+					'rgba(229, 90, 124, 90)',
+					'rgba(58, 202, 236, 90)',
+					'rgba(255, 227, 98, 90)',
+					'rgba(1, 94, 182, 90)',
+					'rgba(85, 5, 39, 90)',
+					'rgba(164, 3, 31, 90)',
+					'rgba(10, 46, 54, 90)'
+				],
+				borderWidth: 2
+			}]
+		},
+		options: {
+			responsive : true,
+
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
 			}
 		}
 	}, 5000);

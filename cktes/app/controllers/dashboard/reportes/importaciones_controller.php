@@ -1,8 +1,9 @@
 <?php
     require_once("../../app/models/database.class.php");
-    include('../../app/views/dashboard/reportes/empleados_tipo_view.php');
+    include('../../app/views/dashboard/reportes/importaciones_view.php');
     require_once("../../app/helpers/validator.class.php");
     require_once("../../app/models/reservaciones.class.php");
+    require_once("../../app/models/importaciones.class.php");
     $reservacion = new Reservacion;
     $importacion = new Importacion;
 
@@ -11,15 +12,13 @@
     $pdf->setTitle('Reporte de importaciones');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Cliente', 'Producto', 'Tipo de usuario', 'Correo electronico');
+    $header = array('Cliente', 'Producto', 'Cantidad', 'Fecha');
     // Carga de datos
-    if($_GET['permis'] == 1){
+    if($_GET['impor'] == 1){
         $result = $reservacion->getReservacionR();
-    }else if($_GET['permis'] == 2){
-        $result = $importacion->getImportacion();
+    }else if($_GET['impor'] == 2){
+        $result = $importacion->getImportacionR();
     }
-
-    
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

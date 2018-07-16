@@ -145,29 +145,29 @@ class Importacion extends Validator{
 	}
 
 	public function getImportacion(){
-		$sql = "SELECT id_importacion, importacion_especial.cantidad, producto, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) ORDER BY id_importacion";
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) ORDER BY id_importacion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchImportacion($value){
-		$sql = "SELECT id_importacion, importacion_especial.cantidad, producto, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_importacion";
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_importacion";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function createImportacion(){
-		$sql = "INSERT INTO importacion_especial(cantidad, fecha, fecha_estimada, producto, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO importacion_especial(cantidad, fecha, fecha_estimada, nombre, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?)";
 		$params = array($this->cantidad, $this->fecha, $this->fecha_estimada, $this->producto, $this->id_cliente, $this->id_estado);
 		return Database::executeRow($sql, $params);
 	}
 	public function readImportacion(){
-		$sql = "SELECT id_importacion, producto, importacion_especial.id_cliente, importacion_especial.cantidad, fecha, fecha_estimada, nombres, apellidos, importacion_especial.id_estado FROM importacion_especial INNER JOIN clientes USING(id_cliente) WHERE id_importacion = ? ORDER BY id_importacion";
+		$sql = "SELECT id_importacion, nombre, importacion_especial.id_cliente, importacion_especial.cantidad, fecha, fecha_estimada, nombres, apellidos, importacion_especial.id_estado FROM importacion_especial INNER JOIN clientes USING(id_cliente) WHERE id_importacion = ? ORDER BY id_importacion";
 		$params = array($this->id_importacion);
 		$importacion = Database::getRow($sql, $params);
 		if($importacion){
             $this->id_importacion = $importacion['id_importacion'];
             $this->cantidad = $importacion['cantidad'];
             $this->fecha = $importacion['fecha'];
-						$this->producto = $importacion['producto'];
+						$this->producto = $importacion['nombre'];
 						$this->fecha_estimada = $importacion['fecha_estimada'];
             $this->nombres = $importacion['nombres'];
             $this->apellidos = $importacion['apellidos'];
@@ -179,7 +179,7 @@ class Importacion extends Validator{
 		}
 	}
 	public function updateImportacion(){
-		$sql = "UPDATE importacion_especial SET cantidad = ?, fecha = ?, fecha_estimada = ?, producto = ?, id_cliente = ?, id_estado = ? WHERE id_importacion = ?";
+		$sql = "UPDATE importacion_especial SET cantidad = ?, fecha = ?, fecha_estimada = ?, nombre = ?, id_cliente = ?, id_estado = ? WHERE id_importacion = ?";
 		$params = array($this->cantidad, $this->fecha, $this->fecha_estimada, $this->producto, $this->id_cliente, $this->id_estado, $this->id_importacion);
 		return Database::executeRow($sql, $params);
 	}
@@ -187,6 +187,13 @@ class Importacion extends Validator{
 		$sql = "DELETE FROM importacion_especial WHERE id_importacion = ?";
 		$params = array($this->id_importacion);
 		return Database::executeRow($sql, $params);
+	}
+
+	//Metodos para reportes
+	public function getImportacionR(){
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) ORDER BY id_importacion";
+		$params = array(null);
+		return Database::getRows($sql, $params);
 	}
 }
 ?>
