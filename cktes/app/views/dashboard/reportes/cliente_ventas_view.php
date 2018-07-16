@@ -38,7 +38,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             // T�tulo del reporte 
-            $this->Cell(40,10,'Clientes con mas ventas',0,0,'C');
+            $this->Cell(40,10,'Clientes con mas compras',0,0,'C');
             // Salto de l�nea
             $this->Ln(15);
         }

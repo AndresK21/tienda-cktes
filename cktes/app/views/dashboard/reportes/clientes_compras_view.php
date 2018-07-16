@@ -3,20 +3,48 @@
 
     class PDF extends FPDF
     {
-        // Cabecera de p�gina
+   // Cabecera de p�gina
+        /*Función header. En esta función se colocan todos los elementos que contendrá el header del reporte
+        que se repetirá en todas las páginas existentes del mismo. El encabezado contiene una imagen, el logo,
+        nombre de la empresa y el slogan del mismo.
+         */
         function Header()
-        {
+        {  
+            /*en la función "IMAGE" se coloca la ruta de la imagen que se desea, ubicación en "x" y "y", el tamaño de esta
+            Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])  */
+            //Imagen del rectangulo superior del reporte
+            $this->Image('../../web/img/reporte.png', 0, 0, 220,200 );
+            //Salto
+            $this->Ln(15);
+             //Líneas horizontales (x1,y1,x2,y2)
+            $this->Line(10,25,200,25);
+            $this->Line(10,46,200,46);
             // Logo
-            $this->Image('../../web/img/logo.png',10,8,23);
-            // Arial bold 15
-            $this->SetFont('Arial','B',18);
+            $this->Image('../../web/img/logo.png',10,24.3,23);
+            // Arial 15
+            $this->SetFont('Arial','',15);
             // Movernos a la derecha
             $this->Cell(80);
-            // T�tulo
+            $this->Cell(40,10,'CKTE-ES, S.A DE C.V',0,1,'C');
+            // Arial 15
+            $this->SetFont('Arial','',13);
+            // Movernos a la derecha
+            $this->Cell(80);
+            $this->Cell(45,10,'"Circuitos profesionales con la garantia que nadie ofrece"',0,0,'C');
+            // Arial bold 15
+            $this->SetFont('Arial','B',18);
+            //Salto          
+            $this->Ln(20);
+            // Movernos a la derecha
+            $this->Cell(80);
+            //Titulo
             $this->Cell(40,10,'Clientes con compras mayores a '."$".$_GET['vent'],0,0,'C');
             // Salto de l�nea
-            $this->Ln(20);
+            $this->Ln(15);
+        
         }
+
+           
 
         // Pie de p�gina
         function Footer()
