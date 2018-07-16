@@ -56,6 +56,16 @@
 				</div>
 			</div>
 		</form>
+
+		<?php
+			if(isset($_POST['generar'])){
+				$_SESSION['fecha1'] = date_create($_POST['fecha_1']);
+				$_SESSION['fecha2'] = date_create($_POST['fecha_2']);
+
+				print("<div class='center-align'>Desde el ".date_format($_SESSION['fecha1'], 'd-m-Y')." al ".date_format($_SESSION['fecha2'], 'd-m-Y')."</div>");
+			}
+		?>
+
 		<canvas id="myChart6" height="112"></canvas>
 	</div>
 </div>
@@ -98,6 +108,14 @@
 				</div>
 			</div>
 		</form>
+		<?php
+			if(isset($_POST['generar3'])){
+				$_SESSION['fe1'] = date_create($_POST['fecha_111']);
+				$_SESSION['fe2'] = date_create($_POST['fecha_222']);
+
+				print("<div class='center-align'>Desde el ".date_format($_SESSION['fe1'], 'd-m-Y')." al ".date_format($_SESSION['fe2'], 'd-m-Y')."</div>");
+			}
+		?>
 		<canvas id="myChart8" height="112"></canvas>
 	</div>
 	
@@ -139,6 +157,14 @@
 				</div>
 			</div>
 		</form>
+		<?php
+			if(isset($_POST['generar5'])){
+				$_SESSION['fec1'] = date_create($_POST['fecha_1111']);
+				$_SESSION['fec2'] = date_create($_POST['fecha_2222']);
+
+				print("<div class='center-align'>Desde el ".date_format($_SESSION['fec1'], 'd-m-Y')." al ".date_format($_SESSION['fec2'], 'd-m-Y')."</div>");
+			}
+		?>
 		<canvas id="myChart10" height="125"></canvas>
 	</div>
 </div>
@@ -227,6 +253,14 @@
 					<input id='fecha22' type='text' name='fecha_22' class="datepicker"/>
 					<label for='fecha22'>Fecha final</label>
 				</div>
+				<?php
+					if(isset($_POST['fecha_11']) && isset($_POST['fecha_22'])){
+						$_SESSION['par1'] = $_POST['fecha_11'];
+						$_SESSION['par2'] = $_POST['fecha_22'];
+
+						print("<div class='center-align'>Desde el ".$_SESSION['par1']." al ".$_SESSION['par2']."</div>");
+					}
+				?>
 				<div class='center-align'>
 					<button type='submit' name='reporte6' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar las fechas'>Ingresar</button>
 				</div>
@@ -367,6 +401,13 @@
 					<label for="venta" class="black-text">Precio</label>
 				</div>
 				<div class='center-align'>
+				<?php
+					if(isset($_POST['venta'])){
+						$_SESSION['par3'] = $_POST['venta'];
+
+						print("<div class='center-align'>Ventas mayores a ".$_SESSION['par3']."</div>");
+					}
+				?>
 					<button type='submit' name='reporte10' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar el monto'>Ingresar</button>
 				</div>
 			</div>
