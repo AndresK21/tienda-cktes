@@ -10,7 +10,7 @@
             $fech2 = date_create($_GET['fech2']);
 
             // Logo
-            //$this->Image('../../../../web/img/mipintura_negro1.png',10,8,40);
+            $this->Image('../../web/img/logo.png',10,8,23);
             // Arial bold 15
             $this->SetFont('Arial','B',18);
             // Movernos a la derecha

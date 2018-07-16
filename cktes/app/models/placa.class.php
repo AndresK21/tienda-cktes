@@ -74,6 +74,11 @@ class Placa extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	public function getPlacas(){
+		$sql = "SELECT id_tipo_placa, tipo_placa FROM tipo_placa";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function searchPlaca($value){
 		$sql = "SELECT id_placa, capas, medida, tipo_placa, sustrato FROM placa INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato WHERE capas = ? ORDER BY id_placa";
 		$params = array($value);

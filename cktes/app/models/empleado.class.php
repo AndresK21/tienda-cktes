@@ -146,6 +146,11 @@ class Empleado extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	public function getPermisos(){
+		$sql = "SELECT id_permiso, permiso FROM permisos";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function searchEmpleado($value){
 		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_empleado";
 		$params = array("%$value%", "%$value%");
@@ -190,5 +195,12 @@ class Empleado extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+
+	public function getEmpleado3($permiso){
+		$sql = "SELECT id_empleado, nombres, apellidos, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE id_permiso = ? ORDER BY id_empleado";
+		$params = array($permiso);
+		return Database::getRows($sql, $params);
+	}
+	
 }
 ?>

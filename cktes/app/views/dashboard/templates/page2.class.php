@@ -249,7 +249,7 @@ class Page extends Component{
 					<nav>
 					<!--Navbar Color gris-->
 						<div class='nav-wrapper grey darken-3'>
-						<img class='brand-logo' src='../../web/img/logo_2.png' >
+						<img class='brand-logo' src='../../web/img/logo_1.png' >
 						</div>
 					</nav>
 				</div>
