@@ -991,14 +991,14 @@
 					/*$idioma = "SET lc_time_names ='es_SV'";
 					Database::getRows($idioma, null);*/
 
-					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, precio, detalle_carrito.id_producto as id, ROUND(precio*SUM(detalle_carrito.cantidad), 2) AS venta, carrito.fecha AS fecha, MONTHNAME(carrito.fecha) AS mes FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE carrito.fecha BETWEEN ? AND ? GROUP BY fecha";
+					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, precio, detalle_carrito.id_producto as id, ROUND(precio*SUM(detalle_carrito.cantidad), 2) AS venta, carrito.fecha AS fecha, MONTHNAME(carrito.fecha) AS mes FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE carrito.fecha BETWEEN ? AND ? GROUP BY mes DESC";
 					$params = array($_SESSION['fecha1'], $_SESSION['fecha2']);
 					$result = Database::getRows($sql, $params);
 
 					foreach($result as $row){
 				?> //Cerramos la etiqueta php porque los siguientes resultados tienen que ser tipo "String" Y porque los siguientes valores se debn separar por coma para JS
 
-					'<?php print("$row[fecha]"); ?>', //Se usan las comillas simples para indicar a JavaSccript que los valores son de tipo String
+					'<?php print("$row[mes]"); ?>', //Se usan las comillas simples para indicar a JavaSccript que los valores son de tipo String
 
 				<?php //Se vuelve a abrir la etiqueta php para añadir la llave faltante del codigo del Foreach
 					}
@@ -1019,7 +1019,7 @@
 						/*$idioma = "SET lc_time_names ='es_SV'";
 						Database::getRows($idioma, null);*/
 
-						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, precio, detalle_carrito.id_producto as id, ROUND(precio*SUM(detalle_carrito.cantidad), 2) AS venta, carrito.fecha AS fecha, MONTHNAME(carrito.fecha) AS mes FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE carrito.fecha BETWEEN ? AND ? GROUP BY fecha";
+						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, precio, detalle_carrito.id_producto as id, ROUND(precio*SUM(detalle_carrito.cantidad), 2) AS venta, carrito.fecha AS fecha, MONTHNAME(carrito.fecha) AS mes FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE carrito.fecha BETWEEN ? AND ? GROUP BY mes DESC";
 						$params = array($_SESSION['fecha1'], $_SESSION['fecha2']);
 						$result = Database::getRows($sql, $params);
 
