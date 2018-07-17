@@ -38,7 +38,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             //Titulo
-            $this->Cell(40,10,'Clientes con compras mayores a '."$".$_GET['vent'],0,0,'C');
+            $this->Cell(40,10,'Clientes con compras mayores a '."$".$_POST['venta'],0,0,'C');
             // Salto de l�nea
             $this->Ln(15);
         
@@ -49,6 +49,7 @@
         // Pie de p�gina
         function Footer()
         {
+            session_start();
             date_default_timezone_set("America/El_Salvador");
             $hoy = getdate();
             // Posici�n: a 1,5 cm del final
@@ -56,7 +57,7 @@
             // Arial italic 8
             $this->SetFont('Arial','I',8);
             // N�mero de p�gina
-            $this->Cell(0,10,'Reporte generado por '.$_GET['id'].' '.$_GET['id2'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
+            $this->Cell(0,10,'Reporte generado por '.$_SESSION['nombres2'].' '.$_SESSION['apellidos2'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
             $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'R');
         }
         // Una tabla m�s completa

@@ -10,8 +10,8 @@
          */
         function Header()
         {  
-            $fech1 = date_create($_GET['fech1']);
-            $fech2 = date_create($_GET['fech2']);
+            $fech1 = date_create($_POST['fecha_11']);
+            $fech2 = date_create($_POST['fecha_22']);
             /*en la función "IMAGE" se coloca la ruta de la imagen que se desea, ubicación en "x" y "y", el tamaño de esta
             Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])  */
             //Imagen del rectangulo superior del reporte
@@ -40,7 +40,7 @@
             // Movernos a la derecha
             $this->Cell(80);
             // T�tulo del reporte 
-            $this->Cell(35,10,'Ventas desde '.date_format($fech1 , 'd-m-Y').' al '.date_format($fech2, 'd-m-Y'),0,0,'C');
+            $this->Cell(35,10,'Ventas desde '.date_format($fech1 , 'd/m/Y').' al '.date_format($fech2, 'd/m/Y'),0,0,'C');
             // Salto de l�nea
             $this->Ln(15);
         }
@@ -48,6 +48,7 @@
         // Pie de p�gina
         function Footer()
         {
+            session_start();
             date_default_timezone_set("America/El_Salvador");
             $hoy = getdate();
             // Posici�n: a 1,5 cm del final
@@ -55,7 +56,7 @@
             // Arial italic 8
             $this->SetFont('Arial','I',8);
             // N�mero de p�gina
-            $this->Cell(0,10,'Reporte generado por '.$_GET['id'].' '.$_GET['id2'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
+            $this->Cell(0,10,'Reporte generado por '.$_SESSION['nombres2'].' '.$_SESSION['apellidos2'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
             $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'R');
         }
         // Una tabla m�s completa

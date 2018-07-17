@@ -14,9 +14,9 @@
     // T�tulos de las columnas
     $header = array('Cliente', 'Producto', 'Cantidad', 'Fecha');
     // Carga de datos
-    if($_GET['impor'] == 1){
+    if($_POST['import'] == 1){
         $result = $reservacion->getReservacionR();
-    }else if($_GET['impor'] == 2){
+    }else if($_POST['import'] == 2){
         $result = $importacion->getImportacionR();
     }
 

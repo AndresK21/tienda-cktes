@@ -13,7 +13,7 @@
     $header = array('Nombre', 'Presentacion', 'Precio', 'Cantidad', 'Proveedor', 'Marca', 'Tipo de producto');
     // Carga de datos
 
-    $result = $producto->getProductoMarca($_GET['marc']);
+    $result = $producto->getProductoMarca($_POST['marca']);
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

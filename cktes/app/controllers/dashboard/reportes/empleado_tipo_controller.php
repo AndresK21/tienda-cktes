@@ -12,7 +12,7 @@
     // T�tulos de las columnas
     $header = array('Apellidos', 'Nombres', 'Tipo de usuario', 'Correo electronico');
     // Carga de datos
-    $result = $empleado->getEmpleado3($_GET['permis']);
+    $result = $empleado->getEmpleado3($_POST['permiso']);
 
     $pdf->AliasNbPages();
     $pdf->AddPage();
