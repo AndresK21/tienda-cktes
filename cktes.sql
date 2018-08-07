@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2018 a las 05:17:58
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 07-08-2018 a las 17:48:18
+-- Versión del servidor: 10.1.34-MariaDB
+-- Versión de PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -248,8 +248,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `id_permiso`) VALUES
-(22, 'Andres Oswaldo', 'Henriquez Gomez', '5b08cf91259b8.jpg', 'andresdosmil@gmail.com', '$2y$10$ojUvB0Q.h3TnQmqQiOP2QeMRafFPt2/MIQfsgnmSglj/W1ZoOilNi', 1),
-(23, 'Diego Edgardo', 'Guzman Huezo', '5b16b00a15f44.zip', 'diego@gmail.com', '$2y$10$FpjPFrHwajBmYZrXvyYiiekGuFQWTGfN1Io7./ovs17I9k75Gvq6i', 2);
+(24, 'Andres Oswaldo', 'Henriquez Gomez', '5b69bcfdb6030.jpg', 'andresdosmil@gmail.com', '$2y$10$hfUPyRq1OGl7kSqlE1YWdOlKUwiWvaFAbyMQIsDYCxyluRNzMqmsG', 1);
 
 -- --------------------------------------------------------
 
@@ -288,7 +287,7 @@ INSERT INTO `estado` (`id_estado`, `estado`, `id_tipo_estado`) VALUES
 CREATE TABLE `importacion_especial` (
   `id_importacion` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `producto` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
   `fecha_estimada` date DEFAULT NULL,
   `id_cliente` int(11) DEFAULT NULL,
@@ -299,7 +298,7 @@ CREATE TABLE `importacion_especial` (
 -- Volcado de datos para la tabla `importacion_especial`
 --
 
-INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `producto`, `cantidad`, `fecha_estimada`, `id_cliente`, `id_estado`) VALUES
+INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `nombre`, `cantidad`, `fecha_estimada`, `id_cliente`, `id_estado`) VALUES
 (1, '2018-05-15', 'Este es el producto que necesito', 25, '2018-10-27', 9, 10),
 (2, '2018-05-15', 'Este es otro producto que necesito', 25, '2018-12-14', 13, 9);
 
@@ -376,8 +375,8 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`id_pedido`, `fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES
-(1, '0000-00-00', 11, 22, 8, NULL, 2, 23),
-(2, '0000-00-00', 12, 22, 7, NULL, 1, 12);
+(1, '0000-00-00', 11, NULL, 8, NULL, 2, 23),
+(2, '0000-00-00', 12, NULL, 7, NULL, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -890,7 +889,7 @@ ALTER TABLE `detalle_carrito`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -944,13 +943,13 @@ ALTER TABLE `placa`
 -- AUTO_INCREMENT de la tabla `presentaciones`
 --
 ALTER TABLE `presentaciones`
-  MODIFY `id_presentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_presentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -980,7 +979,7 @@ ALTER TABLE `tipo_cliente`
 -- AUTO_INCREMENT de la tabla `tipo_desarrollo`
 --
 ALTER TABLE `tipo_desarrollo`
-  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tipo_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_estado`
