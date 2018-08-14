@@ -9,6 +9,10 @@ class Empleado extends Validator{
     private $contrasena = null;
 	private $id_permiso = null;
 	private $archivo = null;
+	private $fecha = null;
+	private $fecha2 = null;
+	private $estado = null;
+	private $ip = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
@@ -21,7 +25,19 @@ class Empleado extends Validator{
 	}
 	public function getId_empleado(){
 		return $this->id_empleado;
-    }
+	}
+	
+	public function setEstado($value){
+		if($this->validateId($value)){
+			$this->estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstado(){
+		return $this->estado;
+	}
     
 	public function setNombres($value){
 		if($this->validateAlphanumeric($value, 1, 80)){
@@ -103,6 +119,41 @@ class Empleado extends Validator{
 		return $this->id_permiso;
 	}
 
+	public function setFecha($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->fecha = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFecha(){
+		return $this->fecha;
+	}
+	public function setFecha2($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->fecha2 = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFecha2(){
+		return $this->fecha2;
+	}
+
+	public function setIp($value){
+		if($this->validateAlphanumeric($value, 1, 20)){
+			$this->ip = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getIp(){
+		return $this->ip;
+	}
+
 	//Métodos para manejar la sesión del usuario
 	public function checkCorreo(){
 		$sql = "SELECT id_empleado, correo_electronico, nombres, apellidos, imagen, id_permiso FROM empleado WHERE correo_electronico = ?";
@@ -121,10 +172,12 @@ class Empleado extends Validator{
 		}
 	}
 	public function checkPassword(){
-		$sql = "SELECT contrasena FROM empleado WHERE id_empleado = ?";
+		$sql = "SELECT contrasena, estado, fecha_bloqueo FROM empleado WHERE id_empleado = ?";
 		$params = array($this->id_empleado);
 		$data = Database::getRow($sql, $params);
 		if(password_verify($this->contrasena, $data['contrasena'])){
+			$this->estado = $data['estado'];
+			$this->fecha2 = $data['fecha_bloqueo'];
 			return true;
 		}else{
 			return false;
@@ -158,12 +211,13 @@ class Empleado extends Validator{
 	}
 	public function createEmpleado(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso);
+		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		$fech = date('y-m-d');
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){
-		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
 		$params = array($this->id_empleado);
 		$empleado = Database::getRow($sql, $params);
 		if($empleado){
@@ -173,6 +227,8 @@ class Empleado extends Validator{
 			$this->correo_electronico = $empleado['correo_electronico'];
 			$this->contrasena = $empleado['contrasena'];
 			$this->id_permiso = $empleado['id_permiso'];
+			$this->fecha = $empleado['fecha_registro'];
+			$this->ip = $empleado['ip'];
 			return true;
 		}else{
 			return null;
@@ -200,6 +256,30 @@ class Empleado extends Validator{
 		$sql = "SELECT id_empleado, nombres, apellidos, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE id_permiso = ? ORDER BY id_empleado";
 		$params = array($permiso);
 		return Database::getRows($sql, $params);
+	}
+
+
+	//Metodos para login
+	public function updateEstado($user){
+		$sql = "UPDATE empleado SET estado = 0, fecha_bloqueo = ? WHERE correo_electronico = ?";
+		$fech = date('Y-m-d h:i:s');
+		$params = array($fech, $user);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateEstado2($user){
+		$sql = "UPDATE empleado SET estado = 1 WHERE correo_electronico = ?";
+		$params = array($user);
+		return Database::executeRow($sql, $params);
+	}
+	public function insertIp(){
+		$sql = "UPDATE empleado SET ip = ? WHERE correo_electronico = ?";
+		$params = array($this->ip, $this->correo_electronico);
+		return Database::executeRow($sql, $params);
+	}
+	public function unsetIp($usuario){
+		$sql = "UPDATE empleado SET ip = null WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
 	}
 	
 }
