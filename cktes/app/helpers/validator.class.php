@@ -50,7 +50,7 @@ class Validator{
 
 	public function validateForm($fields){
 		foreach($fields as $index => $value){
-			$value = trim($value);
+			$value = strip_tags(trim($value));
 			$fields[$index] = $value;
 		}
 		return $fields;
@@ -168,7 +168,17 @@ class Validator{
 	}
 
 	public function validatePassword($value){
-		if(strlen($value) > 5){
+		if(strlen($value) > 8){
+			if(preg_match("/^.*(?=.*\d)(?=.*\W)(?=.*[a-z])(?=.*[A-Z]).*$/", $value)){
+				return true;
+			}
+		}else{
+			return false;
+		}
+	}
+
+	public function validatePassword2($value){
+		if(strlen($value) > 8){
 			return true;
 		}else{
 			return false;

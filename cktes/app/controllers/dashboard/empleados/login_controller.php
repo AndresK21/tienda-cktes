@@ -10,7 +10,7 @@ try{
 			if($object->setCorreo($_POST['correo'])){
 				$_SESSION['usuario_d'] = $object->getCorreo();
 				if($object->checkCorreo()){
-					if($object->setContrasena($_POST['contrasena'])){
+					if($object->setContrasena2($_POST['contrasena'])){
 						if($object->checkPassword()){
 							if($object->getEstado() == 1){
 								$_SESSION['id_empleado'] = $object->getId_empleado();
@@ -51,7 +51,7 @@ try{
 							throw new Exception("Clave inexistente");
 						}
 					}else{
-						throw new Exception("Clave menor a 6 caracteres");
+						throw new Exception("Clave menor a 8 caracteres");
 					}
 				}else{
 					throw new Exception("Correo electronico inexistente");

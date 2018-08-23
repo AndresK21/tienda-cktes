@@ -107,6 +107,18 @@ class Empleado extends Validator{
 		return $this->contrasena;
 	}
 
+	public function setContrasena2($value){
+		if($this->validatePassword2($value)){
+			$this->contrasena = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getContrasena2(){
+		return $this->contrasena;
+	}
+
 	public function setId_permiso($value){
 		if($this->validateId($value)){
 			$this->id_permiso = $value;
@@ -187,6 +199,12 @@ class Empleado extends Validator{
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "UPDATE empleado SET contrasena = ? WHERE id_empleado = ?";
 		$params = array($hash, $this->id_empleado);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateContra($contra){
+		$hash = password_hash($contra, PASSWORD_DEFAULT);
+		$sql = "UPDATE empleado SET contrasena = ? WHERE correo_electronico = ?";
+		$params = array($hash, $this->email);
 		return Database::executeRow($sql, $params);
 	}
 	public function logOut(){
