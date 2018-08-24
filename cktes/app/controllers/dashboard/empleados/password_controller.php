@@ -16,7 +16,7 @@ try{
                                     throw new Exception(Database::getException());
                                 }
                             }else{
-                                throw new Exception("Clave nueva menor a 6 caracteres");
+                                throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                             }
                         }else{
                             throw new Exception("Claves nuevas diferentes");
@@ -25,7 +25,7 @@ try{
                         throw new Exception("Clave actual incorrecta");
                     }
                 }else{
-                    throw new Exception("Clave actual menor a 6 caracteres");
+                    throw new Exception("Clave actual menor a 8 caracteres");
                 }
             }else{
                 throw new Exception("Claves actuales diferentes");

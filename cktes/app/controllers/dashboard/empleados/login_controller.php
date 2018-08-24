@@ -39,16 +39,17 @@ try{
 									$_SESSION['cont_d'] = 0;
 									Page::showMessage(1, "Autenticación correcta", "index.php");
 								}else{
-									$_SESSION['cont_d']++;
-									Page::showMessage(2, "Clave incorrecta", "login.php");
-									if($_SESSION['cont_d'] >= 3){
-										$object->updateEstado($_SESSION['usuario_d']);
-										Page::showMessage(3, "Ha superado el limite de intentos de inicio de sesión", "../cuenta/login.php");
-									}
+									throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 								}
 							}
 						}else{
-							throw new Exception("Clave inexistente");
+							$_SESSION['cont_d']++;
+							Page::showMessage(2, "Clave incorrecta", "login.php");
+							if($_SESSION['cont_d'] >= 3){
+								$object->updateEstado($_SESSION['usuario_d']);
+								$_SESSION['cont_d'] = 0;
+								Page::showMessage(3, "Su cuenta ha sido bloqueada por exceder los intentos de inicio de sesión", "../cuenta/login.php");
+							}
 						}
 					}else{
 						throw new Exception("Clave menor a 8 caracteres");

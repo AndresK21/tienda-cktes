@@ -65,5 +65,5 @@ try{
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../../app/view/dashboard/cuenta/correo_view.php");
+require_once("../../app/views/dashboard/cuenta/correo_view.php");
 ?>
