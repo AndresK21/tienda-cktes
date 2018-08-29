@@ -2,8 +2,12 @@
     <div class="white-text">.</div>
     <div class="white-text">.</div>
     <div class="white-text">.</div>
-    <div class="white-text">.</div>
-    <div class="white-text">.</div>
+    
+
+    <div id="fondoTotal">
+<br>
+<br>
+
     <div class="container" id="FondoLogin">
         <ul id="FondoTabLogin" class="tabs tabs-fixed-width tab-demo z-depth-1">
             <li class="tab">
@@ -61,7 +65,7 @@
                     <label for="email2">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password3" name="contrasena_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>>
+                    <input id="password3" name="contrasena_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>
                     <label for="password3">Contrase&ntilde;a</label>
                 </div>
                 <div class="col s12 m12 l12 center">
@@ -72,4 +76,5 @@
             </form>
         </div>
     </div>
+</div>
 </div>

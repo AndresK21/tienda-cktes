@@ -9,10 +9,16 @@ $( document ).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
     $(".button-collapse").sideNav();
 })
+
 //  FULL PAGE MENU ACTIVE //
 $('#btn').click(function() { 
     $(this).toggleClass('active');
     $('#menu').toggleClass('open');
     $('main').toggleClass('hide');
   });
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
+
   
