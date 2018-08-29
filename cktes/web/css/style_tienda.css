@@ -658,3 +658,9 @@ background-repeat: no-repeat;
 background-size: cover;
 height: 100%;
 }
+
+
+
+.body_error {
+  background-color: #121C2C;  
+}

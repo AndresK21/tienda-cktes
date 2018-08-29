@@ -12,7 +12,7 @@ if(isset($_POST['comprar'])){
                   if ($productos) {                        
                     $cantidades = count($productos);
                     $existencias = null;
-                    for ($i=0; $i < $cantidades ; $i++) { 
+                    for ($i=0; $i < $cantidades ; $i++) {
                     if($productos[$i]['Existencias']>=$productos[$i]['cantidad']){    
                           $comprar->setCompra($_SESSION['id_carrito']);                
                           // Se cambia el estado de "En proceso" a "Finalizado"
