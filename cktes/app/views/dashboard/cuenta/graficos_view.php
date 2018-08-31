@@ -43,12 +43,12 @@
 			<div class='row'>
 				<div class='input-field col s12 m5 l5'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha1' type='text' name='fecha_1' class="datepicker"/>
+					<input id='fecha1' type='text' name='fecha_1' class="datepicker" autocomplete="off"/>
 					<label for='fecha1'>Fecha inicial</label>
 				</div>
 				<div class='input-field col s12 m5 l5'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha2' type='text' name='fecha_2' class="datepicker"/>
+					<input id='fecha2' type='text' name='fecha_2' class="datepicker" autocomplete="off"/>
 					<label for='fecha2'>Fecha final</label>
 				</div>
 				<div class="input-field col s12 m2 l2 center-align">
@@ -95,12 +95,12 @@
 			<div class='row'>
 				<div class='input-field col s12 m4 l4'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha111' type='text' name='fecha_111' class="datepicker"/>
+					<input id='fecha111' type='text' name='fecha_111' class="datepicker" autocomplete="off"/>
 					<label for='fecha111'>Fecha inicial</label>
 				</div>
 				<div class='input-field col s12 m4 l4'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha222' type='text' name='fecha_222' class="datepicker"/>
+					<input id='fecha222' type='text' name='fecha_222' class="datepicker" autocomplete="off"/>
 					<label for='fecha222'>Fecha final</label>
 				</div>
 				<div class="input-field col s12 m2 l2 center-align">
@@ -144,12 +144,12 @@
 			<div class='row'>
 				<div class='input-field col s12 m4 l4'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha1111' type='text' name='fecha_1111' class="datepicker"/>
+					<input id='fecha1111' type='text' name='fecha_1111' class="datepicker" autocomplete="off" />
 					<label for='fecha1111'>Fecha inicial</label>
 				</div>
 				<div class='input-field col s12 m4 l4'>
 					<i class='material-icons prefix'>date_range</i>
-					<input id='fecha2222' type='text' name='fecha_2222' class="datepicker"/>
+					<input id='fecha2222' type='text' name='fecha_2222' class="datepicker" autocomplete="off" />
 					<label for='fecha2222'>Fecha final</label>
 				</div>
 				<div class="input-field col s12 m2 l2 center-align">

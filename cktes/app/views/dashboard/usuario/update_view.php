@@ -8,19 +8,19 @@
             <div class="row">
                 <div class="input-field col l6 m6 s12">
                     <i class="material-icons prefix">person</i>
-                    <input name="nombres" id="nombre" type="text" class="validate" value='<?php print($usuario->getNombres())?>' required>
+                    <input name="nombres" id="nombre" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getNombres())?>' required>
                     <label for="nombre" class="black-text">Nombres</label>
                 </div>
                 <div class="input-field col l6 m6 s12">
                     <i class="material-icons prefix">person</i>
-                    <input name="apellidos" id="apellido" type="text" class="validate" value='<?php print($usuario->getApellidos())?>' required>
+                    <input name="apellidos" id="apellido" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getApellidos())?>' required>
                     <label for="apellido" class="black-text">Apellidos</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col l6 m6 s12">
                     <i class="material-icons prefix">email</i> 
-                    <input name="correo" id="email" type="email" class="validate" value='<?php print($usuario->getCorreo()) ?>' required />
+                    <input name="correo" id="email" type="email" class="validate" autocomplete="off" value='<?php print($usuario->getCorreo()) ?>' required />
                     <label for="email" class="black-text">Correo electr&oacute;nico</label>
                 </div>
                 <div class='col s12 m6'>
@@ -29,7 +29,7 @@
                             <span>Permiso:</span>
                             <label>
                                 <i>Usuario</i>
-                                <input type='checkbox' name="id_permiso" <?php print($usuario->getId_permiso()?"checked":"") ?>/>
+                                <input type='checkbox' name="id_permiso" autocomplete="off" <?php print($usuario->getId_permiso()?"checked":"") ?>/>
                                 <span class='lever'></span>
                                 <i>Administrador</i>
                             </label>

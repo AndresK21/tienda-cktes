@@ -5,19 +5,19 @@
     <form>
         <div class="row">
             <div class="input-field col s12">
-                <input id="corre" name="correo" type="email" class="validate" value="<?php print($desarrollo->getCorreo())?>">
+                <input id="corre" name="correo" type="email" class="validate" autocomplete="off" value="<?php print($desarrollo->getCorreo())?>">
                 <label for="corre" class="black-text">Correo electr&oacute;nico</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="asunto" type="text" class="validate">
+                <input id="asunto" type="text" class="validate" autocomplete="off">
                 <label for="asunto" class="black-text">Asunto</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="mensaje" type="text" class="materialize-textarea"></textarea>
+                <textarea id="mensaje" type="text" class="materialize-textarea" autocomplete="off"></textarea>
                 <label for="mensaje" class="black-text">Mensaje</label>
             </div>
         </div>

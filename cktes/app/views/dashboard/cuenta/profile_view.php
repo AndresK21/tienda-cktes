@@ -7,19 +7,19 @@
         <div class="row">
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">person</i>
-                <input id="nombre" name="nombres" type="text" class="validate" value='<?php print($usuario->getNombres()) ?>' required />
+                <input id="nombre" name="nombres" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getNombres()) ?>' required />
                 <label for="nombre">Nombres</label>
             </div>
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">person</i>
-                <input id="apellido" name="apellidos" type="text" class="validate" value='<?php print($usuario->getApellidos()) ?>' required />
+                <input id="apellido" name="apellidos" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getApellidos()) ?>' required />
                 <label for="apellido">Apellidos</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">email</i>    
-                <input id="email" name="correo" type="email" class="validate" value='<?php print($usuario->getCorreo()) ?>' required />
+                <input id="email" name="correo" type="email" class="validate" autocomplete="off" value='<?php print($usuario->getCorreo()) ?>' required />
                 <label for="email">Correo electr&oacute;nico</label>
             </div>
             <div class='file-field input-field col s12 m6 l6'>
@@ -38,6 +38,7 @@
 
         <div class="row">
             <div class="right-align">
+                <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
                 <button type='submit' name='editar' class='btn grey darken-3 waves-effect'><i class="material-icons left">save</i>Guardar cambios</button>
             </div>
         </div>

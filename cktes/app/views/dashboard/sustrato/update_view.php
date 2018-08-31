@@ -5,7 +5,7 @@
     <form class="col s12" method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input id="sustrato" name="sustrato" type="text" class="validate" value='<?php print($sustrato->getSustrato())?>' required />
+                <input id="sustrato" name="sustrato" type="text" class="validate" autocomplete="off" value='<?php print($sustrato->getSustrato())?>' required />
                 <label for="sustrato" class="black-text">Nombre de sustrato</label>
             </div>
         </div>

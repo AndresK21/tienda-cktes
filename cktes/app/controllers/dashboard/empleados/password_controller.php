@@ -9,14 +9,18 @@ try{
                 if($usuario->setContrasena2($_POST['clave_actual_1'])){
                     if($usuario->checkPassword()){
                         if($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']){
-                            if($usuario->setContrasena($_POST['clave_nueva_1'])){
-                                if($usuario->changePassword()){
-                                    Page::showMessage(1, "Clave cambiada", "index.php");
+                            if($_POST['clave_nueva_1'] != $_SESSION['correo_electronico2']){
+                                if($usuario->setContrasena($_POST['clave_nueva_1'])){
+                                    if($usuario->changePassword()){
+                                        Page::showMessage(1, "Clave cambiada", "index.php");
+                                    }else{
+                                        throw new Exception(Database::getException());
+                                    }
                                 }else{
-                                    throw new Exception(Database::getException());
+                                    throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                                 }
                             }else{
-                                throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
+                                throw new Exception("La contraseña no puede ser igual al correo electrónico");
                             }
                         }else{
                             throw new Exception("Claves nuevas diferentes");

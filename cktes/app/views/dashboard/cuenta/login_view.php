@@ -11,13 +11,13 @@
                             <div class="row">
                                 <img class="responsive-img imagen_sesion circle" src="../../web/img/paralaxinicio2.jpg">
                                 <div class="input-field col s12">
-                                    <input id="correoo" name="correo" type="text" class="validate" value='<?php print($object->getCorreo()) ?>' required/>
+                                    <input id="correoo" name="correo" type="text" class="validate" autocomplete="off" value='<?php print($object->getCorreo()) ?>' required/>
                                     <label class="black-text" for="correoo">Correo electr&oacute;nico</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="contrasen" name="contrasena" type="password" class="validate" value='<?php print($object->getContrasena()) ?>' required/>
+                                    <input id="contrasen" name="contrasena" type="password" class="validate" autocomplete="off" value='<?php print($object->getContrasena()) ?>' required/>
                                     <label class="black-text" for="contrasen">Contrase&ntilde;a</label>
                                 </div>
                             </div>

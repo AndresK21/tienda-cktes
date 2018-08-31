@@ -5,21 +5,21 @@
     <form>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($desarrollo->getNombres()." ".$desarrollo->getApellidos())?>" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($desarrollo->getNombres()." ".$desarrollo->getApellidos())?>" id="disabled" type="text" class="validate" autocomplete="off" >
                 <label for="cliente" class="black-text">Cliente</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($desarrollo->getCorreo())?>" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($desarrollo->getCorreo())?>" id="disabled" type="text" class="validate" autocomplete="off" >
                 <label for="correo" class="black-text">Correo electr&oacute;nico</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <textarea disabled value="<?php print($desarrollo->getMensaje())?>" id="disabled" type="text" class="materialize-textarea"><?php print($desarrollo->getMensaje())?></textarea>
+                <textarea disabled value="<?php print($desarrollo->getMensaje())?>" id="disabled" autocomplete="off" type="text" class="materialize-textarea"><?php print($desarrollo->getMensaje())?></textarea>
                 <label for="mensaje" class="black-text">Mensaje</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($desarrollo->getTipo())?>" id="disabled" type="text" class="validate">
+                <input disabled value="<?php print($desarrollo->getTipo())?>" id="disabled" type="text" class="validate" autocomplete="off" >
                 <label for="tipo_desarrollo" class="black-text">Tipo de desarrollo</label>
             </div>
         </div>

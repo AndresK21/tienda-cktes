@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="input-field ">
-                <input value="<?php print($importacion->getFecha_estimada())?>" name="fecha" id="fech" type="text" class="datepicker"/>
+                <input value="<?php print($importacion->getFecha_estimada())?>" name="fecha" autocomplete="off" id="fech" type="text" class="datepicker"/>
                 <label for="fech" class="black-text">Fecha estimada de entrega</label>
             </div>
         </div>

@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="input-field ">
-                <input value="<?php print($reservacion->getFecha_estimada())?>" name="fecha" id="fech" type="text" class="datepicker"/>
+                <input value="<?php print($reservacion->getFecha_estimada())?>" name="fecha" id="fech" type="text" autocomplete="off" class="datepicker"/>
                 <label for="fech" class="black-text">Fecha estimada de entrega <?php print($reservacion->getFecha_estimada())?></label>
             </div>
         </div>

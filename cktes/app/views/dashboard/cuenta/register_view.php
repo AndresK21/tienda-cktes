@@ -7,36 +7,41 @@
         <div class="row">
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">person</i>
-                <input id="nombre" name="nombres" type="text" class="validate" value='<?php print($usuario->getNombres()) ?>' required />
+                <input id="nombre" name="nombres" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getNombres()) ?>' required />
                 <label for="nombre">Nombres</label>
             </div>
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">person</i>
-                <input id="apellido" name="apellidos" type="text" class="validate" value='<?php print($usuario->getApellidos()) ?>' required />
+                <input id="apellido" name="apellidos" type="text" class="validate" autocomplete="off" value='<?php print($usuario->getApellidos()) ?>' required />
                 <label for="apellido">Apellidos</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col l6 m6 s12">
                 <i class="material-icons prefix">email</i>    
-                <input id="email" name="correo" type="email" class="validate" value='<?php print($usuario->getCorreo()) ?>' required />
+                <input id="email" name="correo" type="email" class="validate" autocomplete="off" value='<?php print($usuario->getCorreo()) ?>' required />
                 <label for="email">Correo electr&oacute;nico</label>
             </div>
-            <div class="input-field col l6 m6 s12">
-                <i class="material-icons prefix">lock</i>
-                <input id="contrasena" name="clave1" type="password" class="validate" value='<?php print($usuario->getContrasena()) ?>' required />
-                <label for="contrasena">Contrase&ntilde;a</label>
-            </div>
-        </div>
-        <div class="row">
             <div class='file-field input-field col l6 m6 s12'>
                 <div class='waves-effect waves-light btn grey darken-3'>
                     <span><i class='material-icons gray-text text-darken-3'>image</i></span>
-                    <input type='file' name='archivo' required/>
+                    <input type='file' name='archivo' value='<?php print($usuario->getImagen()) ?>' required/>
                 </div>
                 <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col l6 m6 s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="contrasena" name="clave1" type="password" class="validate" autocomplete="off" value='<?php print($usuario->getContrasena()) ?>' required />
+                <label for="contrasena">Contrase&ntilde;a</label>
+            </div>
+            <div class="input-field col l6 m6 s12">
+                <i class="material-icons prefix">security</i>
+                <input id="contrase" name="clave2" type="password" class="validate" autocomplete="off" value='<?php print($usuario->getContrasena()) ?>' required />
+                <label for="contrase">Confirmar contrase&ntilde;a</label>
             </div>
         </div>
 

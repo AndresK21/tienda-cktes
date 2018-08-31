@@ -7,7 +7,7 @@
     <form method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input id="tipo1" name="tipo" type="text" class="validate"  value='<?php print($tipo->getTipo_cliente())?>' required />
+                <input id="tipo1" name="tipo" type="text" class="validate" autocomplete="off" value='<?php print($tipo->getTipo_cliente())?>' required />
                 <label for="tipo1" class="blue-grey-text text-darken-4">Tipo de cliente</label>
             </div>
         </div>

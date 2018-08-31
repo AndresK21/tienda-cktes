@@ -6,7 +6,7 @@
     <form class="col s12" method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input id="tipo" name="tipo" type="text" class="validate"  value='<?php print($tipo->getTipo_placa())?>' required />
+                <input id="tipo" name="tipo" type="text" class="validate" autocomplete="off" value='<?php print($tipo->getTipo_placa())?>' required />
                 <label for="tipo" class="blue-grey-text text-darken-4">Tipo de placa</label>
             </div>
         </div>

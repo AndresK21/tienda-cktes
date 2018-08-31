@@ -4,31 +4,31 @@
 <form class="col s12" method="post" enctype='multipart/form-data'>
     <div class="row">
         <div class="input-field col s12 m6 l6">
-            <input id="nombr" name="nombre" type="text" class="validate" value='<?php print($producto->getNombre()) ?>' required >
+            <input id="nombr" name="nombre" type="text" class="validate" autocomplete="off" value='<?php print($producto->getNombre()) ?>' required >
             <label for="nombr" class="black-text">Nombre</label>
         </div>
         <div class="input-field col s12 m6 l6">
-            <textarea id="descripcio" name="descripcion" type="text" class="materialize-textarea" required ><?php print($producto->getDescripcion()) ?></textarea>
+            <textarea id="descripcio" name="descripcion" type="text" class="materialize-textarea" autocomplete="off" required ><?php print($producto->getDescripcion()) ?></textarea>
             <label for="descripcio" class="black-text">Descripci&oacute;n</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12 m6 l6">
-            <textarea id="fich" name="ficha" type="text" class="materialize-textarea" required ><?php print($producto->getFicha()) ?></textarea>
+            <textarea id="fich" name="ficha" type="text" class="materialize-textarea" autocomplete="off" required ><?php print($producto->getFicha()) ?></textarea>
             <label for="fich" class="black-text">Ficha t&eacute;cnica</label>
         </div>
         <div class="input-field col s12 m6 l6">
-            <input id="cantida" name="cantidad" type="number" class="validate" max="999" min="1" step="any" value='<?php print($producto->getCantidad()) ?>' required >
+            <input id="cantida" name="cantidad" type="number" class="validate" autocomplete="off" max="999" min="1" step="any" value='<?php print($producto->getCantidad()) ?>' required >
             <label for="Cantida" class="black-text">Cantidad</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12 m6 l6">
-            <input id="taman" name="tamano" type="text" class="validate" value='<?php print($producto->getTamano()) ?>' required />
+            <input id="taman" name="tamano" type="text" class="validate" autocomplete="off" value='<?php print($producto->getTamano()) ?>' required />
             <label for="taman" class="black-text">Tama&ntilde;o</label>
         </div>
         <div class="input-field col s12 m6 l6">
-            <input id="preci" name="precio" type="number" class="validate" max="9999.99" min="0.01" step="any" value='<?php print($producto->getPrecio()) ?>' required />
+            <input id="preci" name="precio" type="number" class="validate" autocomplete="off" max="9999.99" min="0.01" step="any" value='<?php print($producto->getPrecio()) ?>' required />
             <label for="Preci" class="black-text">Precio</label>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class='file-field input-field col s12 m6 l6'>
             <div class='waves-effect waves-light btn grey darken-3'>
                 <span><i class='material-icons'>image</i></span>
-                <input type='file' name='archivo'/>
+                <input type='file' name='archivo' autocomplete="off"/>
             </div>
             <div class='file-path-wrapper'>
                 <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>

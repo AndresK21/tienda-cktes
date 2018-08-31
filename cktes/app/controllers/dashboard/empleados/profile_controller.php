@@ -16,6 +16,8 @@ try{
                                 }if($usuario->updateEmpleado()){
                                     $_SESSION['correo_electronico'] = $usuario->getCorreo();
                                     $_SESSION['imagen'] = $usuario->getImagen();
+                                    $_SESSION['nombres2'] = $usuario->getNombres();
+								    $_SESSION['apellidos2'] = $usuario->getApellidos();
                                     Page::showMessage(1, "Perfil modificado", "index.php");
                                 }else{
                                     throw new Exception("No se pudo modificar el perfil");

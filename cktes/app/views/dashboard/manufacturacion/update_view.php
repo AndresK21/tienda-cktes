@@ -5,31 +5,31 @@
     <form method="post">
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getNombres()." ".$pedido->getApellidos()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getNombres()." ".$pedido->getApellidos()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="cliente" class="black-text">Cliente</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getTipo_placa()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getTipo_placa()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="tipo_placa" class="black-text">Tipo de placa</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getSustrato()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getSustrato()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="sustrato" class="black-text">Sustrato</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getMedida()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getMedida()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="tamano" class="black-text">Tama&ntilde;o</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getCapas()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getCapas()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="capas" class="black-text">N&uacute;mero de capas</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <input disabled value="<?php print($pedido->getCantidad()) ?>" id="disabled" type="text" class="validate" />
+                <input disabled value="<?php print($pedido->getCantidad()) ?>" id="disabled" type="text" class="validate" autocomplete="off" />
                 <label for="capas" class="black-text">Cantidad</label>
             </div>
         </div>

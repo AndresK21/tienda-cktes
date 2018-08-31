@@ -7,13 +7,13 @@
     <form class="col s12" method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input id="tip" name="tipo" type="text" class="validate" value='<?php print($tipo->getTipo_desarrollo())?>' required />
+                <input id="tip" name="tipo" type="text" class="validate" autocomplete="off" value='<?php print($tipo->getTipo_desarrollo())?>' required />
                 <label for="tip" class="black-text">Tipo de desarrollo</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="descrip" name="descripcion" type="text" class="validate" value='<?php print($tipo->getDescripcion())?>' required />
+                <input id="descrip" name="descripcion" type="text" class="validate" autocomplete="off" value='<?php print($tipo->getDescripcion())?>' required />
                 <label for="descrip" class="black-text">Descripci&oacute;n</label>
             </div>
         </div>
