@@ -43,6 +43,11 @@ try{
 								}
 							}
 						}else{
+							if($object->sumarIntento()){
+
+							}else{
+								throw new Exception("No se sumo el intento");
+							}
 							$_SESSION['cont_d']++;
 							Page::showMessage(2, "Clave incorrecta", "login.php");
 							if($_SESSION['cont_d'] >= 3){

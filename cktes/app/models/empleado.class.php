@@ -13,6 +13,7 @@ class Empleado extends Validator{
 	private $fecha2 = null;
 	private $estado = null;
 	private $ip = null;
+	private $contador = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
@@ -25,6 +26,18 @@ class Empleado extends Validator{
 	}
 	public function getId_empleado(){
 		return $this->id_empleado;
+	}
+
+	public function setContador($value){
+		if($this->validateId($value)){
+			$this->contador = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getContador(){
+		return $this->contador;
 	}
 	
 	public function setEstado($value){
@@ -230,9 +243,9 @@ class Empleado extends Validator{
 	}
 	public function createEmpleado(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado, contador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$fech = date('y-m-d');
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1);
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1, 0);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){
@@ -300,6 +313,23 @@ class Empleado extends Validator{
 		$params = array($usuario);
 		return Database::executeRow($sql, $params);
 	}
-	
+
+
+	public function sumarIntento($usuario){
+		$sql = "UPDATE empleado SET contador = contador + 1 WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
+	}
+	public function getIntentos($usuario){
+		$sql = "SELECT contador FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
+		$params = array($usuario);
+		$empleado = Database::getRow($sql, $params);
+		if($empleado){
+            $this->contador = $empleado['contador'];
+			return true;
+		}else{
+			return null;
+		}
+	}
 }
 ?>

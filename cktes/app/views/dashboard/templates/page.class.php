@@ -5,7 +5,8 @@ require_once("../../app/helpers/component.class.php");
 require_once("../../app/models/empleado.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
-		session_start();
+        session_start();
+        $id = session_id();
 		ini_set("date.timezone","America/El_Salvador");
 		print("
 			<!DOCTYPE html>

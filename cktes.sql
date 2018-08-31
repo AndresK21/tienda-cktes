@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2018 a las 01:40:43
+-- Tiempo de generación: 31-08-2018 a las 22:38:07
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -243,6 +243,7 @@ CREATE TABLE `empleado` (
   `fecha_registro` datetime NOT NULL,
   `estado` int(2) DEFAULT NULL,
   `fecha_bloqueo` datetime DEFAULT NULL,
+  `contador` int(2) NOT NULL,
   `ip` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_permiso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -251,8 +252,8 @@ CREATE TABLE `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `ip`, `id_permiso`) VALUES
-(25, 'Andres Oswaldo', 'Henriquez Gomez', '5b7300fa7ff03.jpg', 'andresdosmil@gmail.com', '$2y$10$IuDSrxarHmO.Jj1Tnch4SuiojC8yLW2OygDvHOVu0MyY6d2.7VvgS', '2018-08-14 00:00:00', 1, NULL, NULL, 1);
+INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `id_permiso`) VALUES
+(25, 'Andres Oswaldo', 'Henriquez Gomez', '5b7300fa7ff03.jpg', 'andresdosmil@gmail.com', '$2y$10$IuDSrxarHmO.Jj1Tnch4SuiojC8yLW2OygDvHOVu0MyY6d2.7VvgS', '2018-08-14 00:00:00', 1, NULL, 0, NULL, 1);
 
 -- --------------------------------------------------------
 
