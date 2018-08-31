@@ -2,27 +2,31 @@
 require_once("../../app/models/tipo_desarrollo.class.php");
 try{
     if(isset($_GET['id'])){ //Llama al id de la maraca
-        $tipo = new Tipo_desarrollo;
-        if($tipo->setId_tipo($_GET['id'])){ //Establece el id en una varible para usarla despues
-            if($tipo->readTipo_desarrollo()){
-                if(isset($_POST['actualizar'])){
-                    $_POST = $tipo->validateForm($_POST);
-                    if($tipo->setDescripcion($_POST['descripcion'])){
-                        if($tipo->setTipo_desarrollo($_POST['tipo'])){
-                            if($tipo->updateTipo_desarrollo()){ //Modifica la marca
-                                Page::showMessage(1, "Tipo de desarrollo modificado", "index.php");
+        if($_SERVER['HTTP_REFERER']){
+            $tipo = new Tipo_desarrollo;
+            if($tipo->setId_tipo($_GET['id'])){ //Establece el id en una varible para usarla despues
+                if($tipo->readTipo_desarrollo()){
+                    if(isset($_POST['actualizar'])){
+                        $_POST = $tipo->validateForm($_POST);
+                        if($tipo->setDescripcion($_POST['descripcion'])){
+                            if($tipo->setTipo_desarrollo($_POST['tipo'])){
+                                if($tipo->updateTipo_desarrollo()){ //Modifica la marca
+                                    Page::showMessage(1, "Tipo de desarrollo modificado", "index.php");
+                                }else{
+                                    throw new Exception(Database::getException());
+                                }
                             }else{
-                                throw new Exception(Database::getException());
-                            }
+                                throw new Exception("Tipo de desarrollo incorrecto");
+                            }                       
                         }else{
-                            throw new Exception("Tipo de desarrollo incorrecto");
-                        }                       
-                    }else{
-                        throw new Exception("Descripcion incorrecta");
-                    } 
+                            throw new Exception("Descripcion incorrecta");
+                        } 
+                    }
+                }else{
+                    Page::showMessage(2, "Tipo de desarrollo inexistente", "index.php");
                 }
             }else{
-                Page::showMessage(2, "Tipo de desarrollo inexistente", "index.php");
+                Page::showMessage(2, "Tipo de desarrollo incorrecto", "index.php");
             }
         }else{
             Page::showMessage(2, "Tipo de desarrollo incorrecto", "index.php");

@@ -2,25 +2,29 @@
 require_once("../../app/models/empleado.class.php");
 try{
 	if(isset($_GET['id'])){
-		if($_GET['id'] != $_SESSION['id_empleado']){
-			$usuario = new Empleado;
-			if($usuario->setId_empleado($_GET['id'])){
-				if($usuario->readEmpleado()){
-					if(isset($_POST['eliminar'])){
-						if($usuario->deleteEmpleado()){
-							Page::showMessage(1, "Usuario eliminado", "index.php");
-						}else{
-							throw new Exception(Database::getException());
+		if($_SERVER['HTTP_REFERER']){
+			if($_GET['id'] != $_SESSION['id_empleado']){
+				$usuario = new Empleado;
+				if($usuario->setId_empleado($_GET['id'])){
+					if($usuario->readEmpleado()){
+						if(isset($_POST['eliminar'])){
+							if($usuario->deleteEmpleado()){
+								Page::showMessage(1, "Usuario eliminado", "index.php");
+							}else{
+								throw new Exception(Database::getException());
+							}
 						}
+					}else{
+						throw new Exception("Usuario inexistente");
 					}
 				}else{
-					throw new Exception("Usuario inexistente");
+					throw new Exception("Usuario incorrecto");
 				}
 			}else{
-				throw new Exception("Usuario incorrecto");
+				throw new Exception("No se puede eliminar a sí mismo");
 			}
 		}else{
-			throw new Exception("No se puede eliminar a sí mismo");
+			Page::showMessage(3, "Usuario incorrecto", "index.php");
 		}
 	}else{
 		Page::showMessage(3, "Seleccione usuario", "index.php");

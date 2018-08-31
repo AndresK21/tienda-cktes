@@ -197,8 +197,9 @@ class Empleado extends Validator{
 	}
 	public function changePassword(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "UPDATE empleado SET contrasena = ? WHERE id_empleado = ?";
-		$params = array($hash, $this->id_empleado);
+		$sql = "UPDATE empleado SET contrasena = ?, fecha_registro = ? WHERE id_empleado = ?";
+		$fecha = date("Y-m-d");
+		$params = array($hash, $fecha, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateContra($contra){

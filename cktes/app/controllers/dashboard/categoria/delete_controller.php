@@ -2,22 +2,26 @@
 require_once("../../app/models/categoria.class.php");
 try{
 	if(isset($_GET['id'])){
-		$categoria = new Categoria;
-		if($categoria->setId($_GET['id'])){
-			if($categoria->readCategoria()){
-				if(isset($_POST['eliminar'])){
-					if($categoria->deleteCategoria()){
-						if($categoria->unsetImagen()){
-							Page::showMessage(1, "Categoría eliminada", "index.php");
+		if($_SERVER['HTTP_REFERER']){
+			$categoria = new Categoria;
+			if($categoria->setId($_GET['id'])){
+				if($categoria->readCategoria()){
+					if(isset($_POST['eliminar'])){
+						if($categoria->deleteCategoria()){
+							if($categoria->unsetImagen()){
+								Page::showMessage(1, "Categoría eliminada", "index.php");
+							}else{
+								throw new Exception("No se eliminó el archivo de la imagen");
+							}
 						}else{
-							throw new Exception("No se eliminó el archivo de la imagen");
+							throw new Exception(Database::getException());
 						}
-					}else{
-						throw new Exception(Database::getException());
 					}
+				}else{
+					throw new Exception("Categoría inexistente");
 				}
 			}else{
-				throw new Exception("Categoría inexistente");
+				throw new Exception("Categoría incorrecta");
 			}
 		}else{
 			throw new Exception("Categoría incorrecta");

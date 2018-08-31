@@ -2,23 +2,27 @@
 require_once("../../app/models/productos.class.php");
 try{
 	if(isset($_GET['id'])){
-		$producto = new Producto;
-		if($producto->setId_Producto($_GET['id'])){
-			if($producto->readProducto()){
-				if(isset($_POST['eliminar'])){
-					if($producto->deleteProducto()){
-						if($producto->unsetImagen()){
-							Page::showMessage(1, "Producto eliminado", "index.php");
+		if($_SERVER['HTTP_REFERER']){
+			$producto = new Producto;
+			if($producto->setId_Producto($_GET['id'])){
+				if($producto->readProducto()){
+					if(isset($_POST['eliminar'])){
+						if($producto->deleteProducto()){
+							if($producto->unsetImagen()){
+								Page::showMessage(1, "Producto eliminado", "index.php");
+							}else{
+								throw new Exception("No se eliminó el archivo de la imagen");
+							}
 						}else{
-							throw new Exception("No se eliminó el archivo de la imagen");
+							throw new Exception(Database::getException());
 						}
-					}else{
-						throw new Exception(Database::getException());
 					}
-				}
+				}else{
+					throw new Exception("Producto inexistente");
+				}	
 			}else{
-				throw new Exception("Producto inexistente");
-			}	
+				throw new Exception("Producto incorrecto");
+			}
 		}else{
 			throw new Exception("Producto incorrecto");
 		}
