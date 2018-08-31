@@ -3,7 +3,7 @@ require_once("../../app/models/empleado.class.php");
 try{
 	if(isset($_GET['id'])){
 		if($_SERVER['HTTP_REFERER']){
-			if($_GET['id'] != $_SESSION['id_empleado']){
+			if($_GET['id'] != $_SESSION['id_empleado_d']){
 				$usuario = new Empleado;
 				if($usuario->setId_empleado($_GET['id'])){
 					if($usuario->readEmpleado()){

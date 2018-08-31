@@ -4,12 +4,12 @@ try{
     if(isset($_POST['cambiar'])){
         $usuario = new Empleado;
         $_POST = $usuario->validateForm($_POST);
-        if($usuario->setId_empleado($_SESSION['id_empleado'])){
+        if($usuario->setId_empleado($_SESSION['id_empleado_d'])){
             if($_POST['clave_actual_1'] == $_POST['clave_actual_2']){
                 if($usuario->setContrasena2($_POST['clave_actual_1'])){
                     if($usuario->checkPassword()){
                         if($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']){
-                            if($_POST['clave_nueva_1'] != $_SESSION['correo_electronico2']){
+                            if($_POST['clave_nueva_1'] != $_SESSION['correo_electronico2_d']){
                                 if($_POST['clave_nueva_1'] != $_POST['clave_actual_1']){
                                     if($usuario->setContrasena($_POST['clave_nueva_1'])){
                                         if($usuario->changePassword()){

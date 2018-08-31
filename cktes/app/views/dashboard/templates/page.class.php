@@ -5,8 +5,8 @@ require_once("../../app/helpers/component.class.php");
 require_once("../../app/models/empleado.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
+        session_name("cktes_dashboard");
         session_start();
-        $id = session_id();
 		ini_set("date.timezone","America/El_Salvador");
 		print("
 			<!DOCTYPE html>
@@ -25,24 +25,24 @@ class Page extends Component{
                 <script type='text/javascript' src='../../web/js/sweetalert.min.js'></script>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 			</head>
-			<body>
+            <body>
 		");
-		if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 1){
+		if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 1){
             $empleado = new Empleado;
 
 			/*if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)){
 				$ip= $_SERVER['HTTP_CLIENT_IP'];
 			}*/ //Para usar en un hosting
 
-			$ip = getenv('REMOTE_ADDR');
+			$id = session_id();
 			
-			if($empleado->setId_empleado($_SESSION['id_empleado'])){//Establece el id empleado para obtener los registros del empleado
+			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 				if($empleado->readEmpleado()){
 					if($empleado->getIp() == null){
-						$empleado->setIp($ip);
+						$empleado->setIp($id);
 						$empleado->insertIp();
                     }						
-					if($ip == $empleado->getIp()){
+					if($id == $empleado->getIp()){
 
 						$fechaGuardada = $_SESSION["ultimoAcceso_d"];  
 						$ahora = time();  
@@ -51,7 +51,7 @@ class Page extends Component{
 						//comparamos el tiempo transcurrido  
 						if($tiempo_transcurrido >= 300) {  
 							//si pasaron 10 minutos o más  
-							$empleado->unsetIp($_SESSION['correo_electronico2']);
+							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy(); // destruyo la sesión
 							print("
 								<header>
@@ -73,7 +73,7 @@ class Page extends Component{
 							
 							$hoy = date('Y-m-d h:i:s');
 							$hoy2 = new DateTime($hoy);
-							if($empleado->setId_empleado($_SESSION['id_empleado'])){//Establece el id empleado para obtener los registros del empleado
+							if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 								if($empleado->readEmpleado()){
 									$fecha1 = new DateTime($empleado->getFecha());
 									$tiempo = $fecha1->diff($hoy2);
@@ -114,9 +114,9 @@ class Page extends Component{
                                                 <div class='background'>
                                                     <img src='../../web/img/1.jpg'>
                                                 </div>
-                                                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                                                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                                                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                                                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                                                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                                                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                 </div></li>
                                                 <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                 <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -161,9 +161,9 @@ class Page extends Component{
                                                         <div class='background'>
                                                             <img src='../../web/img/1.jpg'>
                                                         </div>
-                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                                                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                                                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                         </div></li>
                                                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                         <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -210,7 +210,6 @@ class Page extends Component{
 								}
 							}
 						}
-
 					}else{
 						print("
 							<header>
@@ -223,8 +222,10 @@ class Page extends Component{
 									</nav>
 								</div>
 							</header>
-								<main class=''>
+                                <main class=''>
+                                $id   
                             ");
+                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy();
 							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
 							self::templateFooter();
@@ -234,22 +235,22 @@ class Page extends Component{
 			}
 
 
-		}else if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 2){
+		}else if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 2){
             $empleado = new Empleado;
 
 			/*if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)){
 				$ip= $_SERVER['HTTP_CLIENT_IP'];
 			}*/ //Para usar en un hosting
 
-			$ip = getenv('REMOTE_ADDR');
+			$id = session_id();
 			
-			if($empleado->setId_empleado($_SESSION['id_empleado'])){//Establece el id empleado para obtener los registros del empleado
+			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 				if($empleado->readEmpleado()){
 					if($empleado->getIp() == null){
-						$empleado->setIp($ip);
+						$empleado->setIp($id);
 						$empleado->insertIp();
 					}					
-					//if($ip == $empleado->getIp()){
+					if($id == $empleado->getIp()){
 
 						$fechaGuardada = $_SESSION["ultimoAcceso_d"];  
 						$ahora = time();  
@@ -258,7 +259,7 @@ class Page extends Component{
 						//comparamos el tiempo transcurrido  
 						if($tiempo_transcurrido >= 300) {  
 							//si pasaron 10 minutos o más  
-							$empleado->unsetIp($_SESSION['correo_electronico2']);
+							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy(); // destruyo la sesión
 							print("
 								<header>
@@ -280,7 +281,7 @@ class Page extends Component{
 							
 							$hoy = date('Y-m-d h:i:s');
 							$hoy2 = new DateTime($hoy);
-							if($empleado->setId_empleado($_SESSION['id_empleado'])){//Establece el id empleado para obtener los registros del empleado
+							if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 								if($empleado->readEmpleado()){
 									$fecha1 = new DateTime($empleado->getFecha());
 									$tiempo = $fecha1->diff($hoy2);
@@ -321,9 +322,9 @@ class Page extends Component{
                                                 <div class='background'>
                                                     <img src='../../web/img/1.jpg'>
                                                 </div>
-                                                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                                                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                                                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                                                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                                                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                                                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                 </div></li>
                                                 <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                 <li><a href='../productos/index.php'>Productos</a></li>
@@ -366,9 +367,9 @@ class Page extends Component{
                                                         <div class='background'>
                                                             <img src='../../web/img/1.jpg'>
                                                         </div>
-                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                                                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                                                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                         </div></li>
                                                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                         <li><a href='../productos/index.php'>Productos</a></li>
@@ -415,7 +416,7 @@ class Page extends Component{
 							}
 						}
 
-					/*}else{
+					}else{
 						print("
 							<header>
 								<div class='navbar-fixed'>  
@@ -428,12 +429,13 @@ class Page extends Component{
 								</div>
 							</header>
 								<main class=''>
-							");
+                            ");
+                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);
                             session_destroy();
 							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
 							self::templateFooter();
 							exit;
-					}*/
+					}
 				}
 			}
           

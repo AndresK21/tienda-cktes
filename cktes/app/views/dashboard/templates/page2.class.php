@@ -4,6 +4,7 @@ require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
+        session_name("cktes_dashboard");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador");
 		print("
@@ -24,7 +25,7 @@ class Page extends Component{
 			</head>
 			<body>
 		");
-		if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 1){
+		if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 1){
 			print("
 				<header>
                     <div class='navbar-fixed'>  
@@ -44,9 +45,9 @@ class Page extends Component{
                     <div class='background'>
                         <img src='../../web/img/1.jpg'>
                     </div>
-                    <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                    <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                    <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                    <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                    <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                    <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                     </div></li>
                     <li><a href='../cuenta/index.php'>Dashboard</a></li>
                     <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -90,9 +91,9 @@ class Page extends Component{
                             <div class='background'>
                                 <img src='../../web/img/1.jpg'>
                             </div>
-                            <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                            <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
-                            <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2]</span></a>
+                            <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                            <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                            <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                             </div></li>
                             <li><a href='../cuenta/index.php'>Dashboard</a></li>
                             <li><a href='../usuarios/index.php'>Usuarios</a></li>
@@ -134,7 +135,7 @@ class Page extends Component{
 				<main class=''>
 					
 			");
-		}else if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 2){
+		}else if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 2){
 			print("
                 <header>
                 <div class='navbar-fixed'>  
@@ -154,9 +155,9 @@ class Page extends Component{
                 <div class='background'>
                     <img src='../../web/img/1.jpg'>
                 </div>
-                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres_d] $_SESSION[apellidos_d]</span></a>
+                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico_d]</span></a>
                 </div></li>
                 <li><a href='../cuenta/index.php'>Dashboard</a></li>
                 <li><a href='../productos/index.php'>Productos</a></li>
@@ -199,9 +200,9 @@ class Page extends Component{
                         <div class='background'>
                             <img src='../../web/img/1.jpg'>
                         </div>
-                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen]'></a>
-                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres] $_SESSION[apellidos]</span></a>
-                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
+                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres_d] $_SESSION[apellidos_d]</span></a>
+                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico_d]</span></a>
                         </div></li>
                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                         <li><a href='../productos/index.php'>Productos</a></li>

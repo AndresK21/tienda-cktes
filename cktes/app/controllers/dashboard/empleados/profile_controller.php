@@ -2,7 +2,7 @@
 require_once("../../app/models/empleado.class.php");
 try{
     $usuario = new Empleado;
-    if($usuario->setId_empleado($_SESSION['id_empleado'])){
+    if($usuario->setId_empleado($_SESSION['id_empleado_d'])){
         if($usuario->readEmpleado()){
             if(isset($_POST['editar'])){
                 $_POST = $usuario->validateForm($_POST);
@@ -14,10 +14,10 @@ try{
                                     throw new Exception($producto->getImageError());
                                 }
                                 }if($usuario->updateEmpleado()){
-                                    $_SESSION['correo_electronico'] = $usuario->getCorreo();
-                                    $_SESSION['imagen'] = $usuario->getImagen();
-                                    $_SESSION['nombres2'] = $usuario->getNombres();
-								    $_SESSION['apellidos2'] = $usuario->getApellidos();
+                                    $_SESSION['correo_electronico2_d'] = $usuario->getCorreo();
+                                    $_SESSION['imagen_d'] = $usuario->getImagen();
+                                    $_SESSION['nombres2_d'] = $usuario->getNombres();
+								    $_SESSION['apellidos2_d'] = $usuario->getApellidos();
                                     Page::showMessage(1, "Perfil modificado", "index.php");
                                 }else{
                                     throw new Exception("No se pudo modificar el perfil");

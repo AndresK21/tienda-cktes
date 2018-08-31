@@ -1,9 +1,10 @@
 <?php
     if(!isset($_SESSION)) {
+        session_name("cktes_dashboard");
         session_start(); 
     }
 
-    if(isset($_SESSION['id_empleado'])){
+    if(isset($_SESSION['id_empleado_d'])){
         require("../../app/helpers/fpdf.php");
 
         class PDF extends FPDF
@@ -61,7 +62,7 @@
                 // Arial italic 8
                 $this->SetFont('Arial','I',8);
                 // N�mero de p�gina
-                $this->Cell(0,10,'Reporte generado por '.$_SESSION['nombres2'].' '.$_SESSION['apellidos2'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
+                $this->Cell(0,10,'Reporte generado por '.$_SESSION['nombres2_d'].' '.$_SESSION['apellidos2_d'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
                 $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'R');
             }
             // Una tabla m�s completa

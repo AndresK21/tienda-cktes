@@ -168,7 +168,7 @@ class Empleado extends Validator{
 	}
 
 	public function setIp($value){
-		if($this->validateAlphanumeric($value, 1, 20)){
+		if($this->validateAlphanumeric($value, 1, 50)){
 			$this->ip = $value;
 			return true;
 		}else{
@@ -320,8 +320,13 @@ class Empleado extends Validator{
 		$params = array($usuario);
 		return Database::executeRow($sql, $params);
 	}
+	public function intentoCero($usuario){
+		$sql = "UPDATE empleado SET contador = 0 WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
+	}
 	public function getIntentos($usuario){
-		$sql = "SELECT contador FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
+		$sql = "SELECT contador FROM empleado WHERE correo_electronico = ?";
 		$params = array($usuario);
 		$empleado = Database::getRow($sql, $params);
 		if($empleado){

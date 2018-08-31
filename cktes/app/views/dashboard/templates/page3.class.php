@@ -4,6 +4,7 @@ require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
+		session_name("cktes_dashboard");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador");
 		print("
@@ -24,7 +25,7 @@ class Page extends Component{
 			</head>
 			<body>
 		");
-		if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 1){
+		if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 1){
 			print("
 				<header>
                     <div class='navbar-fixed'>  
@@ -40,7 +41,7 @@ class Page extends Component{
 				<main class=''>
 					
 			");
-		}else if(isset($_SESSION['id_empleado']) && ($_SESSION['id_permiso']) == 2){
+		}else if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 2){
 			print("
                 <header>
                 <div class='navbar-fixed'>  
