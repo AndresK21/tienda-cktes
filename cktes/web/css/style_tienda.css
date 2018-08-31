@@ -312,12 +312,12 @@ body {
   /*** CSS LOGIN ***/
 
   #FondoLogin{
-    background-color: #283842;
+    background-color: #ffffff;
 
 
   }
   #FondoTabLogin{
-    background-color: #46575C;
+    background-color: #FFFFFF;
 
   }
   .TamañodelBotonLogin
@@ -652,14 +652,12 @@ body {
   margin-top: 120px;
 }
 #fondoTotal{
-background-image: url(../img/fondo.png);
+background-image: url(../img/portal/inicio/fondo.png);
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 height: 100%;
 }
-
-
 
 .body_error {
   background-color: #121C2C;  
