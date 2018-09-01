@@ -9,6 +9,7 @@ class Cliente extends Validator{
     private $contrasena = null;
     private $imagen = null;
 	private $id_tipo_cliente = null;
+	private $fecha = null;
 	private $carrito = null;
 	private $estado_carrito = null;
 
@@ -116,6 +117,18 @@ class Cliente extends Validator{
 	public function getTipoCliente(){
 		return $this->id_tipo_cliente;
 	}
+
+	public function setFecha($value){
+		if($this->validateAlphanumeric($value)){
+			$this->fecha = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFecha(){
+		return $this->fecha;
+	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
 		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND Estado_cliente=3";
@@ -151,7 +164,7 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico ,contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico ,contrasena, url_imagen, id_tipo_cliente) VALUES( ?, ?, ?, ?, ?, ?, ? )";
 		$estadouser= 3;
 		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
 		return Database::executeRow($sql, $params);

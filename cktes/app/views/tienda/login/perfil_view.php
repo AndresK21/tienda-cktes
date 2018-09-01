@@ -13,19 +13,19 @@
             <!--Nombres-->
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>person</i>
-                <input id='nombres' type='text' name='nombres' class='validate' value='<?php print($cliente->getNombres()) ?>' required/>
+                <input id='nombres' type='text' autocomplete='off' name='nombres' class='validate' value='<?php print($cliente->getNombres()) ?>' required/>
                 <label for='nombres'>Nombres</label>
             </div>
             <!--Apellidos-->
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>person</i>
-                <input id='apellidos' type='text' name='apellidos' class='validate' value='<?php print($cliente->getApellidos()) ?>' required/>
+                <input id='apellidos' type='text' autocomplete='off' name='apellidos' class='validate' value='<?php print($cliente->getApellidos()) ?>' required/>
                 <label for='apellidos'>Apellidos</label>
             </div>
             <!--Email-->
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>email</i>
-                <input id='correo' type='email' name='correo' class='validate' value='<?php print($cliente->getCorreo()) ?>' required/>
+                <input id='correo' type='email' name='correo' autocomplete='off' class='validate' value='<?php print($cliente->getCorreo()) ?>' required/>
                 <label for='correo'>Correo</label>
             </div>
         <!--Botoón cancelar y guardar-->

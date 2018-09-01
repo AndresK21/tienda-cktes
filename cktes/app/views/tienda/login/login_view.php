@@ -22,31 +22,35 @@
             <h4 class="center white-text">Registrate Gratis</h4>
             <div class="row">
                 <form  method='post' class="col s12 ">
-                    <div class="input-field col s6">
-                        <input id="Nombres" name="nombres" type="text" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
+                    <div class="input-field col s12 m12 l6">
+                        <input id="Nombres" name="nombres" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
                         <label for="last_name">Nombres</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="Apellidos" name="apellidos" type="text" class="validate transparent white-text" value='<?php print($usuario->getApellidos()) ?>'/required>
+                    <div class="input-field col s12 m12 l6">
+                        <input id="Apellidos" name="apellidos" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getApellidos()) ?>'/required>
                         <label for="last_name">Apellidos</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="email" name="correo" type="email" class="validate transparent white-text " value='<?php print($usuario->getCorreo()) ?>'/required>
+                    <div class="input-field col s12 m12 l6">
+                        <input id="email" name="correo" type="email" autocomplete="off" class="validate transparent white-text " value='<?php print($usuario->getCorreo()) ?>'/required>
                         <label for="email">Correo Electr&oacute;nico</label>
                         
                     </div>
-                    <div class="input-field col s6">   
+                    <div class="input-field col s12 m12 l6">   
                     <?php
                     Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->getTipoCliente(), $usuario->getTipos());
                     ?>
                 </div>
-                    <div class="input-field col s6">
-                        <input id="password" name="clave1" type="password" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
+                    <div class="input-field col s12 m12 l6">
+                        <input id="password" name="clave1" type="password" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
                         <label for="password">Contrase&ntilde;a</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="password2" name="clave2" type="password" class="validate transparent white-text"/required>
+                    <div class="input-field col s12 m12 l6">
+                        <input id="password2" name="clave2" type="password" autocomplete="off" class="validate transparent white-text"/required>
                         <label for="password2">Verificar Contrase&ntilde;a</label>
+                    </div>
+                    <div class="col s12 m12 l4 offset-l3">
+                        <div class="g-recaptcha"  data-sitekey="6LeLpG0UAAAAAMG0LJesD4vL7FGONpyITihyWBVq"></div>
+                    <p>
                     </div>
                     <div class="col s12 m12 l12 center">
                         <button  type='submit' name="registrar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
@@ -61,11 +65,11 @@
             <div class="row">
             <form method="post" class="col s12">
                 <div class="input-field col l12 s12">
-                    <input id="email2" name="correo_existente" type="email" class="validate transparent white-text" value='<?php print($usuario->getCorreo()) ?>' required/>
+                    <input id="email2" name="correo_existente" type="email" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getCorreo()) ?>' required/>
                     <label for="email2">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password3" name="contrasena_existente" type="password" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>
+                    <input id="password3" name="contrasena_existente" type="password" autocomplete="off" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>
                     <label for="password3">Contrase&ntilde;a</label>
                 </div>
                 <div class="col s12 m12 l12 center">

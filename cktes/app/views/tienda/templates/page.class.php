@@ -4,6 +4,7 @@ require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
+    session_name("pagina_publica");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
 		print("
@@ -23,6 +24,7 @@ class Page extends Component{
       <link rel='stylesheet' href='../web/css/normalize.min.css'>
       <link rel='stylesheet' href='../web/css/style_tienda.css'>
       <script src='../web/js/sweetalert.min.js'></script>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
     </head> 
     <body>
       ");

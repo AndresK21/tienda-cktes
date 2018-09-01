@@ -32,7 +32,7 @@
                 <!-- TEXT AREA PARA COMENTAR -->
                 <div class="row">
                     <div class="input-field col s12 l6">
-                        <input id="hola" type="text" name="comentario"     >
+                        <input id="hola" type="text" autocomplete="off" name="comentario"     >
                         <label for="hola">Comentar</label>
                         <button class="btn cktes tooltipped waves-effect waves-light" type="submit" name="valorar" data-position="botton" data-delay="50" data-tooltip="Enviar Comentario">Enviar</button>
                     </div>

@@ -312,13 +312,13 @@ body {
   /*** CSS LOGIN ***/
 
   #FondoLogin{
-    background-color: #ffffff;
+    background-color: #283842;
+    opacity: .8;
 
 
   }
   #FondoTabLogin{
-    background-color: #FFFFFF;
-
+    background-color: #46575C;
   }
   .TamañodelBotonLogin
   {
