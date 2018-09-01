@@ -6,7 +6,7 @@ require_once("../../app/PHPMailer/class.smtp.php");
 
 class Correo{
 
-    function generar($length = 8) { 
+    public function generar($length = 8) { 
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+*';
         $charactersLength = strlen($characters);
         $randomString = '';
