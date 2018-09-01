@@ -26,7 +26,7 @@ try{
 										$_SESSION['id_permiso_d'] = $object->getId_permiso();
 										$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 										$object->intentoCero($_SESSION['usuario_d']);
-										Page::showMessage(1, "Autenticación correcta ".$id2, "index.php");
+										Page::showMessage(1, "Autenticación correcta", "index.php");
 									}	
 								}
 								
