@@ -19,48 +19,45 @@ try{
     $nueva = generar();
 
     $empleado = new Empleado;
-    if(isset($_POST['enviar'])){
-    $_POST = $empleado->validateForm($_POST);
-        if($empleado->setCorreo($_POST['correo'])){
-            if($empleado->checkCorreo()){
-                if($empleado->updateContra($nueva)){
-                    $nombres = $empleado->getNombres();
-                    $apellidos = $empleado->getApellidos();
+    if($empleado->setCorreo($_SESSION['correo_electronico2_d'])){
+        if($empleado->checkCorreo()){
+            if($empleado->updateContra($nueva)){
+                $nombres = $empleado->getNombres();
+                $apellidos = $empleado->getApellidos();
 
-                    $mail = new PHPMailer;
-                    $mail->setLanguage('es', '../../app/PHPMailer/language/phpmailer.lang-es.php');
-                    $correo = $_POST['correo'];
-                    $usuario = $nombres." ".$apellidos;
-    
-                    $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->SMTPAuth = true;
-                    $mail->Username = 'pinturasv503@gmail.com';
-                    $mail->Password = 'pinturasv';
-                    $mail->SMTPSecure = 'ssl';
-                    $mail->Port = 465;
-    
-                    $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
-                    $mail->addAddress($correo, $usuario);
-    
-                    $mail->Subject = 'Recuperar acceso';
-                    $mail->Body = 'Su nueva contraseña es '.$nueva.' Recomendamos cambie esta contraseña al iniciar sesion';
-    
-                    if(!$mail->send()){
-                        Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
-                    }else{
-                        Page::showMessage(1, "El mensaje se ha enviado correctamente", "login.php");
-                    }
-    
+                $mail = new PHPMailer;
+                $mail->setLanguage('es', '../../app/PHPMailer/language/phpmailer.lang-es.php');
+                $correo = $_SESSION['correo_electronico2_d'];
+                $usuario = $nombres." ".$apellidos;
+
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'pinturasv503@gmail.com';
+                $mail->Password = 'pinturasv';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+
+                $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
+                $mail->addAddress($correo, $usuario);
+
+                $mail->Subject = 'Recuperar acceso';
+                $mail->Body = 'Hemos detectado que su cuenta ha intentado inicarse desde dos lugares diferentes. Cambiamos su contraseña, su nueva contraseña es '.$nueva.' Recomendamos cambie esta contraseña al iniciar sesion';
+
+                if(!$mail->send()){
+                    Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
                 }else{
-                    throw new Exception("No se ha podido actualizar la contraseña");
+                    Page::showMessage(1, "El mensaje se ha enviado correctamente", "login.php");
                 }
+
             }else{
-                throw new Exception("Usuario inexistente");
+                throw new Exception("No se ha podido actualizar la contraseña");
             }
         }else{
-            throw new Exception("Correo electronico incorrecto");
+            throw new Exception("Usuario inexistente");
         }
+    }else{
+        throw new Exception("Correo electronico incorrecto");
     }
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
