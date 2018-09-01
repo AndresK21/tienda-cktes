@@ -222,7 +222,8 @@ class Page extends Component{
                                 <main class=''>
                                 $id   
                             ");
-                            require_once("../../dashboard/cuenta/correo2.php");
+                            $correo = new Correo;
+                            $correo->correo();
                             $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
 							session_destroy();
 							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
