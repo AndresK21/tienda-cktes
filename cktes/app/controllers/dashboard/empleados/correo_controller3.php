@@ -8,10 +8,10 @@ class Correo{
 
     public function correo(){
 
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+*@';
+        $characters = '0123456789';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < 8; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         $nueva = $randomString;
@@ -19,7 +19,7 @@ class Correo{
         $empleado = new Empleado;
         if($empleado->setCorreo($_SESSION['correo_electronico2_d'])){
             if($empleado->checkCorreo()){
-                if($empleado->updateContra($nueva)){
+                if($empleado->updateAut($nueva)){
                     $nombres = $empleado->getNombres();
                     $apellidos = $empleado->getApellidos();
 
@@ -39,11 +39,11 @@ class Correo{
                     $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
                     $mail->addAddress($correo, $usuario);
 
-                    $mail->Subject = 'Recuperar acceso';
-                    $mail->Body = 'Hemos detectado que su cuenta ha intentado inicarse desde dos lugares diferentes. Cambiamos su contraseña, su nueva contraseña es '.$nueva.' Recomendamos cambie esta contraseña al iniciar sesion';
+                    $mail->Subject = 'Codigo de autenticacion';
+                    $mail->Body = 'Su código de autenticación es '.$nueva;
 
                     if(!$mail->send()){
-                        Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
+                        Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "logout.php");
                         return false;
                     }else{
                         return true;
@@ -56,7 +56,7 @@ class Correo{
                 throw new Exception("Usuario inexistente");
             }
         }else{
-            throw new Exception("Correo electronico incorrecto");
+            Page::showMessage(3, "Correo electronico incorrecto", "../cuenta/logout.php");
         }
     }
 }

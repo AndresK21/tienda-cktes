@@ -14,6 +14,7 @@ class Empleado extends Validator{
 	private $estado = null;
 	private $ip = null;
 	private $contador = null;
+	private $autenticacion = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
@@ -38,6 +39,22 @@ class Empleado extends Validator{
 	}
 	public function getContador(){
 		return $this->contador;
+	}
+
+	public function setAut($value){
+		if($this->validateId($value)){
+			$this->autenticacion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getAut(){
+		if($this->autenticacion != null){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public function setEstado($value){
@@ -267,7 +284,7 @@ class Empleado extends Validator{
 		}
 	}
 	public function readEmpleado2($correo){
-		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip, autenticacion FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
 		$params = array($correo);
 		$empleado = Database::getRow($sql, $params);
 		if($empleado){
@@ -279,6 +296,7 @@ class Empleado extends Validator{
 			$this->id_permiso = $empleado['id_permiso'];
 			$this->fecha = $empleado['fecha_registro'];
 			$this->ip = $empleado['ip'];
+			$this->autenticacion = $empleado['autenticacion'];
 			return true;
 		}else{
 			return null;
@@ -353,6 +371,11 @@ class Empleado extends Validator{
 		}else{
 			return null;
 		}
+	}
+	public function updateAut($contra){
+		$sql = "UPDATE empleado SET autenticacion = ? WHERE correo_electronico = ?";
+		$params = array($contra, $this->correo_electronico);
+		return Database::executeRow($sql, $params);
 	}
 }
 ?>

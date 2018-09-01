@@ -1,9 +1,8 @@
 <?php
 require_once("../../app/models/empleado.class.php");
-require_once("../../app/controllers/dashboard/empleados/correo_controller2.php");
+require_once("../../app/controllers/dashboard/empleados/correo_controller3.php");
 try{
-	$id2 = session_id();
-
+	$id2 = session_id();	
 	$object = new Empleado;
 	if($object->getEmpleado()){
 		if(isset($_POST['iniciar'])){
@@ -27,10 +26,11 @@ try{
 										$_SESSION['id_permiso_d'] = $object->getId_permiso();
 										$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 										$object->intentoCero($_SESSION['usuario_d']);
-										Page::showMessage(1, "Autenticación correcta", "index.php");
+										$correo = new Correo;
+										Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
 									}else{
 										$object->unsetIp($_SESSION['usuario_d']);
-										Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
+										Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
 									}	
 								}
 								
@@ -54,10 +54,11 @@ try{
 											$_SESSION['id_permiso_d'] = $object->getId_permiso();
 											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 											$object->intentoCero($_SESSION['usuario_d']);
-											Page::showMessage(1, "Autenticación correcta", "index.php");
+											$correo = new Correo;
+											Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
 										}else{
 											$object->unsetIp($_SESSION['usuario_d']);
-											Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
+											Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
 										}
 									}else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");

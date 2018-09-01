@@ -226,7 +226,7 @@ class Page extends Component{
                         if($correo->correo()){
                             $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
                             session_destroy();
-                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
+                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
                             self::templateFooter();
                             exit;
                         }else{
@@ -433,7 +433,7 @@ class Page extends Component{
                         if($correo->correo()){
                             $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
                             session_destroy();
-                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
+                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
                             self::templateFooter();
                             exit;
                         }else{
@@ -459,7 +459,7 @@ class Page extends Component{
 				<main class=''>
 			");
 			$filename = basename($_SERVER['PHP_SELF']);
-			if($filename != "login.php" && $filename != "register.php" && $filename != "correo.php"){
+			if($filename != "login.php" && $filename != "register.php" && $filename != "correo.php" && $filename != "autenticacion.php"){
 				self::showMessage(3, "¡Debe iniciar sesión!", "../cuenta/login.php");
 				self::templateFooter();
 				exit;
