@@ -6,19 +6,15 @@ require_once("../../app/PHPMailer/class.smtp.php");
 
 class Correo{
 
-    public function generar($length = 8) { 
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+*';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString; 
-    }
-
     public function correo(){
 
-        $nueva = generar();
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+*@';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 8; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $nueva = $randomString;
 
         $empleado = new Empleado;
         if($empleado->setCorreo($_SESSION['correo_electronico2_d'])){
@@ -48,8 +44,10 @@ class Correo{
 
                     if(!$mail->send()){
                         Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
+                        return true;
                     }else{
                         Page::showMessage(1, "El mensaje se ha enviado correctamente", "login.php");
+                        return false;
                     }
 
                 }else{

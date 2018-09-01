@@ -221,15 +221,18 @@ class Page extends Component{
 								</div>
 							</header>
                                 <main class=''>
-                                $id   
                             ");
-                            $correo = new Correo;
-                            $correo->correo();
+                        $correo = new Correo;
+                        if($correo->correo()){
                             $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
-							session_destroy();
-							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
-							self::templateFooter();
-							exit;
+                            session_destroy();
+                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
+                            self::templateFooter();
+                            exit;
+                        }else{
+                            self::showMessage(3, "No se pudo cambiar la contraseña", "../cuenta/login.php");
+                        }
+                        
 					}
                 }
 			}
@@ -426,11 +429,16 @@ class Page extends Component{
 							</header>
 								<main class=''>
                             ");
-                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);
+                        $correo = new Correo;
+                        if($correo->correo()){
+                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
                             session_destroy();
-							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
-							self::templateFooter();
-							exit;
+                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
+                            self::templateFooter();
+                            exit;
+                        }else{
+                            self::showMessage(3, "No se pudo cambiar la contraseña", "../cuenta/login.php");
+                        }
 					}
 				}
 			}
