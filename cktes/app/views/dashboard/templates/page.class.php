@@ -1,5 +1,6 @@
 <?php
 require_once("../../app/models/database.class.php");
+require_once("../../app/controllers/dashboard/empleados/correo_controller2.php");
 require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 require_once("../../app/models/empleado.class.php");
