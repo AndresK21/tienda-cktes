@@ -37,20 +37,16 @@ class Page extends Component{
 			$id = session_id();
 			
 			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
-				if($empleado->readEmpleado()){
-					if($empleado->getIp() == null){
-						$empleado->setIp($id);
-						$empleado->insertIp();
-                    }						
-					if($id == $empleado->getIp()){
+									
+					if($id == $empleado->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas
 
-						$fechaGuardada = $_SESSION["ultimoAcceso_d"];  
+						$fechaGuardada = $_SESSION["ultimoAcceso_d"]; 
 						$ahora = time();  
 						$tiempo_transcurrido = $ahora-$fechaGuardada;   
 
 						//comparamos el tiempo transcurrido  
 						if($tiempo_transcurrido >= 300) {  
-							//si pasaron 10 minutos o más  
+							//si pasaron 5 minutos o más  
 							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy(); // destruyo la sesión
 							print("
@@ -210,7 +206,7 @@ class Page extends Component{
 								}
 							}
 						}
-					}else{
+					}else{ //Si el id de la sesion no coincide con el de la base no deja iniciar sesion
 						print("
 							<header>
 								<div class='navbar-fixed'>  
@@ -225,13 +221,13 @@ class Page extends Component{
                                 <main class=''>
                                 $id   
                             ");
-                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);
+                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
 							session_destroy();
 							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
 							self::templateFooter();
 							exit;
 					}
-				}
+				
 			}
 
 
