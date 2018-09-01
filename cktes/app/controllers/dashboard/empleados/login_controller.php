@@ -13,7 +13,7 @@ try{
 					if($object->setContrasena2($_POST['contrasena'])){
 						if($object->checkPassword()){
 							if($object->getEstado() == 1){
-								if($empleado->readEmpleado()){ //Obtiene toda la informacion de ese emplado
+								if($object->readEmpleado()){ //Obtiene toda la informacion de ese emplado
 									if($object->getIp() == null){
 										$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
 										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
@@ -36,23 +36,25 @@ try{
 								$valor3 = new DateTime($object->getFecha2());
 								$bloqueo = $valor3->diff($valor2);
 								if($bloqueo->d >= 1){
-									if($object->getIp() == null){
-										$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
-										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
+									if($object->readEmpleado()){ //Obtiene toda la informacion de ese emplado
+										if($object->getIp() == null){
+											$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+											$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
 
-										$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
-										$_SESSION['id_empleado_d'] = $object->getId_empleado();
-										$_SESSION['correo_electronico2_d'] = $object->getCorreo();
-										$_SESSION['nombres2_d'] = $object->getNombres();
-										$_SESSION['apellidos2_d'] = $object->getApellidos();
-										$_SESSION['imagen_d'] = $object->getImagen();
-										$_SESSION['id_permiso_d'] = $object->getId_permiso();
-										$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
-										$object->intentoCero($_SESSION['usuario_d']);
-										Page::showMessage(1, "Autenticación correcta", "index.php");
+											$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
+											$_SESSION['id_empleado_d'] = $object->getId_empleado();
+											$_SESSION['correo_electronico2_d'] = $object->getCorreo();
+											$_SESSION['nombres2_d'] = $object->getNombres();
+											$_SESSION['apellidos2_d'] = $object->getApellidos();
+											$_SESSION['imagen_d'] = $object->getImagen();
+											$_SESSION['id_permiso_d'] = $object->getId_permiso();
+											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
+											$object->intentoCero($_SESSION['usuario_d']);
+											Page::showMessage(1, "Autenticación correcta", "index.php");
+										}
+									}else{
+										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 									}
-								}else{
-									throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 								}
 							}
 						}else{
