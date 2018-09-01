@@ -28,7 +28,7 @@ try{
 										$object->intentoCero($_SESSION['usuario_d']);
 										Page::showMessage(1, "Autenticación correcta", "index.php");
 									}else{
-										$object->unsetIp($_SESSION['correo_electronico2_d']);
+										$object->unsetIp($_SESSION['usuario_d']);
 										Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
 									}	
 								}
@@ -55,7 +55,7 @@ try{
 											$object->intentoCero($_SESSION['usuario_d']);
 											Page::showMessage(1, "Autenticación correcta", "index.php");
 										}else{
-											$object->unsetIp($_SESSION['correo_electronico2_d']);
+											$object->unsetIp($_SESSION['usuario_d']);
 											Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
 										}
 									}else{
