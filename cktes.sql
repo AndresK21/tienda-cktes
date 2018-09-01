@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-08-2018 a las 22:38:07
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.7
+-- Tiempo de generación: 01-09-2018 a las 23:32:34
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -244,7 +244,8 @@ CREATE TABLE `empleado` (
   `estado` int(2) DEFAULT NULL,
   `fecha_bloqueo` datetime DEFAULT NULL,
   `contador` int(2) NOT NULL,
-  `ip` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `ip` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `autenticacion` int(4) DEFAULT NULL,
   `id_permiso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -252,8 +253,8 @@ CREATE TABLE `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `id_permiso`) VALUES
-(25, 'Andres Oswaldo', 'Henriquez Gomez', '5b7300fa7ff03.jpg', 'andresdosmil@gmail.com', '$2y$10$IuDSrxarHmO.Jj1Tnch4SuiojC8yLW2OygDvHOVu0MyY6d2.7VvgS', '2018-08-14 00:00:00', 1, NULL, 0, NULL, 1);
+INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `autenticacion`, `id_permiso`) VALUES
+(26, 'Andres Oswaldo', 'Hneriquez Gomez', '5b89ba8d958d8.jpg', 'andresdosmil@gmail.com', '$2y$10$OE2WpC4D33NN7iSw8tH6k.eUXKftNZTZo9qjOxczRtIxArGv48kbC', '2018-08-31 00:00:00', 1, '2018-08-30 04:01:38', 0, 'knjaguomie65lida4mf1kbkr5h', 7092, 1);
 
 -- --------------------------------------------------------
 
@@ -894,7 +895,7 @@ ALTER TABLE `detalle_carrito`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
