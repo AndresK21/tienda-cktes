@@ -1,5 +1,6 @@
 <?php
 require_once("../../app/models/empleado.class.php");
+require_once("../../app/controllers/dashboard/empleados/correo_controller2.php");
 try{
 	$id2 = session_id();
 

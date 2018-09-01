@@ -3,6 +3,7 @@ require_once("../../app/models/database.class.php");
 require_once("../../app/helpers/validator.class.php");
 require_once("../../app/helpers/component.class.php");
 require_once("../../app/models/empleado.class.php");
+
 class Page extends Component{
 	public static function templateHeader($title){
         session_name("cktes_dashboard");
@@ -223,7 +224,7 @@ class Page extends Component{
                             ");
                             $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
 							session_destroy();
-							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo.php");
+							self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/correo2.php");
 							self::templateFooter();
 							exit;
 					}
