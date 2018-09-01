@@ -1,7 +1,7 @@
 <?php
 require_once("../../app/models/empleado.class.php");
 try{
-	$ip2 = getenv('REMOTE_ADDR');
+	$id = session_id();
 
 	$object = new Empleado;
 	if($object->getEmpleado()){
