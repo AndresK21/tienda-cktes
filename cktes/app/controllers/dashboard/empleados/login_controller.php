@@ -1,7 +1,7 @@
 <?php
 require_once("../../app/models/empleado.class.php");
 try{
-	$id = session_id();
+	$id2 = session_id();
 
 	$object = new Empleado;
 	if($object->getEmpleado()){
@@ -13,9 +13,9 @@ try{
 					if($object->setContrasena2($_POST['contrasena'])){
 						if($object->checkPassword()){
 							if($object->getEstado() == 1){
-								if($object->readEmpleado()){ //Obtiene toda la informacion de ese emplado
+								if($object->readEmpleado2($_SESSION['usuario_d'])){ //Obtiene toda la informacion de ese emplado
 									if($object->getIp() == null){
-										$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+										$object->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
 										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
 
 										$_SESSION['id_empleado_d'] = $object->getId_empleado();
@@ -26,7 +26,7 @@ try{
 										$_SESSION['id_permiso_d'] = $object->getId_permiso();
 										$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 										$object->intentoCero($_SESSION['usuario_d']);
-										Page::showMessage(1, "Autenticación correcta", "index.php");
+										Page::showMessage(1, "Autenticación correcta ".$id2, "index.php");
 									}	
 								}
 								
@@ -36,9 +36,9 @@ try{
 								$valor3 = new DateTime($object->getFecha2());
 								$bloqueo = $valor3->diff($valor2);
 								if($bloqueo->d >= 1){
-									if($object->readEmpleado()){ //Obtiene toda la informacion de ese emplado
+									if($object->readEmpleado2($_SESSION['usuario_d'])){ //Obtiene toda la informacion de ese emplado
 										if($object->getIp() == null){
-											$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+											$object->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
 											$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
 
 											$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion

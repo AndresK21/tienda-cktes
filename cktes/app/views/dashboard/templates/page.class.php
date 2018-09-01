@@ -37,7 +37,7 @@ class Page extends Component{
 			$id = session_id();
 			
 			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
-									
+				if($empleado->readEmpleado()){					
 					if($id == $empleado->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas
 
 						$fechaGuardada = $_SESSION["ultimoAcceso_d"]; 
@@ -227,7 +227,7 @@ class Page extends Component{
 							self::templateFooter();
 							exit;
 					}
-				
+                }
 			}
 
 
@@ -241,11 +241,7 @@ class Page extends Component{
 			$id = session_id();
 			
 			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
-				if($empleado->readEmpleado()){
-					if($empleado->getIp() == null){
-						$empleado->setIp($id);
-						$empleado->insertIp();
-					}					
+				if($empleado->readEmpleado()){					
 					if($id == $empleado->getIp()){
 
 						$fechaGuardada = $_SESSION["ultimoAcceso_d"];  

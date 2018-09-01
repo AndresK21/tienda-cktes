@@ -266,6 +266,24 @@ class Empleado extends Validator{
 			return null;
 		}
 	}
+	public function readEmpleado2($correo){
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
+		$params = array($correo);
+		$empleado = Database::getRow($sql, $params);
+		if($empleado){
+            $this->nombres = $empleado['nombres'];
+            $this->apellidos = $empleado['apellidos'];
+            $this->imagen = $empleado['imagen'];
+			$this->correo_electronico = $empleado['correo_electronico'];
+			$this->contrasena = $empleado['contrasena'];
+			$this->id_permiso = $empleado['id_permiso'];
+			$this->fecha = $empleado['fecha_registro'];
+			$this->ip = $empleado['ip'];
+			return true;
+		}else{
+			return null;
+		}
+	}
 	public function updateEmpleado(){
 		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ? WHERE id_empleado = ?";
 		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_empleado);
