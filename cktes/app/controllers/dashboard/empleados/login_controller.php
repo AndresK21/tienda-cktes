@@ -14,9 +14,9 @@ try{
 						if($object->checkPassword()){
 							if($object->getEstado() == 1){
 								if($empleado->readEmpleado()){ //Obtiene toda la informacion de ese emplado
-									if($empleado->getIp() == null){
-										$empleado->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
-										$empleado->insertIp(); //Aca inserta el id de la sesion en la base de datos
+									if($object->getIp() == null){
+										$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
 
 										$_SESSION['id_empleado_d'] = $object->getId_empleado();
 										$_SESSION['correo_electronico2_d'] = $object->getCorreo();
@@ -36,9 +36,9 @@ try{
 								$valor3 = new DateTime($object->getFecha2());
 								$bloqueo = $valor3->diff($valor2);
 								if($bloqueo->d >= 1){
-									if($empleado->getIp() == null){
-										$empleado->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
-										$empleado->insertIp(); //Aca inserta el id de la sesion en la base de datos
+									if($object->getIp() == null){
+										$object->setIp($id); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
 
 										$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
 										$_SESSION['id_empleado_d'] = $object->getId_empleado();
