@@ -20,7 +20,7 @@ try{
                                         throw new Exception(Database::getException());
                                     }
                                 }else{
-                                    throw new Exception("Clave nueva menor a 8 caracteres");
+                                    throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                                 }
                             }else{
                                 throw new Exception("La nueva contraseña no puede ser igual a la anterior");

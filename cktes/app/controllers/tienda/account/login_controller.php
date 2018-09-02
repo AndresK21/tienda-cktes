@@ -46,7 +46,7 @@ try{
                                         throw new Exception("La clave no puede ser igual al nombre");
                                     }
                                 }else{
-                                    throw new Exception("Clave menor a 8 caracteres");
+                                    throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                                 }
                             }else{
                                 throw new Exception("Claves diferentes");
@@ -93,7 +93,7 @@ try{
 								throw new Exception("Clave incorrecta");
 							}
 						}else{
-							throw new Exception("Clave menor a 8 caracteres");
+							throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
 						}
 					}else{
 						throw new Exception("Cuenta bloqueada");
