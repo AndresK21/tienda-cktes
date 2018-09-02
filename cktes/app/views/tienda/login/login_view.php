@@ -72,6 +72,11 @@
                     <input id="password3" name="contrasena_existente" type="password" autocomplete="off" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>
                     <label for="password3">Contrase&ntilde;a</label>
                 </div>
+                <div class="right-align">
+                    <a href="correo.php">&iquest;Olvido su contrase&ntilde;a&#63;</a>
+                    <div class="transparent-text">.</div>
+                    <div class="transparent-text">.</div>
+                </div>
                 <div class="col s12 m12 l12 center">
                 <button type= "submit" name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
                 <div class="transparent-text">.</div>

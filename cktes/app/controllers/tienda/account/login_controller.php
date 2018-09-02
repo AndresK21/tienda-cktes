@@ -25,10 +25,10 @@ try{
             if($usuario->setNombres($_POST['nombres'])){
                 if($usuario->setApellidos($_POST['apellidos'])){
                     if($usuario->setCorreo($_POST['correo'])){
-                        if($usuario->setTipoCliente($_POST['tipo_cliente'])){
+                        if($usuario->setTipoCliente($_POST['tipo_cliente'])){   
                             // Se verifica que las dos claves sean iguales
                             if($_POST['clave1'] == $_POST['clave2']){
-                                if($usuario->setContrasena($_POST['clave1'])){
+                                if($usuario->setContrasena2($_POST['clave1'])){
                                     if($_POST['nombres'] != $_POST['clave1']){
                                         if($_POST['apellidos'] != $_POST['clave1']){
                                         // Se crea el usuario (cliente)
@@ -46,7 +46,7 @@ try{
                                         throw new Exception("La clave no puede ser igual al nombre");
                                     }
                                 }else{
-                                    throw new Exception("Clave menor a 6 caracteres");
+                                    throw new Exception("Clave menor a 8 caracteres");
                                 }
                             }else{
                                 throw new Exception("Claves diferentes");
@@ -93,7 +93,7 @@ try{
 								throw new Exception("Clave incorrecta");
 							}
 						}else{
-							throw new Exception("Clave menor a 6 caracteres");
+							throw new Exception("Clave menor a 8 caracteres");
 						}
 					}else{
 						throw new Exception("Cuenta bloqueada");

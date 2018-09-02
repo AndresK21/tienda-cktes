@@ -106,6 +106,18 @@ class Cliente extends Validator{
 	public function getContrasena(){
 		return $this->contrasena;
 	}
+	
+	public function setContrasena2($value){
+		if($this->validatePassword2($value)){
+			$this->contrasena = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getContrasena2(){
+		return $this->contrasena;
+	}
     public function setTipoCliente($value){
 		if($this->validateId($value)){
 			$this->id_tipo_cliente = $value;
@@ -151,6 +163,12 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
+	public function updateContra($contrasena){
+		$hash = password_hash($contrasena, PASSWORD_DEFAULT);
+		$sql = "UPDATE clientes SET contrasena = ? WHERE correo_electronico = ?";
+		$params = array($hash, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
 	
 	public function changePassword(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
@@ -164,9 +182,15 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico ,contrasena, url_imagen, id_tipo_cliente) VALUES( ?, ?, ?, ?, ?, ?, ? )";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente) VALUES( ?, ?, ?, ?, ?, ?, ? )";
 		$estadouser= 3;
 		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
+
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO cliente(nombres, apellidos, email, nombre_usuario, contrasena, fecha_registro, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$fech = date('y-m-d');
+		$params = array($this->nombres, $this->apellidos, $this->email, $this->nombre_usuario, $hash, $fech, 1 );
+		return Database::executeRow($sql, $params);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
@@ -210,6 +234,21 @@ class Cliente extends Validator{
 		$sql = "SELECT id_tipo_cliente, tipo_cliente FROM tipo_cliente ORDER BY id_tipo_cliente";
 		$params = array(null);
 		return Database::getRows($sql, $params);
+	}
+	public function checkCorreo(){
+		$sql = "SELECT id_cliente, correo_electronico, nombres, apellidos, url_imagen FROM clientes WHERE correo_electronico = ?";
+		$params = array($this->correo);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->id = $data['id_cliente'];
+			$this->correo = $data['correo_electronico'];
+			$this->nombres = $data['nombres'];
+			$this->apellidos = $data['apellidos'];
+			$this->imagen = $data['url_imagen'];
+			return true;
+		}else{
+			return false;
+		}
 	}
 	public function searchCategoria($value){
 		$sql = "SELECT * FROM tipo_cliente WHERE tipo_cliente LIKE ? ORDER BY id_tipo_cliente";
