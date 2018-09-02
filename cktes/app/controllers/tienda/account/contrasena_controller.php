@@ -8,18 +8,22 @@ try{
         if($cliente->setId($_SESSION['id_cliente'])){
             // Se que clave actual de los dos campos sean iguales
             if($_POST['clave_actual_1'] == $_POST['clave_actual_2']){
-                if($cliente->setContrasena($_POST['clave_actual_1'])){
+                if($cliente->setContrasena2($_POST['clave_actual_1'])){
                     if($cliente->checkPassword()){
                         if($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']){
-                            if($cliente->setContrasena($_POST['clave_nueva_1'])){
-                                // con mto. ChangePassword se actualiza la contraseña 
-                                if($cliente->changePassword()){
-                                    Page::showMessage(1, "Clave cambiada", "categorias.php");
+                            if($_POST['clave_nueva_1'] != $_POST['clave_actual_1']){
+                                if($cliente->setContrasena($_POST['clave_nueva_1'])){
+                                    // con mto. ChangePassword se actualiza la contraseña 
+                                    if($cliente->changePassword()){
+                                        Page::showMessage(1, "Clave cambiada", "categorias.php");
+                                    }else{
+                                        throw new Exception(Database::getException());
+                                    }
                                 }else{
-                                    throw new Exception(Database::getException());
+                                    throw new Exception("Clave nueva menor a 8 caracteres");
                                 }
                             }else{
-                                throw new Exception("Clave nueva menor a 6 caracteres");
+                                throw new Exception("La nueva contraseña no puede ser igual a la anterior");
                             }
                         }else{
                             throw new Exception("Claves nuevas diferentes");
@@ -28,7 +32,7 @@ try{
                         throw new Exception("Clave actual incorrecta");
                     }
                 }else{
-                    throw new Exception("Clave actual menor a 6 caracteres");
+                    throw new Exception("Clave actual menor a 8 caracteres");
                 }
             }else{
                 throw new Exception("Claves actuales diferentes");

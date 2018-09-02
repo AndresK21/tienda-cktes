@@ -34,7 +34,7 @@ class Page extends Component{
               <div class='navbar-fixed'>
                 <nav>
                 <div class='nav-wrapper'>
-                  <a href='index.php'><span>CKT</span> <span>ES</span></a>
+                  <a href='../portal/index.php'><span>CKT</span> <span>ES</span></a>
                   <ul class='right'>
                   <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i><span/><span class='corre'>$_SESSION[correo_electronico]</span></a></li>
                   <ul id='dropdown' class='dropdown-content'>
@@ -54,7 +54,7 @@ class Page extends Component{
                   <div class='menu' id='menu'>
                       <div class='menu-list'>
                         <ul class='row'>
-                          <li class='col s12'><a class='container' href='#'>Portal</a></li>
+                          <li class='col s12'><a class='container' href='../portal/index.php'>Portal</a></li>
                           <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
                           <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
                           <li class='col s12'><a class='container' href='carrito.php'>Carrito</a></li>
@@ -73,7 +73,7 @@ class Page extends Component{
        <div class='navbar-fixed'>
                 <nav>
                 <div class='nav-wrapper'>
-              <a href='index.php'><span>CKT</span> <span>ES</span></a>
+              <a href='../portal/index.php'><span>CKT</span> <span>ES</span></a>
               <ul class='right'>
               <li><a href='acceder.php' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
 
@@ -88,7 +88,7 @@ class Page extends Component{
             <div class='menu' id='menu'> 
               <div class='menu-list'>    
                 <ul class='row'>
-                <li class='col s12'><a class='container' href='#'>Portal</a></li>
+                <li class='col s12'><a class='container' href='../portal/index.php'>Portal</a></li>
                 <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
                 <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
                 </ul>
