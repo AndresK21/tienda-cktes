@@ -182,15 +182,9 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente) VALUES( ?, ?, ?, ?, ?, ?, ? )";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente  );
-
-		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO cliente(nombres, apellidos, email, nombre_usuario, contrasena, fecha_registro, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		$fech = date('y-m-d');
-		$params = array($this->nombres, $this->apellidos, $this->email, $this->nombre_usuario, $hash, $fech, 1 );
-		return Database::executeRow($sql, $params);
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
