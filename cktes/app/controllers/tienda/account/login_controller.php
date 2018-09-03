@@ -1,6 +1,7 @@
 <?php
 require_once("../app/models/cliente.class.php");
 require_once("../app/recaptcha/php/recaptchalib.php");
+require_once("../app/controllers/tienda/account/autenticacionPublic_controller.php");
 try {
     // Controlador para registrar
     $usuario = new Cliente;
@@ -114,8 +115,9 @@ try {
                                 $usuario->maxId();
                                 $_SESSION['id_carrito']=$usuario->getCarrito();
                                 $_SESSION['tiempo'] = time();
+                                $correo = new CorreoPublic;
                                 //Se hace la comparación de que si la compra ya esta finalizada o no  
-                                Page::showMessage(1, "Autenticación correcta", "categorias.php");
+                                Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
                             }else{
 								$valor = date('Y-m-d h:i:s');
 								$valor2 = new DateTime($valor);
@@ -125,7 +127,7 @@ try {
 									if($usuario->readUsuario2($_SESSION['correo_electronico'])){ //Obtiene toda la informacion de ese cliente
                                         $usuario->updateEstado2($_SESSION['correo_electronico']); //Regresa el estado del usuario a disponible para iniciar sesion
                                         $_SESSION['id_cliente2'] = $usuario->getId();
-                                        $_SESSION['correo_electronico2'] = $usuario->getCorreo();
+                                        $_SESSION['correo_electronico'] = $usuario->getCorreo();
                                         $_SESSION['nombres2'] = $usuario->getNombres();
                                         $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $usuario->intentoCero($_SESSION['correo_electronico']);
@@ -135,8 +137,9 @@ try {
                                         $usuario->maxId();
                                         $_SESSION['id_carrito']=$usuario->getCarrito();
                                         $_SESSION['tiempo'] = time();
+                                        $correo = new CorreoPublic;
                                         //Se hace la comparación de que si la compra ya esta finalizada o no  
-                                        Page::showMessage(1, "Autenticación correcta", "categorias.php");
+                                        Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
 
                                     }else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
