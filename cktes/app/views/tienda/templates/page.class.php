@@ -3,7 +3,6 @@ require_once("../app/models/database.class.php");
 require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
 require_once("../app/models/cliente.class.php");
-require_once("../app/controllers/tienda/account/correo_controller2.php");
 class Page extends Component{
 	public static function templateHeader($title){
     session_name("cktes_tienda");
@@ -99,6 +98,7 @@ class Page extends Component{
     ");
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   }else{ //Si el id de la sesion no coincide con el de la base no deja iniciar sesion
   print("
     <header>
@@ -122,6 +122,8 @@ class Page extends Component{
 }
 
 
+=======
+>>>>>>> 070322e525e17f755149d2d7b6701d0aec92e71c
 =======
 >>>>>>> 070322e525e17f755149d2d7b6701d0aec92e71c
 }
