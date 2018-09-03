@@ -2,6 +2,7 @@
 require_once("../app/models/database.class.php");
 require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
+require_once("../app/models/cliente.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
     session_name("cktes_tienda");
@@ -32,7 +33,7 @@ class Page extends Component{
         if (isset($_SESSION['tiempo'])) {
                 
           //Tiempo en segundos para dar vida a la sesión.
-          $inactivo = 30; //5min en este caso.
+          $inactivo = 300; //5min en este caso.
           
           //Calculamos tiempo de vida inactivo.
           $vida_sesion = time() - $_SESSION['tiempo'];
@@ -48,7 +49,17 @@ class Page extends Component{
               $_SESSION['tiempo'] = time();
           }
       }
-        print("
+      $cliente = new Cliente;
+      $cliente->setId($_SESSION['id_cliente']);
+      if ($cliente->ReadUsuario()) {
+          $ingreso   = new DateTime($cliente->getFechaRegistro());
+          $val       = date("Y-m-d");
+          $valor     = new DateTime($val);
+          $intervalo = $valor->diff($ingreso);
+          if ($intervalo->format('%a') >= 2) {
+              Page::showMessage(3, "Debe cambiar contraseña", "cambio_contrasena.php");
+          } else {
+              print("
             <header>
               <div class='navbar-fixed'>
                 <nav>
@@ -75,7 +86,7 @@ class Page extends Component{
                         <ul class='row'>
                           <li class='col s12'><a class='container' href='../portal/index.php'>Portal</a></li>
                           <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
-                          <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
+                          <li class='col s12'><a class='container' href='../portal/nosotros.php'>Nostros</a></li>
                           <li class='col s12'><a class='container' href='carrito.php'>Carrito</a></li>
                         </ul>
                       </div>
@@ -86,6 +97,8 @@ class Page extends Component{
             <main>
     ");
   }
+}
+      }
     else {
     print("
     <header>
@@ -121,6 +134,7 @@ class Page extends Component{
 
     }
   }
+  
 	public static function templateFooter(){
     print("	
     </main>
