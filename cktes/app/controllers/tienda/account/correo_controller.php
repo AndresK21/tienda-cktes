@@ -74,13 +74,13 @@ try{
                     </tr>
                     <tr>
                     <td bgcolor="f4f4f4">
-                    <h1 style="padding 20px 0 20px 0"> Recuperación de contraseña </h1>
+                    <h1 style="padding 20px 0 20px 0"> Recuperaci&oacute;n de contrase&ntilde;a </h1>
                     </td>
                     </tr>
                     <tr>
                     <td bgcolor="#f4f4f4">
                     <p> Hola <strong>'.$nombres.' </strong>nos has solicitado restablecer tu clave. 
-                    </p> <p> Para ingresar utiliza la nueva clave: <strong>'.$nueva.'</strong> <p>Recuerda cambiar de contraseña al acceder a tu cuenta.</p> 
+                    </p> <p> Para ingresar utiliza la nueva clave: <strong>'.$nueva.'</strong> <p>Recuerda cambiar de contrase&ntilde;a al acceder a tu cuenta.</p> 
                     <p> <strong> Te saluda cordialmente, </strong> </p> <p> </strong> Cktes. </p>
                     <p> ------------------- </p>
                     <p class="l" ><strong> C K T - E S, S A. D E C V </strong></p>
