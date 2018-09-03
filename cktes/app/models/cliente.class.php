@@ -16,6 +16,8 @@ class Cliente extends Validator{
 	private $contador = null;
 	private $estado_cliente=null;
 	private $fecha_registro= null;
+	private $autenticacion= null;
+	
 
 
 	//Métodos para sobrecarga de propiedades
@@ -66,6 +68,17 @@ class Cliente extends Validator{
 	}
 	public function getContador(){
 		return $this->contador;
+	}
+	public function setAut($value){
+		if($this->validateId($value)){
+			$this->autenticacion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getAut(){
+		return $this->autenticacion;
 	}
 	public function setEstado($value){
 		if($this->validateId($value)){
@@ -396,7 +409,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -404,6 +417,7 @@ class Cliente extends Validator{
             $this->apellidos = $cliente['apellidos'];
 			$this->correo = $cliente['correo_electronico'];
 			$this->contrasena = $cliente['contrasena'];
+			$this->autenticacion = $cliente['autenticacion'];
 			return true;
 		}else{
 			return null;
@@ -421,6 +435,7 @@ class Cliente extends Validator{
 		$params = array($this->id);
 		return Database::executeRow($sql, $params);
 	}
+	
 
 	public function getClientes(){
 		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes ORDER BY apellidos";
@@ -437,5 +452,11 @@ class Cliente extends Validator{
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
+		public function updateAut($contra){
+		$sql = "UPDATE clientes SET autenticacion = ? WHERE correo_electronico = ?";
+		$params = array($contra, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
 }
+
 ?>
