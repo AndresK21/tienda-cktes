@@ -3,13 +3,13 @@ require_once("../app/models/database.class.php");
 require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
 require_once("../app/models/cliente.class.php");
-require_once("../app/controllers/tienda/account/correo_controller2.php");
 class Page extends Component{
 	public static function templateHeader($title){
     session_name("cktes_tienda");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
 		print("
+
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -50,10 +50,8 @@ class Page extends Component{
           }
       }
       $cliente = new Cliente;
-      $id = session_id();
       $cliente->setId($_SESSION['id_cliente']);
       if ($cliente->ReadUsuario()) {
-        if($id == $cliente->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas
           $ingreso   = new DateTime($cliente->getFechaRegistro());
           $val       = date("Y-m-d");
           $valor     = new DateTime($val);
@@ -99,29 +97,6 @@ class Page extends Component{
             <main>
     ");
   }
-  }else{ //Si el id de la sesion no coincide con el de la base no deja iniciar sesion
-  print("
-    <header>
-      <div class='navbar-fixed'>  
-        <nav>
-        <!--Navbar Color gris azulado-->
-          <div class='nav-wrapper  blue-grey darken-4'>
-          <img class='brand-logo' src='../../web/img/mipintura.png'>
-          </div>
-        </nav>
-      </div>
-    </header>
-                      <main class=''>
-                  ");
-              $correo = new Correo;
-              $cliente->unsetIp($_SESSION['correo_electronico']);  //Vuelve nulo el campo del id de la base
-              session_destroy();
-              self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "ingresar.php");
-              self::templateFooter();
-              exit;
-}
-
-
 }
       }
     else {

@@ -8,18 +8,18 @@
     <div class="container" id="FondoLogin">
         <ul id="FondoTabLogin" class="tabs tabs-fixed-width tab-demo z-depth-1">
             <li class="tab">
-                <a  href="#test1">Autenticaci&oacute;n</a>
+                <a  href="#test1">Autenticacion</a>
             </li>
         </ul>
         <div id="test1" class="col s12 container">
-            <h4 class="center white-text">El código ha sido mandado a tu correo</h4>
+            <h4 class="center white-text">Esperamos tenerte de vuelta</h4>
             <div class="row">
                 <form method="post" enctype='multipart/form-data'>
                     <div class="center-align">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="cod" type="number" name="cod" class="validate white-text" autocomplete="off" required>
-                                <label for="cod" class="white-text">C&oacute;digo auteticaci&oacute;n</label>
+                                <label for="cod" class="white-text">C&oacute;digo auteticaci&oacute;</label>
                             </div>
                         </div>
                     </div>
