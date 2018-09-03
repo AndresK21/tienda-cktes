@@ -184,7 +184,7 @@ class Cliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function updateEstado($user){
-		$sql = "UPDATE clientes SET estado_cliente = 0 WHERE correo_electronico = ?";
+		$sql = "UPDATE clientes SET estado_cliente = 4 WHERE correo_electronico = ?";
 		$params = array($user);
 		return Database::executeRow($sql, $params);
 	}
