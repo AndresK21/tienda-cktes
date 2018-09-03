@@ -33,6 +33,7 @@ try{
 										Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
 									}	
 								}
+								
 							}else{
 								$valor = date('Y-m-d h:i:s');
 								$valor2 = new DateTime($valor);

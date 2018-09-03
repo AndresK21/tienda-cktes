@@ -10,10 +10,13 @@ class Cliente extends Validator{
     private $imagen = null;
 	private $id_tipo_cliente = null;
 	private $fecha = null;
+	private $fecha2 = null;
 	private $carrito = null;
 	private $estado_carrito = null;
 
 	private $contador = null;
+	private $estado_cliente=null;
+
 
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
@@ -27,6 +30,20 @@ class Cliente extends Validator{
 	public function getId(){
 		return $this->id;
 	}
+
+
+	public function setEstadoCliente($value){
+		if($this->validateId($value)){
+			$this->estado_cliente = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEstadoCliente(){
+		return $this->estado_cliente;
+	}
+
 	public function setCarrito($value){
 		if($this->validateId($value)){
 			$this->carrito = $value;
@@ -155,23 +172,37 @@ class Cliente extends Validator{
 	public function getFecha(){
 		return $this->fecha;
 	}
+
+	public function setFecha2($value){
+		if($this->validateAlphanumeric($value, 1, 30)){
+			$this->fecha2 = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFecha2(){
+		return $this->fecha2;
+	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
-		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ? AND Estado_cliente=3";
+		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ?";
 		$params = array($this->correo);
 		$data = Database::getRow($sql, $params);
 		if($data){
-			$this->id = $data['id_cliente'];			
+			$this->id = $data['id_cliente'];
 			return true;
 		}else{
 			return false;
 		}
 	}
 	public function checkPassword(){
-		$sql = "SELECT contrasena FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT contrasena, estado_cliente, fecha_bloqueo FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$data = Database::getRow($sql, $params);
 		if(password_verify($this->contrasena, $data['contrasena'])){
+			$this->estado_cliente = $data['estado_cliente'];
+			$this->fecha2 = $data['fecha_bloqueo'];
 			return true;
 		}else{
 			return false;
@@ -184,11 +215,16 @@ class Cliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function updateEstado($user){
-		$sql = "UPDATE clientes SET estado_cliente = 4 WHERE correo_electronico = ?";
+		$sql = "UPDATE clientes SET estado_cliente = 4, fecha_bloqueo = ? WHERE correo_electronico = ?";
+		$fech = date('Y-m-d h:i:s');
+		$params = array($fech, $user);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateEstado2($user){
+		$sql = "UPDATE clientes SET estado_cliente = 3 WHERE correo_electronico = ?";
 		$params = array($user);
 		return Database::executeRow($sql, $params);
 	}
-
 	public function sumarIntento($usuario){
 		$sql = "UPDATE clientes SET contador = contador + 1 WHERE correo_electronico = ?";
 		$params = array($usuario);
@@ -337,6 +373,22 @@ class Cliente extends Validator{
 			return null;
 		}
 	}
+
+	public function readUsuario2($correo){
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$params = array($correo);
+		$cliente = Database::getRow($sql, $params);
+		if($cliente){
+            $this->nombres = $cliente['nombres'];
+            $this->apellidos = $cliente['apellidos'];
+			$this->correo = $cliente['correo_electronico'];
+			$this->contrasena = $cliente['contrasena'];
+			return true;
+		}else{
+			return null;
+		}
+	}
+
 	public function updateUsuario(){
 		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ? WHERE id_cliente = ?";
 		$params = array($this->nombres, $this->apellidos, $this->correo,  $this->id);
