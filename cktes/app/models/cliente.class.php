@@ -17,6 +17,7 @@ class Cliente extends Validator{
 	private $estado_cliente=null;
 	private $fecha_registro= null;
 	private $autenticacion= null;
+	private $ip = null;
 	
 
 
@@ -210,6 +211,18 @@ class Cliente extends Validator{
 	public function getFecha2(){
 		return $this->fecha2;
 	}
+
+	public function setIp($value){
+		if($this->validateAlphanumeric($value, 1, 50)){
+			$this->ip = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getIp(){
+		return $this->ip;
+	}
 	//Métodos para manejar la sesión del usuario
 	public function checkAlias(){
 		$sql = "SELECT id_cliente, id_carrito, carrito.estado_carrito FROM clientes INNER JOIN carrito USING(id_cliente) WHERE correo_electronico = ?";
@@ -303,6 +316,18 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
+	
+	public function insertIp(){
+		$sql = "UPDATE clientes SET ip = ? WHERE correo_electronico = ?";
+		$params = array($this->ip, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
+	public function unsetIp($usuario){
+		$sql = "UPDATE clientes SET ip = null WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
+	}
+
 	public function maxId(){
 		$sql = "SELECT id_carrito, estado_carrito FROM carrito WHERE id_carrito= (SELECT MAX(id_carrito) FROM carrito WHERE id_cliente = ?)";
 		$params = array($this->id);
@@ -386,7 +411,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro,ip FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -395,6 +420,7 @@ class Cliente extends Validator{
             $this->apellidos = $cliente['apellidos'];
 			$this->correo = $cliente['correo_electronico'];
 			$this->fecha_registro= $cliente['fecha_registro'];
+			$this->ip= $cliente['ip'];
 			
 			return true;
 		}else{
@@ -409,7 +435,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion,ip FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -418,6 +444,7 @@ class Cliente extends Validator{
 			$this->correo = $cliente['correo_electronico'];
 			$this->contrasena = $cliente['contrasena'];
 			$this->autenticacion = $cliente['autenticacion'];
+			$this->ip = $cliente['ip'];
 			return true;
 		}else{
 			return null;

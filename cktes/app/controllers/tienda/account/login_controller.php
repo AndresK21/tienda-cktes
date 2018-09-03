@@ -4,6 +4,7 @@ require_once("../app/recaptcha/php/recaptchalib.php");
 require_once("../app/controllers/tienda/account/autenticacionPublic_controller.php");
 try {
     // Controlador para registrar
+    $id2 = session_id();	
     $usuario = new Cliente;
     // Se realizará cuando se de click al input 'registrar'
     if (isset($_POST['registrar'])) {
@@ -108,6 +109,11 @@ try {
                         // Se verifica que la clave que ingrese sea correcta
                         if ($usuario->checkPassword()) {
                             if($usuario->getEstadoCliente() == 3){
+                                if($usuario->readUsuario2($_SESSION['correo_electronico'])){ //Obtiene toda la informacion de ese emplado
+                                if($usuario->getIp() == null){
+                                    $usuario->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+                                    $usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
+                                
                                 $usuario->intentoCero($_SESSION['correo_electronico']);
                                 //Si el usuario y la contraseña son correctos se inicia sesión
                                 $_SESSION['id_cliente']=$usuario->getId();
@@ -119,12 +125,20 @@ try {
                                 //Se hace la comparación de que si la compra ya esta finalizada o no  
                                 Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
                             }else{
+                                $usuario->unsetIp($_SESSION['correo_electronico']);
+                                Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
+                            }	
+                        }
+                            }else{
 								$valor = date('Y-m-d h:i:s');
 								$valor2 = new DateTime($valor);
 								$valor3 = new DateTime($usuario->getFecha2());
 								$bloqueo = $valor3->diff($valor2);
 								if($bloqueo->d >= 1){
-									if($usuario->readUsuario2($_SESSION['correo_electronico'])){ //Obtiene toda la informacion de ese cliente
+                                    if($usuario->readUsuario2($_SESSION['correo_electronico'])){ //Obtiene toda la informacion de ese cliente
+                                        if($usuario->getIp() == null){
+											$usuario->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
+											$usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
                                         $usuario->updateEstado2($_SESSION['correo_electronico']); //Regresa el estado del usuario a disponible para iniciar sesion
                                         $_SESSION['id_cliente2'] = $usuario->getId();
                                         $_SESSION['correo_electronico'] = $usuario->getCorreo();
@@ -140,7 +154,10 @@ try {
                                         $correo = new CorreoPublic;
                                         //Se hace la comparación de que si la compra ya esta finalizada o no  
                                         Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
-
+                                    }else{
+                                        $usuario->unsetIp($_SESSION['correo_electronico']);
+                                        Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
+                                    }
                                     }else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 									}

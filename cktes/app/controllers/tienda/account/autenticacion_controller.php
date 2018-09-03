@@ -16,7 +16,7 @@ try{
                     throw new Exception("el error");
                 }
             }else{
-                Page::showMessage(3, "Correo electronico incorrecto", "logout.php");
+                Page::showMessage(3, "Correo electronico incorrecto", "acceder.php");
             }
         }
 }catch(Exception $error){

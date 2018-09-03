@@ -1,8 +1,8 @@
 <?php
 
-require_once("../../app/models/empleado.class.php");
-require_once("../../app/PHPMailer/class.phpmailer.php");
-require_once("../../app/PHPMailer/class.smtp.php");
+require_once("../app/models/empleado.class.php");
+require_once("../app/PHPMailer/class.phpmailer.php");
+require_once("../app/PHPMailer/class.smtp.php");
 
 class Correo{
 
@@ -16,12 +16,12 @@ class Correo{
         }
         $nueva = $randomString;
 
-        $empleado = new Empleado;
-        if($empleado->setCorreo($_SESSION['correo_electronico2_d'])){
-            if($empleado->checkCorreo()){
-                if($empleado->updateAut($nueva)){
-                    $nombres = $empleado->getNombres();
-                    $apellidos = $empleado->getApellidos();
+        $cliente = new Cliente;
+        if($cliente->setCorreo($_SESSION['correo_electronico2_d'])){
+            if($cliente->checkCorreo()){
+                if($cliente->updateAut($nueva)){
+                    $nombres = $cliente->getNombres();
+                    $apellidos = $cliente->getApellidos();
 
                     $mail = new PHPMailer;
                     $mail->setLanguage('es', '../../app/PHPMailer/language/phpmailer.lang-es.php');
@@ -37,7 +37,7 @@ class Correo{
                     $mail->Port = 465;
                     $mail->isHTML(true);
 
-                    $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
+                    $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
                     $mail->addAddress($correo, $usuario);
 
                     $mail->Subject = 'Codigo de autenticacion';
@@ -89,7 +89,7 @@ class Correo{
                                             <p> Si usted no es la persona que intenta ingresar al sistema, recomendamos cambie su contrase&ntilde;a inmediatamente</p> 
                                             <p> <strong> Te saluda cordialmente, </strong> </p> <p> </strong> Cktes. </p>
                                             <p> ------------------- </p>
-                                            <p class="l" ><strong> C K T - E S, S A. D E C V </strong></p>
+                                            <p class="l" ><strong>CKT-ES, S.A. DE C.V </strong></p>
                                             <p class="l"> <strong> "Circuitos Profesionales con la garantia que nadie ofrece" </strong></p>
                                             <p class="l"> <strong>  Tel. 2245-6378 ; Whatsapp. 7565-7321 </strong></p>
                                         </td>

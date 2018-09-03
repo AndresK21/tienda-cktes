@@ -10,6 +10,7 @@ class Page extends Component{
 		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
 		print("
+
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -50,10 +51,8 @@ class Page extends Component{
           }
       }
       $cliente = new Cliente;
-      $id = session_id();
       $cliente->setId($_SESSION['id_cliente']);
       if ($cliente->ReadUsuario()) {
-        if($id == $cliente->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas
           $ingreso   = new DateTime($cliente->getFechaRegistro());
           $val       = date("Y-m-d");
           $valor     = new DateTime($val);
@@ -99,6 +98,7 @@ class Page extends Component{
             <main>
     ");
   }
+<<<<<<< HEAD
   }else{ //Si el id de la sesion no coincide con el de la base no deja iniciar sesion
   print("
     <header>
@@ -111,17 +111,19 @@ class Page extends Component{
         </nav>
       </div>
     </header>
-                      <main class=''>
-                  ");
-              $correo = new Correo;
-              $cliente->unsetIp($_SESSION['correo_electronico']);  //Vuelve nulo el campo del id de la base
-              session_destroy();
-              self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "ingresar.php");
-              self::templateFooter();
-              exit;
+    <main class=''>
+    ");
+    $correo = new Correo;
+    $cliente->unsetIp($_SESSION['correo_electronico']);  //Vuelve nulo el campo del id de la base
+    session_destroy();
+    self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
+    self::templateFooter();
+    exit;
 }
 
 
+=======
+>>>>>>> 070322e525e17f755149d2d7b6701d0aec92e71c
 }
       }
     else {

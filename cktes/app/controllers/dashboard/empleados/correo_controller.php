@@ -92,7 +92,7 @@ try{
                                             <p> Para ingresar utiliza la nueva clave: <strong>'.$nueva.'</strong> <p>Recuerda cambiar de contrase&ntilde;a al acceder a tu cuenta.</p> 
                                             <p> <strong> Te saluda cordialmente, </strong> </p> <p> </strong> Cktes. </p>
                                             <p> ------------------- </p>
-                                            <p class="l" ><strong> C K T - E S, S A. D E C V </strong></p>
+                                            <p class="l" ><strong> CKT-ES, S.A. DE C.V </strong></p>
                                             <p class="l"> <strong> "Circuitos Profesionales con la garantia que nadie ofrece" </strong></p>
                                             <p class="l"> <strong>  Tel. 2245-6378 ; Whatsapp. 7565-7321 </strong></p>
                                         </td>
