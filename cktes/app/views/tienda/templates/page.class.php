@@ -122,7 +122,7 @@ class Page extends Component{
                 <ul class='row'>
                 <li class='col s12'><a class='container' href='../portal/index.php'>Portal</a></li>
                 <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
-                <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
+                <li class='col s12'><a class='container' href='../portal/nosotros.php'>Nosotros</a></li>
                 </ul>
                 </div>
             </div>
@@ -163,6 +163,5 @@ class Page extends Component{
         </html>
 		");
 	}
-
 }
 ?>

@@ -2,8 +2,10 @@
 require_once("../app/models/database.class.php");
 require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
+require_once("../app/models/cliente.class.php");
 class Page extends Component{
 	public static function templateHeader($title){
+    session_name("cktes_tienda");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
 		print("
@@ -27,6 +29,36 @@ class Page extends Component{
     <body>
       ");
       if(isset($_SESSION['id_cliente'])){
+        if (isset($_SESSION['tiempo'])) {
+                
+          //Tiempo en segundos para dar vida a la sesión.
+          $inactivo = 300; //5min en este caso.
+          
+          //Calculamos tiempo de vida inactivo.
+          $vida_sesion = time() - $_SESSION['tiempo'];
+          
+          //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
+          if ($vida_sesion > $inactivo) {
+              //Destruimos sesión.
+              session_destroy();
+              Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "acceder.php");
+              exit();
+          } else {
+              //Activamos sesion tiempo.
+              $_SESSION['tiempo'] = time();
+          }
+      }
+
+      $cliente = new Cliente;
+      $cliente->setId($_SESSION['id_cliente']);
+      if ($cliente->ReadUsuario()) {
+          $ingreso   = new DateTime($cliente->getFechaRegistro());
+          $val       = date("Y-m-d");
+          $valor     = new DateTime($val);
+          $intervalo = $valor->diff($ingreso);
+          if ($intervalo->format('%a') >= 2) {
+              Page::showMessage(3, "Debe cambiar contraseña", "cambio_contrasena.php");
+          } else {
         print("
             <header>
               <div class='navbar-fixed'>
@@ -67,7 +99,8 @@ class Page extends Component{
             <main>
     ");
   }
-    else {
+}
+}else {
     print("
     <header>
        <div class='navbar-fixed'>
