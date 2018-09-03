@@ -25,7 +25,7 @@ class Correo{
 
                     $mail = new PHPMailer;
                     $mail->setLanguage('es', '../../app/PHPMailer/language/phpmailer.lang-es.php');
-                    $correo = $_SESSION['correo_electronico'];
+                    $correo = $_SESSION['correo_electronico2_d'];
                     $usuario = $nombres." ".$apellidos;
 
                     $mail->isSMTP();
@@ -35,8 +35,8 @@ class Correo{
                     $mail->Password = 'pinturasv';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port = 465;
-                    $mail->isHTML(true);
-                    $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
+
+                    $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
                     $mail->addAddress($correo, $usuario);
 
                     $mail->Subject = 'Recuperar acceso';

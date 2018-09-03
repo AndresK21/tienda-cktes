@@ -24,7 +24,7 @@ try {
             if ($usuario->setNombres($_POST['nombres'])) {
                 if ($usuario->setApellidos($_POST['apellidos'])) {
                     if ($usuario->setCorreo($_POST['correo'])) {
-                        if ($usuario->setTipoCliente($_POST['tipo_cliente'])){
+                        if ($usuario->setTipoCliente($_POST['tipo_cliente'])) {
                             // Se verifica que las dos claves sean iguales
                             if ($_POST['clave1'] == $_POST['clave2']) {
                                 $clave = $_POST['clave1'];
@@ -126,7 +126,6 @@ try {
                                 Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
                             }else{
                                 $usuario->unsetIp($_SESSION['correo_electronico']);
-                                session_destroy();
                                 Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
                             }	
                         }
@@ -157,7 +156,6 @@ try {
                                         Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
                                     }else{
                                         $usuario->unsetIp($_SESSION['correo_electronico']);
-                                        session_destroy();
                                         Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
                                     }
                                     }else{

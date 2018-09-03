@@ -51,17 +51,15 @@ class Page extends Component{
           }
       }
       $cliente = new Cliente;
-      $id = session_id();
       $cliente->setId($_SESSION['id_cliente']);
       if ($cliente->ReadUsuario()) {
-        if($id == $cliente->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas
           $ingreso   = new DateTime($cliente->getFechaRegistro());
           $val       = date("Y-m-d");
           $valor     = new DateTime($val);
           $intervalo = $valor->diff($ingreso);
           if ($intervalo->format('%a') >= 2) {
               Page::showMessage(3, "Debe cambiar contraseña", "cambio_contrasena.php");
-          }else{
+          } else {
               print("
             <header>
               <div class='navbar-fixed'>
@@ -123,8 +121,10 @@ class Page extends Component{
     exit;
 }
 
+
+
 }
-      }
+      
     else {
     print("
     <header>
