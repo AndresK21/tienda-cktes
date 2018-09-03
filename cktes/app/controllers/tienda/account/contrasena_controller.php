@@ -10,8 +10,17 @@ try{
             if($_POST['clave_actual_1'] == $_POST['clave_actual_2']){
                 if($cliente->setContrasena2($_POST['clave_actual_1'])){
                     if($cliente->checkPassword()){
+                        $clave = $_POST['clave_nueva_1'];
                         if($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']){
                             if($_POST['clave_nueva_1'] != $_POST['clave_actual_1']){
+                            
+                                    if (strlen($clave) > 7) {
+                                        if (preg_match('`[a-z]`', $clave)) {
+                                            if (preg_match('`[A-Z]`', $clave)) {
+                                                $especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
+                                                if (preg_match($especiales, $clave)) {
+                                                    if (preg_match('`[0-9]`', $clave)) {
+
                                 if($cliente->setContrasena($_POST['clave_nueva_1'])){
                                     // con mto. ChangePassword se actualiza la contraseña 
                                     if($cliente->changePassword()){
@@ -20,8 +29,28 @@ try{
                                         throw new Exception(Database::getException());
                                     }
                                 }else{
-                                    throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
+                                    throw new Exception("clave inválida");
                                 }
+                            }
+                            else{
+                                throw new Exception("La clave debe poseer un número");
+                            }
+                            }
+                            else{
+                                throw new Exception("La clave debe poseer un caracter especial");
+                            }
+                            }
+                            else{
+                                throw new Exception("La clave debe poseer al una letra mayúscula ");
+                            }
+                            }
+                            else{
+                                throw new Exception("La clave debe poseer al una letra minúscula ");
+                            }
+                            }else{
+                                throw new Exception("La clave debe poseer al menos 8 caracteres ");
+                            }
+                             
                             }else{
                                 throw new Exception("La nueva contraseña no puede ser igual a la anterior");
                             }
