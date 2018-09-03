@@ -223,15 +223,11 @@ class Page extends Component{
                                 <main class=''>
                             ");
                         $correo = new Correo;
-                        if($correo->correo()){
-                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
-                            session_destroy();
-                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
-                            self::templateFooter();
-                            exit;
-                        }else{
-                            self::showMessage(3, "No se pudo cambiar la contraseña", "../cuenta/login.php");
-                        }
+                        $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
+                        session_destroy();
+                        self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
+                        self::templateFooter();
+                        exit;
                         
 					}
                 }
@@ -430,15 +426,11 @@ class Page extends Component{
 								<main class=''>
                             ");
                         $correo = new Correo;
-                        if($correo->correo()){
-                            $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
-                            session_destroy();
-                            self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
-                            self::templateFooter();
-                            exit;
-                        }else{
-                            self::showMessage(3, "No se pudo cambiar la contraseña", "../cuenta/login.php");
-                        }
+                        $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
+                        session_destroy();
+                        self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
+                        self::templateFooter();
+                        exit;
 					}
 				}
 			}
