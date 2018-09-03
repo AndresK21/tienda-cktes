@@ -29,6 +29,7 @@ class Page extends Component{
     <body>
       ");
       if(isset($_SESSION['id_cliente'])){
+        
         print("
             <header>
               <div class='navbar-fixed'>

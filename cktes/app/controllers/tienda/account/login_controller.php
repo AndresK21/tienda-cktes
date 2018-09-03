@@ -113,6 +113,7 @@ try {
                                 //Esta funcion es para obtener el maximo Id de la compra
                                 $usuario->maxId();
                                 $_SESSION['id_carrito']=$usuario->getCarrito();
+                                $_SESSION['tiempo'] = time();
                                 //Se hace la comparación de que si la compra ya esta finalizada o no  
                                 Page::showMessage(1, "Autenticación correcta", "categorias.php");
                             }else{
@@ -133,8 +134,10 @@ try {
                                         //Esta funcion es para obtener el maximo Id de la compra
                                         $usuario->maxId();
                                         $_SESSION['id_carrito']=$usuario->getCarrito();
+                                        $_SESSION['tiempo'] = time();
                                         //Se hace la comparación de que si la compra ya esta finalizada o no  
                                         Page::showMessage(1, "Autenticación correcta", "categorias.php");
+
                                     }else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 									}

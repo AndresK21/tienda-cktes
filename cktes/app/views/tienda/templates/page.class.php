@@ -29,6 +29,25 @@ class Page extends Component{
     <body>
       ");
       if(isset($_SESSION['id_cliente'])){
+        if (isset($_SESSION['tiempo'])) {
+                
+          //Tiempo en segundos para dar vida a la sesión.
+          $inactivo = 30; //5min en este caso.
+          
+          //Calculamos tiempo de vida inactivo.
+          $vida_sesion = time() - $_SESSION['tiempo'];
+          
+          //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
+          if ($vida_sesion > $inactivo) {
+              //Destruimos sesión.
+              session_destroy();
+              Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "acceder.php");
+              exit();
+          } else {
+              //Activamos sesion tiempo.
+              $_SESSION['tiempo'] = time();
+          }
+      }
         print("
             <header>
               <div class='navbar-fixed'>

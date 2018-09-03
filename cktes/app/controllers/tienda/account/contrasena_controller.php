@@ -13,7 +13,6 @@ try {
                         $clave = $_POST['clave_nueva_1'];
                         if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
                             if ($_POST['clave_nueva_1'] != $_POST['clave_actual_1']) {
-                                
                                 if (strlen($clave) > 7) {
                                     if (preg_match('`[a-z]`', $clave)) {
                                         if (preg_match('`[A-Z]`', $clave)) {
