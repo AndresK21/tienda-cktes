@@ -28,6 +28,7 @@ class Page extends Component{
     </head> 
     <body>
       ");
+      
       if(isset($_SESSION['id_cliente'])){
         
         print("
@@ -103,6 +104,7 @@ class Page extends Component{
 
     }
   }
+ 
 	public static function templateFooter(){
     print("	
     </main>
@@ -130,7 +132,49 @@ class Page extends Component{
           </body>
         </html>
 		");
-	}
+  }
+  public static function templateAu($title){
+    session_name("cktes_tienda");
+		session_start();
+		ini_set("date.timezone","America/El_Salvador"); 
+    print("
+    <!DOCTYPE html>
+<html lang='en'>
+    <head>
+    <meta charset='UTF-8'>
+      <title>$title</title>
+      <!-- Android bar--> 
+      <meta name='theme-color' content='#444'>
+      <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+      <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+      <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'>
+      <link rel='stylesheet' href='../web/css/materialize.min.css'>
+      <link href='../web/css/icon.css' rel='stylesheet'>
+      <link rel='stylesheet' href='../web/css/normalize.min.css'>
+      <link rel='stylesheet' href='../web/css/style_tienda.css'>
+      <script src='../web/js/sweetalert.min.js'></script>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head> 
+    <body>
+    <header>
+       <div class='navbar-fixed'>
+                <nav>
+                <div class='nav-wrapper'>
+              <a href='index.php'><span>CKT</span> <span>ES</span></a>
+              <ul class='right'>
+              <li><a href='#' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
+
+             </ul>
+
+            </div>           
+           
+        </nav>
+      </div>
+    </header>
+  <main>
+    ");
+  
+}
 
 }
 ?>
