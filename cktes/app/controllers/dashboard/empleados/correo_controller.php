@@ -39,6 +39,7 @@ try{
                     $mail->Password = 'pinturasv';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port = 465;
+                    $mail->isHTML(true);
     
                     $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
                     $mail->addAddress($correo, $usuario);

@@ -35,6 +35,7 @@ class Correo{
                     $mail->Password = 'pinturasv';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port = 465;
+                    $mail->isHTML(true);
 
                     $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
                     $mail->addAddress($correo, $usuario);
@@ -78,7 +79,7 @@ class Correo{
                                     <tr>
 
                                         <td bgcolor="f4f4f4">
-                                            <h1 style="padding 20px 0 20px 0"> Recuperaci&oacute;n de contrase&ntilde;a </h1>
+                                            <h1 style="padding 20px 0 20px 0"> C&oacute;digo de autenticaci&oacute;n </h1>
                                         </td>
                                     </tr>
                                     <tr>
