@@ -100,6 +100,7 @@ try {
         if (isset($_POST['iniciar'])) {
             $_POST = $usuario->validateForm($_POST);
             if ($usuario->setCorreo($_POST['correo_existente'])) {
+                $_SESSION['correo_electronico'] = $usuario->getCorreo();
                 // Se verifica la existencia del correo y que tenga un estado "Activo"
                 if ($usuario->checkAlias()) {
                     if ($usuario->setContrasena2($_POST['contrasena_existente'])) {
@@ -107,15 +108,27 @@ try {
                         if ($usuario->checkPassword()) {
                             //Si el usuario y la contraseña son correctos se inicia sesión
                             $_SESSION['id_cliente']         = $usuario->getId();
-                            $_SESSION['correo_electronico'] = $usuario->getCorreo();
                             //Esta funcion es para obtener el maximo Id de la compra
                             $usuario->maxId();
                             $_SESSION['id_carrito'] = $usuario->getCarrito();
                             //Se hace la comparación de que si la compra ya esta finalizada o no  
                             Page::showMessage(1, "Autenticación correcta", "categorias.php");
-                        } else {
-                            throw new Exception("Clave incorrecta");
-                        }
+                        }else{
+							if($usuario->sumarIntento($_SESSION['correo_electronico'])){
+								Page::showMessage(2, "Clave incorrecta", "acceder.php");
+								$usuario->getIntentos($_SESSION['correo_electronico']);
+								if($usuario->getContador() >= 3){
+									$usuario->updateEstado($_SESSION['correo_electronico']);
+									if($usuario->intentoCero($_SESSION['correo_electronico'])){
+										Page::showMessage(3, "Su cuenta ha sido bloqueada por exceder los intentos de inicio de sesión", "acceder.php");
+									}else{
+										throw new Exception("No se reseteo el contador");
+									}
+								}
+							}else{
+								throw new Exception("No se sumo el intento");
+							}
+						}
                     } else {
                         throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                     }

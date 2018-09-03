@@ -13,6 +13,8 @@ class Cliente extends Validator{
 	private $carrito = null;
 	private $estado_carrito = null;
 
+	private $contador = null;
+
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
 		if($this->validateId($value)){
@@ -35,6 +37,18 @@ class Cliente extends Validator{
 	}
 	public function getCarrito(){
 		return $this->carrito;
+	}
+	
+	public function setContador($value){
+		if($this->validateId($value)){
+			$this->contador = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getContador(){
+		return $this->contador;
 	}
 	public function setEstado($value){
 		if($this->validateId($value)){
@@ -168,6 +182,34 @@ class Cliente extends Validator{
 		$sql = "UPDATE clientes SET contrasena = ? WHERE correo_electronico = ?";
 		$params = array($hash, $this->correo);
 		return Database::executeRow($sql, $params);
+	}
+	public function updateEstado($user){
+		$sql = "UPDATE clientes SET estado_cliente = 0 WHERE correo_electronico = ?";
+		$params = array($user);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function sumarIntento($usuario){
+		$sql = "UPDATE clientes SET contador = contador + 1 WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function intentoCero($usuario){
+		$sql = "UPDATE clientes SET contador = 0 WHERE correo_electronico = ?";
+		$params = array($usuario);
+		return Database::executeRow($sql, $params);
+	}
+	public function getIntentos($usuario){
+		$sql = "SELECT contador FROM clientes WHERE correo_electronico = ?";
+		$params = array($usuario);
+		$cliente = Database::getRow($sql, $params);
+		if($cliente){
+            $this->contador = $cliente['contador'];
+			return true;
+		}else{
+			return null;
+		}
 	}
 	
 	public function changePassword(){
