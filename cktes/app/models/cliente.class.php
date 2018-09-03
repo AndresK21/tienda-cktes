@@ -13,9 +13,9 @@ class Cliente extends Validator{
 	private $fecha2 = null;
 	private $carrito = null;
 	private $estado_carrito = null;
-
 	private $contador = null;
 	private $estado_cliente=null;
+	private $fecha_registro= null;
 
 
 	//Métodos para sobrecarga de propiedades
@@ -172,6 +172,19 @@ class Cliente extends Validator{
 	public function getFecha(){
 		return $this->fecha;
 	}
+	
+	public function setFechaRegistro($value){
+		if($this->validateAlphanumeric($value)){
+			$this->fecha_registro = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getFechaRegistro(){
+		return $this->fecha_registro;
+	}
+
 
 	public function setFecha2($value){
 		if($this->validateAlphanumeric($value, 1, 30)){
@@ -260,9 +273,10 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro) VALUES(?, ?, ?, ?, ?, ?, ?,?)";
 		$estadouser= 3;
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente);
+		$fecharegistro = date("Y/m/d");
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
@@ -359,7 +373,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -367,11 +381,18 @@ class Cliente extends Validator{
 			$this->nombres = $cliente['nombres'];
             $this->apellidos = $cliente['apellidos'];
 			$this->correo = $cliente['correo_electronico'];
+			$this->fecha_registro= $cliente['fecha_registro'];
 			
 			return true;
 		}else{
 			return null;
 		}
+	}
+	public function Fecha(){
+		$sql = "UPDATE clientes SET fecha_registro = ? WHERE id_cliente = ?";
+		$fechaactual= date("Y-m-d");
+		$params = array($fechaactual,  $this->id);
+		return Database::executeRow($sql, $params);
 	}
 
 	public function readUsuario2($correo){
