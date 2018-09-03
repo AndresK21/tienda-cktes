@@ -15,7 +15,8 @@ class Page extends Component{
                 <title>Dashboard - $title</title>
                 <meta charset='utf-8'>
                 <!--Import Google Icon Font-->
-                <link href='../../web/css/icon.css' rel='stylesheet'>
+				<link href='../../web/css/icon.css' rel='stylesheet'>
+				<link href='../../web/css/style.css' rel='stylesheet'>
                 <!--Import materialize.css-->
                 <link type='text/css' rel='stylesheet' href='../../web/css/materialize.min.css'  media='screen,projection'/>
                 <!--Let browser know website is optimized for mobile-->

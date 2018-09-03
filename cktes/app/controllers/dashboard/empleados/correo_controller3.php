@@ -89,7 +89,7 @@ class Correo{
                                             <p> Si usted no es la persona que intenta ingresar al sistema, recomendamos cambie su contrase&ntilde;a inmediatamente</p> 
                                             <p> <strong> Te saluda cordialmente, </strong> </p> <p> </strong> Cktes. </p>
                                             <p> ------------------- </p>
-                                            <p class="l" ><strong> C K T - E S, S A. D E C V </strong></p>
+                                            <p class="l" ><strong>CKT-ES, S.A. DE C.V </strong></p>
                                             <p class="l"> <strong> "Circuitos Profesionales con la garantia que nadie ofrece" </strong></p>
                                             <p class="l"> <strong>  Tel. 2245-6378 ; Whatsapp. 7565-7321 </strong></p>
                                         </td>
