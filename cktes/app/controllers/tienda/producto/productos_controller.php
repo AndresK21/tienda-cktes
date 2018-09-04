@@ -27,10 +27,14 @@ try{
 	}
 	else{
 		if(isset($_GET['id'])){ // Al entrar llenar la vista con productos de la categoria que selecciono previamente 
-			if($producto->setId_marca($_GET['id'])){ // Obtenemos la categoria
-				$data_productos = $producto->getCategoriaProductos2($empieza, $por_pagina); // Obtenemos los productos con la paginacion (LIMI)
+			if($_SERVER['HTTP_REFERER']){
+				if($producto->setId_marca($_GET['id'])){ // Obtenemos la categoria
+					$data_productos = $producto->getCategoriaProductos2($empieza, $por_pagina); // Obtenemos los productos con la paginacion (LIMI)
+				}else{
+					throw new Exception("Categoría incorrecta");
+				}
 			}else{
-				throw new Exception("Categoría incorrecta");
+				Page::showMessage(2, "Error en la Categoría", "index.php");
 			}
 		}else{
 			throw new Exception("Seleccione categoría");
