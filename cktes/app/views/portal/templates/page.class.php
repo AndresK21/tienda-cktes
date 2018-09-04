@@ -51,6 +51,7 @@ class Page extends Component{
 
       $cliente = new Cliente;
       $cliente->setId($_SESSION['id_cliente']);
+      $cliente->setId($_SESSION['id_cliente']);
       if ($cliente->ReadUsuario()) {
           $ingreso   = new DateTime($cliente->getFechaRegistro());
           $val       = date("Y-m-d");
@@ -99,6 +100,26 @@ class Page extends Component{
             <main>
     ");
   }
+}else{ //Si el id de la sesion no coincide con el de la base no deja iniciar sesion
+  print("
+    <header>
+      <div class='navbar-fixed'>  
+        <nav>
+        <!--Navbar Color gris azulado-->
+          <div class='nav-wrapper  blue-grey darken-4'>
+          <img class='brand-logo' src='../../web/img/mipintura.png'>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class=''>
+    ");
+    $correo = new Correo;
+    $cliente->unsetIp($_SESSION['correo_electronico']);  //Vuelve nulo el campo del id de la base
+    session_destroy();
+    self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
+    self::templateFooter();
+    exit;
 }
 }else {
     print("
