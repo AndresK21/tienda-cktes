@@ -25,7 +25,7 @@
                     </div>
                     <div class="row">
                         <div class="col s12 right-align">
-                            <a class='btn waves-effect red' href="login.php"><i class='material-icons'></i>Cancelar</a>
+                            <a class='btn waves-effect red' href="acceder.php"><i class='material-icons'></i>Cancelar</a>
                             <button type='submit' name='enviar' class='btn waves-effect white darken-4 black-text'>Enviar</button>
                         </div>
                     </div>
