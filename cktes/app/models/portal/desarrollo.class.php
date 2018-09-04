@@ -68,7 +68,7 @@ class Desarrollo extends Validator{
     
 	//Metodos para el manejo del CRUD
 	public function getTipo_Desarrollo(){
-		$sql = "SELECT id_tipo_desarrollo, tipo_desarrollo from tipo_desarrollo";
+		$sql = "SELECT id_tipo_desarrollo, tipo_desarrollo FROM tipo_desarrollo";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

@@ -109,7 +109,7 @@ class Detalle extends Validator{
 		
 	}
 	public function readProducto(){
-		$sql = "SELECT  id_producto, id_carrito, detalle_carrito.cantidad, productos.cantidad as existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_detalle = ?";
+		$sql = "SELECT  id_producto, id_carrito, detalle_carrito.cantidad, productos.cantidad AS existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_detalle = ?";
 		$params = array($this->id);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -162,7 +162,7 @@ public function readCarrito(){
 			return Database::getRows($sql, $params);
 			}
 	public function getCarrito(){
-			$sql = "SELECT id_detalle, nombre, precio , productos.url_imagen , detalle_carrito.cantidad , detalle_carrito.id_producto , productos.cantidad as Existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito=?";
+			$sql = "SELECT id_detalle, nombre, precio , productos.url_imagen , detalle_carrito.cantidad , detalle_carrito.id_producto , productos.cantidad AS Existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito=?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 				}

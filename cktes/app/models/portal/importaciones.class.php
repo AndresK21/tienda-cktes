@@ -159,7 +159,7 @@ class Importaciones extends Validator{
 	
 	//Metodos para el manejo del CRUD
 	public function getImportacionesONLY(){
-		$sql = "SELECT * from productos where id_tipo_producto = 2";
+		$sql = "SELECT * FROM productos WHERE id_tipo_producto = 2";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
