@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="cod" type="number" name="cod" class="validate white-text" autocomplete="off" required>
-                                <label for="cod" class="white-text">C&oacute;digo auteticaci&oacute;</label>
+                                <label for="cod" class="white-text">C&oacute;digo auteticaci&oacute;n</label>
                             </div>
                         </div>
                     </div>

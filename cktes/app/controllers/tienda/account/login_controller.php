@@ -126,6 +126,7 @@ try {
                                 Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
                             }else{
                                 $usuario->unsetIp($_SESSION['correo_electronico']);
+                                session_destroy();
                                 Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
                             }	
                         }
@@ -157,6 +158,7 @@ try {
                                     }else{
                                         $usuario->unsetIp($_SESSION['correo_electronico']);
                                         Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "acceder.php");
+                                        session_destroy();
                                     }
                                     }else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
@@ -183,10 +185,10 @@ try {
                         throw new Exception("La clave debe tener al menos 8 dígitos, al menos un número, al menos una minúscula, al menos una mayúscula y al menos un caracter especial");
                     }
                 }else {
-                    throw new Exception("Cuenta bloqueada");
+                    throw new Exception("Correo electronico inexistente");
                 }
-            } else {
-                throw new Exception("Cuenta incorrecto");
+            }else {
+                throw new Exception("Cuenta incorrecta");
             }
         }
     } else {
@@ -198,10 +200,3 @@ catch (Exception $error) {
 }
 require_once("../app/views/tienda/login/login_view.php");
 ?>
-
-
-
-
-
-
-

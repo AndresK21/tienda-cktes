@@ -1,11 +1,8 @@
 <?php
-
 require_once("../app/models/cliente.class.php");
 require_once("../app/PHPMailer/class.phpmailer.php");
 require_once("../app/PHPMailer/class.smtp.php");
-
 class Correo{
-
     public function correo(){
 
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+*@';
@@ -25,7 +22,7 @@ class Correo{
 
                     $mail = new PHPMailer;
                     $mail->setLanguage('es', '../../app/PHPMailer/language/phpmailer.lang-es.php');
-                    $correo = $_SESSION['correo_electronico2_d'];
+                    $correo = $_SESSION['correo_electronico'];
                     $usuario = $nombres." ".$apellidos;
 
                     $mail->isSMTP();
@@ -35,8 +32,8 @@ class Correo{
                     $mail->Password = 'pinturasv';
                     $mail->SMTPSecure = 'ssl';
                     $mail->Port = 465;
-
-                    $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
+                    $mail->isHTML(true);
+                    $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
                     $mail->addAddress($correo, $usuario);
 
                     $mail->Subject = 'Recuperar acceso';
@@ -94,14 +91,12 @@ class Correo{
                     </body>
                     </html>
                     ';
-
                     if(!$mail->send()){
                         Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
                         return false;
                     }else{
                         return true;
                     }
-
                 }else{
                     throw new Exception("No se ha podido actualizar la contraseña");
                 }

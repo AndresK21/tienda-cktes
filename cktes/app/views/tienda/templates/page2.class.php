@@ -3,12 +3,13 @@ require_once("../app/models/database.class.php");
 require_once("../app/helpers/validator.class.php");
 require_once("../app/helpers/component.class.php");
 class Page extends Component{
-	public static function templateAu($title){
+	public static function templateHeader($title){
     session_name("cktes_tienda");
 		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
-    print("
-    <!DOCTYPE html>
+		print("
+
+<!DOCTYPE html>
 <html lang='en'>
     <head>
     <meta charset='UTF-8'>
@@ -26,25 +27,82 @@ class Page extends Component{
       <script src='https://www.google.com/recaptcha/api.js'></script>
     </head> 
     <body>
+      ");
+      if(isset($_SESSION['id_cliente'])){
+        
+        print("
+            <header>
+              <div class='navbar-fixed'>
+                <nav>
+                <div class='nav-wrapper'>
+                  <a href='index.php'><span>CKT</span> <span>ES</span></a>
+                  <ul class='right'>
+                  <li><a class='dropdown-button' data-activates='dropdown'><span><i class='fas fa-user'></i><span/><span class='corre'>$_SESSION[correo_electronico]</span></a></li>
+                  <ul id='dropdown' class='dropdown-content'>
+                          <li><a href='perfil.php'><i class='material-icons'>face</i>Editar perfil</a></li>
+                          <li><a href='contrasena.php'><i class='material-icons'>lock</i>Cambiar clave</a></li>
+                          <li><a href='historial.php'><i class='material-icons'>shopping_cart</i>Historial</a></li>
+                          <li><a href='logout.php'><i class='material-icons'>clear</i>Salir</a></li>
+                  </ul>
+                  <li><div class='sandwich' id='btn'>
+                    <span class='top'></span>
+                    <span class='middle'></span>
+                    <span class='bottom'></span>
+                     </div>
+                  </li>
+                </ul>
+                </div>
+                  <div class='menu' id='menu'>
+                      <div class='menu-list'>
+                        <ul class='row'>
+                          <li class='col s12'><a class='container' href='#'>Portal</a></li>
+                          <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
+                          <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
+                          <li class='col s12'><a class='container' href='carrito.php'>Carrito</a></li>
+                        </ul>
+                      </div>
+                  </div>
+                </nav>
+              </div>
+            </header>
+            <main>
+    ");
+  }
+    else {
+    print("
     <header>
        <div class='navbar-fixed'>
                 <nav>
                 <div class='nav-wrapper'>
               <a href='index.php'><span>CKT</span> <span>ES</span></a>
               <ul class='right'>
-              <li><a href='#' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
+              <li><a href='acceder.php' class='icono_ini'><span><i class='fas fa-user'></i></span></a></li>
 
+            <li><div class='sandwich' id='btn'>
+              <span class='top'></span>
+              <span class='middle'></span>
+              <span class='bottom'></span>
+            </div></li>
              </ul>
 
             </div>           
-           
+            <div class='menu' id='menu'> 
+              <div class='menu-list'>    
+                <ul class='row'>
+                <li class='col s12'><a class='container' href='#'>Portal</a></li>
+                <li class='col s12'><a class='container' href='categorias.php'>Categorias</a></li>
+                <li class='col s12'><a class='container' href='pcb.php'>Servicios</a></li>
+                </ul>
+                </div>
+            </div>
         </nav>
       </div>
     </header>
   <main>
     ");
-  
-}
+
+    }
+  }
 	public static function templateFooter(){
     print("	
     </main>
