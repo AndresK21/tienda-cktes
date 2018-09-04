@@ -37,7 +37,7 @@ class Correo{
                     $mail->Port = 465;
                     $mail->isHTML(true);
 
-                    $mail->setFrom('pinturasv503@gmail.com', 'PinturaSV');
+                    $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
                     $mail->addAddress($correo, $usuario);
 
                     $mail->Subject = 'Recuperar acceso';
