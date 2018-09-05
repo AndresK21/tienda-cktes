@@ -34,7 +34,7 @@ class Page extends Component{
         if (isset($_SESSION['tiempo'])) {
                 
           //Tiempo en segundos para dar vida a la sesión.
-          $inactivo = 2000; //5min en este caso.
+          $inactivo = 300; //5min en este caso.
           
           //Calculamos tiempo de vida inactivo.
           $vida_sesion = time() - $_SESSION['tiempo'];
@@ -57,7 +57,7 @@ class Page extends Component{
           $val       = date("Y-m-d");
           $valor     = new DateTime($val);
           $intervalo = $valor->diff($ingreso);
-          if ($intervalo->format('%a') >= 2) {
+          if ($intervalo->format('%a') >= 90) {
               Page::showMessage(3, "Debe cambiar contraseña", "cambio_contrasena.php");
           } else {
               print("
