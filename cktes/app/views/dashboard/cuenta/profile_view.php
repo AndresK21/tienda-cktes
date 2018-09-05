@@ -31,6 +31,20 @@
                 <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>
             </div>
         </div>
+        <div class="row">
+            <div class='col s12'>
+                <p>
+                    <div class='switch'>
+                        <span>Autenticaci&oacute;n en dos pasos</span>
+                        <label>
+                            <i>Desactivado</i>
+                            <input type='checkbox' name="auten" autocomplete="off" <?php print($usuario->getEst()?"":"checked") ?>/>
+                            <span class='lever'></span>
+                            <i>Activado</i>
+                        </label>
+                    </div>
+                </p>
+            </div>
         </div>
 
         <div class="white-text">.</div>

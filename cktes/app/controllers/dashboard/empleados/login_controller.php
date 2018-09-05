@@ -17,17 +17,30 @@ try{
 									if($object->getIp() == null){
 										$object->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
 										$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
-
-										$_SESSION['id_empleado_d'] = $object->getId_empleado();
-										$_SESSION['correo_electronico2_d'] = $object->getCorreo();
-										$_SESSION['nombres2_d'] = $object->getNombres();
-										$_SESSION['apellidos2_d'] = $object->getApellidos();
-										$_SESSION['imagen_d'] = $object->getImagen();
-										$_SESSION['id_permiso_d'] = $object->getId_permiso();
-										$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
-										$object->intentoCero($_SESSION['usuario_d']);
-										$correo = new Correo;
-										Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+										if($object->getEst() == 1){
+											$_SESSION['id_empleado_d'] = $object->getId_empleado();
+											$_SESSION['correo_electronico2_d'] = $object->getCorreo();
+											$_SESSION['nombres2_d'] = $object->getNombres();
+											$_SESSION['apellidos2_d'] = $object->getApellidos();
+											$_SESSION['imagen_d'] = $object->getImagen();
+											$_SESSION['id_permiso_d'] = $object->getId_permiso();
+											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
+											$object->intentoCero($_SESSION['usuario_d']);
+											$correo = new Correo;
+											Page::showMessage(1, "Autenticación correcta", "index.php");
+										}else if($object->getEst() == 2){
+											$_SESSION['id_empleado_d'] = $object->getId_empleado();
+											$_SESSION['correo_electronico2_d'] = $object->getCorreo();
+											$_SESSION['nombres2_d'] = $object->getNombres();
+											$_SESSION['apellidos2_d'] = $object->getApellidos();
+											$_SESSION['imagen_d'] = $object->getImagen();
+											$_SESSION['id_permiso_d'] = $object->getId_permiso();
+											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
+											$object->intentoCero($_SESSION['usuario_d']);
+											$correo = new Correo;
+											Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+										}
+										
 									}else{
 										$object->unsetIp($_SESSION['usuario_d']);
 										Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
@@ -43,18 +56,32 @@ try{
 										if($object->getIp() == null){
 											$object->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
 											$object->insertIp(); //Aca inserta el id de la sesion en la base de datos
-
-											$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
-											$_SESSION['id_empleado_d'] = $object->getId_empleado();
-											$_SESSION['correo_electronico2_d'] = $object->getCorreo();
-											$_SESSION['nombres2_d'] = $object->getNombres();
-											$_SESSION['apellidos2_d'] = $object->getApellidos();
-											$_SESSION['imagen_d'] = $object->getImagen();
-											$_SESSION['id_permiso_d'] = $object->getId_permiso();
-											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
-											$object->intentoCero($_SESSION['usuario_d']);
-											$correo = new Correo;
-											Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+											if($object->getEst() == 1){
+												$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
+												$_SESSION['id_empleado_d'] = $object->getId_empleado();
+												$_SESSION['correo_electronico2_d'] = $object->getCorreo();
+												$_SESSION['nombres2_d'] = $object->getNombres();
+												$_SESSION['apellidos2_d'] = $object->getApellidos();
+												$_SESSION['imagen_d'] = $object->getImagen();
+												$_SESSION['id_permiso_d'] = $object->getId_permiso();
+												$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
+												$object->intentoCero($_SESSION['usuario_d']);
+												$correo = new Correo;
+												Page::showMessage(1, "Autenticación correcta", "index.php");
+											}else if($object->getEst() == 2){
+												$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion
+												$_SESSION['id_empleado_d'] = $object->getId_empleado();
+												$_SESSION['correo_electronico2_d'] = $object->getCorreo();
+												$_SESSION['nombres2_d'] = $object->getNombres();
+												$_SESSION['apellidos2_d'] = $object->getApellidos();
+												$_SESSION['imagen_d'] = $object->getImagen();
+												$_SESSION['id_permiso_d'] = $object->getId_permiso();
+												$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
+												$object->intentoCero($_SESSION['usuario_d']);
+												$correo = new Correo;
+												Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+											}
+											
 										}else{
 											$object->unsetIp($_SESSION['usuario_d']);
 											Page::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");

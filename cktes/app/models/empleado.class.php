@@ -15,6 +15,7 @@ class Empleado extends Validator{
 	private $ip = null;
 	private $contador = null;
 	private $autenticacion = null;
+	private $est_aut = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
@@ -50,11 +51,19 @@ class Empleado extends Validator{
 		}
 	}
 	public function getAut(){
-		if($this->autenticacion != null){
+		return $this->autenticacion;
+	}
+
+	public function setEst($value){
+		if($this->validateId($value)){
+			$this->est_aut = $value;
 			return true;
 		}else{
 			return false;
 		}
+	}
+	public function getEst(){
+		return $this->est_aut;
 	}
 	
 	public function setEstado($value){
@@ -260,13 +269,13 @@ class Empleado extends Validator{
 	}
 	public function createEmpleado(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado, contador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado, contador, estado_autenticacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$fech = date('y-m-d');
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1, 0);
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1, 0, 0);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){
-		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip, estado_autenticacion FROM empleado WHERE id_empleado = ? ORDER BY id_empleado";
 		$params = array($this->id_empleado);
 		$empleado = Database::getRow($sql, $params);
 		if($empleado){
@@ -278,13 +287,14 @@ class Empleado extends Validator{
 			$this->id_permiso = $empleado['id_permiso'];
 			$this->fecha = $empleado['fecha_registro'];
 			$this->ip = $empleado['ip'];
+			$this->est_aut = $empleado['estado_autenticacion'];
 			return true;
 		}else{
 			return null;
 		}
 	}
 	public function readEmpleado2($correo){
-		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip, autenticacion FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
+		$sql = "SELECT nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, ip, autenticacion, estado_autenticacion FROM empleado WHERE correo_electronico = ? ORDER BY id_empleado";
 		$params = array($correo);
 		$empleado = Database::getRow($sql, $params);
 		if($empleado){
@@ -297,14 +307,15 @@ class Empleado extends Validator{
 			$this->fecha = $empleado['fecha_registro'];
 			$this->ip = $empleado['ip'];
 			$this->autenticacion = $empleado['autenticacion'];
+			$this->est_aut = $empleado['estado_autenticacion'];
 			return true;
 		}else{
 			return null;
 		}
 	}
 	public function updateEmpleado(){
-		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ? WHERE id_empleado = ?";
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->id_empleado);
+		$sql = "UPDATE empleado SET nombres = ?, apellidos = ?, imagen = ?, correo_electronico = ?, contrasena = ?, id_permiso = ?, estado_autenticacion = ? WHERE id_empleado = ?";
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $this->contrasena, $this->id_permiso, $this->est_aut, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteEmpleado(){

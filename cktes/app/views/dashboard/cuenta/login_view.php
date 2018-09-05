@@ -17,7 +17,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="contrasen" name="contrasena" type="password" class="validate" autocomplete="off" value='<?php print($object->getContrasena()) ?>' required/>
+                                    <input id="contrasen" name="contrasena" type="password" class="validate" autocomplete="off" required/>
                                     <label class="black-text" for="contrasen">Contrase&ntilde;a</label>
                                 </div>
                             </div>
@@ -35,36 +35,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<!-- Modal de editar tipo de producto -->
-<div id="modal_contra" class="modal">
-    <div class="modal-content">
-        <h4>Recuperar contrase&ntilde;a</h4>
-        <div class="card horizontal">
-            <div class="card-stacked">
-                <div class="card-content">
-
-                    <!--Formulario para editar el tipo de producto-->
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="tipo" type="text" class="validate">
-                                    <label for="tipo" class="black-text">Correo electr&oacute;nico</label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Enviar</a>
     </div>
 </div>
