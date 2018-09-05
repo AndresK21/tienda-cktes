@@ -12,7 +12,7 @@
     $pdf->setTitle('Reporte de importaciones');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Cliente', 'Producto', 'Cantidad', 'Fecha');
+    $header = array('Cliente', 'Cantidad', 'Fecha', 'Producto');
     // Carga de datos
     if($_POST['import'] == 1){
         $result = $reservacion->getReservacionR();

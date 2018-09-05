@@ -205,7 +205,7 @@ class Reservacion extends Validator{
 
 	//Metodos para reportes
 	public function getReservacionR(){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 10 ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 9 ORDER BY id_reservacion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

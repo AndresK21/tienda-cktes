@@ -62,9 +62,11 @@
                 $this->Cell(0,10,'Reporte generado por '.$_SESSION['nombres2_d'].' '.$_SESSION['apellidos2_d'].' a las '.$hoy['hours'].':'.$hoy['minutes'].' del '.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year'],0,0);
                 $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'R');
             }
+
             // Una tabla m�s completa
             function ImprovedTable($header, $result)
             {   
+
                 // Colores, ancho de línea y fuente en negrita
                 $this->SetFillColor(14,28,44);
                 $this->SetTextColor(255);
@@ -72,7 +74,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(75, 70, 25, 25);
+                $w = array(75, 25, 25, 70);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -84,19 +86,34 @@
                 $this->SetFont('');
                 // Datos
                 $fill = false;
+
                 foreach($result as $row)
                 {
-                    $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LR',0,'L',$fill);
-                    $this->Cell($w[1],6,$row['nombre'],'LR',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['cantidad'],'LR',0,'L',$fill);
-                    $this->Cell($w[3],6,$row['fecha'],'LR',0,'L',$fill);
-                    $this->Ln();
+                    $altura=6;//establezco la altura
+                    $cantidad_lineas= strlen($row["nombre"]);//establezco el tamaño de la cadena de caracteres
+                    if($cantidad_lineas > $w[2])//comparo si el tamaño de la cadena es mayor que el ancho de la celda
+                    {
+                        $cant_espacios = $cantidad_lineas/$w[2];//establezco la cantidad de espacios
+                        $redondear=round($cant_espacios, 2);//
+                        $altura=$altura*$redondear;
+                    }
+
+                    $this->Cell($w[0],$altura,$row['apellidos'].' '.$row['nombres'],'LRT',0,'L',$fill);
+                    $this->Cell($w[1],$altura,$row['cantidad'],'LRT',0,'L',$fill);
+                    $this->Cell($w[2],$altura,$row['fecha'],'LRT',0,'L',$fill);
+                    $this->MultiCell($w[3],6,$row['nombre'],'LRT','L',$fill);
+                    
+                    //$this->Ln();
                     $fill = !$fill;
                 }
                 // L�nea de cierre
                 $this->Cell(array_sum($w),0,'','T');
             }
+
         }
+
+        
+
     }else{
         header("location: ../cuenta/");
     }

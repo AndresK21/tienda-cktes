@@ -26,7 +26,6 @@ try{
 											$_SESSION['id_permiso_d'] = $object->getId_permiso();
 											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 											$object->intentoCero($_SESSION['usuario_d']);
-											$correo = new Correo;
 											Page::showMessage(1, "Autenticación correcta", "index.php");
 										}else if($object->getEst() == 2){
 											$_SESSION['id_empleado_d'] = $object->getId_empleado();
@@ -66,7 +65,6 @@ try{
 												$_SESSION['id_permiso_d'] = $object->getId_permiso();
 												$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 												$object->intentoCero($_SESSION['usuario_d']);
-												$correo = new Correo;
 												Page::showMessage(1, "Autenticación correcta", "index.php");
 											}else if($object->getEst() == 2){
 												$object->updateEstado2($_SESSION['usuario_d']); //Regresa el estado del usuario a disponible para iniciar sesion

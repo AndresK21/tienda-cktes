@@ -271,7 +271,7 @@ class Empleado extends Validator{
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO empleado(nombres, apellidos, imagen, correo_electronico, contrasena, id_permiso, fecha_registro, estado, contador, estado_autenticacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$fech = date('y-m-d');
-		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1, 0, 0);
+		$params = array($this->nombres, $this->apellidos, $this->imagen, $this->correo_electronico, $hash, $this->id_permiso, $fech, 1, 0, 1);
 		return Database::executeRow($sql, $params);
 	}
 	public function readEmpleado(){
