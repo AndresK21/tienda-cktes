@@ -1,8 +1,32 @@
 <!--TITULO Categorias-->
-<h2 class="center-align truncate"><b>INFORMACIÓN</b></h2>
-<!--Vista para cambiar datos del perfil-->
+<?php
+print("
+<h2 class='center-align truncate'><b>INFORMACIÓN</b></h2>
+<div class='col s12 m8 offset-m2 l6 offset-l3'>
+          <div class='row valign-wrapper'>
+            <div class='col s2'>
+              <img src='../web/img/clientes/$_SESSION[imagen]' alt='' class='circle responsive-img'> <!-- notice the 'circle' class -->
+            </div>
+            <div class='col s10'>
+              <span class='black-text'>
+                This is a square image. Add the 'circle' class to it to make it appear circular.
+              </span>
+            </div>
+          </div>
+      </div>
+");
+?>
+
+
+
+
+
+
+
+
+
   
-<div class="container">
+<div class='container'>
    <form method='post'>
         <div class='row'>
             <!--Nombres-->

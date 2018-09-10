@@ -32,7 +32,7 @@ class Page extends Component{
         if (isset($_SESSION['tiempo'])) {
                 
           //Tiempo en segundos para dar vida a la sesión.
-          $inactivo = 300; //5min en este caso.
+          $inactivo = 4000; //5min en este caso.
           
           //Calculamos tiempo de vida inactivo.
           $vida_sesion = time() - $_SESSION['tiempo'];
@@ -84,7 +84,7 @@ class Page extends Component{
                         <div class='background'>
                             <img src='../web/img/fondo.png'>
                         </div>
-                        <a href='#user'><img class='circle' src='../web/img/empleados/$_SESSION[imagen]'></a>
+                        <a href='#user'><img class='circle' src='../web/img/clientes/$_SESSION[imagen]'></a>
                         <a href='#name'><span class='white-text name'> $_SESSION[nombres2] $_SESSION[apellidos2]</span></a>
                         <a href='#email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
                     </div>
