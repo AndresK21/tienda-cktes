@@ -1,6 +1,3 @@
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
 <div id="fondoTotal">
 <br>
 <br>
@@ -12,7 +9,7 @@
             </li>
         </ul>
         <div id="test1" class="col s12 container">
-            <h4 class="center white-text">Esperamos tenerte de vuelta</h4>
+            <h4 class="center white-text">Hemos enviado el c&oacute;digo de verificaci&oacute;n a tu correo </h4>
             <div class="row">
                 <form method="post" enctype='multipart/form-data'>
                     <div class="center-align">

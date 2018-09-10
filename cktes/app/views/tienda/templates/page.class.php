@@ -171,7 +171,7 @@ print("
     <ul id='slide-out' class='side-nav colorside' >
     <li><div class='user-view'>
     
-    <img class='movLogo' src='../web/img/logo_1.png'>
+    <img class='movLogo' src='../web/img/logo_2.png'>
   </div></li>
   
   <li><a class='center' href='acceder.php'><b> I N I C I O </b></a></li>

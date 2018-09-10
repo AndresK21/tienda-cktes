@@ -1,6 +1,4 @@
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
+
 <div id="fondoTotal">
 <br>
 <br>

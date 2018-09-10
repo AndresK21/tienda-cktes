@@ -1,8 +1,3 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
 <!--TITULO Categorias-->
 <h2 class="center-align truncate"><b>INFORMACIÓN</b></h2>
 <!--Vista para cambiar datos del perfil-->
