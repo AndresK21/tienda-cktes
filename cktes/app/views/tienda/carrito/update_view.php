@@ -1,8 +1,4 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
+
 <?php
 //Vista para modificar la cantidad de productos en el carrito
 //Se obtiene ele maximo de existencias 

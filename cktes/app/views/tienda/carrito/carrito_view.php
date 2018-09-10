@@ -1,8 +1,4 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
+
 <!--TITULO Categorias-->
 <h2 class="center-align truncate"><b>CARRITO</b></h2>
 

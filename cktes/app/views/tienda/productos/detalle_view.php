@@ -1,8 +1,3 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
 
 <h2 class="center cktes-text">
     <b>Detalles</b>

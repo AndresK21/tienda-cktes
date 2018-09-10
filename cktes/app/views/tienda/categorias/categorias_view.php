@@ -1,6 +1,4 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
+
 <div class="white-text">.</div>
 <!--SLIDER-->
 <div class="slider hide-on-small-only">

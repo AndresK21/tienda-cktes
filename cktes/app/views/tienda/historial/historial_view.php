@@ -1,9 +1,4 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<!--TITULO Categorias-->
+
 <h2 class="center-align truncate"><b>HISTORIAL DE COMPRAS</b></h2>
 <!--Vista del historial de compras-->
 <div class="container">

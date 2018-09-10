@@ -1,8 +1,4 @@
-<!--ESPACIO-->
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
-<div class="white-text">.</div>
+
 <form method="post"  class="col s12">
     <div class="container">
         <div class="white-text">.</div>
