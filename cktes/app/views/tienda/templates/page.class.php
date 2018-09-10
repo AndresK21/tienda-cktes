@@ -89,7 +89,7 @@ class Page extends Component{
                         <a href='#email'><span class='white-text email'>$_SESSION[correo_electronico]</span></a>
                     </div>
                 </li>
-                <li><a href='#!'><i class='material-icons'>edit</i><b>Editar perfil</b></a></li>
+                <li><a href='perfil.php'><i class='material-icons'>edit</i><b>Editar perfil</b></a></li>
                 <li><a href='#!'><i class='material-icons'>enhanced_encryption</i><b> Cambiar contraseña</b></a></li>
                 <li><a href='#!'><i class='material-icons'>access_time</i><b> Historial de compra</b></a></li>
                 <li> <div class='divider'></div></li>
