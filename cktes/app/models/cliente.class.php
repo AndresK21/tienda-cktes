@@ -33,7 +33,17 @@ class Cliente extends Validator{
 	public function getId(){
 		return $this->id;
 	}
-
+	public function setImagen($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->imagen = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getImagen(){
+		return $this->imagen;
+    }
 
 	public function setEstadoCliente($value){
 		if($this->validateId($value)){
@@ -435,7 +445,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion,ip FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion,ip,url_imagen FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -445,6 +455,7 @@ class Cliente extends Validator{
 			$this->contrasena = $cliente['contrasena'];
 			$this->autenticacion = $cliente['autenticacion'];
 			$this->ip = $cliente['ip'];
+			$this->imagen = $cliente['url_imagen'];
 			return true;
 		}else{
 			return null;

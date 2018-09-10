@@ -113,6 +113,11 @@ try {
                                 if($usuario->getIp() == null){
                                     $usuario->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
                                     $usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
+                                    $_SESSION['id_cliente2'] = $usuario->getId();
+                                    $_SESSION['correo_electronico'] = $usuario->getCorreo();
+                                    $_SESSION['nombres2'] = $usuario->getNombres();
+                                    $_SESSION['apellidos2'] = $usuario->getApellidos();
+                                    $_SESSION['imagen'] = $usuario->getImagen();
                                 
                                 $usuario->intentoCero($_SESSION['correo_electronico']);
                                 //Si el usuario y la contraseña son correctos se inicia sesión
@@ -139,12 +144,13 @@ try {
                                     if($usuario->readUsuario2($_SESSION['correo_electronico'])){ //Obtiene toda la informacion de ese cliente
                                         if($usuario->getIp() == null){
 											$usuario->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
-											$usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
+                                            $usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
+                                            $_SESSION['id_cliente2'] = $usuario->getId();
+                                            $_SESSION['correo_electronico'] = $usuario->getCorreo();
+                                            $_SESSION['nombres2'] = $usuario->getNombres();
+                                            $_SESSION['apellidos2'] = $usuario->getApellidos();
+                                            $_SESSION['imagen'] = $usuario->getImagen();
                                         $usuario->updateEstado2($_SESSION['correo_electronico']); //Regresa el estado del usuario a disponible para iniciar sesion
-                                        $_SESSION['id_cliente2'] = $usuario->getId();
-                                        $_SESSION['correo_electronico'] = $usuario->getCorreo();
-                                        $_SESSION['nombres2'] = $usuario->getNombres();
-                                        $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $usuario->intentoCero($_SESSION['correo_electronico']);
                                         //Si el usuario y la contraseña son correctos se inicia sesión
                                         $_SESSION['id_cliente']=$usuario->getId();
