@@ -19,8 +19,6 @@ class Cliente extends Validator{
 	private $autenticacion= null;
 	private $ip = null;
 	
-
-
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
 		if($this->validateId($value)){
@@ -34,8 +32,8 @@ class Cliente extends Validator{
 		return $this->id;
 	}
 	public function setImagen($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
-			$this->imagen = $value;
+		if($this->validateImage($value, $this->imagen, "../web/img/clientes/", 5000, 5000)){
+			$this->imagen = $this->getImageName();
 			return true;
 		}else{
 			return false;
@@ -44,7 +42,14 @@ class Cliente extends Validator{
 	public function getImagen(){
 		return $this->imagen;
     }
-
+	public function unsetImagen(){
+		if(unlink("../web/img/empleados/".$this->imagen)){
+			$this->imagen = null;
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function setEstadoCliente($value){
 		if($this->validateId($value)){
 			$this->estado_cliente = $value;
@@ -463,8 +468,13 @@ class Cliente extends Validator{
 	}
 
 	public function updateUsuario(){
-		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ? WHERE id_cliente = ?";
-		$params = array($this->nombres, $this->apellidos, $this->correo,  $this->id);
+		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ? WHERE id_cliente = ?";
+		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen,  $this->id);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateFoto(){
+		$sql = "UPDATE clientes SET url_imagen = ? WHERE id_cliente = ?";
+		$params = array($this->imagen,  $this->id);
 		return Database::executeRow($sql, $params);
 	}
 

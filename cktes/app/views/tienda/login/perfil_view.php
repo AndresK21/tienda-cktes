@@ -4,26 +4,19 @@ print("
 <h2 class='center-align truncate'><b>INFORMACIÓN</b></h2>
 <div class='container'>
 
-
-
-                
-               
-            </div>
+           <form method='post' enctype='multipart/form-data'>
             <div class='center'>
                  <img src='../web/img/clientes/$_SESSION[imagen]' alt='' class='circle maxW'> 
             </div>
-
-
-
-
-
+            
             <div class='file-field input-field col s12 m6 l6'>
             <div class='center'>
                 <span>Cambiar foto de perfil</span>
                 <input type='file' name='archivo'/>
             </div>
-            <div class='file-path-wrapper'>
+            <div class=' file-path-wrapper'>
                 <input type='hidden' class='file-path validate' placeholder='Seleccione una imagen'/>
+            </div>
             </div>
             
             <div class='center'>
@@ -32,13 +25,15 @@ print("
             <div class='center'>
                  <h5>$_SESSION[correo_electronico]</h5>
             </div>
+            
 </div>
      
 ");
 ?>
+
 <div class='fondoEdit'>
 <div class='container'>
-   <form method='post'>
+   
         <div class='row'>
             <!--Nombres-->
             <br>
