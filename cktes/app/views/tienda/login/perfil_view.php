@@ -6,13 +6,13 @@ print("
 
            <form method='post' enctype='multipart/form-data'>
             <div class='center'>
-                 <img src='../web/img/clientes/$_SESSION[imagen]' alt='' class='circle maxW'> 
+                 <img id='imagen_perfil' src='../web/img/clientes/$_SESSION[imagen]' alt='' class='circle maxW'> 
             </div>
             
             <div class='file-field input-field col s12 m6 l6'>
             <div class='center'>
                 <span>Cambiar foto de perfil</span>
-                <input type='file' name='archivo'/>
+                <input type='file' name='archivo' onchange='readURL(this);'/>
             </div>
             <div class=' file-path-wrapper'>
                 <input type='hidden' class='file-path validate' placeholder='Seleccione una imagen'/>
