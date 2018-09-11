@@ -158,21 +158,36 @@ class Page extends Component{
 	public static function templateFooter(){
     print("
       </main>
-    <footer class='page-footer indigo darken-4'>
-    <div class='container'>
-      <div class='row'>
-      <p class='text-muted'><b>CKT-ES, SA. de CV.</b></p><br>
-      <p class='text-muted'><b><i>“Circuitos Profesionales con la garantia que nadie ofrece”</i></b></p><br>
-      <p class='text-muted'><b>“SAN SALVADOR, EL SALVADOR, TEL. 2245-6378 ; WHATSAPP. 7565-7321”</b></p><br>
-      </div>
-    </div>
-    <div class='footer-copyright'>
+      <footer id='colorfooter' class='page-footer indigo darken-4'>
       <div class='container'>
-        <p>© 2018 Derechos reservados a CKTES S.A. de C.V.</p>   
+          <div class='row'>
+              <p class=' center text-muted'>CKT-ES, S.A. DE C.V es un proyecto impulsado por INSERT y apoyado por el MINEC a través de la DICA y FONDEPRO</p>
+              <div class='col s9 offset-s2 m6 l3'>
+                  <img class='responsive-img' src='../web/img/footer/insert.png'>
+              </div>
+              <div class='col s9 offset-s2 m6 l3'>
+                  <img class='responsive-img' src='../web/img/footer/gobierno.png'>
+              </div>
+              <div class='col s9 offset-s2 m6 l3'>
+                  <img class='responsive-img' src='../web/img/footer/fondepro.png'>
+              </div>
+              <div class='col s9 offset-s2 m6 l3'>
+                  <img class='responsive-img' src='../web/img/footer/dca.png'>
+              </div>
+          </div>
+          <div class='row'>
+          <p class='text-muted'><b>Ganadores de Edici&oacute;n Innova emprende 2016</b></p><br>
+              <div class='col s9 offset-s2 m6 l12'>
+                  <img class='responsive-img' src='../web/img/footer/innova.png'>
+              </div>
+          </div>
       </div>
-      
-    </div>
-  </footer>
+      <div class='footer-copyright'>
+        <div class='container'>
+          <p>© 2018 Derechos reservados a CKTES S.A. de C.V.</p>   
+        </div>
+      </div>
+    </footer>
               <script src='../web/js/jquery-3.3.1.min.js'></script>
               <script src='../web/js/portal.js'></script>
               <script src='../web/js/materialize.min.js'></script>
