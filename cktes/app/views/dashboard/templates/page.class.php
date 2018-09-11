@@ -203,7 +203,6 @@ class Page extends Component{
                                             <main class=''>
 												
 										");
-										printf('%d años, %d meses, %d días, %d horas, %d minutos', $tiempo->y, $tiempo->m, $tiempo->d, $tiempo->h, $tiempo->i);
 									}
 								}
 							}
@@ -405,7 +404,6 @@ class Page extends Component{
                                             <main class=''>
 												
 										");
-										printf('%d años, %d meses, %d días, %d horas, %d minutos', $tiempo->y, $tiempo->m, $tiempo->d, $tiempo->h, $tiempo->i);
 									}
 								}
 							}
