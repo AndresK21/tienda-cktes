@@ -54,11 +54,27 @@ print("
                 <input id='correo' type='email' name='correo' autocomplete='off' class='validate' value='<?php print($cliente->getCorreo()) ?>' required/>
                 <label for='correo'>Correo</label>
             </div>
+            <div class="row">
+            <div class='col s12 m6'>
+            <i class='material-icons prefix'>email</i>
+                    <div class='switch'>
+                        <span>Autenticaci&oacute;n en dos pasos</span>
+                        <label>
+                            <i>Desactivado</i>
+                            <input type='checkbox' name="auten" autocomplete="off" <?php print($cliente->getEst()?"":"checked") ?>/>
+                            <span class='lever'></span>
+                            <i>Activado</i>
+                        </label>
+                    </div>
+                
+            </div>
+        </div>
         <!--Botoón cancelar y guardar-->
         <div class='row center-align'>
             <a href='categorias.php' class='btn waves-effect grey tooltipped' data-tooltip='Cancelar'><i class='material-icons'>cancel</i></a>
             <button type='submit' name='editar' class='btn waves-effect blue tooltipped' data-tooltip='Editar'><i class='material-icons'>save</i></button>
         </div>
+       
    </form>
 </div>
 </div>

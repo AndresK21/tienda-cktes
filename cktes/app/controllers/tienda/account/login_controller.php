@@ -113,22 +113,45 @@ try {
                                 if($usuario->getIp() == null){
                                     $usuario->setIp($id2); //Si la ip de la base es nula, aqui setea a la variable ip del modelo
                                     $usuario->insertIp(); //Aca inserta el id de la sesion en la base de datos
-                                    $_SESSION['id_cliente2'] = $usuario->getId();
-                                    $_SESSION['correo_electronico'] = $usuario->getCorreo();
-                                    $_SESSION['nombres2'] = $usuario->getNombres();
-                                    $_SESSION['apellidos2'] = $usuario->getApellidos();
-                                    $_SESSION['imagen'] = $usuario->getImagen();
-                                
-                                $usuario->intentoCero($_SESSION['correo_electronico']);
-                                //Si el usuario y la contraseña son correctos se inicia sesión
-                                $_SESSION['id_cliente']=$usuario->getId();
-                                //Esta funcion es para obtener el maximo Id de la compra
-                                $usuario->maxId();
-                                $_SESSION['id_carrito']=$usuario->getCarrito();
-                                $_SESSION['tiempo'] = time();
-                                $correo = new CorreoPublic;
-                                //Se hace la comparación de que si la compra ya esta finalizada o no  
-                                Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+                                    if($usuario->getEst() == 1)
+                                    {
+                                        $_SESSION['id_cliente2'] = $usuario->getId();
+                                        $_SESSION['correo_electronico'] = $usuario->getCorreo();
+                                        $_SESSION['nombres2'] = $usuario->getNombres();
+                                        $_SESSION['apellidos2'] = $usuario->getApellidos();
+                                        $_SESSION['imagen'] = $usuario->getImagen();
+                                    
+                                    $usuario->intentoCero($_SESSION['correo_electronico']);
+                                    //Si el usuario y la contraseña son correctos se inicia sesión
+                                    $_SESSION['id_cliente']=$usuario->getId();
+                                    //Esta funcion es para obtener el maximo Id de la compra
+                                    $usuario->maxId();
+                                    $_SESSION['id_carrito']=$usuario->getCarrito();
+                                    $_SESSION['tiempo'] = time();
+                                    //Se hace la comparación de que si la compra ya esta finalizada o no  
+                                    Page::showMessage(1, "Autenticación correcta", "categorias.php");
+                                    }
+                                    else if($usuario->getEst() == 2) {
+                                        $_SESSION['id_cliente2'] = $usuario->getId();
+                                        $_SESSION['correo_electronico'] = $usuario->getCorreo();
+                                        $_SESSION['nombres2'] = $usuario->getNombres();
+                                        $_SESSION['apellidos2'] = $usuario->getApellidos();
+                                        $_SESSION['imagen'] = $usuario->getImagen();
+                                    
+                                    $usuario->intentoCero($_SESSION['correo_electronico']);
+                                    //Si el usuario y la contraseña son correctos se inicia sesión
+                                    $_SESSION['id_cliente']=$usuario->getId();
+                                    //Esta funcion es para obtener el maximo Id de la compra
+                                    $usuario->maxId();
+                                    $_SESSION['id_carrito']=$usuario->getCarrito();
+                                    $_SESSION['tiempo'] = time();
+                                    $correo = new CorreoPublic;
+                                    //Se hace la comparación de que si la compra ya esta finalizada o no  
+                                    Page::showMessage(1, "Autenticación correcta", "autenticacion.php");
+
+
+                                    }
+                                   
                             }else{
                                 $usuario->unsetIp($_SESSION['correo_electronico']);
                                 session_destroy();

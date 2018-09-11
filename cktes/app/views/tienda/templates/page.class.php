@@ -237,7 +237,8 @@ public static function templateFooter(){
         //<p class='text-muted'><b>“SAN SALVADOR, EL SALVADOR, TEL. 2245-6378 ; WHATSAPP. 7565-7321”</b></p><br>
     }
     public static function templateAu($title){
-        session_start();
+        session_name("cktes_tienda");
+		session_start();
 		ini_set("date.timezone","America/El_Salvador"); 
     print("
     

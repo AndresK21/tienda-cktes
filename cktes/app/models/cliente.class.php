@@ -18,6 +18,7 @@ class Cliente extends Validator{
 	private $fecha_registro= null;
 	private $autenticacion= null;
 	private $ip = null;
+	private $estadoAu = null;
 	
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
@@ -30,6 +31,17 @@ class Cliente extends Validator{
 	}
 	public function getId(){
 		return $this->id;
+	}
+	public function setEst($value){
+		if($this->validateId($value)){
+			$this->estadoAu = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getEst(){
+		return $this->estadoAu;
 	}
 	public function setImagen($value){
 		if($this->validateImage($value, $this->imagen, "../web/img/clientes/", 5000, 5000)){
@@ -314,10 +326,11 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro) VALUES(?, ?, ?, ?, ?, ?, ?,?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion) VALUES(?, ?, ?, ?, ?, ?, ?,?)";
 		$estadouser= 3;
+		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro);
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro, $estadoau);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
@@ -450,7 +463,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion,ip,url_imagen FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion, ip , url_imagen, estado_autenticacion FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -461,6 +474,7 @@ class Cliente extends Validator{
 			$this->autenticacion = $cliente['autenticacion'];
 			$this->ip = $cliente['ip'];
 			$this->imagen = $cliente['url_imagen'];
+			$this->estadoAu = $cliente['estado_autenticacion'];
 			return true;
 		}else{
 			return null;
@@ -468,8 +482,8 @@ class Cliente extends Validator{
 	}
 
 	public function updateUsuario(){
-		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ? WHERE id_cliente = ?";
-		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen,  $this->id);
+		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ?, estado_autenticacion =? WHERE id_cliente = ?";
+		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen, $this->estadoAu, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateFoto(){

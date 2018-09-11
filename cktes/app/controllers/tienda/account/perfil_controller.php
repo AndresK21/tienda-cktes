@@ -12,6 +12,7 @@ try{
                 if($cliente->setNombres($_POST['nombres'])){
                     if($cliente->setApellidos($_POST['apellidos'])){
                             if($cliente->setCorreo($_POST['correo'])){
+                                if($cliente->setEst(isset($_POST['auten'])?2:1)){
                                 if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                                     if(!$cliente->setImagen($_FILES['archivo'])){
                                         throw new Exception("Error con la imagen");
@@ -28,6 +29,9 @@ try{
                                 }else{
                                     throw new Exception(Database::getException());
                                 }
+                            }else{
+                                throw new Exception("Error en doble autenticación");
+                            }
                             }else{
                                 throw new Exception("Correo incorrecto");
                             }
