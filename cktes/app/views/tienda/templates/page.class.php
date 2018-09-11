@@ -72,7 +72,7 @@ class Page extends Component{
                         <ul class='center hide-on-med-and-down'>
                             <li><a href='#' data-activates='slide-out' class='sidenav-trigger show-on-large leftside'><i class='material-icons'>apps</i></a></li>
                             <ul class='right hide-on-med-and-down'>
-                                <li><a href='../contactanos/index.php'><i class='material-icons'>shopping_basket</i></a></li>
+                            <li><a href='../contactanos/index.php'><i class='material-icons'>shopping_cart</i></a></li>
                                 <li> <a href='#' data-activates='slide-out2' class='sidenav-trigger show-on-large rightside'><i class='material-icons'>verified_user</i></a></li>
                             </ul>
                     </div>
