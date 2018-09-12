@@ -21,7 +21,9 @@ body {
   .fondoEdit{
     background-color: rgb(214,214,214)
   }
-
+.colorNa{
+  background-color: #FF4C05 !important;
+}
   main {
     flex: 1 0 auto;
   }

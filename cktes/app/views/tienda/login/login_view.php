@@ -5,10 +5,10 @@
     <div class="container" id="FondoLogin">
         <ul id="FondoTabLogin" class="tabs tabs-fixed-width tab-demo z-depth-1">
             <li class="tab">
-                <a  href="#test1">REGISTRARSE</a>
+                <a  href="#test1"><b>REGISTRARSE</b></a>
             </li>
             <li class="tab">
-                <a class="active" href="#test2">INICIAR SESI&Oacute;N</a>
+                <a class="active" href="#test2"><b>INICIAR SESI&Oacute;N</b></a>
             </li>
         </ul>
         
@@ -47,7 +47,7 @@
                     <p>
                     </div>
                     <div class="col s12 m12 l12 center">
-                        <button  type='submit' name="registrar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Registrarse</button>
+                        <button  type='submit' name="registrar" class="waves-effect waves-light btn-large  colorNa TamañodelBotonLogin">Registrarse</button>
                         <div class="transparent-text">.</div>
                         <div class="transparent-text">.</div>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="transparent-text">.</div>
                 </div>
                 <div class="col s12 m12 l12 center">
-                <button type= "submit" name ="iniciar" class="waves-effect waves-light btn-large red lighten-1 TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
+                <button type= "submit" name ="iniciar" class="waves-effect waves-light btn-large colorNa TamañodelBotonLogin">Iniciar Sesi&oacute;n</button>
                 <div class="transparent-text">.</div>
                 <div class="transparent-text">.</div>
                 </div>
