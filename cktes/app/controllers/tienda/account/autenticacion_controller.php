@@ -1,5 +1,6 @@
 <?php
 require_once("../app/models/cliente.class.php");
+require_once("../app/controllers/tienda/account/autenticacionPublic_controller.php");
 try{
     $object = new Cliente;
         if(isset($_POST['siguiente'])){
@@ -16,9 +17,12 @@ try{
                     throw new Exception("el error");
                 }
             }else{
+
                 Page::showMessage(3, "Correo electronico incorrecto", "logout.php");
             }
         }
+        
+
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
 }

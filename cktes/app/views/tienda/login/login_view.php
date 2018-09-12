@@ -63,7 +63,7 @@
                     <label for="email2">Correo Electr&oacute;nico</label>
                 </div>
                 <div class="input-field col l12 s12">
-                    <input id="password3" name="contrasena_existente" type="password" autocomplete="off" class="validate transparent white-text"  value='<?php print($usuario->getContrasena()) ?>' required/>
+                    <input id="password3" name="contrasena_existente" type="password" autocomplete="off" class="validate transparent white-text"required/>
                     <label for="password3">Contrase&ntilde;a</label>
                 </div>
                 <div class="right-align">

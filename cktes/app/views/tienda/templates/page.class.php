@@ -40,6 +40,8 @@ class Page extends Component{
           //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
           if ($vida_sesion > $inactivo) {
               //Destruimos sesión.
+              $object = new Cliente;
+              $object->unsetIp($_SESSION['correo_electronico']);
               session_destroy();
               Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "acceder.php");
               exit();
