@@ -225,8 +225,7 @@ class Cliente extends Validator{
 			return false;
 		}
 	}
-	public function 
-	+getEncargado(){
+	public function getEncargado(){
 		return $this->encargado;
 	}
 	

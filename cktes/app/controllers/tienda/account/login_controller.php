@@ -22,76 +22,88 @@ try {
         if ($response != null && $response->success) {
             // Se obtienen los datos de los diferentes inputs
             if ($usuario->setNombres($_POST['nombres'])) {
-                if ($usuario->setApellidos($_POST['apellidos'])) {
+                if ($usuario->setApellidos($_POST['apellidos'])){
                     if ($usuario->setDUI($_POST['DUI'])) {
                         if ($usuario->setNIT($_POST['NIT'])){
-                            if ($usuario->setActividad($_POST['actividad'])) {
-                                if ($usuario->setDireccion($_POST['direccion'])) {
-                                    if ($usuario->setCorreo($_POST['correo'])) {
-                                        if ($usuario->setTipoCliente($_POST['tipo_cliente'])) {
-                                            // Se verifica que las dos claves sean iguales
-                                            if ($_POST['clave1'] == $_POST['clave2']) {
-                                                $clave = $_POST['clave1'];
-                                                if ($_POST['nombres'] != $_POST['clave1']) {
-                                                    if ($_POST['apellidos'] != $_POST['clave1']) {
-                                                        if ($_POST['clave1'] != $_POST['correo']) {
-                                                            if (strlen($clave) > 7) {
-                                                                if (preg_match('`[a-z]`', $clave)) {
-                                                                    if (preg_match('`[A-Z]`', $clave)) {
-                                                                        $especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
-                                                                        if (preg_match($especiales, $clave)) {
-                                                                            if (preg_match('`[0-9]`', $clave)) {
-                                                                                if ($usuario->setContrasena($_POST['clave1'])) {
-                                                                                    
-                                                                                    // Se crea el usuario (cliente)
-                                                                                    if ($usuario->createUsuario()) {
-                                                                                        Page::showMessage(1, "Usuario registrado, debe iniciar sesion", "acceder.php");
-                                                                                        $usuario->maxCliente();
-                                                                                        $usuario->CreateCarrito();
+                            if ($usuario->setNIT($_POST['NIT'])){
+                                if ($usuario->setActividad($_POST['actividad'])) {
+                                    if ($usuario->setDireccion($_POST['direccion'])) {
+                                        if ($usuario->setEncargado($_POST['encargado'])) {
+                                            if ($usuario->setCargo($_POST['cargo'])) {
+                                                if ($usuario->setCorreo($_POST['correo'])) {
+                                                    if ($usuario->setTipoCliente($_POST['tipo_cliente'])) {
+                                                        // Se verifica que las dos claves sean iguales
+                                                        if ($_POST['clave1'] == $_POST['clave2']) {
+                                                            $clave = $_POST['clave1'];
+                                                            if ($_POST['nombres'] != $_POST['clave1']) {
+                                                                if ($_POST['apellidos'] != $_POST['clave1']) {
+                                                                    if ($_POST['clave1'] != $_POST['correo']) {
+                                                                        if (strlen($clave) > 7) {
+                                                                            if (preg_match('`[a-z]`', $clave)) {
+                                                                                if (preg_match('`[A-Z]`', $clave)) {
+                                                                                    $especiales = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
+                                                                                    if (preg_match($especiales, $clave)) {
+                                                                                        if (preg_match('`[0-9]`', $clave)) {
+                                                                                            if ($usuario->setContrasena($_POST['clave1'])) {
+                                                                                                
+                                                                                                // Se crea el usuario (cliente)
+                                                                                                if ($usuario->createUsuario()) {
+                                                                                                    Page::showMessage(1, "Usuario registrado, debe iniciar sesion", "acceder.php");
+                                                                                                    $usuario->maxCliente();
+                                                                                                    $usuario->CreateCarrito();
+                                                                                                } else {
+                                                                                                    throw new Exception(Database::getException());
+                                                                                                }
+                                                                                            } else {
+                                                                                                throw new Exception("Clave inválida");
+                                                                                            }
+                                                                                        } else {
+                                                                                            throw new Exception("La clave debe tener al menos un caracter númerico ");
+                                                                                        }
                                                                                     } else {
-                                                                                        throw new Exception(Database::getException());
+                                                                                        throw new Exception("La clave debe tener al menos un caracter especial ");
                                                                                     }
                                                                                 } else {
-                                                                                    throw new Exception("Clave inválida");
+                                                                                    throw new Exception("La clave debe tener al menos una letra mayúscula ");
                                                                                 }
                                                                             } else {
-                                                                                throw new Exception("La clave debe tener al menos un caracter númerico ");
+                                                                                throw new Exception("La clave debe tener al menos una letra minúscula");
                                                                             }
                                                                         } else {
-                                                                            throw new Exception("La clave debe tener al menos un caracter especial ");
+                                                                            throw new Exception("La clave debe poseer más de 8 caracteres");
                                                                         }
                                                                     } else {
-                                                                        throw new Exception("La clave debe tener al menos una letra mayúscula ");
+                                                                        throw new Exception("La clave no puede ser igual al correo");
                                                                     }
                                                                 } else {
-                                                                    throw new Exception("La clave debe tener al menos una letra minúscula");
+                                                                    throw new Exception("La clave no puede ser igual al apellido");
                                                                 }
                                                             } else {
-                                                                throw new Exception("La clave debe poseer más de 8 caracteres");
+                                                                throw new Exception("La clave no puede ser igual al nombre");
                                                             }
                                                         } else {
-                                                            throw new Exception("La clave no puede ser igual al correo");
+                                                            throw new Exception("Claves diferentes");
                                                         }
                                                     } else {
-                                                        throw new Exception("La clave no puede ser igual al apellido");
+                                                        throw new Exception("tipo incorrecto");
                                                     }
                                                 } else {
-                                                    throw new Exception("La clave no puede ser igual al nombre");
+                                                    throw new Exception("Correo incorrecto");
                                                 }
                                             } else {
-                                                throw new Exception("Claves diferentes");
+                                                throw new Exception("Cargo incorrecto");
                                             }
                                         } else {
-                                            throw new Exception("tipo incorrecto");
+                                            throw new Exception("Encargado incorrecto");
                                         }
                                     } else {
-                                        throw new Exception("Correo incorrecto");
+                                        throw new Exception("Direccion incorrecto");
                                     }
                                 } else {
-                                    throw new Exception("Direccion incorrecto");
+                                    throw new Exception("Actividad incorrecto");
                                 }
                             } else {
-                                throw new Exception("Actividad incorrecto");
+                                throw new Exception("NRC incorrecto");
                             }
                         } else {
                             throw new Exception("NIT incorrecto");

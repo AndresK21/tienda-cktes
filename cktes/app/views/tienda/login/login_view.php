@@ -113,7 +113,7 @@
                             <label for="last_name">Nombre del encargado de compra</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="cargo" name="cargo" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
+                            <input id="cargo" name="cargo" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getCargo()) ?>'/required>
                             <label for="last_name">Cargo de ocupa en la empresa</label>
                         </div>
                         <div class="input-field col s12 m12 l12">
