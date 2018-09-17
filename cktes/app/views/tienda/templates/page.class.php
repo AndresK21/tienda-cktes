@@ -87,8 +87,6 @@ class Page extends Component{
                 <img class='movLogo' src='../web/img/logo_2.png'>
             </div>
         </li>
-    
-            <li><a href='acceder.php'>Inicio</a></li>
             <li><a href='../portal/index.php'>Portal</a></li>
             <li><a href='../portal/nosotros.php'>Nosotros</a></li>
             <li><a href='categorias.php'>Tienda</a></li>
@@ -100,7 +98,7 @@ class Page extends Component{
             <div class='collapsible-body colorside'>
               <ul>
                 <li><a href='perfil.php'>Editar perfil</a></li>
-                <li><a href='#!'>Cambiar contraseña</a></li>
+                <li><a href='contrasena.php'>Cambiar contraseña</a></li>
                 <li><a href='#!'>Historial de compra</a></li>
               </ul>
             </div>
@@ -124,7 +122,7 @@ class Page extends Component{
                     </div>
                 </li>
                 <li><a href='perfil.php'><i class='material-icons'>edit</i><b>Editar perfil</b></a></li>
-                <li><a href='#!'><i class='material-icons'>enhanced_encryption</i><b> Cambiar contraseña</b></a></li>
+                <li><a href='contrasena.php'><i class='material-icons'>enhanced_encryption</i><b> Cambiar contraseña</b></a></li>
                 <li><a href='#!'><i class='material-icons'>access_time</i><b> Historial de compra</b></a></li>
                 <li> <div class='divider'></div></li>
                 <li><a href='logout.php'><i class='material-icons'>close</i><b> Cerrar sesión</b></a></li>
@@ -202,7 +200,19 @@ print("
             </div>                      
         </nav>
         </div>
+        <ul id='mobile-demo' class='side-nav colorside' >
+        <li>
+        <div class='user-view'>
 
+        <img class='movLogo' src='../web/img/logo_2.png'>
+        </div>
+    </li>
+        <li><a href='acceder.php'>Inicio</a></li>
+        <li><a href='../portal/index.php'>Portal</a></li>
+        <li><a href='../portal/nosotros.php'>Nosotros</a></li>
+        <li><a href='categorias.php'>Tienda</a></li>   
+  </li>
+      </ul>
     <ul id='slide-out' class='side-nav colorside' >
     <li><div class='user-view'>
     

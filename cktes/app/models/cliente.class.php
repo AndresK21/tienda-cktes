@@ -417,7 +417,8 @@ class Cliente extends Validator{
 		$id_tipo_cliente = 1;
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
+		$url_imagen = 'no-user.png';
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $url_imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
 		return Database::executeRow($sql, $params);
 	}
 	public function createUsuario_Empresa(){
@@ -427,7 +428,8 @@ class Cliente extends Validator{
 		$id_tipo_cliente = 2;
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
+		$url_imagen = 'no-user.png';
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $url_imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
