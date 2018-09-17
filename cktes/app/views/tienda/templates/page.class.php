@@ -229,6 +229,7 @@ public static function templateFooter(){
   </footer>
               <!--Import jQuery before materialize.js-->
               <script type='text/javascript' src='../web/js/jquery-3.2.1.min.js'></script>
+              
               <script type='text/javascript' src='../web/js/main.js'></script>
               <script type='text/javascript' src='../web/js/ini.js'></script>
               <script type='text/javascript' src='../web/js/materialize.min.js'></script>

@@ -19,6 +19,13 @@ class Cliente extends Validator{
 	private $autenticacion= null;
 	private $ip = null;
 	private $estadoAu = null;
+	private $DUI = null;
+	private $NIT = null;
+	private $NRC = null;
+	private $actividad = null;
+	private $direccion = null;
+	private $encargado = null;
+	private $cargo = null;
 	
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
@@ -141,8 +148,64 @@ class Cliente extends Validator{
 	}
 	public function getNombres(){
 		return $this->nombres;
+	}
+    public function setDUI($value){
+		if($this->validateDUI($value, 1, 11)){
+			$this->DUI = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getDUI(){
+		return $this->DUI;
+	}
+
+	public function setNIT($value){
+		if($this->validateNIT($value, 1, 18)){
+			$this->NIT = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getNIT(){
+		return $this->NIT;
+	}
+	public function setNRC($value){
+		if($this->validateNIT($value, 1, 18)){
+			$this->NRC = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getNRC(){
+		return $this->NRC;
+	}
+	
+	public function setActividad($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->actividad = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getActividad(){
+		return $this->actividad;
+	}
+	public function setDireccion($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->direccion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getDireccion(){
+		return $this->direccion;
     }
-    
     public function setApellidos($value){
 		if($this->validateAlphanumeric($value, 1, 80)){
 			$this->apellidos = $value;
@@ -153,6 +216,30 @@ class Cliente extends Validator{
 	}
 	public function getApellidos(){
 		return $this->apellidos;
+	}
+	public function setEncargado($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->encargado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function 
+	+getEncargado(){
+		return $this->encargado;
+	}
+	
+	public function setCargo($value){
+		if($this->validateAlphanumeric($value, 1, 80)){
+			$this->cargo = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCargo(){
+		return $this->cargo;
     }
     
     public function setCorreo($value){
@@ -326,11 +413,11 @@ class Cliente extends Validator{
 
 	public function createUsuario(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion) VALUES(?, ?, ?, ?, ?, ?, ?,?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, DUI, NIT, NRC, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro, $estadoau);
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo,);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){

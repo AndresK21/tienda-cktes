@@ -126,6 +126,22 @@ class Validator{
 		}
 			
 	}
+	public function validateDUI($value){
+		if(preg_match("/^\d{8}-[0-9]{1}$/",$value)){
+			
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function validateNIT($value){
+		if(preg_match("/^[0-9]{4}-[0-9]{6}-[0-9]{3}-[0-9]{1}$/",$value)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	public function validateEmail($email){
 		if(filter_var($email, FILTER_VALIDATE_EMAIL)){
