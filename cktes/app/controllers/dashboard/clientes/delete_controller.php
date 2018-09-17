@@ -7,7 +7,7 @@ try{
             if($cliente->setId($_GET['id'])){
                 if($cliente->readUsuario()){
                     if(isset($_POST['eliminar'])){
-                        if($cliente->deleteCliente()){
+                        if($cliente->bloquearCliente()){
                             Page::showMessage(1, "Cliente eliminado", "index.php");
                         }else{
                             throw new Exception(Database::getException());
