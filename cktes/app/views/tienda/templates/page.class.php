@@ -80,6 +80,38 @@ class Page extends Component{
                     </div>
                 </nav>
             </div>
+            <ul id='mobile-demo' class='side-nav colorside' >
+            <li>
+            <div class='user-view'>
+    
+                <img class='movLogo' src='../web/img/logo_2.png'>
+            </div>
+        </li>
+    
+            <li><a href='acceder.php'>Inicio</a></li>
+            <li><a href='../portal/index.php'>Portal</a></li>
+            <li><a href='../portal/nosotros.php'>Nosotros</a></li>
+            <li><a href='categorias.php'>Tienda</a></li>
+            <li><a href='#'>Carrito</a></li>
+             <li class='no-padding'>
+        <ul class='collapsible collapsible-accordion'>
+          <li>
+            <a class='collapsible-header'>Cuenta<i class='material-icons'>arrow_drop_down</i></a>
+            <div class='collapsible-body colorside'>
+              <ul>
+                <li><a href='perfil.php'>Editar perfil</a></li>
+                <li><a href='#!'>Cambiar contraseña</a></li>
+                <li><a href='#!'>Historial de compra</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li><a href='logout.php'><i class='material-icons'>close</i>Cerrar sesión</a></li>
+     
+          </ul>
+
+
             <ul id='slide-out2' class='side-nav  colorside'>
                 <li>
                     <div class='user-view'>
@@ -111,17 +143,18 @@ class Page extends Component{
                 <li>
                     <div class='divider'></div>
                 </li>
-                <li><a class='center' href='portal/index.php'><b>P O R T A L</b></a></li>
+                <li><a class='center' href='../portal/index.php'><b>P O R T A L</b></a></li>
                 <li>
                     <div class='divider'></div>
                 </li>
-                <li><a class='center' href='portal/nosotros.php'><b>N O S O T R O S </b></a></li>
+                <li><a class='center' href='../portal/nosotros.php'><b>N O S O T R O S </b></a></li>
                 <li>
                     <div class='divider'></div>
                 </li>
                 <li><a class='subheader center'><b>Tienda</b></a></li>
                 <li><a class='center' href='categorias.php'><b>C A T E G O R &Iacute; A S </b></a></li>
             </ul>
+            
 
         </header>
         

@@ -30,11 +30,11 @@
                             <label for="last_name">Nombres</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="Apellidos" name="apellidos" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getApellidos()) ?>'/required>
+                            <input id="Apellidos" name="apellidos" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getApellidos()) ?>'>
                             <label for="last_name">Apellidos</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="DUI" name="DUI" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDUI()) ?>'/required>
+                            <input id="DUI" name="DUI" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDUI()) ?>'>
                             <label for="last_name">DUI</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
@@ -65,17 +65,12 @@
                             <input id="password2" name="clave2" type="password" autocomplete="off" class="validate transparent white-text"/required>
                             <label for="password2">Verificar Contrase&ntilde;a</label>
                         </div>
-                        <div class="input-field col s12 m12 l6  white-text">   
-                        <?php
-                        Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->getTipoCliente(), $usuario->getTipos());
-                        ?>
-                        </div>
                         <div class="col s12 m12 l4 offset-l3">
                             <div class="g-recaptcha"  data-sitekey="6LeLpG0UAAAAAMG0LJesD4vL7FGONpyITihyWBVq"></div>
                         <p>
                         </div>
                         <div class="col s12 m12 l12 center">
-                            <button  type='submit' name="registrar" class="waves-effect waves-light btn-large  colorNa TamañodelBotonLogin">Registrarse</button>
+                            <button  type='submit' name="registrar_cliente" class="waves-effect waves-light btn-large  colorNa TamañodelBotonLogin">Registrarse</button>
                             <div class="transparent-text">.</div>
                             <div class="transparent-text">.</div>
                         </div>
@@ -89,56 +84,51 @@
                 <div class="row">
                     <form  method='post' class="col s12 ">
                         <div class="input-field col s12 m12 l6">
-                            <input id="Nombres" name="nombres" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
+                            <input id="Nombres_empresa" name="nombre_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
                             <label for="last_name">Nombre de la Empresa</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="actividad" name="actividad" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getActividad()) ?>'/required>
+                            <input id="actividad_empresa" name="actividad_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getActividad()) ?>'/required>
                             <label for="last_name">Actividad Economica</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="NIT" name="NIT" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
+                            <input id="NIT_empresa" name="NIT_empresa" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
                             <label for="last_name">NIT</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="NRC" name="NRC" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNRC()) ?>'/required>
+                            <input id="NRC_empresa" name="NRC_empresa" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNRC()) ?>'>
                             <label for="last_name">NRC</label>
                         </div>
                         <div class="input-field col s12 m12 l12">
-                            <input id="direccion" name="direccion" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDireccion()) ?>'/required>
+                            <input id="direccion_empresa" name="direccion_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDireccion()) ?>'/required>
                             <label for="last_name">Ubicación de la Empresa</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="encargado" name="encargado" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getEncargado()) ?>'/required>
+                            <input id="encargado" name="encargado" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getEncargado()) ?>'>
                             <label for="last_name">Nombre del encargado de compra</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="cargo" name="cargo" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getCargo()) ?>'/required>
+                            <input id="cargo" name="cargo" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getCargo()) ?>'>
                             <label for="last_name">Cargo de ocupa en la empresa</label>
                         </div>
                         <div class="input-field col s12 m12 l12">
-                            <input id="email" name="correo" type="email" autocomplete="off" class="validate transparent white-text " value='<?php print($usuario->getCorreo()) ?>'/required>
+                            <input id="email_empresa" name="correo_empresa" type="email" autocomplete="off" class="validate transparent white-text " value='<?php print($usuario->getCorreo()) ?>'/required>
                             <label for="email">Correo Electr&oacute;nico</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="password" name="clave1" type="password" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
+                            <input id="password_empresa" name="clave1_empresa" type="password" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getContrasena()) ?>'/required>
                             <label for="password">Contrase&ntilde;a</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="password2" name="clave2" type="password" autocomplete="off" class="validate transparent white-text"/required>
+                            <input id="password2" name="clave2_empresa" type="password" autocomplete="off" class="validate transparent white-text"/required>
                             <label for="password2">Verificar Contrase&ntilde;a</label>
-                        </div>
-                        <div class="input-field col s12 m12 l6  white-text">   
-                        <?php
-                        Page::showSelect("Tipo de cliente", "tipo_cliente", $usuario->getTipoCliente(), $usuario->getTipos());
-                        ?>
                         </div>
                         <div class="col s12 m12 l4 offset-l3">
                             <div class="g-recaptcha"  data-sitekey="6LeLpG0UAAAAAMG0LJesD4vL7FGONpyITihyWBVq"></div>
                         <p>
                         </div>
                         <div class="col s12 m12 l12 center">
-                            <button  type='submit' name="registrar" class="waves-effect waves-light btn-large  colorNa TamañodelBotonLogin">Registrarse</button>
+                            <button  type='submit' name="registrar_empresa" class="waves-effect waves-light btn-large  colorNa TamañodelBotonLogin">Registrarse</button>
                             <div class="transparent-text">.</div>
                             <div class="transparent-text">.</div>
                         </div>
