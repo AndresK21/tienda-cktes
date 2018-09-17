@@ -622,9 +622,20 @@ class Cliente extends Validator{
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
-		public function updateAut($contra){
+	public function updateAut($contra){
 		$sql = "UPDATE clientes SET autenticacion = ? WHERE correo_electronico = ?";
 		$params = array($contra, $this->correo);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function bloquearCliente(){
+		$sql = "UPDATE clientes SET estado_cliente = ? WHERE id_cliente = ?";
+		$params = array(4, $this->id);
+		return Database::executeRow($sql, $params);
+	}
+	public function desbloquearCliente(){
+		$sql = "UPDATE clientes SET estado_cliente = ? WHERE id_cliente = ?";
+		$params = array(3, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 }
