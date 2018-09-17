@@ -4,24 +4,21 @@ print("
 <h2 class='center-align truncate'><b>INFORMACIÓN</b></h2>
 <div class='container'>
 
-           <form method='post' enctype='multipart/form-data' >
+           <form method='post' enctype='multipart/form-data'>
             <div class='center'>
                  <img id='imagen_perfil' src='../web/img/clientes/$_SESSION[imagen]' alt='' class='circle maxW'> 
             </div>
-");
-?>
-
+            
             <div class='file-field input-field col s12 m6 l6'>
             <div class='center'>
                 <span>Cambiar foto de perfil</span>
-                <input type='file' id='file' class='input-file' name='archivo' onchange='readURL(this);'size="5120" />
+                <input type='file' name='archivo' onchange='readURL(this);'/>
             </div>
             <div class=' file-path-wrapper'>
-                <input type='hidden' id='imagen' class='file-path validate'  placeholder='Seleccione una imagen' onsubmit='return validarImagen();'  />
+                <input type='hidden' class='file-path validate' placeholder='Seleccione una imagen'/>
             </div>
             </div>
-            <?php      
-            print("     
+            
             <div class='center'>
                   <h4><b>$_SESSION[nombres2] $_SESSION[apellidos2]</b></h4>
             </div>
@@ -32,7 +29,6 @@ print("
 </div>
      
 ");
-
 ?>
 
 <div class='fondoEdit'>

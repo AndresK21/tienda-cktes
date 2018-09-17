@@ -37,4 +37,3 @@ function validarImagen() {
         return false;
     }
 }
-
