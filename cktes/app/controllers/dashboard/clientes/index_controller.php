@@ -30,6 +30,20 @@ try{
 		$data = $cliente->getClientes2($empieza, $por_pagina);
 	}
 
+	if(isset($_POST['buscar_cliente2'])){
+		$_POST = $cliente->validateForm($_POST);
+		$data3 = $cliente->searchCliente2($_POST['busqueda_cliente2']);
+		if($data3){
+			$rows = count($data3);
+			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
+		}else{
+			Page::showMessage(4, "No se encontraron resultados", null);
+			$data3 = $cliente->getClientes22($empieza, $por_pagina);
+		}
+	}else{
+		$data3 = $cliente->getClientes22($empieza, $por_pagina);
+	}
+
 	//Controlador de clientes
 	$tipo = new Tipo_cliente;
 	if(isset($_POST['buscar_tipo'])){

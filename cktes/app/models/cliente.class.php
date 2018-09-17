@@ -592,12 +592,22 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function getClientes2($empieza, $por_pagina){
-		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes ORDER BY apellidos LIMIT $empieza, $por_pagina";
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE estado_cliente = 3 ORDER BY apellidos LIMIT $empieza, $por_pagina";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchCliente($value){
-		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY apellidos";
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE nombres LIKE ? OR apellidos LIKE ? AND estado_cliente = 3 ORDER BY apellidos";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function getClientes22($empieza, $por_pagina){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE estado_cliente = 4 ORDER BY apellidos LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function searchCliente2($value){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE nombres LIKE ? OR apellidos LIKE ? AND estado_cliente = 4 ORDER BY apellidos";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
