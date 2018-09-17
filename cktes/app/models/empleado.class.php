@@ -335,8 +335,7 @@ class Empleado extends Validator{
 	}
 
 	public function bloquearEmpleado(){
-		$sql = "UPDATE empleado SET estado = 0, fecha_bloqueo = ? WHERE id_empleado = ?";
-		$fech = date('Y-m-d h:i:s');
+		$sql = "UPDATE empleado SET estado = 0 WHERE id_empleado = ?";
 		$params = array($fech, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
@@ -362,14 +361,14 @@ class Empleado extends Validator{
 
 	//Metodos para login
 	public function updateEstado($user){
-		$sql = "UPDATE empleado SET estado = 0, fecha_bloqueo = ? WHERE correo_electronico = ?";
+		$sql = "UPDATE empleado SET estado = ?, fecha_bloqueo = ? WHERE correo_electronico = ?";
 		$fech = date('Y-m-d h:i:s');
-		$params = array($fech, $user);
+		$params = array(0, $fech, $user);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateEstado2($user){
-		$sql = "UPDATE empleado SET estado = 1 WHERE correo_electronico = ?";
-		$params = array($user);
+		$sql = "UPDATE empleado SET estado = ?, fecha_bloqueo = ? WHERE correo_electronico = ?";
+		$params = array(1, null, $user);
 		return Database::executeRow($sql, $params);
 	}
 	public function insertIp(){

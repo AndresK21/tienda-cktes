@@ -7,7 +7,7 @@ try{
             if($cliente->setId($_GET['id'])){
                 if($cliente->readUsuario()){
                     if(isset($_POST['eliminar'])){
-                        if($cliente->bloquearCliente()){
+                        if($cliente->desbloquearCliente()){
                             Page::showMessage(1, "Cliente bloqueado", "index.php");
                         }else{
                             throw new Exception(Database::getException());
@@ -28,5 +28,5 @@ try{
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), "index.php");
 }
-require_once("../../app/views/dashboard/clientes/delete_view.php");
+require_once("../../app/views/dashboard/clientes/delete2_view.php");
 ?>

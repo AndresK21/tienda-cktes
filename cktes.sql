@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-09-2018 a las 23:32:34
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 17-09-2018 a las 23:36:03
+-- Versión del servidor: 10.1.34-MariaDB
+-- Versión de PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,11 +77,17 @@ INSERT INTO `carrito` (`id_carrito`, `fecha`, `id_cliente`, `estado_carrito`) VA
 (18, '2018-05-14', 18, NULL),
 (19, '2018-05-14', 19, NULL),
 (20, '2018-05-14', 20, NULL),
-(21, '2018-05-16', 21, NULL),
+(21, '2018-05-16', NULL, NULL),
 (22, '2018-05-30', NULL, NULL),
 (23, '2018-05-30', NULL, 5),
-(24, '2018-06-04', 23, NULL),
-(25, '2018-06-04', 23, 5);
+(24, '2018-06-04', NULL, NULL),
+(25, '2018-06-04', NULL, 5),
+(26, '2018-09-03', NULL, NULL),
+(27, '2018-09-03', NULL, 5),
+(28, '2018-09-03', 25, NULL),
+(29, '2018-09-05', 25, 6),
+(30, '2018-09-05', 25, 5),
+(31, '2018-09-05', 25, 5);
 
 -- --------------------------------------------------------
 
@@ -96,6 +102,19 @@ CREATE TABLE `clientes` (
   `correo_electronico` varchar(120) COLLATE utf8_spanish_ci NOT NULL,
   `contrasena` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `url_imagen` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `contador` int(2) DEFAULT NULL,
+  `fecha_bloqueo` datetime DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL,
+  `autenticacion` int(4) DEFAULT NULL,
+  `ip` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado_autenticacion` int(2) NOT NULL,
+  `dui` varchar(11) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nit` varchar(18) COLLATE utf8_spanish_ci NOT NULL,
+  `nrc` varchar(18) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `actividad` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(125) COLLATE utf8_spanish_ci NOT NULL,
+  `encargado` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cargo_encargado` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_tipo_cliente` int(11) DEFAULT NULL,
   `estado_cliente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -104,29 +123,28 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronico`, `contrasena`, `url_imagen`, `id_tipo_cliente`, `estado_cliente`) VALUES
-(1, 'Joseph', 'Mcpherson', 'Etiam@Namconsequat.org', 'lacus. Ut', 'justo nec', 1, NULL),
-(2, 'Skyler', 'Ferguson', 'montes.nascetur@Integervulputaterisus.org', 'eu enim.', 'Morbi', 2, NULL),
-(3, 'Armand', 'Mason', 'vel.convallis@orcitinciduntadipiscing.co.uk', 'euismod', 'ac turpis', 2, NULL),
-(4, 'Oprah', 'Joseph', 'ultricies.ornare.elit@risusodio.co.uk', 'tellus eu', 'orci', 2, NULL),
-(5, 'Nola', 'Reed', 'lacinia@laoreetipsumCurabitur.co.uk', 'vel est', 'auctor', 1, NULL),
-(6, 'Cleo', 'Larsen', 'auctor.ullamcorper@est.net', 'a', 'volutpat. Nulla', 2, NULL),
-(7, 'Connor', 'Flowers', 'cubilia.Curae@velit.org', 'ac turpis', 'a,', 2, NULL),
-(8, 'Scott', 'Ballard', 'at.iaculis@musDonec.org', 'bibendum', 'congue, elit', 2, NULL),
-(9, 'Dylan', 'Orr', 'sit.amet@auctorveliteget.com', 'semper', 'pede. Nunc', 2, NULL),
-(10, 'Jessica', 'Collier', 'interdum.enim.non@loremauctor.net', 'id, ante.', 'nibh', 1, NULL),
-(11, 'Steel', 'Massey', 'Vivamus.euismod@volutpatornarefacilisis.org', 'a, dui.', 'enim, gravida', 1, NULL),
-(12, 'Ignatius', 'Huffman', 'volutpat.Nulla@ultrices.ca', 'est', 'ipsum.', 1, NULL),
-(13, 'Haley', 'Mccarthy', 'non.feugiat@lobortisquam.edu', 'vehicula aliquet', 'justo eu', 1, NULL),
-(14, 'Warren', 'Mejia', 'et.magnis@augueeutellus.co.uk', 'sollicitudin', 'nulla vulputate', 1, NULL),
-(15, 'Madaline', 'Brown', 'vehicula@imperdietnec.net', 'elit,', 'Donec', 1, NULL),
-(16, 'Anastasia', 'Frost', 'tincidunt.dui@eget.edu', 'porttitor scelerisque', 'vel', 2, NULL),
-(17, 'Fleur', 'Lopez', 'eu.elit.Nulla@laoreet.net', 'dolor', 'Aenean', 1, NULL),
-(18, 'Justin', 'Blackburn', 'congue@necleoMorbi.net', 'tempor arcu.', 'Quisque purus', 1, NULL),
-(19, 'Elizabeth', 'Blackburn', 'urna@musDonecdignissim.ca', 'Mauris nulla.', 'varius', 2, NULL),
-(20, 'Nelle', 'Spears', 'libero.Integer.in@turpis.ca', 'magna.', 'iaculis quis,', 2, NULL),
-(21, 'Andres', 'Hneriquez', 'andres@gmsil.com', 'contrasena', ',jhfykyu', 1, NULL),
-(23, 'Andres Oswaldo', 'Henriquez Gomez', 'andresdosmil@gmail.com', '$2y$10$zqVO3hNiiceveTkSnHL3j.wtfG6MvT1/pEG0YUUvGExMLwCTMMN2e', NULL, 1, 3);
+INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronico`, `contrasena`, `url_imagen`, `contador`, `fecha_bloqueo`, `fecha_registro`, `autenticacion`, `ip`, `estado_autenticacion`, `dui`, `nit`, `nrc`, `actividad`, `direccion`, `encargado`, `cargo_encargado`, `id_tipo_cliente`, `estado_cliente`) VALUES
+(1, 'Joseph', 'Mcpherson', 'Etiam@Namconsequat.org', 'lacus. Ut', 'justo nec', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(2, 'Skyler', 'Ferguson', 'montes.nascetur@Integervulputaterisus.org', 'eu enim.', 'Morbi', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(3, 'Armand', 'Mason', 'vel.convallis@orcitinciduntadipiscing.co.uk', 'euismod', 'ac turpis', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(4, 'Oprah', 'Joseph', 'ultricies.ornare.elit@risusodio.co.uk', 'tellus eu', 'orci', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(5, 'Nola', 'Reed', 'lacinia@laoreetipsumCurabitur.co.uk', 'vel est', 'auctor', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(6, 'Cleo', 'Larsen', 'auctor.ullamcorper@est.net', 'a', 'volutpat. Nulla', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(7, 'Connor', 'Flowers', 'cubilia.Curae@velit.org', 'ac turpis', 'a,', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(8, 'Scott', 'Ballard', 'at.iaculis@musDonec.org', 'bibendum', 'congue, elit', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 4),
+(9, 'Dylan', 'Orr', 'sit.amet@auctorveliteget.com', 'semper', 'pede. Nunc', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(10, 'Jessica', 'Collier', 'interdum.enim.non@loremauctor.net', 'id, ante.', 'nibh', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(11, 'Steel', 'Massey', 'Vivamus.euismod@volutpatornarefacilisis.org', 'a, dui.', 'enim, gravida', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(12, 'Ignatius', 'Huffman', 'volutpat.Nulla@ultrices.ca', 'est', 'ipsum.', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(13, 'Haley', 'Mccarthy', 'non.feugiat@lobortisquam.edu', 'vehicula aliquet', 'justo eu', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(14, 'Warren', 'Mejia', 'et.magnis@augueeutellus.co.uk', 'sollicitudin', 'nulla vulputate', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(15, 'Madaline', 'Brown', 'vehicula@imperdietnec.net', 'elit,', 'Donec', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(16, 'Anastasia', 'Frost', 'tincidunt.dui@eget.edu', 'porttitor scelerisque', 'vel', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(17, 'Fleur', 'Lopez', 'eu.elit.Nulla@laoreet.net', 'dolor', 'Aenean', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(18, 'Justin', 'Blackburn', 'congue@necleoMorbi.net', 'tempor arcu.', 'Quisque purus', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 3),
+(19, 'Elizabeth', 'Blackburn', 'urna@musDonecdignissim.ca', 'Mauris nulla.', 'varius', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(20, 'Nelle', 'Spears', 'libero.Integer.in@turpis.ca', 'magna.', 'iaculis quis,', NULL, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
+(25, 'Andres', 'Henriquez', 'andresdosmil@gmail.com', '$2y$10$1fSQl7jWWjbUUaG4teaDnurQeUfCjxk5C/MzABuKSi7DFq7rU4g5m', NULL, 0, NULL, '2018-09-03', 6841, 'hhj6hi90s3i4ieimes40', 0, '', '', NULL, '', '', NULL, NULL, 1, 3);
 
 --
 -- Disparadores `clientes`
@@ -206,7 +224,9 @@ INSERT INTO `detalle_carrito` (`id_detalle`, `cantidad`, `id_carrito`, `id_produ
 (18, 10, 10, 15),
 (19, 6, 13, 10),
 (20, 7, 6, 3),
-(21, 7, 1, 1);
+(21, 7, 1, 1),
+(22, 1, 29, 1),
+(23, 4, 29, 8);
 
 --
 -- Disparadores `detalle_carrito`
@@ -246,6 +266,7 @@ CREATE TABLE `empleado` (
   `contador` int(2) NOT NULL,
   `ip` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL,
   `autenticacion` int(4) DEFAULT NULL,
+  `estado_autenticacion` int(2) NOT NULL,
   `id_permiso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -253,8 +274,9 @@ CREATE TABLE `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `autenticacion`, `id_permiso`) VALUES
-(26, 'Andres Oswaldo', 'Hneriquez Gomez', '5b89ba8d958d8.jpg', 'andresdosmil@gmail.com', '$2y$10$OE2WpC4D33NN7iSw8tH6k.eUXKftNZTZo9qjOxczRtIxArGv48kbC', '2018-08-31 00:00:00', 1, '2018-08-30 04:01:38', 0, 'knjaguomie65lida4mf1kbkr5h', 7092, 1);
+INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `autenticacion`, `estado_autenticacion`, `id_permiso`) VALUES
+(26, 'Andres Oswaldo', 'Henriquez Gomez', '5b89f9e4877c5.jpg', 'andresdosmil@gmail.com', '$2y$10$HnNMfIRSbTsJQxXZAsck5uY7mindOcmJLxcq.vMT2904zybH04nOK', '2018-09-17 00:00:00', 1, '2018-09-01 09:10:42', 0, 'a95rg2rgnl606r8bs062m034sg', 5126, 1, 1),
+(27, 'hola', 'hola', '5ba006510bcda.png', 'andresdosmilg@gmailc.om', '$2y$10$tfhq4ifrqW1LAuOkLIIgRePyo42.0V/FqF6W0WaSl3FEgc0cUDRZu', '2018-09-17 00:00:00', 1, '2018-09-17 01:54:39', 0, NULL, NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -306,7 +328,7 @@ CREATE TABLE `importacion_especial` (
 
 INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `nombre`, `cantidad`, `fecha_estimada`, `id_cliente`, `id_estado`) VALUES
 (1, '2018-05-15', 'Este es el producto que necesito', 25, '2018-10-27', 9, 10),
-(2, '2018-05-15', 'Este es otro producto que necesito', 25, '2018-12-14', 13, 9);
+(2, '2018-05-15', 'Este es otr', 25, '2018-12-14', 13, 9);
 
 -- --------------------------------------------------------
 
@@ -317,15 +339,17 @@ INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `nombre`, `cantid
 CREATE TABLE `impuestos` (
   `id_impuesto` int(11) NOT NULL,
   `nombre` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
-  `porcentaje` int(11) NOT NULL
+  `porcentaje` int(11) NOT NULL,
+  `valor` varchar(5) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `impuestos`
 --
 
-INSERT INTO `impuestos` (`id_impuesto`, `nombre`, `porcentaje`) VALUES
-(1, 'IVA', 13);
+INSERT INTO `impuestos` (`id_impuesto`, `nombre`, `porcentaje`, `valor`) VALUES
+(1, 'IVA', 13, '0.13'),
+(2, 'El impuesto', 9, '0.09');
 
 -- --------------------------------------------------------
 
@@ -381,8 +405,8 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`id_pedido`, `fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES
-(1, '0000-00-00', 11, NULL, 8, NULL, 2, 23),
-(2, '0000-00-00', 12, NULL, 7, NULL, 1, 12);
+(1, '2018-07-11', 11, 26, 8, NULL, 2, 23),
+(2, '2018-11-02', 12, 26, 7, NULL, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -463,37 +487,38 @@ CREATE TABLE `productos` (
   `id_proveedor` int(11) DEFAULT NULL,
   `id_marca` int(11) DEFAULT NULL,
   `id_estado` int(11) DEFAULT NULL,
-  `id_tipo_producto` int(11) DEFAULT NULL
+  `id_tipo_producto` int(11) DEFAULT NULL,
+  `id_impuesto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`) VALUES
-(1, 'Conan', 'ultricies', 'erat vitae risus. Duis a', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 20, 9.73, '46381', 1, 1, 1, 1, 1),
-(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 100, 4.69, '29558', 3, 1, 2, 2, 1),
-(3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', -5, 8.97, '55284', 1, 2, 1, 1, 2),
-(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, '37494', 3, 2, 2, 2, 1),
-(5, 'Julian', 'nisl', 'Donec porttitor tellus non magna. Nam ligula elit, pretium', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 46, 8.5, '35709', 1, 1, 2, 2, 2),
-(6, 'Mara', 'eget lacus.', 'semper tellus id nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 4, 4.51, '07624', 1, 1, 1, 2, 2),
-(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 13, 6.39, '44854', 1, 1, 1, 1, 1),
-(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 29, 1.99, '80369', 1, 1, 2, 1, 2),
-(9, 'Orla', 'quam', 'tristique senectus et netus et malesuada fames ac turpis egestas.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 37, 8.24, '70089', 1, 1, 2, 2, 1),
-(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 14, 9.47, '01601', 3, 1, 1, 1, 1),
-(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, '77279', 1, 2, 1, 2, 2),
-(12, 'Candace', 'lectus. Cum', 'Sed auctor odio a purus. Duis elementum, dui quis accumsan', 'Lorem ipsum dolor sit amet, consectetuer', 25, 5.24, '09190', 1, 1, 2, 2, 1),
-(13, 'Giacomo', 'ac', 'nisi dictum augue malesuada malesuada. Integer id', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 58, 2.47, '24909', 1, 1, 1, 2, 1),
-(14, 'Ima', 'vulputate,', 'ornare tortor at risus. Nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', -3, 8.25, '35028', 1, 1, 2, 2, 2),
-(15, 'Ivan', 'molestie', 'lectus convallis est, vitae', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 49, 5.87, '86512', 1, 1, 1, 1, 2),
-(16, 'Desiree', 'fermentum', 'dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 5, 1.28, '98858', 1, 1, 2, 2, 1),
-(17, 'Candice', 'fringilla euismod', 'ridiculus mus. Proin', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 29, 5.3, '14795', 1, 2, 2, 1, 1),
-(18, 'Brianna', 'ut,', 'in, cursus et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec', 48, 0.67, '91704', 1, 1, 1, 1, 2),
-(19, 'Russell', 'enim. Mauris', 'velit. Aliquam', 'Lorem ipsum dolor sit', 21, 9.06, '23157', 3, 1, 2, 1, 2),
-(20, 'Wade', 'Curabitur', 'risus. In mi pede, nonummy ut, molestie in, tempus eu,', 'Lorem ipsum', 74, 2.42, '31103', 1, 1, 1, 2, 1),
-(22, 'Producto 2', '5b09e71c2a62a.jpg', 'hjb', 'jh', 24, 2.25, '125 mm x 100 mm', 1, 1, 1, 1, 2),
-(25, 'Producto 2', '5b0d63b936750.jpg', 'huy', 'flu', 34, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2),
-(26, 'Otra pintura', '5b0edf2dc83b5.jpg', 'vbv', 'cv', 23, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2);
+INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`, `id_impuesto`) VALUES
+(1, 'Conan', 'ultricies', 'erat vitae risus. Duis a', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 18, 9.73, '46381', 1, 1, 1, 1, 1, 1),
+(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 100, 4.69, '29558', 3, 1, 2, 1, 1, 1),
+(3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', -5, 8.97, '55284', 1, 2, 1, 1, 2, NULL),
+(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, '37494', 3, 2, 2, 2, 1, NULL),
+(5, 'Julian', 'nisl', 'Donec porttitor tellus non magna. Nam ligula elit, pretium', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 46, 8.5, '35709', 1, 1, 2, 2, 2, NULL),
+(6, 'Mara', 'eget lacus.', 'semper tellus id nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 4, 4.51, '07624', 1, 1, 1, 2, 2, NULL),
+(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 13, 6.39, '44854', 1, 1, 1, 1, 1, NULL),
+(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 21, 1.99, '80369', 1, 1, 2, 1, 2, NULL),
+(9, 'Orla', 'quam', 'tristique senectus et netus et malesuada fames ac turpis egestas.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 37, 8.24, '70089', 1, 1, 2, 2, 1, NULL),
+(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 14, 9.47, '01601', 3, 1, 1, 1, 1, NULL),
+(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, '77279', 1, 2, 1, 2, 2, NULL),
+(12, 'Candace', 'lectus. Cum', 'Sed auctor odio a purus. Duis elementum, dui quis accumsan', 'Lorem ipsum dolor sit amet, consectetuer', 25, 5.24, '09190', 1, 1, 2, 2, 1, NULL),
+(13, 'Giacomo', 'ac', 'nisi dictum augue malesuada malesuada. Integer id', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 58, 2.47, '24909', 1, 1, 1, 2, 1, NULL),
+(14, 'Ima', 'vulputate,', 'ornare tortor at risus. Nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', -3, 8.25, '35028', 1, 1, 2, 2, 2, NULL),
+(15, 'Ivan', 'molestie', 'lectus convallis est, vitae', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 49, 5.87, '86512', 1, 1, 1, 1, 2, NULL),
+(16, 'Desiree', 'fermentum', 'dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 5, 1.28, '98858', 1, 1, 2, 2, 1, NULL),
+(17, 'Candice', 'fringilla euismod', 'ridiculus mus. Proin', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 29, 5.3, '14795', 1, 2, 2, 1, 1, NULL),
+(18, 'Brianna', 'ut,', 'in, cursus et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec', 48, 0.67, '91704', 1, 1, 1, 1, 2, NULL),
+(19, 'Russell', 'enim. Mauris', 'velit. Aliquam', 'Lorem ipsum dolor sit', 21, 9.06, '23157', 3, 1, 2, 1, 2, NULL),
+(20, 'Wade', 'Curabitur', 'risus. In mi pede, nonummy ut, molestie in, tempus eu,', 'Lorem ipsum', 74, 2.42, '31103', 1, 1, 1, 2, 1, NULL),
+(22, 'Producto 2', '5b09e71c2a62a.jpg', 'hjb', 'jh', 24, 2.25, '125 mm x 100 mm', 1, 1, 1, 1, 2, NULL),
+(25, 'Producto 2', '5b0d63b936750.jpg', 'huy', 'flu', 34, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2, NULL),
+(26, 'Otra pintura', '5b0edf2dc83b5.jpg', 'vbv', 'cv', 23, 2.25, '125 mm x 10mm', 1, 1, 1, 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -538,7 +563,7 @@ CREATE TABLE `reservaciones` (
 
 INSERT INTO `reservaciones` (`id_reservacion`, `cantidad`, `fecha`, `hora`, `fecha_estimada`, `id_producto`, `id_cliente`, `id_estado`) VALUES
 (1, 23, '2018-05-10', '11:10:06', '2018-11-23', 11, 15, 9),
-(2, 12, '2018-05-14', '18:24:09', '2018-10-25', 12, 21, 10);
+(2, 12, '2018-05-14', '18:24:09', '2018-10-25', 12, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -683,6 +708,38 @@ CREATE TABLE `valoraciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `valoraciones`
+--
+
+INSERT INTO `valoraciones` (`id_valoracion`, `estrellas`, `comentario`, `id_producto`, `id_cliente`) VALUES
+(1, 3, 'KJAUYFITF', 1, 25),
+(2, 3, 'xtrrthr', 8, 25),
+(13, 1, 'ipsum leo elementum sem, vitae aliquam eros turpis non enim.', 6, 9),
+(14, 3, 'Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi', 16, 18),
+(15, 4, 'congue, elit sed consequat auctor, nunc nulla vulputate dui, nec', 5, 11),
+(16, 3, 'Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc', 9, 12),
+(17, 5, 'Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae semper', 5, 8),
+(18, 3, 'ullamcorper. Duis cursus, diam at pretium aliquet, metus urna convallis', 19, 9),
+(19, 3, 'eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum', 12, 19),
+(20, 5, 'vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh', 13, 11),
+(21, 5, 'augue, eu tempor erat neque non quam. Pellentesque habitant morbi', 9, 18),
+(22, 4, 'nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo', 4, 15),
+(23, 3, 'faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare.', 22, 15),
+(24, 3, 'Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum', 26, 5),
+(25, 2, 'egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus', 16, 6),
+(26, 4, 'dolor sit amet, consectetuer adipiscing elit. Aliquam auctor, velit eget', 10, 16),
+(27, 5, 'ipsum primis in faucibus orci luctus et ultrices posuere cubilia', 17, 5),
+(28, 1, 'lorem eu metus. In lorem. Donec elementum, lorem ut aliquam', 25, 4),
+(29, 1, 'sem, vitae aliquam eros turpis non enim. Mauris quis turpis', 20, 15),
+(30, 1, 'Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus.', 25, 18),
+(31, 5, 'ut eros non enim commodo hendrerit. Donec porttitor tellus non', 20, 2),
+(32, 1, 'tempor, est ac mattis semper, dui lectus rutrum urna, nec', 14, 8),
+(39, 5, 'ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis', 13, 13),
+(40, 1, 'dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae,', 3, 15),
+(41, 5, 'et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat', 13, 8),
+(42, 2, 'porta elit, a feugiat tellus lorem eu metus. In lorem.', 4, 19);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -801,7 +858,8 @@ ALTER TABLE `productos`
   ADD KEY `productos_ibfk_2` (`id_marca`),
   ADD KEY `productos_ibfk_3` (`id_presentacion`),
   ADD KEY `productos_ibfk_4` (`id_proveedor`),
-  ADD KEY `id_tipo_producto` (`id_tipo_producto`);
+  ADD KEY `id_tipo_producto` (`id_tipo_producto`),
+  ADD KEY `productos_ibfk_6` (`id_impuesto`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -871,13 +929,13 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `desarrollo`
@@ -889,13 +947,13 @@ ALTER TABLE `desarrollo`
 -- AUTO_INCREMENT de la tabla `detalle_carrito`
 --
 ALTER TABLE `detalle_carrito`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -913,7 +971,7 @@ ALTER TABLE `importacion_especial`
 -- AUTO_INCREMENT de la tabla `impuestos`
 --
 ALTER TABLE `impuestos`
-  MODIFY `id_impuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_impuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `manejo_impuesto`
@@ -1009,7 +1067,7 @@ ALTER TABLE `tipo_producto`
 -- AUTO_INCREMENT de la tabla `valoraciones`
 --
 ALTER TABLE `valoraciones`
-  MODIFY `id_valoracion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_valoracion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Restricciones para tablas volcadas
@@ -1093,7 +1151,8 @@ ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_presentacion`) REFERENCES `presentaciones` (`id_presentacion`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `productos_ibfk_4` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `productos_ibfk_5` FOREIGN KEY (`id_tipo_producto`) REFERENCES `tipo_producto` (`id_tipo_producto`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_5` FOREIGN KEY (`id_tipo_producto`) REFERENCES `tipo_producto` (`id_tipo_producto`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `productos_ibfk_6` FOREIGN KEY (`id_impuesto`) REFERENCES `impuestos` (`id_impuesto`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `proveedores`
