@@ -410,13 +410,24 @@ class Cliente extends Validator{
 		return session_destroy();
 	}
 
-	public function createUsuario(){
+	public function createUsuario_Cliente(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, DUI, NIT, NRC, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
+		$id_tipo_cliente = 1;
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $this->id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo,);
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
+		return Database::executeRow($sql, $params);
+	}
+	public function createUsuario_Empresa(){
+		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, DUI, NIT, NRC, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$estadouser= 3;
+		$id_tipo_cliente = 2;
+		$estadoau=2;
+		$fecharegistro = date("Y/m/d");
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
