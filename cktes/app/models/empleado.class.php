@@ -335,13 +335,13 @@ class Empleado extends Validator{
 	}
 
 	public function bloquearEmpleado(){
-		$sql = "UPDATE empleado SET estado = 0 WHERE id_empleado = ?";
-		$params = array($fech, $this->id_empleado);
+		$sql = "UPDATE empleado SET estado = ? WHERE id_empleado = ?";
+		$params = array(0, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
 	public function desbloquearEmpleado(){
-		$sql = "UPDATE empleado SET estado = 1 WHERE id_empleado = ?";
-		$params = array($this->id_empleado);
+		$sql = "UPDATE empleado SET estado = ? WHERE id_empleado = ?";
+		$params = array(1, $this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}
 
