@@ -525,7 +525,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -535,6 +535,7 @@ class Cliente extends Validator{
 			$this->correo = $cliente['correo_electronico'];
 			$this->fecha_registro= $cliente['fecha_registro'];
 			$this->ip= $cliente['ip'];
+			$this->imagen = $cliente['url_imagen'];
 			
 			return true;
 		}else{

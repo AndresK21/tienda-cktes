@@ -22,6 +22,20 @@ try{
             }
         }
         
+        if(isset($_POST['volver'])){
+            if($object->readUsuario2($_SESSION['correo_electronico'])){
+            $_SESSION['id_cliente2'] = $object->getId();
+            $_SESSION['correo_electronico'] = $object->getCorreo();
+            $_SESSION['nombres2'] = $object->getNombres();
+            $_SESSION['apellidos2'] = $object->getApellidos();
+            $_SESSION['imagen'] = $object->getImagen();
+                $correo = new CorreoPublic;
+            
+        }else{
+
+            Page::showMessage(3, "Correo electronico incorrecto", "logout.php");
+        }
+    }
 
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);

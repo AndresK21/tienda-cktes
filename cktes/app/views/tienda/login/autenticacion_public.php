@@ -28,6 +28,9 @@
                         </div>
                     </div>
                 </form>
+                <form method="post">
+                <button type='submit' name='volver' class='btn waves-effect colorNa'>Mandar de nuevo codigo de autenticacion</button>
+                </form>
             </div>
         </div>
     </div>

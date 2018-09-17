@@ -15,7 +15,7 @@ try{
                                 if($cliente->setEst(isset($_POST['auten'])?2:1)){
                                 if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                                     if(!$cliente->setImagen($_FILES['archivo'])){
-                                        throw new Exception("Error con la imagen");
+                                        throw new Exception($cliente->getImageError());
                                     }
                                 }
                                 // Se modifica usuario
