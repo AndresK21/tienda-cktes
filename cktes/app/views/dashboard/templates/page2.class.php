@@ -271,28 +271,37 @@ class Page extends Component{
 	public static function templateFooter(){
 		print("
 				</main>
-				<footer class='page-footer grey darken-3'>
-                    <div class='container'>
-                        <div class='row'>
-                        <div class='col l6 s12'>
-                            <h5 class='white-text center-align'>Comun&iacute;cate con nosotros</h5>
-                                <p class='grey-text text-lighten-4 center-align'>Ll&aacute;manos</p>
-                                <p class='grey-text text-lighten-4 center-align'>(503) 2245-6378</p>
-                        </div>
-                        <div class='col l4 offset-l2 s12'>
-                            <h5 class='white-text'>Correo electr&oacute;nico</h5>
-                            <ul>
-                                <li><i class='small  material-icons'>email</i><a class='grey-text text-lighten-3 valign-wrapper'  href='https://mail.google.com/mail/u/0/#inbox?compose=new' target='_blanck'> desarrolladores@gmail.com</a></li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                    <div class='footer-copyright'>
-                        <div class='container'>
-                            © 2018 Copyright DDS
-                        </div>
-                    </div>
+				<footer class='page-footer cktes grey darken-3'>
+					<div class='container'>
+						<div class='row'>
+							<p class=' center text-muted'>CKT-ES, S.A. DE C.V es un proyecto impulsado por INSERT y apoyado por el MINEC a través de la DICA y FONDEPRO</p>
+							<div class='col s9 offset-s2 m6 l3'>
+								<img class='responsive-img' src='../../web/img/footer/insert.png'>
+							</div>
+							<div class='col s9 offset-s2 m6 l3'>
+								<img class='responsive-img' src='../../web/img/footer/gobierno.png'>
+							</div>
+							<div class='col s9 offset-s2 m6 l3'>
+								<img class='responsive-img' src='../../web/img/footer/fondepro.png'>
+							</div>
+							<div class='col s9 offset-s2 m6 l3'>
+								<img class='responsive-img' src='../../web/img/footer/dca.png'>
+							</div>
+						</div>
+						<p class='text-muted'><b>Ganadores de Edici&oacute;n Innova emprende 2016</b></p><br>
+						<div class='row'>
+							<div class='col s9 offset-s2 m6 l3'>
+								<img class='responsive-img' src='../../web/img/footer/innova.png'>
+							</div>
+						</div>
+					</div>
+					<div class='footer-copyright'>
+						<div class='container'>
+							<p>© 2018 Derechos reservados a CKTES S.A. de C.V.</p>   
+						</div>
+					</div>
                 </footer>
+                
 				<!--Import jQuery before materialize.js-->
 				<script type='text/javascript' src='../../web/js/jquery-3.3.1.min.js'></script>
         		<script type='text/javascript' src='../../web/js/main.js'></script>

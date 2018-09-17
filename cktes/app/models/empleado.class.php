@@ -253,7 +253,12 @@ class Empleado extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getEmpleado(){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) ORDER BY id_empleado";
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE estado = 1 ORDER BY id_empleado";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getEmpleado_bloq(){
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE estado = 0 ORDER BY id_empleado";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
@@ -263,7 +268,12 @@ class Empleado extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function searchEmpleado($value){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_empleado";
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? AND estado = 1 ORDER BY id_empleado";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function searchEmpleado_bloq($value){
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? AND estado = 0 ORDER BY id_empleado";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
@@ -320,6 +330,18 @@ class Empleado extends Validator{
 	}
 	public function deleteEmpleado(){
 		$sql = "DELETE FROM empleado WHERE id_empleado = ?";
+		$params = array($this->id_empleado);
+		return Database::executeRow($sql, $params);
+	}
+
+	public function bloquearEmpleado(){
+		$sql = "UPDATE empleado SET estado = 0, fecha_bloqueo = ? WHERE id_empleado = ?";
+		$fech = date('Y-m-d h:i:s');
+		$params = array($fech, $this->id_empleado);
+		return Database::executeRow($sql, $params);
+	}
+	public function desbloquearEmpleado(){
+		$sql = "UPDATE empleado SET estado = 1 WHERE id_empleado = ?";
 		$params = array($this->id_empleado);
 		return Database::executeRow($sql, $params);
 	}

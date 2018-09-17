@@ -15,6 +15,22 @@ try{
 	}else{
 		$data = $usuario->getEmpleado();
 	}
+
+
+
+	if(isset($_POST['buscar2'])){
+		$_POST = $usuario->validateForm($_POST);
+		$data2 = $usuario->searchEmpleado_bloq($_POST['busqueda2']);
+		if($data2){
+			$rows = count($data2);
+			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
+		}else{
+			Page::showMessage(4, "No se encontraron resultados", null);
+			$data2 = $usuario->getEmpleado_bloq();
+		}
+	}else{
+		$data2 = $usuario->getEmpleado_bloq();
+	}
 	if($data){
 		require_once("../../app/views/dashboard/usuario/index_view.php");
 	}else{

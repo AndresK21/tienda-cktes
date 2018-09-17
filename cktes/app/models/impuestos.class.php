@@ -3,7 +3,8 @@ class Impuesto extends Validator{
 	//Declaración de propiedades
 	private $id_impuesto = null;
     private $nombre = null;
-    private $porcentaje = null;
+	private $porcentaje = null;
+	private $valor = null;
 
     //Métodos para sobrecarga de propiedades
     public function setId_impuesto($value){
@@ -40,6 +41,18 @@ class Impuesto extends Validator{
 	}
 	public function getPorcentaje(){
 		return $this->porcentaje;
+	}
+	
+	public function setValor($value){
+		if($this->validateAlphanumeric($value, 1, 5)){
+			$this->valor = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getValor(){
+		return $this->valor;
     }
 
 	//Metodos para el manejo del CRUD
@@ -54,25 +67,36 @@ class Impuesto extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function createImpuesto(){
-		$sql = "INSERT INTO impuestos(nombre, porcentaje) VALUES (?, ?)";
-		$params = array($this->nombre, $this->porcentaje);
+		$sql = "INSERT INTO impuestos(nombre, porcentaje, valor) VALUES (?, ?, ?)";
+		if($this->porcentaje >=10){
+			$valor = '0.'.$this->porcentaje;
+		}else if($this->porcentaje <10){
+			$valor = '0.0'.$this->porcentaje;
+		}
+		$params = array($this->nombre, $this->porcentaje, $valor);
 		return Database::executeRow($sql, $params);
 	}
 	public function readImpuesto(){
-		$sql = "SELECT nombre, porcentaje FROM impuestos WHERE id_impuesto = ? ORDER BY id_impuesto";
+		$sql = "SELECT nombre, porcentaje, valor FROM impuestos WHERE id_impuesto = ? ORDER BY id_impuesto";
 		$params = array($this->id_impuesto);
 		$impuesto = Database::getRow($sql, $params);
 		if($impuesto){
             $this->nombre = $impuesto['nombre'];
-            $this->porcentaje = $impuesto['porcentaje'];
+			$this->porcentaje = $impuesto['porcentaje'];
+			$this->valor = $impuesto['valor'];
 			return true;
 		}else{
 			return null;
 		}
 	}
 	public function updateImpuesto(){
-		$sql = "UPDATE impuestos SET nombre = ?, porcentaje = ? WHERE id_impuesto = ?";
-		$params = array($this->nombre, $this->porcentaje, $this->id_impuesto);
+		$sql = "UPDATE impuestos SET nombre = ?, porcentaje = ?, valor = ? WHERE id_impuesto = ?";
+		if($this->porcentaje >=10){
+			$valor = '0.'.$this->porcentaje;
+		}else if($this->porcentaje <10){
+			$valor = '0.0'.$this->porcentaje;
+		}
+		$params = array($this->nombre, $this->porcentaje, $valor, $this->id_impuesto);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteImpuesto(){

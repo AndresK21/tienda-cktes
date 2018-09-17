@@ -8,8 +8,8 @@ try{
 				if($usuario->setId_empleado($_GET['id'])){
 					if($usuario->readEmpleado()){
 						if(isset($_POST['eliminar'])){
-							if($usuario->bloquearEmpleado()){
-								Page::showMessage(1, "Usuario bloqueado", "index.php");
+							if($usuario->desbloquearEmpleado()){
+								Page::showMessage(1, "Usuario desbloqueado", "index.php");
 							}else{
 								throw new Exception(Database::getException());
 							}
@@ -32,5 +32,5 @@ try{
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), "index.php");
 }
-require_once("../../app/views/dashboard/usuario/delete_view.php");
+require_once("../../app/views/dashboard/usuario/delete2_view.php");
 ?>

@@ -105,11 +105,11 @@ class Valoracion extends Validator{
 		$sql = "SELECT estrellas, comentario, id_producto, id_cliente FROM valoraciones WHERE id_valoracion = ? ORDER BY id_valoracion";
 		$params = array($this->id_valoracion);
 		$svaloracion = Database::getRow($sql, $params);
-		if($valoracion){
-			$this->estrellas = $valoracion['estrellas'];
-			$this->comentario = $valoracion['comentario'];
-			$this->id_producto = $valoracion['id_producto'];
-			$this->id_cliente = $valoracion['id_cliente'];
+		if($svaloracion){
+			$this->estrellas = $svaloracion['estrellas'];
+			$this->comentario = $svaloracion['comentario'];
+			$this->id_producto = $svaloracion['id_producto'];
+			$this->id_cliente = $svaloracion['id_cliente'];
 			return true;
 		}else{
 			return null;
