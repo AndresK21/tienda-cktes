@@ -412,7 +412,7 @@ class Cliente extends Validator{
 
 	public function createUsuario_Cliente(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, DUI, NIT, NRC, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, dui, nit, nrc, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
 		$id_tipo_cliente = 1;
 		$estadoau=2;
@@ -423,7 +423,7 @@ class Cliente extends Validator{
 	}
 	public function createUsuario_Empresa(){
 		$hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, DUI, NIT, NRC, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO clientes(estado_cliente, nombres, apellidos, correo_electronico, contrasena, url_imagen, id_tipo_cliente, fecha_registro, estado_autenticacion, dui, nit, nrc, actividad, direccion, encargado, cargo_encargado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$estadouser= 3;
 		$id_tipo_cliente = 2;
 		$estadoau=2;
@@ -538,7 +538,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,DUI,NIT FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,dui,nit FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -549,8 +549,8 @@ class Cliente extends Validator{
 			$this->fecha_registro= $cliente['fecha_registro'];
 			$this->ip= $cliente['ip'];
 			$this->imagen = $cliente['url_imagen'];
-			$this->DUI = $cliente['DUI'];
-			$this->NIT = $cliente['NIT'];
+			$this->DUI = $cliente['dui'];
+			$this->NIT = $cliente['nit'];
 			
 			return true;
 		}else{

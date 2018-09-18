@@ -31,26 +31,30 @@ try {
                                                                     if (preg_match('`[0-9]`', $clave)) {
                                                                         if ($usuario->setContrasena($_POST['clave1'])) {
                                                                             // RECAPTCHA GOOGLE
+                                                                            if($response_recaptcha = $_POST["g-recaptcha-response"]){
                                                                             //Clave Secreta
                                                                             $secret    = "6LeLpG0UAAAAADnxPpB6PMVDKZ-0yXM5AtYjFEU3";
                                                                             $response  = null;
                                                                             // comprueba la clave secreta
                                                                             $reCaptcha = new ReCaptcha($secret);
-                                                                            if ($_POST["g-recaptcha-response"]) {
-                                                                                $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
-                                                                            }
-                                                                            if ($response != null && $response->success) {
-                                                                                // Se crea el usuario (cliente)
-                                                                                if ($usuario->createUsuario_Cliente()) {
-                                                                                    Page::showMessage(1, "Usuario registrado, debe iniciar sesion", "acceder.php");
-                                                                                    $usuario->maxCliente();
-                                                                                    $usuario->CreateCarrito();
-                                                                                } else {
-                                                                                throw new Exception(Database::getException());
+                                                                                if ($_POST["g-recaptcha-response"]) {
+                                                                                    $response = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $_POST["g-recaptcha-response"]);
                                                                                 }
-                                                                            } else {
-                                                                                // Si el código no es válido, lanzamos mensaje de error al usuario
-                                                                                throw new Exception("Porfavor llena el reCAPTCHA");
+                                                                                if ($response != null && $response->success) {
+                                                                                    // Se crea el usuario (cliente)
+                                                                                    if ($usuario->createUsuario_Cliente()) {
+                                                                                        Page::showMessage(1, "Usuario registrado, debe iniciar sesion", "acceder.php");
+                                                                                        $usuario->maxCliente();
+                                                                                        $usuario->CreateCarrito();
+                                                                                    } else {
+                                                                                    throw new Exception(Database::getException());
+                                                                                    }
+                                                                                } else {
+                                                                                    // Si el código no es válido, lanzamos mensaje de error al usuario
+                                                                                    throw new Exception("Porfavor llena el reCAPTCHA");
+                                                                                }
+                                                                            }else {
+                                                                                throw new Exception("Sin conexion a internet");
                                                                             }
                                                                         } else {
                                                                             throw new Exception("Clave inválida");
@@ -131,6 +135,7 @@ try {
                                                                         if (preg_match('`[0-9]`', $clave)) {
                                                                             if ($usuario->setContrasena($_POST['clave1_empresa'])) {
                                                                                 // RECAPTCHA GOOGLE
+                                                                                if($response_recaptcha = $_POST['g-recaptcha-response']){
                                                                                 //Clave Secreta
                                                                                 $secret    = "6LeLpG0UAAAAADnxPpB6PMVDKZ-0yXM5AtYjFEU3";
                                                                                 $response  = null;
@@ -152,6 +157,9 @@ try {
                                                                                     // Si el código no es válido, lanzamos mensaje de error al usuario
                                                                                     throw new Exception("Porfavor llena el reCAPTCHA");
                                                                                 }
+                                                                            }else {
+                                                                                throw new Exception("Sin conexion a internet");
+                                                                            }
                                                                             } else {
                                                                                 throw new Exception("Clave inválida");
                                                                             }
