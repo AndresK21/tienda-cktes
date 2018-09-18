@@ -234,7 +234,7 @@ class Producto extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getCategoriaProductos(){
-		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio, productos.precio_total productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, marca.marca, tipo_producto.tipo_producto 
+		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio, productos.precio_total, productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, marca.marca, tipo_producto.tipo_producto 
 		FROM productos 
 		INNER JOIN marca ON productos.id_marca = marca.id_marca 
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
@@ -245,7 +245,7 @@ class Producto extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function getCategoriaProductos2($empieza, $por_pagina){
-		$query = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.descripcion, productos.tamano, productos.precio, productos.precio_total presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto, productos.url_imagen
+		$query = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.descripcion, productos.tamano, productos.precio, productos.precio_total, presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto, productos.url_imagen
 		FROM productos 
 		INNER JOIN marca ON productos.id_marca = marca.id_marca 
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
@@ -357,7 +357,7 @@ class Producto extends Validator{
 	}
 
 	public function readProducto2(){
-		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total, productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){

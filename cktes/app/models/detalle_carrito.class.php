@@ -67,7 +67,7 @@ class Detalle extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function createDetalle(){
-		$sql = "INSERT INTO detalle(cantidad, id_carrito, id_producto) VALUES (?, ?, ?)";
+		$sql = "INSERT INTO detalle_carrito(cantidad, id_carrito, id_producto) VALUES (?, ?, ?)";
 		$params = array($this->cantidad, $this->id_carrito, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}

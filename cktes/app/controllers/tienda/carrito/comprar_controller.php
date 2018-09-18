@@ -1,6 +1,7 @@
  <?php
  //Controlador para poder realizar una compra
 require_once("../app/models/detalle.class.php"); 
+require_once("../app/models/cliente.class.php");
 try{
 // Se realizará cuando se de click al input 'comprar'   
 if(isset($_POST['comprar'])){
