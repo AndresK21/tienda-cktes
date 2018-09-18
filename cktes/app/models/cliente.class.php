@@ -417,8 +417,8 @@ class Cliente extends Validator{
 		$id_tipo_cliente = 1;
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
-		$url_imagen = 'no-user.png';
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $url_imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
+		
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
 		return Database::executeRow($sql, $params);
 	}
 	public function createUsuario_Empresa(){
@@ -429,7 +429,7 @@ class Cliente extends Validator{
 		$estadoau=2;
 		$fecharegistro = date("Y/m/d");
 		$url_imagen = 'no-user.png';
-		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $url_imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
+		$params = array($estadouser,$this->nombres, $this->apellidos,$this->correo, $hash, $this->imagen, $id_tipo_cliente, $fecharegistro, $estadoau, $this->DUI, $this->NIT, $this->NRC, $this->actividad, $this->direccion, $this->encargado, $this->cargo);
 		return Database::executeRow($sql, $params);
 	}
 	public function maxCliente(){
@@ -538,7 +538,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,DUI,NIT FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -549,6 +549,8 @@ class Cliente extends Validator{
 			$this->fecha_registro= $cliente['fecha_registro'];
 			$this->ip= $cliente['ip'];
 			$this->imagen = $cliente['url_imagen'];
+			$this->DUI = $cliente['DUI'];
+			$this->NIT = $cliente['NIT'];
 			
 			return true;
 		}else{
@@ -563,7 +565,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion, ip , url_imagen, estado_autenticacion FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion, ip , url_imagen, estado_autenticacion, id_tipo_cliente FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -575,6 +577,8 @@ class Cliente extends Validator{
 			$this->ip = $cliente['ip'];
 			$this->imagen = $cliente['url_imagen'];
 			$this->estadoAu = $cliente['estado_autenticacion'];
+			$this->id_tipo_cliente = $cliente['id_tipo_cliente'];
+
 			return true;
 		}else{
 			return null;

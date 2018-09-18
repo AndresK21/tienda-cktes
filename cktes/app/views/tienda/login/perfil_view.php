@@ -54,6 +54,17 @@ print("
                 <input id='correo' type='email' name='correo' autocomplete='off' class='validate' value='<?php print($cliente->getCorreo()) ?>' required/>
                 <label for='correo'>Correo</label>
             </div>
+  
+        <div class='input-field col s12 m6'>
+                <i class='material-icons prefix'>email</i>
+                <input id='dui' type='text' name='dui' autocomplete='off' class='validate' value='<?php print($cliente->getDUI()) ?>' required/>
+                <label for='dui'>DUI</label>
+            </div>
+            <div class='input-field col s12 m6'>
+                <i class='material-icons prefix'>email</i>
+                <input id='nit' type='text' name='nit' autocomplete='off' class='validate' value='<?php print($cliente->getNIT()) ?>' required/>
+                <label for='nit'>NIT</label>
+            </div>
             <div class="row">
             <div class='col s12 m6'>
             <i class='material-icons prefix'>email</i>
@@ -66,7 +77,6 @@ print("
                             <i>Activado</i>
                         </label>
                     </div>
-                
             </div>
         </div>
         <!--Botoón cancelar y guardar-->

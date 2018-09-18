@@ -28,8 +28,12 @@
                         </div>
                     </div>
                 </form>
+                <div class="row">
+                        <div class="col s12 right-align">
                 <form method="post">
-                <button type='submit' name='volver' class='btn waves-effect colorNa'>Mandar de nuevo codigo de autenticacion</button>
+                <button type='submit' id='botonLog' name='volver' class='btn transparent'>Mandar de nuevo codigo de autenticacion</button>
+                </div>
+                </div>
                 </form>
             </div>
         </div>

@@ -14,6 +14,10 @@ body {
   .posLogo{
     left: 3.5rem;
   }
+  #botonLog{
+    outline: none;
+    border: 0;
+  }
   .maxW{
     max-width: 30%;
     height: auto;

@@ -233,6 +233,7 @@ try {
                                         $_SESSION['nombres2'] = $usuario->getNombres();
                                         $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $_SESSION['imagen'] = $usuario->getImagen();
+                                        $_SESSION['id_tipo_cliente']= $usuario->getTipoCliente();
                                     
                                     $usuario->intentoCero($_SESSION['correo_electronico']);
                                     //Si el usuario y la contraseña son correctos se inicia sesión
@@ -250,6 +251,7 @@ try {
                                         $_SESSION['nombres2'] = $usuario->getNombres();
                                         $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $_SESSION['imagen'] = $usuario->getImagen();
+                                        $_SESSION['id_tipo_cliente']= $usuario->getTipoCliente();
                                     
                                     $usuario->intentoCero($_SESSION['correo_electronico']);
                                     //Si el usuario y la contraseña son correctos se inicia sesión
@@ -286,6 +288,7 @@ try {
                                             $_SESSION['nombres2'] = $usuario->getNombres();
                                             $_SESSION['apellidos2'] = $usuario->getApellidos();
                                             $_SESSION['imagen'] = $usuario->getImagen();
+                                            $_SESSION['id_tipo_cliente']= $usuario->getTipoCliente();
                                         $usuario->updateEstado2($_SESSION['correo_electronico']); //Regresa el estado del usuario a disponible para iniciar sesion
                                         $usuario->intentoCero($_SESSION['correo_electronico']);
                                         //Si el usuario y la contraseña son correctos se inicia sesión

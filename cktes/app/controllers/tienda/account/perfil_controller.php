@@ -4,7 +4,10 @@ require_once("../app/models/cliente.class.php");
 try{
     $cliente = new Cliente;
     if($cliente->setId($_SESSION['id_cliente'])){
+        $tipo= $_SESSION['id_tipo_cliente'];
         if($cliente->readUsuario()){
+              if($tipo==1){
+            require_once("../app/views/tienda/login/perfil_view.php");
             //Se realizará cuando se de click al input 'editar'
             if(isset($_POST['editar'])){
                 $_POST = $cliente->validateForm($_POST);
@@ -42,14 +45,23 @@ try{
                     throw new Exception("Nombres incorrectos");
                 }
             }
-        }else{
-            Page::showMessage(2, "Usuario inexistente", "categorias.php");
-        }
+       
+    }
+    else{
+        require_once("../app/views/tienda/login/contrasena_view.php");
+    }
+}else{
+    Page::showMessage(2, "Usuario inexistente", "categorias.php");
+}
     }else{
         Page::showMessage(2, "Usuario incorrecto", "categorias.php");
     }
+
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../app/views/tienda/login/perfil_view.php");
+
+
+
+
 ?>
