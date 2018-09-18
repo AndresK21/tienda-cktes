@@ -63,7 +63,7 @@ try{
 	if($data){
 		require_once("../../app/views/dashboard/clientes/index_view.php");
 	}else{
-		Page::showMessage(4, "No hay clientes disponibles", "create.php");
+		Page::showMessage(4, "No hay clientes disponibles", "index.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), "../cuenta/");
