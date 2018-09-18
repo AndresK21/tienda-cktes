@@ -90,16 +90,16 @@
                 $fill = false;
                 foreach($result as $row)
                 {
+
                     $fecha = date_create($row['fecha']);
 
-                    $this->Cell($w[0],6,$row['nombre'],'LR',0,'L',$fill);
-                    $this->Cell($w[1],6,date_format($fecha, 'd-m-Y'),'LR',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['cant'],'LR',0,'L',$fill);
-                    $this->Cell($w[3],6,'$'.$row['precio'],'LR',0,'L',$fill);
-                    $this->Cell($w[4],6,'$'.number_format($row['venta'], 2),'LR',0,'L',$fill);
-
-                    $total = $total + $row['venta'];
+                    $this->Cell($w[0],6,$row['nombre'],'LRT',0,'L',$fill);
+                    $this->Cell($w[1],6,date_format($fecha, 'd-m-Y'),'LRT',0,'L',$fill);
+                    $this->Cell($w[2],6,$row['cant'],'LRT',0,'L',$fill);
+                    $this->Cell($w[3],6,'$'.$row['precio'],'LRT',0,'L',$fill);
+                    $this->Cell($w[4],6,'$'.number_format($row['venta'], 2),'LRT',0,'L',$fill);
                     $this->Ln();
+                    $total = $total + $row['venta'];
                     $fill = !$fill;
                 }
                 // L�nea de cierre

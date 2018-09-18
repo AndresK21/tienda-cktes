@@ -25,6 +25,10 @@ try{
                                                                                 throw new Exception($producto->getImageError());
                                                                             }
                                                                         }if($producto->devValor()){
+                                                                            /*$desc = $_POST['descuento'];
+                                                                            $va = $desc * $_POST['precio'];
+                                                                            $pre = $va- $_POST['precio'];
+                                                                            $producto->setPrecio();*/
                                                                             if($producto->updateProducto()){
                                                                                 Page::showMessage(1, "Producto modificado", "index.php");
                                                                             }else{

@@ -8,8 +8,11 @@ try{
 		if($producto->setId_producto($_GET['id'])){
 			if($producto->readProducto2()){
 				if($valoraciones->setId_producto($_GET['id'])){
-					$valoracion2 = $valoraciones->getValoracionesProducto();
-					$valoracion3 = $valoraciones->getEstrellasPromedio();
+					if($valoraciones->getValoracionesProducto()){
+						$valoracion2 = $valoraciones->getValoracionesProducto();
+					}else{
+						throw new Exception("Este producto no tiene comentarios");
+					}
 				}else{
 					throw new Exception("Valoracion incorrecta");
 				}
@@ -24,7 +27,7 @@ try{
 		throw new Exception("Seleccione producto");
 	}
 }catch(Exception $error){
-	Page::showMessage(3, $error->getMessage(), "producto_categorias.php");
+	Page::showMessage(3, $error->getMessage(), "index.php");
 }
 require_once("../../app/views/dashboard/producto/comentario_view.php");
 ?>
