@@ -538,7 +538,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,dui,nit FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,dui,nit,actividad,direccion FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -551,6 +551,8 @@ class Cliente extends Validator{
 			$this->imagen = $cliente['url_imagen'];
 			$this->DUI = $cliente['dui'];
 			$this->NIT = $cliente['nit'];
+			$this->actividad = $cliente['actividad'];
+			$this->direccion = $cliente['direccion'];
 			
 			return true;
 		}else{
@@ -586,8 +588,8 @@ class Cliente extends Validator{
 	}
 
 	public function updateUsuario(){
-		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ?, estado_autenticacion =? WHERE id_cliente = ?";
-		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen, $this->estadoAu, $this->id);
+		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ?, estado_autenticacion =?, nit=?, dui=?,direccion=?, actividad=?  WHERE id_cliente = ?";
+		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen, $this->estadoAu, $this->NIT, $this->DUI,$this->direccion,$this->actividad, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateFoto(){

@@ -1,4 +1,3 @@
-<!--TITULO Categorias-->
 <?php
 print("
 <h2 class='center-align truncate'><b>INFORMACIÓN</b></h2>
