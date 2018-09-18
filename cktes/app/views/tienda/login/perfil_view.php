@@ -66,11 +66,11 @@ print("
                 <label for='nit'>NIT</label>
             </div>
             <div class="input-field col s12 m6">
-            <select id='actividad' name='actividad' class='validate transparent' value='<?php print($cliente->getActividad()) ?>' required/>
+            <select id='actividad' name='nada' class='validate transparent'  required>
                 <option value='' disabled selected>¿A qué se dedica?</option>
-                <option value="Trabaja">Trabaja</option>
-                <option value="Estudia">Estudia</option>
-                <option value="Independiente">Independiente</option>
+                <option value='Trabaja'>Trabaja</option>
+                <option value='Estudi'>Estudia</option>
+                <option value='Independiente'>Independiente</option>
             </select>
             </div>
             <div class='input-field col s12 m6'>

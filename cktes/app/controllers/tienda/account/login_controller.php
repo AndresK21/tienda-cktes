@@ -242,6 +242,7 @@ try {
                                         $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $_SESSION['imagen'] = $usuario->getImagen();
                                         $_SESSION['id_tipo_cliente']= $usuario->getTipoCliente();
+                                        $_SESSION['actividad']= $usuario->getActividad();
                                     
                                     $usuario->intentoCero($_SESSION['correo_electronico']);
                                     //Si el usuario y la contraseña son correctos se inicia sesión
@@ -260,6 +261,7 @@ try {
                                         $_SESSION['apellidos2'] = $usuario->getApellidos();
                                         $_SESSION['imagen'] = $usuario->getImagen();
                                         $_SESSION['id_tipo_cliente']= $usuario->getTipoCliente();
+                                        $_SESSION['actividad']= $usuario->getActividad();
                                     
                                     $usuario->intentoCero($_SESSION['correo_electronico']);
                                     //Si el usuario y la contraseña son correctos se inicia sesión

@@ -538,7 +538,7 @@ class Cliente extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function readUsuario(){
-		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,dui,nit,actividad,direccion FROM clientes WHERE id_cliente = ?";
+		$sql = "SELECT estado_cliente,nombres,apellidos, correo_electronico, fecha_registro, ip, url_imagen,dui,nit,actividad,direccion,encargado,nrc,cargo_encargado FROM clientes WHERE id_cliente = ?";
 		$params = array($this->id);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -553,6 +553,11 @@ class Cliente extends Validator{
 			$this->NIT = $cliente['nit'];
 			$this->actividad = $cliente['actividad'];
 			$this->direccion = $cliente['direccion'];
+			$this->encargado = $cliente['encargado'];
+			$this->NRC= $cliente['nrc'];
+			$this->cargo= $cliente['cargo_encargado'];
+
+
 			
 			return true;
 		}else{
@@ -567,7 +572,7 @@ class Cliente extends Validator{
 	}
 
 	public function readUsuario2($correo){
-		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion, ip , url_imagen, estado_autenticacion, id_tipo_cliente FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
+		$sql = "SELECT nombres, apellidos, correo_electronico, contrasena, autenticacion, ip , url_imagen, estado_autenticacion, id_tipo_cliente,actividad, cargo_encargado FROM clientes WHERE correo_electronico = ? ORDER BY id_cliente";
 		$params = array($correo);
 		$cliente = Database::getRow($sql, $params);
 		if($cliente){
@@ -580,6 +585,8 @@ class Cliente extends Validator{
 			$this->imagen = $cliente['url_imagen'];
 			$this->estadoAu = $cliente['estado_autenticacion'];
 			$this->id_tipo_cliente = $cliente['id_tipo_cliente'];
+			$this->actividad = $cliente['actividad'];
+			$this->cargo = $cliente['cargo_encargado'];
 
 			return true;
 		}else{
@@ -590,6 +597,12 @@ class Cliente extends Validator{
 	public function updateUsuario(){
 		$sql = "UPDATE clientes SET nombres = ?, apellidos = ?, correo_electronico = ?, url_imagen = ?, estado_autenticacion =?, nit=?, dui=?,direccion=?, actividad=?  WHERE id_cliente = ?";
 		$params = array($this->nombres, $this->apellidos, $this->correo, $this->imagen, $this->estadoAu, $this->NIT, $this->DUI,$this->direccion,$this->actividad, $this->id);
+		print_r($params);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateUsuarioEm(){
+		$sql = "UPDATE clientes SET nombres = ?, encargado=?, correo_electronico = ?, url_imagen = ?, cargo_encargado=?, estado_autenticacion =?, nit=?, nrc=?,direccion=?, actividad=?  WHERE id_cliente = ?";
+		$params = array($this->nombres, $this->encargado, $this->correo, $this->imagen, $this->cargo, $this->estadoAu, $this->NIT, $this->NRC,$this->direccion,$this->actividad, $this->id);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateFoto(){

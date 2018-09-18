@@ -19,7 +19,10 @@ print("
             </div>
             
             <div class='center'>
-                  <h4><b>$_SESSION[nombres2] $_SESSION[apellidos2]</b></h4>
+                  <h4><b>$_SESSION[nombres2]</b></h4>
+            </div>
+            <div class='center'>
+                  <h4><b>$_SESSION[actividad]</b></h4>
             </div>
             <div class='center'>
                  <h5>$_SESSION[correo_electronico]</h5>
@@ -39,13 +42,7 @@ print("
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>person</i>
                 <input id='nombres' type='text' autocomplete='off' name='nombres' class='validate' value='<?php print($cliente->getNombres()) ?>' required/>
-                <label for='nombres'>Nombres</label>
-            </div>
-            <!--Apellidos-->
-            <div class='input-field col s12 m6'>
-                <i class='material-icons prefix'>person</i>
-                <input id='apellidos' type='text' autocomplete='off' name='apellidos' class='validate' value='<?php print($cliente->getApellidos()) ?>' required/>
-                <label for='apellidos'>Apellidos</label>
+                <label for='nombres'>Nombre empresa</label>
             </div>
             <!--Email-->
             <div class='input-field col s12 m6'>
@@ -53,33 +50,40 @@ print("
                 <input id='correo' type='email' name='correo' autocomplete='off' class='validate' value='<?php print($cliente->getCorreo()) ?>' required/>
                 <label for='correo'>Correo</label>
             </div>
-  
+            <div class='input-field col s12 m6'>
+                <i class='material-icons prefix'>person</i>
+                <input id='nombreEn' type='text' autocomplete='off' name='nombreEn' class='validate' value='<?php print($cliente->getEncargado()) ?>' required/>
+                <label for='nombreEn'>Nombre encargado de compra</label>
+            </div>
+            <div class='input-field col s12 m6'>
+                <i class='material-icons prefix'>email</i>
+                <input id='cargo' type='text' name='cargo' autocomplete='off' class='validate' value='<?php print($cliente->getCargo()) ?>' required/>
+                <label for='cargo'>Cargo de empresa</label>
+            </div>
         <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>email</i>
-                <input id='dui' type='text' name='dui' autocomplete='off' class='validate' value='<?php print($cliente->getDUI()) ?>' required/>
-                <label for='dui'>DUI</label>
+                <input id='ncr' type='text' name='nrc' autocomplete='off' class='validate' value='<?php print($cliente->getNRC()) ?>' required/>
+                <label for='ncr'>NRC</label>
             </div>
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>email</i>
                 <input id='nit' type='text' name='nit' autocomplete='off' class='validate' value='<?php print($cliente->getNIT()) ?>' required/>
-                <label for='nit'>NIT</label>
-            </div>
-            <div class="input-field col s12 m6">
-            <select id='actividad' name='actividad' class='validate transparent' value='<?php print($cliente->getActividad()) ?>' required/>
-                <option value='' disabled selected>¿A qué se dedica?</option>
-                <option value="Trabaja">Trabaja</option>
-                <option value="Estudia">Estudia</option>
-                <option value="Independiente">Independiente</option>
-            </select>
+                <label for='nit'> NIT</label>
             </div>
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>email</i>
                 <input id='direccion' type='text' name='direccion' autocomplete='off' class='validate' value='<?php print($cliente->getDireccion()) ?>' required/>
                 <label for='direccion'>Direcci&oacute;n</label>
             </div>
+            <div class='input-field col s12 m6'>
+                <i class='material-icons prefix'>email</i>
+                <input id='actividad' type='text' name='actividad' autocomplete='off' class='validate' value='<?php print($cliente->getActividad()) ?>' required/>
+                <label for='actividad'>Actividad económica</label>
+            </div>
+           
             <div class="row">
-            <div class='col s12 m6'>
-            <i class='material-icons prefix'>email</i>
+            <div class='col s12 center'>
+          
                     <div class='switch'>
                         <span>Autenticaci&oacute;n en dos pasos</span>
                         <label>
@@ -94,7 +98,7 @@ print("
         <!--Botoón cancelar y guardar-->
         <div class='row center-align'>
             <a href='categorias.php' class='btn waves-effect grey tooltipped' data-tooltip='Cancelar'><i class='material-icons'>cancel</i></a>
-            <button type='submit' name='editar' class='btn waves-effect blue tooltipped' data-tooltip='Editar'><i class='material-icons'>save</i></button>
+            <button type='submit' name='editarE' class='btn waves-effect blue tooltipped' data-tooltip='Editar'><i class='material-icons'>save</i></button>
         </div>
        
    </form>
