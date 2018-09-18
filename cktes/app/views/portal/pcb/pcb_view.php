@@ -23,12 +23,10 @@
                     <h6><b>Visualizar archivo gerber</b></h6>  
                     <div class="col s12 m6 l5 push-l1">
                         <div class="card card-panel hoverable">
-                                <div class="card-image">
-                                <img src="../web/img/portal/pcb/3.PNG">
-                                </div>
-                                <div class="card-content">
-                                    <p><b class="cyan-text"></b><br><h5>Archivo gerber</h5></p>
-                                </div>
+                            <div class="embed-container">
+                        <iframe src="http://www.gerber-viewer.com/"  border="0" frameborder="0" height="" width="" > 
+                        </iframe> 
+                        </div>
                         </div>
                     </div>
                     <h6><b>Especificaciones</b></h6>  

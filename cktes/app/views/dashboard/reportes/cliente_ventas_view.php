@@ -86,9 +86,9 @@
                 $fill = false;
                 foreach($result as $row)
                 {
-                    $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LR',0,'L',$fill);
-                    $this->Cell($w[1],6,$row['correo_electronico'],'LR',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['cant'],'LR',0,'L',$fill);
+                    $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LRT',0,'L',$fill);
+                    $this->Cell($w[1],6,$row['correo_electronico'],'LRT',0,'L',$fill);
+                    $this->Cell($w[2],6,$row['cant'],'LRT',0,'L',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }
