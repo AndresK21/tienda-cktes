@@ -98,7 +98,7 @@ class Validator{
 	}
 
 	public function validateArchive($file, $value, $path){
-		if($file['size'] <= 8388608){
+		if($file['size'] <= 2097152){
 			if($value){
 				$this->archiveName = $value;
 			}else{

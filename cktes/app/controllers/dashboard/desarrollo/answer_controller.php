@@ -10,6 +10,8 @@ try{
             if($desarrollo->setId_Desarrollo($_GET['id'])){ //Establece el id en una varible para usarla despues
                 if($desarrollo->readDesarrollo()){
 
+
+
                     $empleado = new Empleado;
                     if(isset($_POST['enviar'])){
                     $_POST = $empleado->validateForm($_POST);
@@ -35,13 +37,15 @@ try{
                                 $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
                                 $mail->addAddress($correo, $usuario);
 
-                                $mail->Subject = $_POST['asunto'];
-                                $mail->Body = $_POST['mensaje'];
+                                $asunto = $_POST['asunto'];
+                                $mensaje = $_POST['mensaje'];
+                                $mail->Subject = $asunto;
+                                $mail->Body = $mensaje;
 
                                 if(!$mail->send()){
-                                    Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
+                                    Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "index.php");
                                 }else{
-                                    Page::showMessage(1, "El mensaje se ha enviado correctamente", "login.php");
+                                    Page::showMessage(1, "El mensaje se ha enviado correctamente", "index.php");
                                 }
 
                             }else{
@@ -53,6 +57,7 @@ try{
                     }
 
 
+                    
                 }else{
                     Page::showMessage(2, "Desarrollo inexistente", "index.php");
                 }
@@ -65,6 +70,8 @@ try{
     }else{
         Page::showMessage(3, "Seleccione un desarrollo", "index.php");
     }
+
+    
 }catch(Exception $error){
     Page::showMessage(2, $error->getMessage(), null);
 }
