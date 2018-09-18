@@ -24,11 +24,15 @@ try{
                                                                             if(!$producto->setImagen($_FILES['archivo'])){
                                                                                 throw new Exception($producto->getImageError());
                                                                             }
-                                                                            }if($producto->updateProducto()){
+                                                                        }if($producto->devValor()){
+                                                                            if($producto->updateProducto()){
                                                                                 Page::showMessage(1, "Producto modificado", "index.php");
                                                                             }else{
                                                                                 throw new Exception("No se pudo modificar el producto");
                                                                             }
+                                                                        }else{
+                                                                            throw new Exception(Database::getException());
+                                                                        }
                                                                     }else{
                                                                         throw new Exception("Seleccione un impuesto");
                                                                     }                                                                

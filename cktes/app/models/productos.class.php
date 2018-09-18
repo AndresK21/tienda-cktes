@@ -15,6 +15,7 @@ class Producto extends Validator{
 	private $id_estado = null;
 	private $id_tipo_producto = null;
 	private $id_impuesto = null;
+	private $total = null;
 	
 	private $proveedor = null;
 	private $marca = null;
@@ -148,6 +149,17 @@ class Producto extends Validator{
 	public function getPrecio(){
 		return $this->precio;
 	}
+	public function setTotal($value){
+		if($this->validateMoney($value)){
+			$this->total = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getTotal(){
+		return $this->total;
+	}
 
 	public function setTamano($value){
 		if($this->validateAlphanumeric($value, 1, 30)){
@@ -222,7 +234,7 @@ class Producto extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getCategoriaProductos(){
-		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio, productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, marca.marca, tipo_producto.tipo_producto 
+		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio, productos.precio_total productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, marca.marca, tipo_producto.tipo_producto 
 		FROM productos 
 		INNER JOIN marca ON productos.id_marca = marca.id_marca 
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
@@ -233,7 +245,7 @@ class Producto extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function getCategoriaProductos2($empieza, $por_pagina){
-		$query = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.descripcion, productos.tamano, productos.precio, presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto, productos.url_imagen
+		$query = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.descripcion, productos.tamano, productos.precio, productos.precio_total presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto, productos.url_imagen
 		FROM productos 
 		INNER JOIN marca ON productos.id_marca = marca.id_marca 
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
@@ -275,22 +287,22 @@ class Producto extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function getProducto(){
-		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) ORDER BY id_producto";
+		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) ORDER BY id_producto";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function getProducto2($empieza, $por_pagina){
-		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) ORDER BY id_producto LIMIT $empieza, $por_pagina";
+		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) ORDER BY id_producto LIMIT $empieza, $por_pagina";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchProducto($value){
-		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) WHERE nombre LIKE ? ORDER BY id_producto";
+		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) WHERE nombre LIKE ? ORDER BY id_producto";
 		$params = array("%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function searchProducto2($value, $value2){
-		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.descripcion, productos.tamano, productos.precio, productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto 
+		$sql = "SELECT marca.marca, productos.id_producto, productos.nombre, productos.precio_total, productos.descripcion, productos.tamano, productos.precio, productos.url_imagen, presentaciones.presentacion, proveedores.proveedor, tipo_producto.tipo_producto 
 		FROM productos
 		INNER JOIN marca ON productos.id_marca = marca.id_marca
 		INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion 
@@ -301,13 +313,27 @@ class Producto extends Validator{
 		return Database::getRows($sql, $params);
 
 	}
+	public function devValor(){
+		$sql = "SELECT valor FROM impuestos WHERE id_impuesto = ?";
+		$params = array($this->id_impuesto);
+		$producto = Database::getRow($sql, $params);
+		if($producto){
+			$var = $producto['valor'];
+
+			$agregado = $var*$this->precio;
+			$this->total = round($agregado + $this->precio, 2);
+			return true;
+		}else{
+			return null;
+		}
+	}
 	public function createProducto(){
-		$sql = "INSERT INTO productos(nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto);
-		return Database::executeRow($sql, $params);
+		$sql = "INSERT INTO productos(nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->total ,$this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto);
+		return Database::executeRow($sql, $params);		
 	}
 	public function readProducto(){
-		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -331,7 +357,7 @@ class Producto extends Validator{
 	}
 
 	public function readProducto2(){
-		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -353,8 +379,8 @@ class Producto extends Validator{
 		}
 	}
 	public function updateProducto(){
-		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ?, id_impuesto = ? WHERE id_producto = ?";
-		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->id_producto);
+		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ?, id_impuesto = ?, precio_total = ? WHERE id_producto = ?";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->total, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteProducto(){

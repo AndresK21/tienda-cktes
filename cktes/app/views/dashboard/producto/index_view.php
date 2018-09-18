@@ -62,16 +62,13 @@
                     <?php
                         if($data){
                             foreach($data as $row){
-                                $imp = $row['valor'];
-                                $agregado = $imp*$row['precio'];
-                                $total = round($agregado + $row['precio'], 2);
                                 print("
                                 <tr>
                                     <td><img src='../../web/img/productos/$row[url_imagen]' class='materialboxed' width='50' height='50'></td>
                                     <td>$row[nombre]</td>
                                     <td>$row[cantidad]</td>
                                     <td>$row[precio]</td>
-                                    <td>$total</td>
+                                    <td>$row[precio_total]</td>
                                     <td>$row[presentacion]</td>");
                                     if($row['id_estado'] == 1){
                                         print("<td><i class='material-icons'>check</i></td>");
