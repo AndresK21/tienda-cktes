@@ -49,7 +49,8 @@
                         <th>Imagen</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
-                        <th>Precio</th>
+                        <th>Precio neto</th>
+                        <th>Precio total</th>
                         <th>Presentaci&oacute;n</th>
                         <th>Existencias</th>
                         <th></th>
@@ -61,18 +62,25 @@
                     <?php
                         if($data){
                             foreach($data as $row){
+                                $imp = $row['valor'];
+                                $agregado = $imp*$row['precio'];
+                                $total = round($agregado + $row['precio'], 2);
                                 print("
                                 <tr>
                                     <td><img src='../../web/img/productos/$row[url_imagen]' class='materialboxed' width='50' height='50'></td>
                                     <td>$row[nombre]</td>
                                     <td>$row[cantidad]</td>
                                     <td>$row[precio]</td>
-                                    <td>$row[presentacion]</td>
-                                    <td><i class='material-icons'>".($row['id_estado']?"check":"")."</i></td>
+                                    <td>$total</td>
+                                    <td>$row[presentacion]</td>");
+                                    if($row['id_estado'] == 1){
+                                        print("<td><i class='material-icons'>check</i></td>");
+                                    }if($row['id_estado'] == 2){
+                                        print("<td><i class='material-icons'></i></td>");
+                                    }print("
                                     <td>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver comentarios' href='comentarios.php?id=$row[id_producto]'><i class='material-icons blue-grey-text text-darken-4 prefix'>comment</i></a>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar producto' href='update.php?id=$row[id_producto]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
-                                        <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar producto' href='delete.php?id=$row[id_producto]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
                                     </td>
                                 </tr>
                                 ");

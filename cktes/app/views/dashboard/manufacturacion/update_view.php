@@ -40,7 +40,7 @@
                 ?>
             </div>
             <div class="input-field col s12 m6 l6">
-                <a class="waves-effect waves-light btn grey darken-3" href="../../web/archivo/5b16b00a15f44.zip"><i class="material-icons left">cloud_download</i>Descargar archivo</a>
+                <a class="waves-effect waves-light btn grey darken-3" href="../../web/archivo/<?php print($pedido->getArchivo()) ?>"><i class="material-icons left">cloud_download</i>Descargar archivo</a>
             </div>
         </div>
         <div class="row">

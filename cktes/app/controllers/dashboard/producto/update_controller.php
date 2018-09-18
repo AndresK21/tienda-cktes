@@ -12,7 +12,7 @@ try{
                             if($producto->setPrecio($_POST['precio'])){
                                 if($producto->setDescripcion($_POST['descripcion'])){
                                     if($producto->setFicha($_POST['ficha'])){
-                                        if($producto->setId_estado(isset($_POST['estado'])?1:2)){
+                                        if($producto->setId_estado($_POST['estado'])){
                                             if($producto->setTamano($_POST['tamano'])){
                                                 if($producto->setCantidad($_POST['cantidad'])){
                                                     if($producto->setId_marca($_POST['marca'])){

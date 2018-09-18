@@ -91,7 +91,7 @@ class Pedido extends Validator{
 		return $this->archivo;
 	}
 	public function unsetArchivo(){
-		if(unlink("../../web/archivo/desarrollo/".$this->archivo)){
+		if(unlink("../../web/archivo/manufacturacion/".$this->archivo)){
 			$this->archivo = null;
 			return true;
 		}else{
@@ -234,7 +234,7 @@ class Pedido extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readPedido(){
-		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_pedido = ? ORDER BY id_pedido";
+		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado, archivo FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_pedido = ? ORDER BY id_pedido";
 		$params = array($this->id_pedido);
 		$pedido = Database::getRow($sql, $params);
 		if($pedido){
@@ -251,6 +251,7 @@ class Pedido extends Validator{
 			$this->capas = $pedido['capas'];
 			$this->cantidad = $pedido['cantidad'];
 			$this->estado = $pedido['estado'];
+			$this->archivo = $pedido['archivo'];
 			return true;
 		}else{
 			return null;
