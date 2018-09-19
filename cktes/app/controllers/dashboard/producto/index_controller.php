@@ -4,6 +4,7 @@ require_once("../../app/models/marca.class.php");
 require_once("../../app/models/presentaciones.class.php");
 require_once("../../app/models/tipo_producto.class.php");
 require_once("../../app/models/impuestos.class.php");
+require_once("../../app/models/descuentos.class.php");
 try{
 
 	//Controlador de productos
@@ -90,6 +91,21 @@ try{
 		}
 	}else{
 		$data_impuesto = $impuesto->getImpuesto();
+	}
+
+	$descuento = new Descuento;
+	if(isset($_POST['buscar_descuento'])){
+		$_POST = $descuento->validateForm($_POST);
+		$data_descuento = $descuento->searchDescuento($_POST['busqueda_descuento']);
+		if($data_descuento){
+			$rows = count($data_descuento);
+			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
+		}else{
+			Page::showMessage(4, "No se encontraron resultados", null);
+			$data_descuento = $descuento->getDescuentos();
+		}
+	}else{
+		$data_descuento = $descuento->getDescuentos();
 	}
 
 

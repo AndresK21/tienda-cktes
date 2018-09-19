@@ -5,8 +5,9 @@
             <li class="tab col s2"><a class="active black-text" href="#test1">Productos</a></li>
             <li class="tab col s2"><a class="black-text" href="#test2">Marca</a></li>
             <li class="tab col s2"><a class="black-text" href="#test3">Presentaciones</a></li>
-            <li class="tab col s3"><a class="black-text" href="#test4">Tipo de producto</a></li>
-            <li class="tab col s3"><a class="black-text" href="#test5">Impuestos</a></li>
+            <li class="tab col s2"><a class="black-text" href="#test4">Tipo de producto</a></li>
+            <li class="tab col s2"><a class="black-text" href="#test5">Impuestos</a></li>
+            <li class="tab col s2"><a class="black-text" href="#test6">Descuentos</a></li>
         </ul>
     </div>
 
@@ -331,7 +332,7 @@
     
         <!--Boton fijo en la pantalla para agregar nuevos tipos de productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de producto" href="create_impuesto.php">
+            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo descuento" href="create_impuesto.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -358,6 +359,69 @@
                                     <td>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar producto' href='update_impuesto.php?id=$impuesto[id_impuesto]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
                                         <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar producto' href='delete_impuesto.php?id=$impuesto[id_impuesto]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
+                                    </td>
+                                </tr>
+                                ");
+                            }
+                        }else{
+
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div id="test6" class="col s12">
+    
+        <!-- Barra de busqueda -->
+        <div class="container">
+            <div class="row">
+                <form method="post">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <i class="material-icons prefix">search</i>
+                                <input type="text" id="buscar_label" name='busqueda_descuento'>
+                                <label for="buscar_label" class="black-text">Buscar descuento</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <button type='submit' name='buscar_descuento' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por porcentaje'><i class='material-icons'>search</i></button>
+                            </div>
+                        </div>
+                    </div>
+                <form>
+            </div>
+        </div>
+
+        <!--Boton fijo en la pantalla para agregar nuevos tipos de productos-->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo descuento" href="create_descuento.php">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
+        <div class="container">
+            <!--Parte de clasificacion de la tabla-->
+            <table class="bordered highlight responsive-table espacio_inf">
+                <thead class="grey darken-3 white-text">
+                    <tr>
+                        <th>Descuento</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                        if($data_descuento){
+                            foreach($data_descuento as $descuento){
+                                print("
+                                <tr>
+                                    <td>$descuento[descuento] %</td>
+                                    <td>
+                                        <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar descuento' href='update_descuento.php?id=$descuento[id_descuento]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
+                                        <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar descuento' href='delete_descuento.php?id=$descuento[id_descuento]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
                                     </td>
                                 </tr>
                                 ");
