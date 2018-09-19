@@ -115,7 +115,7 @@ class Detalle extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readDetalle(){
-		$sql = "SELECT id_detalle, url_imagen, nombre, precio, productos.cantidad, detalle_carrito.cantidad, estado_carrito FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING (id_carrito) WHERE detalle_carrito.id_carrito = ? AND estado_carrito=5";
+		$sql = "SELECT id_detalle, url_imagen, nombre, precio, productos.cantidad, detalle_carrito.cantidad, estado_carrito, productos.precio_total FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING (id_carrito) WHERE detalle_carrito.id_carrito = ? AND estado_carrito=5";
 		$params = array($this->compra);
 		return Database::getRows($sql, $params);
 		

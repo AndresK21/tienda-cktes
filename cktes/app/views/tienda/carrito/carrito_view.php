@@ -17,7 +17,7 @@
     $total=null;
     $subtotal= null;
     foreach($detalles as $detalle){
-        $subtotal= $detalle['precio']* $detalle['cantidad'];
+        $subtotal= $detalle['precio_total']* $detalle['cantidad'];
         $total= $subtotal + $total;
         //Información de las tablas
         print("       
@@ -26,7 +26,7 @@
           <tr>
             <td><img class='responsive-img' src='../web/img/productos/$detalle[url_imagen]'></td>
             <td>$detalle[nombre]</td>
-            <td>$detalle[precio]</td>
+            <td>$detalle[precio_total]</td>
             <td>$detalle[cantidad]</td>
             <td>$$subtotal</td>
             <td>
