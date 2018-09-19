@@ -33,8 +33,8 @@ class Correo{
                     $mail->SMTPAuth = true;
                     $mail->Username = 'pinturasv503@gmail.com';
                     $mail->Password = 'pinturasv';
-                    $mail->SMTPSecure = 'tls';
-                    $mail->Port = 587;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port = 465;
                     $mail->isHTML(true);
 
                     $mail->setFrom('pinturasv503@gmail.com', 'CKTES');

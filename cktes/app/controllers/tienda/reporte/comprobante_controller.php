@@ -10,7 +10,7 @@
 	// L- Landscape(horizontal), mm- milimetros, A5- tamaño de la pagina
     $comp = new COMP('L', 'mm', 'A5');
     // Se especifica que contrndrá el arreglo (el nombre de las columnas)
-    $header = array('Juguete', 'Precio','Cantidad', 'Subtotal');
+    $header = array('Producto', 'Precio','Cantidad', 'Subtotal');
     // SetMargins(float left, float top [, float right])
     $comp->SetMargins(15,20 , 15);
     //Se añade una pagina

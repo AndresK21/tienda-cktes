@@ -6,14 +6,11 @@ try{
      if (isset($_POST['enviar'])) { 
      	if ($desarrollo->setMensaje($_POST['mensaje'])) {
      		if ($desarrollo->setTipo_desa($_POST['tipo'])) {
-				if($desarrollo->setArchivo($_FILES['archivo'])){
 					if ($desarrollo->setId($_SESSION['id_cliente'])) {
 						$desarrollo->createDesarrollo();
+						Page::showMessage(1, "Desarrollo agregado", "index.php");
 					}else{
 						throw new Exception("Cliente desconocido");
-					}
-				}else{
-					throw new Exception("Archivo incorrecto");
 					}
      		}else{
 				 throw new Exception("Tipo incorrecto");

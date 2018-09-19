@@ -33,8 +33,8 @@ try{
                     $mail->SMTPAuth = true;
                     $mail->Username = 'pinturasv503@gmail.com';
                     $mail->Password = 'pinturasv';
-                    $mail->SMTPSecure = 'tls';
-                    $mail->Port = 587;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port = 465;
                     $mail->setFrom('pinturasv503@gmail.com', 'CKTES');
                     $mail->addAddress($correo, $usuario);
                     $mail->isHTML(true);
