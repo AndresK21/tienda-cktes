@@ -15,7 +15,7 @@ class Pedido extends Validator{
 	private $tipo_placa = null;
 	private $sustrato = null;
 	private $medida = null;
-	private $capas = null;
+	private $capas = null;  
 	private $cantidad = null;
 
     //Métodos para sobrecarga de propiedades
@@ -264,6 +264,23 @@ class Pedido extends Validator{
 	}
 	public function deletePedido(){
 		$sql = "DELETE FROM pedido WHERE id_pedido = ?";
+		$params = array($this->id_pedido);
+		return Database::executeRow($sql, $params);
+	}
+	public function getPedidosNuevo(){
+		$sql = "SELECT COUNT(id_cliente) as Pedidos FROM pedido where id_cliente = ? AND id_estado = 7";
+		$params = array($this->id_cliente);
+		return Database::getRows($sql, $params);
+	}
+ 
+	public function getPedidosT(){
+		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado, archivo , pedido.fecha FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_cliente = ? ORDER BY id_pedido";
+		$params = array($this->id_cliente);
+		return Database::getRows($sql, $params);
+	}
+
+	public function CancelarP(){
+		$sql = "UPDATE pedido SET id_estado = 4 WHERE id_pedido = ?";
 		$params = array($this->id_pedido);
 		return Database::executeRow($sql, $params);
 	}
