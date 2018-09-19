@@ -60,7 +60,7 @@
                         <label for="last_name">Asunto del mensaje</label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <textarea id="textarea1" name= "duda" class="materialize-textarea"></textarea>
                         <label for="textarea1">Mensaje</label>
                     </div>
                         <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons right">send</i><b>Enviar</b></a><br><br><br><br><br>
