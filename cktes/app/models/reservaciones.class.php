@@ -202,7 +202,11 @@ class Reservacion extends Validator{
 		$params = array($this->id_reservacion);
 		return Database::executeRow($sql, $params);
 	}
-
+    public function cargarReservaciones(){
+		$sql = "SELECT productos.nombre,productos.precio,reservaciones.cantidad,productos.url_imagen,id_reservacion, reservaciones.fecha_estimada FROM reservaciones INNER JOIN productos ON productos.id_producto = reservaciones.id_producto WHERE  id_cliente = ? AND reservaciones.id_estado = 9";
+		$params = array($this->id_cliente);
+		return Database::getRows($sql, $params);
+	}
 	//Metodos para reportes
 	public function getReservacionR(){
 		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 9 ORDER BY id_reservacion";

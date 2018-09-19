@@ -29,8 +29,7 @@ foreach ($importaciones as $importacion ) {
     <div class='baj_car'>
       <div class='lef_car'>
         <div class='details'>
-          <h2>$importacion[nombre]</h2>
-          <p>$importacion[precio]</p>
+          <h5>$importacion[nombre]</h5>
         </div>
         <div class='buy'><a href='detalle_reservacion.php?id=$importacion[id_producto]'><i class='material-icons'>add_shopping_cart</i></div>
       </div>
