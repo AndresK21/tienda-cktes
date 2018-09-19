@@ -2,7 +2,7 @@
 <img class="responsive-img indeximage " src="../web/img/2.jpg"> 
     <h2 class="center"><b>DESARROLLO</b></h2>
             <div class ="container">
-                <form method="POST" class="row">
+                <form method='post' enctype='multipart/form-data'>
                     <div class='input-field col s12'>
                         <?php
                             Page::showSelect("Tipo de desarrollo", "tipo", $desarrollo->getTipo_desa(),$desarrollo->getTipo_Desarrollo());
