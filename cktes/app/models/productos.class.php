@@ -414,8 +414,8 @@ class Producto extends Validator{
 		}
 	}
 	public function updateProducto(){
-		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ?, id_impuesto = ?, precio_total = ? WHERE id_producto = ?";
-		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->total, $this->id_producto);
+		$sql = "UPDATE productos SET nombre = ?, url_imagen = ?, descripcion = ?, ficha_tecnica = ?, cantidad = ?, precio = ?, tamano = ?, id_presentacion = ?, id_proveedor = ?, id_marca = ?, id_estado = ?, id_tipo_producto = ?, id_impuesto = ?, precio_total = ?, id_descuento = ? WHERE id_producto = ?";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->total, $this->id_descuento, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteProducto(){
