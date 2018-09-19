@@ -92,6 +92,7 @@ class Page extends Component{
         <li><a href='pcb.php'>PCB</a></li>
         <li><a href='pedido.php'>Mis pedidos<span class='new badge colorNa'>". $nuevope[0]['Pedidos']."</span></a></li> 
         <li><a href='categoria.php'>Importaciones</a></li>
+        <li><a href='reservacion.php'>Mis reservaciones</a></li>
         <li><a href='desarrollo.php'>Desarrollo</a></li>
         <li><a href='../tienda/categorias.php'>Tienda</a></li>
          <li class='no-padding'>
@@ -151,6 +152,10 @@ class Page extends Component{
                 <div class='divider'></div>
             </li>
             <li><a class='center' href='categoria.php'><b>I M P O R T A C I O N E S </b></a></li>
+            <li>
+            <div class='divider'></div>
+            </li>
+            <li><a class='center' href='reservacion.php'><b>R E S E R V A C I O N </b></a></li>
             <li>
                 <div class='divider'></div>
             </li>
