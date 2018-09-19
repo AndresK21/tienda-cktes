@@ -297,5 +297,35 @@ class Pedido extends Validator{
 		$params = array($this->id_pedido);
 		return Database::executeRow($sql, $params);
 	}
+
+	public function createPedidon(){
+		$sql = "INSERT INTO `pedido`(`fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$fecha = date('Y/m/d');
+		$id_empleado = 26;
+		$estado = 7;
+		$params = array($fecha, $this->id_cliente, $id_empleado, $estado, $this->archivo, $this->id_placa, $this->cantidad);
+		return Database::executeRow($sql, $params);
+	}
+    
+	public function createPlaca(){
+		$sql = "INSERT INTO placa(capas, medida, id_tipo_placa, id_sustrato) VALUES (?, ?, ?, ?)";
+		$params = array($this->capas, $this->medida, $this->tipo_placa, $this->sustrato);
+		return Database::executeRow($sql, $params);
+	}
+	public function getSustratos(){
+		$sql = "SELECT id_sustrato, sustrato FROM sustrato ORDER BY id_sustrato";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getTipo_placas(){
+		$sql = "SELECT id_tipo_placa, tipo_placa FROM tipo_placa ORDER BY id_tipo_placa";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function maxPlaca(){
+		$sql = "SELECT MAX(id_placa) as Id_max FROM placa";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 }
 ?>
