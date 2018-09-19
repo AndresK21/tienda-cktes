@@ -63,7 +63,7 @@
                         <textarea id="textarea1" name= "duda" class="materialize-textarea"></textarea>
                         <label for="textarea1">Mensaje</label>
                     </div>
-                        <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons right">send</i><b>Enviar</b></a><br><br><br><br><br>
+                    <button type='submit' name='enviar' class='btn waves-effect colorNa'>Enviar mensaje</button>
                 </form>
             </div>
         </div>
