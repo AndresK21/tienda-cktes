@@ -6,11 +6,11 @@
     $detalle = new Detalle;
 
     // Creaci�n del objeto de la clase heredada
-    $pdf = new PDF();
+    $pdf = new PDF('L', 'mm', 'Letter');
     $pdf->setTitle('Reporte de clientes');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Cliente', 'Correo electronico', 'Cantidad');
+    $header = array('Cliente', 'Correo electronico', 'Producto mas comprado', 'Cantidad');
     // Carga de datos
     $result = $detalle->cliente_ventas();
 

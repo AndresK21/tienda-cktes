@@ -19,23 +19,23 @@
                 /*en la función "IMAGE" se coloca la ruta de la imagen que se desea, ubicación en "x" y "y", el tamaño de esta
                 Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])  */
                 //Imagen del rectangulo superior del reporte
-                $this->Image('../../web/img/reporte.png', 0, 0, 220,200 );
+                $this->Image('../../web/img/reporte.png', 0, 0, 280,200 );
                 //Salto
                 $this->Ln(15);
                  //Líneas horizontales (x1,y1,x2,y2)
-                $this->Line(10,25,200,25);
-                $this->Line(10,46,200,46);
+                $this->Line(10,25,265,25);
+                $this->Line(10,46,265,46);
                 // Logo
                 $this->Image('../../web/img/logo.png',10,24.3,23);
                 // Arial 15
                 $this->SetFont('Arial','',15);
                 // Movernos a la derecha
-                $this->Cell(80);
+                $this->Cell(112);
                 $this->Cell(40,10,'CKTE-ES, S.A DE C.V',0,1,'C');
                 // Arial 15
                 $this->SetFont('Arial','',13);
                 // Movernos a la derecha
-                $this->Cell(80);
+                $this->Cell(112);
                 $this->Cell(45,10,'"Circuitos profesionales con la garantia que nadie ofrece"',0,0,'C');
                 // Arial bold 15
                 $this->SetFont('Arial','B',18);
@@ -44,7 +44,7 @@
                 // Movernos a la derecha
                 $this->Cell(80);
                 // T�tulo del reporte 
-                $this->Cell(40,10,'Clientes con mas compras',0,0,'C');
+                $this->Cell(100,10,'Clientes con mas compras',0,0,'C');
                 // Salto de l�nea
                 $this->Ln(15);
             }
@@ -72,7 +72,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(85, 70, 35);
+                $w = array(85, 75, 65, 35);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -88,7 +88,8 @@
                 {
                     $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LRT',0,'L',$fill);
                     $this->Cell($w[1],6,$row['correo_electronico'],'LRT',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['cant'],'LRT',0,'L',$fill);
+                    $this->Cell($w[2],6,$row['producto'],'LRT',0,'L',$fill);
+                    $this->Cell($w[3],6,$row['cant'],'LRT',0,'L',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }

@@ -103,7 +103,7 @@ class Detalle extends Validator{
 	}
 
 	public function cliente_ventas(){
-		$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_carrito, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) GROUP BY id_cliente ORDER BY cant DESC";
+		$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_carrito, productos.nombre AS producto, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) INNER JOIN productos USING(id_producto) GROUP BY id_cliente ORDER BY cant DESC";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
