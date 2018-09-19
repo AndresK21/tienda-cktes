@@ -11,6 +11,7 @@ class Pedido extends Validator{
 	
 	private $nombres = null;
 	private $apellidos = null;
+	private $correo = null;
 	private $estado = null;
 	private $tipo_placa = null;
 	private $sustrato = null;
@@ -134,6 +135,17 @@ class Pedido extends Validator{
 	public function getApellidos(){
 		return $this->apellidos;
 	}
+	public function setCorreo($value){
+		if($this->validateEmail($value)){
+			$this->correo = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getCorreo(){
+		return $this->correo;
+    }
 	public function setEstado($value){
 		if($this->validateAlphanumeric($value, 1, 30)){
 			$this->estado = $value;
@@ -234,7 +246,7 @@ class Pedido extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readPedido(){
-		$sql = "SELECT id_pedido, id_cliente, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado, archivo FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_pedido = ? ORDER BY id_pedido";
+		$sql = "SELECT id_pedido, id_cliente, correo_electronico, id_empleado, id_estado, id_placa, nombres, apellidos, tipo_placa, sustrato, medida, capas, cantidad, estado, archivo FROM pedido INNER JOIN placa USING(id_placa) INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_placa USING(id_tipo_placa) INNER JOIN sustrato USING(id_sustrato) INNER JOIN estado USING(id_estado) WHERE id_pedido = ? ORDER BY id_pedido";
 		$params = array($this->id_pedido);
 		$pedido = Database::getRow($sql, $params);
 		if($pedido){
@@ -252,6 +264,7 @@ class Pedido extends Validator{
 			$this->cantidad = $pedido['cantidad'];
 			$this->estado = $pedido['estado'];
 			$this->archivo = $pedido['archivo'];
+			$this->correo = $pedido['correo_electronico'];
 			return true;
 		}else{
 			return null;
