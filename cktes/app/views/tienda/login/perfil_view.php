@@ -1,4 +1,5 @@
 <!--TITULO Categorias-->
+<img class="responsive-img indeximage " src="../web/img/2.jpg"> 
 <?php
 print("
 <h2 class='center-align truncate'><b>INFORMACIÓN</b></h2>
