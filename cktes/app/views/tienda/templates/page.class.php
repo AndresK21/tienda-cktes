@@ -90,7 +90,7 @@ class Page extends Component{
             <li><a href='../portal/index.php'>Portal</a></li>
             <li><a href='../portal/nosotros.php'>Nosotros</a></li>
             <li><a href='categorias.php'>Tienda</a></li>
-            <li><a href='#'>Carrito</a></li>
+            <li><a href='carrito.php'>Carrito</a></li>
              <li class='no-padding'>
         <ul class='collapsible collapsible-accordion'>
           <li>
@@ -99,7 +99,7 @@ class Page extends Component{
               <ul>
                 <li><a href='perfil.php'>Editar perfil</a></li>
                 <li><a href='contrasena.php'>Cambiar contraseña</a></li>
-                <li><a href='#!'>Historial de compra</a></li>
+                <li><a href='historial.php'>Historial de compra</a></li>
               </ul>
             </div>
           </li>
@@ -123,7 +123,7 @@ class Page extends Component{
                 </li>
                 <li><a href='perfil.php'><i class='material-icons'>edit</i><b>Editar perfil</b></a></li>
                 <li><a href='contrasena.php'><i class='material-icons'>enhanced_encryption</i><b> Cambiar contraseña</b></a></li>
-                <li><a href='#!'><i class='material-icons'>access_time</i><b> Historial de compra</b></a></li>
+                <li><a href='historial.php'><i class='material-icons'>access_time</i><b> Historial de compra</b></a></li>
                 <li> <div class='divider'></div></li>
                 <li><a href='logout.php'><i class='material-icons'>close</i><b> Cerrar sesión</b></a></li>
                 
@@ -272,7 +272,7 @@ public static function templateFooter(){
   </footer>
               <!--Import jQuery before materialize.js-->
               <script type='text/javascript' src='../web/js/jquery-3.2.1.min.js'></script>
-              
+              <script type='text/javascript' src='../web/js/jquery.mask.min.js'></script>
               <script type='text/javascript' src='../web/js/main.js'></script>
               <script type='text/javascript' src='../web/js/ini.js'></script>
               <script type='text/javascript' src='../web/js/materialize.min.js'></script>

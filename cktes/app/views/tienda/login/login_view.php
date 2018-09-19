@@ -34,11 +34,11 @@
                             <label for="last_name">Apellidos</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="DUI" name="DUI" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDUI()) ?>'>
+                            <input id="DUI" name="DUI" type="text" autocomplete="off" data-mask="00000000-0" class="validate transparent white-text" value='<?php print($usuario->getDUI()) ?>'>
                             <label for="last_name">DUI</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="NIT" name="NIT" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
+                            <input id="NIT" name="NIT" type="text" autocomplete="off" data-mask="0000-000000-000-0"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
                             <label for="last_name">NIT</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
@@ -83,24 +83,24 @@
             <h4 class="center white-text">Registrate Gratis</h4>
                 <div class="row">
                     <form  method='post' class="col s12 ">
-                        <div class="input-field col s12 m12 l6">
+                        <div class="input-field col s12 m12 l12">
                             <input id="Nombres_empresa" name="nombre_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getNombres()) ?>'/required>
-                            <label for="last_name">Nombre de la Empresa</label>
+                            <label for="last_name">Nombre del Contribuyente</label>
                         </div>
-                        <div class="input-field col s12 m12 l6">
-                            <input id="actividad_empresa" name="actividad_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getActividad()) ?>'/required>
+                        <div class="input-field col s12 m12 l12 white-text">
+                            <textarea id="actividad_empresa" name="actividad_empresa" type="text" autocomplete="off" class="materialize-textarea validate transparent white-text" data-length="120" value='<?php print($usuario->getActividad()) ?>'/required></textarea>
                             <label for="last_name">Actividad Economica</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="NIT_empresa" name="NIT_empresa" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
+                            <input id="NIT_empresa" name="NIT_empresa" type="text" autocomplete="off" data-mask="0000-000000-000-0" class="validate transparent white-text" value='<?php print($usuario->getNIT()) ?>'/required>
                             <label for="last_name">NIT</label>
                         </div>
                         <div class="input-field col s12 m12 l6">
-                            <input id="NRC_empresa" name="NRC_empresa" type="text" autocomplete="off"  class="validate transparent white-text" value='<?php print($usuario->getNRC()) ?>'>
+                            <input id="NRC_empresa" name="NRC_empresa" type="text" autocomplete="off" data-mask="0000-000000-000-0" class="validate transparent white-text" value='<?php print($usuario->getNRC()) ?>'>
                             <label for="last_name">NRC</label>
                         </div>
-                        <div class="input-field col s12 m12 l12">
-                            <input id="direccion_empresa" name="direccion_empresa" type="text" autocomplete="off" class="validate transparent white-text" value='<?php print($usuario->getDireccion()) ?>'/required>
+                        <div class="input-field col s12 m12 l12 white-text">
+                            <textarea id="direccion_empresa" name="direccion_empresa" type="text" autocomplete="off" class="materialize-textarea validate transparent" data-length="120" value='<?php print($usuario->getDireccion()) ?>'/required></textarea>
                             <label for="last_name">Ubicación de la Empresa</label>
                         </div>
                         <div class="input-field col s12 m12 l6">

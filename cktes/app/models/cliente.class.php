@@ -185,7 +185,7 @@ class Cliente extends Validator{
 	}
 	
 	public function setActividad($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
+		if($this->validateAlphanumeric($value, 1, 125)){
 			$this->actividad = $value;
 			return true;
 		}else{
@@ -196,7 +196,7 @@ class Cliente extends Validator{
 		return $this->actividad;
 	}
 	public function setDireccion($value){
-		if($this->validateAlphanumeric($value, 1, 80)){
+		if($this->validateAlphanumeric($value, 1, 125)){
 			$this->direccion = $value;
 			return true;
 		}else{
