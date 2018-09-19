@@ -8,7 +8,7 @@ try{
      		if ($importacion->setCantidad($_POST['cantidad'])) {
 				if ($importacion->setId_cliente($_SESSION['id_cliente'])) {
 					if($importacion->createImportacionNueva()) {
-						Page::showMessage(1, "Importacion nueva registrada", "index.php");
+						Page::showMessage(1, "Importacion nueva registrada", "importacion_nueva.php");
 					}else {
 						throw new Exception(Database::getException());
 					}
