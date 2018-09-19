@@ -32,7 +32,7 @@ try{
                     if(!$mail->send()){
                         Page::showMessage(2, "Error, mensaje no enviado. Error: ".$mail->ErrorInfo, "correo.php");
                     }else{
-                        Page::showMessage(1, "El mensaje se ha enviado correctamente", "index.php");
+                        Page::showMessage(1, "El mensaje se ha enviado correctamente", "pcb.php");
                     }
 
            
