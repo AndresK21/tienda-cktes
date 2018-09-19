@@ -76,7 +76,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(75, 29, 28, 28,28);
+                $w = array(75, 29, 28, 28, 28);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -93,11 +93,11 @@
 
                     $fecha = date_create($row['fecha']);
 
-                    $this->Cell($w[0],6,$row['nombre'],'LRT',0,'L',$fill);
-                    $this->Cell($w[1],6,date_format($fecha, 'd-m-Y'),'LRT',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['cant'],'LRT',0,'L',$fill);
-                    $this->Cell($w[3],6,'$'.$row['precio'],'LRT',0,'L',$fill);
-                    $this->Cell($w[4],6,'$'.number_format($row['venta'], 2),'LRT',0,'L',$fill);
+                    $this->Cell($w[0],6,$row['nombre'],'LR',0,'L',$fill);
+                    $this->Cell($w[1],6,date_format($fecha, 'd-m-Y'),'LR',0,'L',$fill);
+                    $this->Cell($w[2],6,$row['cant'],'LR',0,'L',$fill);
+                    $this->Cell($w[3],6,'$'.$row['precio'],'LR',0,'L',$fill);
+                    $this->Cell($w[4],6,'$'.number_format($row['venta'], 2),'LR',0,'L',$fill);
                     $this->Ln();
                     $total = $total + $row['venta'];
                     $fill = !$fill;
