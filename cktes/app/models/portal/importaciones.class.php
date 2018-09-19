@@ -212,7 +212,7 @@ class Importaciones extends Validator{
 		$sql = "UPDATE reservaciones SET id_estado = ? , fecha = ? , hora = ? WHERE id_cliente = ? AND id_reservacion = ? AND id_estado = 5";
 		$fecha = date("Y/m/d");
         $hora = date("h:i:s");
-        $estado = 6;
+        $estado = 10;
 		$params = array($estado ,$fecha ,$hora ,$this->cliente ,$this->id);
 		return Database::getRows($sql, $params);
 	}

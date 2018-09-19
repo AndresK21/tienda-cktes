@@ -8,7 +8,7 @@
           <th>Nombre</th>
           <th>Precio</th>
           <th>Cantidad</th>
-          <th>Subtotal</th>
+          <th>Fecha Estimada</th>
           <th>Acciones</th>
       </tr>
     </thead>
@@ -22,21 +22,26 @@
         <td>$importacion[nombre]</td>
         <td>$$importacion[precio]</td>
         <td>$importacion[cantidad]</td> 
-        <td>$".$importacion['precio']*$importacion['cantidad']."</td>
+        <td>");
+        if ($importacion['fecha_estimada'] == null) {
+          print("Pendiente");
+        } else{
+          print("$importacion[fecha_estimada]");
+          } print("</td>");
+        if ($importacion['fecha_estimada'] == null) {
+          print("
         <td>
         <a href='modificar_reservacion.php?id=$importacion[id_reservacion]' class='blue-text modal-trigger' ><i class='material-icons'>mode_edit</i></a>
         <a href='delete_reservacion.php?id=$importacion[id_reservacion]' class='red-text'><i class='material-icons'>delete</i></a>
+      </td>");
+          }else{
+          print("
+            <td>
+        <a class='green-text modal-trigger'><i class='material-icons'>access_time</i></a>
       </td>
       </tr>
-    ");
+    ");}
     }
 ?>
 </table>
-      <div class="row">
-      <div class="col s12">
-        <form method='post'>
-        <button type='submit' name='reservar' class='btn waves-effect waves-light indigo darken-4 tooltipped right' data-tooltip='Realizar compra'>Verificar reservación</button>
-        </form>
-      </div>
-    </div>
 </div>
