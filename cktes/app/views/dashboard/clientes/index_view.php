@@ -50,7 +50,7 @@
                                     <td>$row[nombres]</td>
                                     <td>$row[correo_electronico]</td>
                                     <td>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='#?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
+                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
                                         <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Bloquear cliente' href='delete.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock</i></a>
                                     </td>
                                 </tr>
@@ -131,7 +131,7 @@
                                     <td>$row[nombres]</td>
                                     <td>$row[correo_electronico]</td>
                                     <td>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='#?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
+                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
                                         <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Desbloquear cliente' href='delete2.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock_open</i></a>
                                     </td>
                                 </tr>
