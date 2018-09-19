@@ -9,42 +9,16 @@
         <div id="test-swipe-1" class="col s12 m6 l3">
             <div class ="container">
             <br>
-            <h5 class="center "><b>DESARROLLO PCB</b></h5> 
-                <form>
-                    <h6><b>Subir archivo gerber</b></h6>
-                    <div class='file-field input-field col s12 m6'>
-                        <div class='btn waves-effect indigo darken-4'>
-                            <span><i class='material-icons'>image</i></span>
-                            <input type='file' name='archivo' required/>
-                        </div>
-                        <div class='file-path-wrapper'>
-                            <input type='text' class='file-path validate' placeholder='Subir archivo gerber'/>
-                        </div>  
-                    </div> 
-                    <h6><b>Visualizar archivo gerber</b></h6>  
-                    <div class="col s12 m6 l5 push-l1">
+            <h5 class="center "><b>DESARROLLO PCB</b></h5>  
+                    <div class="col s12 m6 l8">
                         <div class="card card-panel hoverable">
+                        <h6><b>Visualizar archivo gerber</b></h6> 
                             <div class="embed-container">
-                        <iframe src="http://www.gerber-viewer.com/"  border="0" frameborder="0" height="" width="" > 
+                        <iframe src="http://www.gerber-viewer.com/"  border="0" frameborder="0" height="500" width="600" > 
                         </iframe> 
                         </div>
                         </div>
-                
                     </div>
-                    <h6><b>Especificaciones</b></h6>  
-                    <div class='input-field col s12 m6'>
-                        <i class='material-icons prefix'>archive</i>
-                        <input id='cantidad' type='text' name='cantidad' class='validate'/>
-                        <label for='cantidad'>Cantidad</label>
-                    </div>           
-                     <!--<div class='input-field col s12 m6'>
-                       <?php
-//Page::showSelect("Sustrato", "sustrato", $pcb->getSustrato(), $pcb->getTipo_Sustrato());
-?>--> 
-                        <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons left">add_shopping_cart</i><b>Agregar al carrito</b></a><br><br><br><br><br>
-                   <!-- </div> -->  
-                    
-                </form>
                 
             </div>
         </div>
@@ -63,8 +37,10 @@
                         <textarea id="textarea1" name= "duda" class="materialize-textarea"></textarea>
                         <label for="textarea1">Mensaje</label>
                     </div>
-                    <button type='submit' name='enviar' class='btn waves-effect colorNa'><i class="material-icons">send</i>  Enviar mensaje</button>
+                    <button type='submit' name='enviar' class='btn-large right waves-effect colorNa'><i class="material-icons">send</i>  Enviar mensaje</button>
                 </form>
+                <br>
+                <br>
             </div>
         </div>
     </div>
