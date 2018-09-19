@@ -14,7 +14,7 @@
                         <div class="card card-panel hoverable">
                         <h6><b>Visualizar archivo gerber</b></h6> 
                             <div class="embed-container">
-                        <iframe src="http://www.gerber-viewer.com/"  border="0" frameborder="0" height="500" width="600" > 
+                        <iframe class="marginleftPcb" src="http://www.gerber-viewer.com/"  border="0" frameborder="0" height="1100" width="1100" > 
                         </iframe> 
                         </div>
                         </div>
