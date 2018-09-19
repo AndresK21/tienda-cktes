@@ -20,22 +20,27 @@ try{
                                                             if($producto->setId_presentacion($_POST['presentacion'])){
                                                                 if($producto->setId_tipo_producto($_POST['tipo'])){
                                                                     if($producto->setId_impuesto($_POST['impuesto'])){
-                                                                        if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-                                                                            if(!$producto->setImagen($_FILES['archivo'])){
-                                                                                throw new Exception($producto->getImageError());
+                                                                        if($producto->setId_descuento($_POST['descuento'])){
+                                                                            if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                                                                                if(!$producto->setImagen($_FILES['archivo'])){
+                                                                                    throw new Exception($producto->getImageError());
+                                                                                }
                                                                             }
-                                                                        }if($producto->devValor()){
-                                                                            /*$desc = $_POST['descuento'];
-                                                                            $va = $desc * $_POST['precio'];
-                                                                            $pre = $va- $_POST['precio'];
-                                                                            $producto->setPrecio();*/
-                                                                            if($producto->updateProducto()){
-                                                                                Page::showMessage(1, "Producto modificado", "index.php");
+                                                                            if($producto->devValor()){
+                                                                                if($producto->devValor2()){
+                                                                                    if($producto->updateProducto()){
+                                                                                        Page::showMessage(1, "Producto modificado", "index.php");
+                                                                                    }else{
+                                                                                        throw new Exception("No se pudo modificar el producto");
+                                                                                    }
+                                                                                }else{
+                                                                                    throw new Exception(Database::getException());
+                                                                                }
                                                                             }else{
-                                                                                throw new Exception("No se pudo modificar el producto");
+                                                                                throw new Exception(Database::getException());
                                                                             }
                                                                         }else{
-                                                                            throw new Exception(Database::getException());
+                                                                            throw new Exception("Seleccione un descuento");
                                                                         }
                                                                     }else{
                                                                         throw new Exception("Seleccione un impuesto");

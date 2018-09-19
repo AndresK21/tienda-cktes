@@ -18,15 +18,23 @@ try{
                                                     if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                                                         if($producto->setImagen($_FILES['archivo'])){
                                                             if($producto->setId_impuesto($_POST['impuesto'])){
-                                                                if($producto->devValor()){
-                                                                    if($producto->createProducto()){
-                                                                        Page::showMessage(1, "Producto creado", "index.php");
+                                                                if($producto->setId_descuento($_POST['descuento'])){
+                                                                    if($producto->devValor()){ 
+                                                                        if($producto->devValor2()){
+                                                                            if($producto->createProducto()){
+                                                                                Page::showMessage(1, "Producto creado", "index.php");
+                                                                            }else{
+                                                                                throw new Exception(Database::getException());
+                                                                            }
+                                                                        }else{
+                                                                            throw new Exception(Database::getException());
+                                                                        }
                                                                     }else{
                                                                         throw new Exception(Database::getException());
                                                                     }
                                                                 }else{
-                                                                    throw new Exception(Database::getException());
-                                                                }
+                                                                    throw new Exception("Seleccione un descuento");
+                                                                } 
                                                             }else{
                                                                 throw new Exception("Seleccione un impuesto");
                                                             }  

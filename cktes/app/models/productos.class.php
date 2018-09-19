@@ -15,6 +15,7 @@ class Producto extends Validator{
 	private $id_estado = null;
 	private $id_tipo_producto = null;
 	private $id_impuesto = null;
+	private $id_descuento = null;
 	private $total = null;
 	
 	private $proveedor = null;
@@ -68,6 +69,18 @@ class Producto extends Validator{
 	}
 	public function getId_impuesto(){
 		return $this->id_impuesto;
+	}
+	
+	public function setId_descuento($value){
+		if($this->validateId($value)){
+			$this->id_descuento = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_descuento(){
+		return $this->id_descuento;
     }
     
 	public function setNombre($value){
@@ -286,6 +299,11 @@ class Producto extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	public function getDescuentos(){
+		$sql = "SELECT id_descuento, descuento FROM descuentos";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function getProducto(){
 		$sql = "SELECT id_producto, productos.nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, presentacion, proveedor, marca, productos.id_estado, id_tipo_producto, impuestos.valor FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) INNER JOIN impuestos USING(id_impuesto) ORDER BY id_producto";
 		$params = array(null);
@@ -314,26 +332,40 @@ class Producto extends Validator{
 
 	}
 	public function devValor(){
+		$sql = "SELECT valor FROM descuentos WHERE id_descuento = ?";
+		$params = array($this->id_descuento);
+		$produc = Database::getRow($sql, $params);
+		if($produc){
+			$var1 = $produc['valor'];
+
+			$descontado = $var1*$this->precio;
+			$this->total = round($this->precio - $descontado, 2);
+			return true;
+		}else{
+			return null;
+		}
+	}
+	public function devValor2(){
 		$sql = "SELECT valor FROM impuestos WHERE id_impuesto = ?";
 		$params = array($this->id_impuesto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
 			$var = $producto['valor'];
 
-			$agregado = $var*$this->precio;
-			$this->total = round($agregado + $this->precio, 2);
+			$agregado = $var*$this->total;
+			$this->total = (round($agregado + $this->total, 2));
 			return true;
 		}else{
 			return null;
 		}
 	}
 	public function createProducto(){
-		$sql = "INSERT INTO productos(nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->total ,$this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto);
+		$sql = "INSERT INTO productos(nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto, id_descuento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->total ,$this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->id_descuento);
 		return Database::executeRow($sql, $params);		
 	}
 	public function readProducto(){
-		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT nombre, url_imagen, descripcion, ficha_tecnica, cantidad, precio, precio_total, tamano, id_presentacion, id_proveedor, id_marca, id_estado, id_tipo_producto, id_impuesto, id_descuento FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -350,6 +382,7 @@ class Producto extends Validator{
 			$this->id_estado = $producto['id_estado'];
 			$this->id_tipo_producto = $producto['id_tipo_producto'];
 			$this->id_impuesto = $producto['id_impuesto'];
+			$this->id_descuento = $producto['id_descuento'];
 			return true;
 		}else{
 			return null;
