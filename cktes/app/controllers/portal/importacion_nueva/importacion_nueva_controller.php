@@ -1,12 +1,12 @@
 <?php
-     require_once("../app/models/portal/importaciones.class.php");
+     require_once("../app/models/importaciones.class.php");
 try{
-    $importacion = new Importaciones;
+    $importacion = new Importacion;
 	if (isset($_SESSION['id_cliente'])) {
      if (isset($_POST['enviar'])) { 
      	if ($importacion->setProducto($_POST['nombres'])) {
      		if ($importacion->setCantidad($_POST['cantidad'])) {
-				if ($importacion->setId($_SESSION['id_cliente'])) {
+				if ($importacion->setId_cliente($_SESSION['id_cliente'])) {
 					if($importacion->createImportacionNueva()) {
 						Page::showMessage(1, "Importacion nueva registrada", "index.php");
 					}else {

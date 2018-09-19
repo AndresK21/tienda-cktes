@@ -198,7 +198,7 @@ class Importacion extends Validator{
 	//create para importacion nueva 
 	public function createImportacionNueva(){
 		$sql = "INSERT INTO importacion_especial(cantidad, fecha, fecha_estimada, nombre, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?)";
-		$estado = 9;
+		$estado = 9; 
 		$fechae = date("Y-m-d");
 		$fechaa = date("Y-m-d");
 		$params = array($this->cantidad, $fechaa, $fechae, $this->producto, $this->id_cliente, $estado);

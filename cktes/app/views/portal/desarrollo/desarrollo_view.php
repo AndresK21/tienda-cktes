@@ -17,7 +17,7 @@
                     <div class='file-field input-field col s12'>
                     <div class='btn waves-effect colorNa'>
                     <span><i class='material-icons'>image</i></span>
-                    <input type='file' name='archivo' required/>
+                    <input type='file' name='archivo'/>
                     </div>
                     <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' placeholder='Seleccione su archivo si lo posee'/>
