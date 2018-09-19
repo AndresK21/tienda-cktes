@@ -8,6 +8,7 @@ class Detalle extends Validator{
 	private $compra= null;
 	private $existencias = null;
 	private $cliente =null;
+	private $id_cliente = null;
     
 
 	//Métodos para sobrecarga de propiedades
@@ -91,7 +92,18 @@ class Detalle extends Validator{
 	
 	public function getCliente(){
 		return $this->cliente;
-    }
+	}
+	public function setId_cliente($value){
+		if($this->validateId($value)){
+			$this->id_cliente = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_cliente(){
+		return $this->id_cliente;
+	}
  
 
 
@@ -129,6 +141,16 @@ class Detalle extends Validator{
 		$estadoo = 5;
 		$params = array($fechaa, $this->cliente, $estadoo);
 		return Database::executeRow($sql, $params);
+	}
+	public function getVentas(){
+		$sql = "SELECT id_cliente, id_detalle, id_carrito, productos.id_producto, productos.url_imagen, productos.nombre, detalle_carrito.cantidad, precio, precio * detalle_carrito.cantidad AS subtotal FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
+		$params = array($this->id_cliente);
+		return Database::getRows($sql, $params);
+	}
+	public function getTotal(){
+		$sql = "SELECT SUM(precio * detalle_carrito.cantidad) AS total FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) INNER JOIN productos USING(id_producto) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
+		$params = array($this->id_cliente);
+		return Database::getRows($sql, $params);
 	}
 	public function updateDetalle(){
 		$sql = "UPDATE detalle_carrito SET cantidad = ? WHERE id_producto = ? AND id_carrito= ?";

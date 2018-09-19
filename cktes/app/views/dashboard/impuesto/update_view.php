@@ -10,7 +10,7 @@
             </div>
             <div class="input-field col s12 m6 l6">
                 <input id="valor" type="number" min="0.01" max="100" step="any" name="porcentaje" class="validate" autocomplete="off" value='<?php print($impuesto->getPorcentaje()) ?>' required />
-                <label for="valor" class="black-text">valor del impuesto</label>
+                <label for="valor" class="black-text">valor del impuesto (%)</label>
             </div>
         </div>
         <div class="row">
