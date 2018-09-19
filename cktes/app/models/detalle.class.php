@@ -9,6 +9,7 @@ class Detalle extends Validator{
 	private $existencias = null;
 	private $cliente =null;
 	private $id_cliente = null;
+
     
 
 	//Métodos para sobrecarga de propiedades
@@ -233,6 +234,15 @@ public function readCarrito(){
 		$params = array($venta);
 		return Database::getRows($sql, $params);
 	}
+	public function getComp(){
+		$sql = "SELECT fecha, nombres, apellidos, nombre, precio_total, detalle_carrito.cantidad FROM carrito INNER JOIN clientes USING (id_cliente) INNER JOIN detalle_carrito USING (id_carrito) INNER JOIN productos USING (id_producto) WHERE id_carrito= ?";
+		$params = array($this->compra);
+		$result = Database::getRows($sql, $params);
+		}
+		public function getComp2(){
+		$sql = "SELECT nombres, correo_electronico, fecha FROM carrito INNER JOIN clientes USING (id_cliente) WHERE id_carrito= ?";
+        $param = array($this->compra);
+        $result = Database::getRow($sql, $param);}
 	
 }
 ?>

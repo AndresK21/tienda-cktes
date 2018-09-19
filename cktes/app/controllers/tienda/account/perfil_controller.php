@@ -16,9 +16,8 @@ try{
                     if($cliente->setApellidos($_POST['apellidos'])){
                             if($cliente->setCorreo($_POST['correo'])){
                                 if($cliente->setDUI($_POST['dui'])){
-                                    echo $_POST['nada'];
                                     if($cliente->setDireccion($_POST['direccion'])){
-                                        if ($cliente->setActividad($_POST['nada'])) {
+                                        //if ($cliente->setActividad($_POST['nada'])) {
                                         if($cliente->setNIT($_POST['nit'])){
                                 if($cliente->setEst(isset($_POST['auten'])?2:1)){
                                 if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
@@ -43,9 +42,9 @@ try{
                             }else{
                                 throw new Exception("NIT incorrecto");
                             }
-                        }else{
+                      /*  }else{
                             throw new Exception("Actividad incorrecta");
-                        }
+                        }*/
                         }else{
                                 throw new Exception("Direccion incorrecta");
                             }

@@ -66,22 +66,23 @@ print("
                 <input id='nit' type='text' name='nit' autocomplete='off' class='validate' value='<?php print($cliente->getNIT()) ?>' required/>
                 <label for='nit'>NIT</label>
             </div>
-            <div class="input-field col s12 m6">
-            <select id='actividad' name='actividad' class='validate transparent' required>
+         <!--   <div class="input-field col s12 m6">
+          Esto es un comentario  <select id='actividad' name='actividad' class='validate transparent' required>
                 <option value='' disabled selected>¿A qué se dedica?</option>
                 <option value='Trabaja'>Trabaja</option>
                 <option value='Estudi'>Estudia</option>
                 <option value='Independiente'>Independiente</option>
             </select>
             </div>
+            -->  
             <div class='input-field col s12 m6'>
                 <i class='material-icons prefix'>email</i>
                 <input id='direccion' type='text' name='direccion' autocomplete='off' class='validate' value='<?php print($cliente->getDireccion()) ?>' required/>
                 <label for='direccion'>Direcci&oacute;n</label>
             </div>
-            <div class="row">
-            <div class='col s12 m6'>
-            <i class='material-icons prefix'>email</i>
+            <div class="row center">
+            <div class='col s12 '>
+           
                     <div class='switch'>
                         <span>Autenticaci&oacute;n en dos pasos</span>
                         <label>

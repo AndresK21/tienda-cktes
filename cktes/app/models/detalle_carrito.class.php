@@ -113,5 +113,6 @@ class Detalle extends Validator{
 		$params = array("%$fecha1%", "%$fecha2%");
 		return Database::getRows($sql, $params);
 	}
+
 }
 ?>
