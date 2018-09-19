@@ -39,8 +39,8 @@
                     </div>           
                      <!--<div class='input-field col s12 m6'>
                        <?php
-                            //Page::showSelect("Sustrato", "sustrato", $pcb->getSustrato(), $pcb->getTipo_Sustrato());
-                        ?>--> 
+//Page::showSelect("Sustrato", "sustrato", $pcb->getSustrato(), $pcb->getTipo_Sustrato());
+?>--> 
                         <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons left">add_shopping_cart</i><b>Agregar al carrito</b></a><br><br><br><br><br>
                    <!-- </div> -->  
                     
@@ -50,20 +50,23 @@
         </div>
         <div id="test-swipe-3" class="col s12 m6 l3">
             <div class ="container">
-            <br>
-            <div class="col s12 m6 l5 push-l1">
-                        <div class="card card-panel hoverable">
-            <h5 class="center indigo-text darken-4"><b>Dejanos tus dudas</b></h5> 
+                <br>
+                <div class="col s12 m6 l5 push-l1">
+                            <div class="card card-panel hoverable">
+                <h5 class="center indigo-text darken-4"><b>Dejanos tus dudas</b></h5> 
                 <form>
-                   
-                    <h6><b>Asunto</b></h6> 
-                    <input id='asunto' name='asunto' class='validate'/>
-                    <h6><b>Mensaje</b></h6>
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons right">send</i><b>Enviar</b></a><br><br><br><br><br>
+                    <div class="input-field col s12 m12 ">
+                        <input id="DUI" name="DUI" type="text" autocomplete="off" class="validate transparent" >
+                        <label for="last_name">Asunto del mensaje</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Mensaje</label>
+                    </div>
+                        <a class="waves-effect waves-light btn-large indigo darken-4 right"><i class ="material-icons right">send</i><b>Enviar</b></a><br><br><br><br><br>
                 </form>
             </div>
-            </div>
-            </div>
         </div>
+    </div>
+</div>
 </main>
