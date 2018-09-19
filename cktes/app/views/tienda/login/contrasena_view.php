@@ -1,3 +1,5 @@
+
+<img class="responsive-img indeximage " src="../web/img/2.jpg"> 
 <!--TITULO Categorias-->
 <h2 class="center-align truncate"><b>INFORMACIÓN</b></h2>
 <!--Vista para cambiar de contraseña-->
