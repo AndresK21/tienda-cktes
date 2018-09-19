@@ -19,7 +19,7 @@
 
     if($_POST['fecha_22'] <= $_POST['fecha_11']){
         Component::showMessage(3, "Por favor ingrese datos validos", "index.php");
-    }else if($_POST['fecha_11'] = null || $_POST['fecha_22'] = null || $_POST['fecha_11'] = "" || $_POST['fecha_22'] = ""){
+    }else if($_POST['fecha_11'] == null || $_POST['fecha_22'] == null || $_POST['fecha_11'] == "" || $_POST['fecha_22'] == ""){
         Component::showMessage(3, "Los campos no pueden estar vacios", "index.php");
     }else{
         $result = $detalle->getVentasFecha($_POST['fecha_11'], $_POST['fecha_22']);

@@ -47,7 +47,7 @@ class Page extends Component{
 						$tiempo_transcurrido = $ahora-$fechaGuardada;   
 
 						//comparamos el tiempo transcurrido  
-						if($tiempo_transcurrido >= 300) {  
+						if($tiempo_transcurrido >= 600) {  
 							//si pasaron 5 minutos o más  
 							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy(); // destruyo la sesión
@@ -251,7 +251,7 @@ class Page extends Component{
 						$tiempo_transcurrido = $ahora-$fechaGuardada;   
 
 						//comparamos el tiempo transcurrido  
-						if($tiempo_transcurrido >= 300) {  
+						if($tiempo_transcurrido >= 600) {  
 							//si pasaron 10 minutos o más  
 							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
 							session_destroy(); // destruyo la sesión

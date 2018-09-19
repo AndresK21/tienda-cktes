@@ -78,14 +78,6 @@
 					<input id='fecha22' type='text' name='fecha_22' class="datepicker"/>
 					<label for='fecha22'>Fecha final</label>
 				</div>
-				<?php
-					if(isset($_POST['fecha_11']) && isset($_POST['fecha_22'])){
-						$_SESSION['par1'] = $_POST['fecha_11'];
-						$_SESSION['par2'] = $_POST['fecha_22'];
-
-						print("<div class='center-align'>Desde el ".$_SESSION['par1']." al ".$_SESSION['par2']."</div>");
-					}
-				?>
 				<div class='center-align'>
 					<button type='submit' name='reporte6' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Generar reporte de ventas'><i class='material-icons white-text large prefix'>content_paste</i></button>
 				</div>
@@ -162,13 +154,6 @@
 					<label for="venta" class="black-text">Precio</label>
 				</div>
 				<div class='center-align'>
-					<?php
-						if(isset($_POST['venta'])){
-							$_SESSION['par3'] = $_POST['venta'];
-
-							print("<div class='center-align'>Ventas mayores a ".$_SESSION['par3']."</div>");
-						}
-					?>
 					<button type='submit' name='reporte10' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar el monto'><i class='material-icons white-text large prefix'>content_paste</i></button>
 				</div>
 			</div>
