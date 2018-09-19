@@ -2,14 +2,14 @@
 <img class="responsive-img indeximage " src="../web/img/2.jpg"> 
     <h2 class="center"><b>PCB</b></h2>
         <ul id="tabs-swipe-demo" class="tabs center">
-            <li class="tab col s3 "><a href="#test-swipe-1" class ="indigo-text darken-4"><h5> VISUALIZADOR</h5></a></li>
-            <li class="tab col s3 "><a href="#test-swipe-2" class ="indigo-text darken-4"><h5>PCB</h5></a></li>
-            <li class="tab col s3"><a href="#test-swipe-3" class ="indigo-text darken-4"><h5>DUDAS</h5></a></li>
+            <li class="tab col s3 "><a href="#test-swipe-1" class ="black-text"><h5> VISUALIZADOR</h5></a></li>
+            <li class="tab col s3 "><a href="#test-swipe-2" class ="black-text darken-4"><h5>PCB</h5></a></li>
+            <li class="tab col s3"><a href="#test-swipe-3" class ="black-text darken-4"><h5>DUDAS</h5></a></li>
         </ul>
         <div id="test-swipe-1" class="col s12 m6 l3">
             <div class ="container">
             <br>
-            <h5 class="center indigo-text darken-4"><b>Desarrollando PCB</b></h5> 
+            <h5 class="center "><b>DESARROLLO PCB</b></h5> 
                 <form>
                     <h6><b>Subir archivo gerber</b></h6>
                     <div class='file-field input-field col s12 m6'>
@@ -53,7 +53,7 @@
                 <br>
                 <div class="col s12 m6 l5 push-l1">
                             <div class="card card-panel hoverable">
-                <h5 class="center indigo-text darken-4"><b>Dejanos tus dudas</b></h5> 
+                <h5 class="center"><b>DEJANOS TUS DUDAS</b></h5> 
                 <form method="post">
                     <div class="input-field col s12 m12 ">
                         <input id="DUI" name="Asunto" type="text" autocomplete="off" class="validate transparent" >
@@ -63,7 +63,7 @@
                         <textarea id="textarea1" name= "duda" class="materialize-textarea"></textarea>
                         <label for="textarea1">Mensaje</label>
                     </div>
-                    <button type='submit' name='enviar' class='btn waves-effect colorNa'>Enviar mensaje</button>
+                    <button type='submit' name='enviar' class='btn waves-effect colorNa'><i class="material-icons">send</i>  Enviar mensaje</button>
                 </form>
             </div>
         </div>
