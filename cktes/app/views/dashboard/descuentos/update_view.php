@@ -6,7 +6,7 @@
         <form class="col s12" method="post">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="valor" type="number" min="0.01" max="100" step="any" name="descuento" class="validate" autocomplete="off" value='<?php print($descuento->getDescuento()) ?>' required />
+                    <input id="valor" type="number" min="0" max="100" step="any" name="descuento" class="validate" autocomplete="off" value='<?php print($descuento->getDescuento()) ?>' required />
                     <label for="valor" class="black-text">valor del descuento (%)</label>
                 </div>
             </div>
