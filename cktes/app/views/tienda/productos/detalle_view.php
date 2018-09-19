@@ -23,7 +23,7 @@
             print(" 
             <div class='card-content'>
                 <h5>".$producto->getDescripcion()."</h5>
-                <h5>Precio (US$): ".$producto->getPrecio()."</h5>
+                <h5>Precio (US$): ".$producto->getTotal()."</h5>
                 <div class=' input-field col s12 m12 l12'>
                     <input id='cantidad' type='number' name='cantidad' min='1' max=".$producto->getExistencias()." class='validate'>
                     <label for='cantidad'>Cant</label>

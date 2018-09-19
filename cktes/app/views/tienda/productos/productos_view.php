@@ -71,7 +71,7 @@
                                     <th>Precio:</th>
                                 </tr>
                                 <tr>
-                                    <td>$productoA[precio]</td>
+                                    <td>$productoA[precio_total]</td>
                                 <tr>
                                     <th>Tamaño:</th>
                                 </tr>
