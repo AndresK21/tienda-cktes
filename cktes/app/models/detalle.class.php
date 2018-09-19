@@ -207,7 +207,7 @@ public function readCarrito(){
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->estado = $data['estado_carrito'];
-			$this->carrito = $data['id_carrito'];	
+			$this->compra = $data['id_carrito'];	
 			return true;
 		}else{
 			return false;

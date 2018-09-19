@@ -23,12 +23,12 @@ if(isset($_POST['comprar'])){
                           $comprar->setCantidad($existencias);
                           // Se modifican existencias en la tabla juguetes
                           $comprar->Modificarexistencia();     
-                          Page::showMessage(1, "Compra Realizada", 'categorias.php');
                           //Se crea otra compra seleccionando el máximo Id
                           $comprar->setCliente($_SESSION['id_cliente']);
                           $comprar->createCompra();
-                          $comprar->maxId();  
+                          $comprar->maxId();
                           $_SESSION['id_carrito'] = $comprar->getCompra();
+                          Page::showMessage(1, "Compra Realizada", 'categorias.php');
                         }
                   
                     else {

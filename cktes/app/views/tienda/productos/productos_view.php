@@ -21,10 +21,10 @@
             </button>
         </div>
     </form>
+    <div class="row">
+        <div class="container">
     <?php
     $marca = $data_productos[0]['marca'];
-    print("
-    <div class='row container'>"); 
         foreach($data_productos as $productoA){ print("
         <div class='col s12 m6 l6 center'>
             <div class='carta'>
@@ -34,7 +34,7 @@
                     <div class='baj_car'>
                         <div class='lef_car'>
                             <div class='details'>
-                                <h1>$productoA[nombre]</h1>
+                                <h5>$productoA[nombre]</h5>
                             </div>
                             <div class='buy'>
                                 <a href='detalle_producto.php?id=$productoA[id_producto]'>
@@ -93,6 +93,7 @@
         }
     ?>
     </div>
+</div>
     
     <?php
         //seleccionar todo de la tabla usuarios
