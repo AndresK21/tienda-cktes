@@ -8,6 +8,7 @@
 			if($detalle->setCompra($_GET['id'])){
 				//Se obtienen los detalles del historial de compra
 				$detalles= $detalle->readHistorialdetalle();
+				
 				if($detalles){
 					 require_once("../app/views/tienda/historial/historialdetalle_view.php");
 				}else{

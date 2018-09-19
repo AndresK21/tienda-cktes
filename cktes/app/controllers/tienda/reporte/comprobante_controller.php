@@ -6,6 +6,7 @@
     require_once("../../app/models/detalle.class.php");
     
     $detalles = new Detalle;
+    
 	// L- Landscape(horizontal), mm- milimetros, A5- tamaño de la pagina
     $comp = new COMP('L', 'mm', 'A5');
     // Se especifica que contrndrá el arreglo (el nombre de las columnas)
@@ -19,7 +20,7 @@
     $w = array(90, 90);
     //Columnas y su información (del cliente)
     $detalle= $detalles->getComp2();
-    $detalle1= $detalles->getComp();
+    $result= $detalles->getComp();
     $comp->Cell($w[0],6,'Cliente: '.$detalle['nombres'],0,0,'L');
     $comp->Cell($w[1],6,'Correo: '.$detalle['correo_electronico'],0,1,'L');         
     $comp-> setX(-105);

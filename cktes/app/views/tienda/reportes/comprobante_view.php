@@ -28,7 +28,7 @@
             1- se incluye
              Cell(float w [, float h [, string txt [, mixed border [, int ln [, string align [, boolean fill [, mixed link]]]]]]])
             */
-            $this->Cell(120,8, 'K I D S Z O N E',0,1,'C');	
+            $this->Cell(120,8, 'C K T - E S',0,1,'C');	
             $this->Cell(30);
             $this->SetTextColor(88,88,88);
             $this->Cell(120,10, 'Comprobante de compra',0,1,'C');	
