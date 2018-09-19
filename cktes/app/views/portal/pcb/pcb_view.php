@@ -54,9 +54,9 @@
                 <div class="col s12 m6 l5 push-l1">
                             <div class="card card-panel hoverable">
                 <h5 class="center indigo-text darken-4"><b>Dejanos tus dudas</b></h5> 
-                <form>
+                <form method="post">
                     <div class="input-field col s12 m12 ">
-                        <input id="DUI" name="DUI" type="text" autocomplete="off" class="validate transparent" >
+                        <input id="DUI" name="Asunto" type="text" autocomplete="off" class="validate transparent" >
                         <label for="last_name">Asunto del mensaje</label>
                     </div>
                     <div class="input-field col s12">
