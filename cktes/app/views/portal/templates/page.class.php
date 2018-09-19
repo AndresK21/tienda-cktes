@@ -41,7 +41,7 @@ class Page extends Component{
           if ($vida_sesion > $inactivo) {
               //Destruimos sesión.
               session_destroy();
-              Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "acceder.php");
+              Page::showMessage(3, "Sesión inactiva, vuelva a iniciar sesión", "../tienda/acceder.php");
               exit();
           } else {
               //Activamos sesion tiempo.
@@ -61,7 +61,7 @@ class Page extends Component{
           $valor     = new DateTime($val);
           $intervalo = $valor->diff($ingreso);
           if ($intervalo->format('%a') >= 2) {
-              Page::showMessage(3, "Debe cambiar contraseña", "cambio_contrasena.php");
+              Page::showMessage(3, "Debe cambiar contraseña", "../tienda/cambio_contrasena.php");
           } else {
         print("
         <header>
