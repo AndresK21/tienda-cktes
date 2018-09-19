@@ -56,10 +56,18 @@ print("
                                     <td>$pedido[fecha]</td>
                                 <tr>
                                  <th><a class='waves-effect colorNa waves-light btn modal-trigger' href='#modal$pedido[id_pedido]'>Ver mas</a></th>
-                                </tr>
+                                </tr>");
+                                
+                                if($pedido['estado'] == 'Pedido nuevo'){
+                                print("
                                 <tr>
+                                <form method='post' enctype='multipart/form-data'>
+                                <input class='sinver' name='id' type='text' autocomplete='off' class='validate transparent' value='$pedido[id_pedido]'>
                                  <th><button type='submit' name='cancelar' class='waves-effect colorNa waves-light btn modal-trigger' href=''>Cancelar Pedido</button></th>
-                                </tr>
+                                 </form>
+                                </tr>");
+                            }
+                                print("
                             </table>
                         </div>
                 </div>

@@ -22,14 +22,17 @@ try{
 try{
     $pedido = new Pedido;
     if (isset($_POST['cancelar'])) {
-     if ($pedido->setId_cliente($_SESSION['id_cliente'])) {
+     if ($pedido->setId_pedido($_POST['id'])) {
             if ($pedido->CancelarP()) {
                 Page::showMessage(1, "Pedido cancelado", "index.php");
+            }else{
+                throw new Exception("Error al eliminarlo");
+                
             }
-        } else{
+        }else{
             throw new Exception("Cliente incorrecto");
-        }   
-    }
+        }
+    }  
 }catch(Exception $error){
     Page::showMessage(3, $error->getMessage(), "index.php");
 }
