@@ -4,7 +4,7 @@ class Importacion extends Validator{
 	private $id_importacion = null;
     private $cantidad = null;
     private $fecha = null;
-    private $producto = null;
+    private $producto = null; 
     private $id_cliente = null;
 		private $id_estado = null;
 		private $fecha_estimada = null;
@@ -194,6 +194,15 @@ class Importacion extends Validator{
 		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) ORDER BY id_importacion";
 		$params = array(null);
 		return Database::getRows($sql, $params);
+	}
+	//create para importacion nueva 
+	public function createImportacionNueva(){
+		$sql = "INSERT INTO importacion_especial(cantidad, fecha, fecha_estimada, nombre, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?, ?)";
+		$estado = 9;
+		$fechae = date("Y-m-d");
+		$fechaa = date("Y-m-d");
+		$params = array($this->cantidad, $fechaa, $fechae, $this->producto, $this->id_cliente, $estado);
+		return Database::executeRow($sql, $params);
 	}
 }
 ?>

@@ -18,11 +18,11 @@
         <div class="col s12 m6 l5 push-l1">
             <div class="card card-panel hoverable">
                         <div class="card-image"> 
-                        <a href="importaciones.php">
+                        <a href="importacion_nueva.php">
                         <img src="../web/img/portal/importaciones/buscar.jpg"></a>
                         </div>
                         <div class="card-content">
-                            <a href="importaciones.php" class="indigo-text darken-4">
+                            <a href="importacion_nueva.php" class="indigo-text darken-4">
                             <p><b ></b><br><h5><b>IMPORTACIONES NUEVAS</b></h5></p></a>
                         </div>
             </div>
