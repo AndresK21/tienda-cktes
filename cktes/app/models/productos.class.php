@@ -390,7 +390,7 @@ class Producto extends Validator{
 	}
 
 	public function readProducto2(){
-		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total, productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto FROM productos WHERE id_producto = ? ORDER BY id_producto";
+		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total, productos.tamano, productos.id_presentacion, productos.id_proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto, productos.precio_total FROM productos WHERE id_producto = ? ORDER BY id_producto";
 		$params = array($this->id_producto);
 		$producto = Database::getRow($sql, $params);
 		if($producto){
@@ -406,6 +406,7 @@ class Producto extends Validator{
 			$this->id_marca = $producto['id_marca'];
 			$this->id_estado = $producto['id_estado'];
 			$this->id_tipo_producto = $producto['id_tipo_producto'];
+			$this->total = $producto['precio_total'];
 			return true;
 		}else{
 			return null;
