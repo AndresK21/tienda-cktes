@@ -81,7 +81,7 @@ class Pedido extends Validator{
 	}
 
 	public function setArchivo($file){
-		if($this->validateArchive($file, $this->archivo, "../../web/archivo/manufacturacion/")){
+		if($this->validateArchive($file, $this->archivo, "../web/archivo/manufacturacion/")){
 			$this->archivo = $this->getArchiveName();
 			return true;
 		}else{
@@ -92,7 +92,7 @@ class Pedido extends Validator{
 		return $this->archivo;
 	}
 	public function unsetArchivo(){
-		if(unlink("../../web/archivo/manufacturacion/".$this->archivo)){
+		if(unlink("../web/archivo/manufacturacion/".$this->archivo)){
 			$this->archivo = null;
 			return true;
 		}else{

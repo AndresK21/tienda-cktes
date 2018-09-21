@@ -102,8 +102,7 @@ class Validator{
 			if($value){
 				$this->archiveName = $value;
 			}else{
-				
-				if($file['type'] == "application/zip"){
+				if($file['type'] == "application/x-zip-compressed"){
 					$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 					$filename = uniqid().".".$extension;
 					$url = $path.$filename;

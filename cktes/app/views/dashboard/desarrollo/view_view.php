@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6 l6">
-                <a class="waves-effect waves-light btn grey darken-3" href="../../web/archivo/<?php print($desarrollo->getArchivo())?>"><i class="material-icons left">cloud_download</i>Descargar archivo</a>
+                <a class="waves-effect waves-light btn grey darken-3" href="../../web/archivo/desarrollo/<?php print($desarrollo->getArchivo())?>"><i class="material-icons left">cloud_download</i>Descargar archivo</a>
             </div>
         </div>
         <div class="row">

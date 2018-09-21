@@ -28,7 +28,7 @@
                 <div class="col s12 m6 l5 push-l1">
                             <div class="card card-panel hoverable">
                 <h5 class="center"><b>Ingresa tu proyecto</b></h5> 
-                <form method="post">
+                <form method="post" enctype='multipart/form-data'>
                     <div class="input-field col s12 m12 ">
                         <input id="medida" name="medida" type="text" autocomplete="off" class="validate transparent" >
                         <label for="medida">Medida</label>
@@ -54,7 +54,7 @@
                     <div class='file-field input-field col s12'>
                     <div class='btn waves-effect colorNa'>
                     <span><i class='material-icons'>image</i></span>
-                    <input type='file' name='archivos'/>
+                    <input type='file' name='archivo'/>
                     </div>
                     <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' placeholder='Seleccione su archivo'/>

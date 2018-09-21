@@ -39,7 +39,7 @@ class Desarrollo extends Validator{
     
 
     public function setArchivo($file){
-		if($this->validateArchive($file, $this->archivo, "../../web/archivo/desarrollo/")){
+		if($this->validateArchive($file, $this->archivo, "../web/archivo/desarrollo/")){
 			$this->archivo = $this->getArchiveName();
 			return true;
 		}else{
@@ -50,7 +50,7 @@ class Desarrollo extends Validator{
 		return $this->archivo;
 	}
 	public function unsetArchivo(){
-		if(unlink("../../web/archivo/desarrollo/".$this->archivo)){
+		if(unlink("../web/archivo/desarrollo/".$this->archivo)){
 			$this->archivo = null;
 			return true;
 		}else{

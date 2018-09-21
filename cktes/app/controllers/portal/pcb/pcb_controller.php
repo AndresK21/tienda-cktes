@@ -9,19 +9,26 @@ try{
      		   if ($pedido->setTipo_placa($_POST['tipo'])) {
      		   	 if ($pedido->setSustrato($_POST['tipo_sustrato'])) {
 						if ($pedido->setId_cliente($_SESSION['id_cliente'])) {
-                             if ($pedido->setCantidad($_POST['cantidad'])) {
-						        $pedido->createPlaca();
-						        $max = $pedido->maxPlaca();
-						        $id = $max[0]['Id_max'];
-                                 $pedido->setId_placa($id);
-                                 if($pedido->createPedidon()){
-                                  Page::showMessage(1, 'Pedido solicitado', "index.php");
-                                 }
-                                 else{
-                                 	throw new Exception("Error al solicitarlo");
-                                 	
-                                 }
-                             }
+                            if ($pedido->setCantidad($_POST['cantidad'])) {
+								if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+									if($pedido->setArchivo($_FILES['archivo'])){
+										$pedido->createPlaca();
+										$max = $pedido->maxPlaca();
+										$id = $max[0]['Id_max'];
+										$pedido->setId_placa($id);
+										if($pedido->createPedidon()){
+											Page::showMessage(1, 'Pedido solicitado', "index.php");
+										}
+										else{
+											throw new Exception("Error al solicitarlo");
+										}
+									}else{
+										throw new Exception($pedido->getArchiveError());
+									}
+								}else{
+									throw new Exception("Seleccione un archivo");
+								}
+                            }
 						}
 						else{
 							throw new Exception("Error en el cliente");
