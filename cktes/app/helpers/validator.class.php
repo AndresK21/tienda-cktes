@@ -32,6 +32,7 @@ class Validator{
 		return $this->archiveName;
 	}
 	public function getArchiveError(){
+		echo($file['type']);
 		switch($this->archiveError){
 			case 1:
 				$error = "No se puede guardar el archivo";
@@ -102,7 +103,8 @@ class Validator{
 			if($value){
 				$this->archiveName = $value;
 			}else{
-				if($file['type'] == "application/x-zip-compressed"){
+				echo($file['type']);
+				if($file['type'] == "application/x-zip-compressed" || "application/zip" || "multipart/x-zip" || "application/octet-stream"){
 					$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 					$filename = uniqid().".".$extension;
 					$url = $path.$filename;

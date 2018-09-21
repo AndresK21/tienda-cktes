@@ -19,7 +19,7 @@ print("
                                 <h5>Pedido $pedido[id_pedido]</h5>
                             </div>
                             <div class='buy'>
-                                <a href='../web/archivo/$pedido[archivo]'>
+                                <a href='../web/archivo/manufacturacion/$pedido[archivo]'>
                                     <i class='material-icons' data-tooltip='Buscar por nombre'>file_download</i></a>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ print("<div id='modal$pedido[id_pedido]' class='modal cktes white-text'>
   </ul>
     </div>
     <div class='modal-footer cktes white-text'>
-      <a href='../web/archivo/$pedido[archivo]' class='waves-effect colorNa btn-flat white-text'>Descargar</a>
+      <a href='../web/archivo/manufacturacion/$pedido[archivo]' class='waves-effect colorNa btn-flat white-text'>Descargar</a>
       <a class='modal-close waves-effect colorNa btn-flat white-text left'>Cerrar</a>
     </div>
   </div>");
