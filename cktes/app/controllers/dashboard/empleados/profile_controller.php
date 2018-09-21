@@ -12,7 +12,7 @@ try{
                             if($usuario->setEst(isset($_POST['auten'])?2:1)){
                                 if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                                     if(!$usuario->setImagen($_FILES['archivo'])){
-                                        throw new Exception($producto->getImageError());
+                                        throw new Exception($usuario->getImageError());
                                     }
                                 }if($usuario->updateEmpleado()){
                                     $_SESSION['correo_electronico2_d'] = $usuario->getCorreo();

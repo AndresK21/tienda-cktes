@@ -7,6 +7,11 @@ try{
      	if ($desarrollo->setMensaje($_POST['mensaje'])) {
      		if ($desarrollo->setTipo_desa($_POST['tipo'])) {
 					if ($desarrollo->setId($_SESSION['id_cliente'])) {
+						if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+							if(!$desarrollo->setArchivo($_FILES['archivo'])){
+								throw new Exception($desarrollo->getArchiveError());
+							}
+						}
 						$desarrollo->createDesarrollo();
 						Page::showMessage(1, "Desarrollo agregado", "index.php");
 					}else{
