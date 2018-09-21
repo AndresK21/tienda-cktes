@@ -99,11 +99,10 @@ class Validator{
 	}
 
 	public function validateArchive($file, $value, $path){
-		if($file['size'] <= 2097152){
+		if($file['size'] <= 20971520){
 			if($value){
 				$this->archiveName = $value;
 			}else{
-				echo($file['type']);
 				if($file['type'] == "application/x-zip-compressed" || "application/zip" || "multipart/x-zip" || "application/octet-stream"){
 					$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 					$filename = uniqid().".".$extension;
