@@ -268,12 +268,12 @@ class Empleado extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function searchEmpleado($value){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? AND estado = 1 ORDER BY id_empleado";
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE estado = 1 AND (nombres LIKE ? OR apellidos LIKE ?) ORDER BY id_empleado";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
 	public function searchEmpleado_bloq($value){
-		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE nombres LIKE ? OR apellidos LIKE ? AND estado = 0 ORDER BY id_empleado";
+		$sql = "SELECT id_empleado, nombres, apellidos, imagen, correo_electronico, contrasena, permiso FROM empleado INNER JOIN permisos USING(id_permiso) WHERE estado = 0 AND (nombres LIKE ? OR apellidos LIKE ?) ORDER BY id_empleado";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}

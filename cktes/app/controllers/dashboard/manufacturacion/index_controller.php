@@ -21,7 +21,7 @@ try{
     $pedidoc = new Pedido;
 	if(isset($_POST['buscar_com'])){
 		$_POST = $pedidoc->validateForm($_POST);
-		$data = $pedidoc->searchPedidoc($_POST['busqueda_com']);
+		$data2 = $pedidoc->searchPedidoc($_POST['busqueda_com']);
 		if($data2){
 			$rows = count($data2);
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
