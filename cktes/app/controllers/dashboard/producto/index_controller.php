@@ -112,7 +112,7 @@ try{
 	if($data){
 		require_once("../../app/views/dashboard/producto/index_view.php");
 	}else{
-		Page::showMessage(4, "No hay productos disponibles", "create.php");
+		require_once("../../app/views/dashboard/producto/index_view.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), "../cuenta/");
