@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_cliente' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_cliente' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -50,8 +50,8 @@
                                     <td>$row[nombres]</td>
                                     <td>$row[correo_electronico]</td>
                                     <td>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Bloquear cliente' href='delete.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock</i></a>
+                                        <a class='waves-effect waves-light tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
+                                        <a class='waves-effect waves-light tooltipped' data-position='right' data-delay='50' data-tooltip='Bloquear cliente' href='delete.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock</i></a>
                                     </td>
                                 </tr>
                                 ");
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_cliente2' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_cliente2' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -131,8 +131,8 @@
                                     <td>$row[nombres]</td>
                                     <td>$row[correo_electronico]</td>
                                     <td>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Desbloquear cliente' href='delete2.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock_open</i></a>
+                                        <a class='waves-effect waves-light tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='compras.php?id=$row[id_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>shopping_basket</i></a>
+                                        <a class='waves-effect waves-light tooltipped' data-position='right' data-delay='50' data-tooltip='Desbloquear cliente' href='delete2.php?id=$row[id_cliente]'><i class='material-icons red-text text-darken-3 prefix'>lock_open</i></a>
                                     </td>
                                 </tr>
                                 ");
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_tipo' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_tipo' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por tipo de cliente'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -216,8 +216,8 @@
                                 <tr>
                                     <td>$row2[tipo_cliente]</td>
                                     <td>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Visualizar ventas' href='update_tipo.php?id=$row2[id_tipo_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
-                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Eliminar cliente' href='delete_tipo.php?id=$row2[id_tipo_cliente]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
+                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Editar tipo de cliente' href='update_tipo.php?id=$row2[id_tipo_cliente]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
+                                        <a class='waves-effect waves-light modal-trigger tooltipped' data-position='right' data-delay='50' data-tooltip='Eliminar tipo de cliente' href='delete_tipo.php?id=$row2[id_tipo_cliente]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
                                     </td>
                                 </tr>
                                 ");

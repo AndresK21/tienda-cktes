@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por tipo de desarrollo'><i class='material-icons'>search</i></button>
                     </div>
                 </form>
             </div>
@@ -95,7 +95,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="create.php">
+            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de desarrollo" href="create.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -125,8 +125,8 @@
                                                 <td>$row[tipo_desarrollo]</td>
                                                 <td>$row[descripcion]</td>
                                                 <td>
-                                                    <a href='update.php?id=$row[id_tipo_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>edit</i></a>
-                                                    <a href='delete.php?id=$row[id_tipo_desarrollo]' class='red-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Responder mensaje'><i class='material-icons'>delete</i></a>
+                                                    <a href='update.php?id=$row[id_tipo_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Editar tipo de desarrollo'><i class='material-icons'>edit</i></a>
+                                                    <a href='delete.php?id=$row[id_tipo_desarrollo]' class='red-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar tipo de desarrollo'><i class='material-icons'>delete</i></a>
                                                 </td>
                                             </tr>
                                                 ");

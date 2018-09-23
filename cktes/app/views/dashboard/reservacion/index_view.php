@@ -24,7 +24,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre del cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombres o apellidos'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre del cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_impor' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_impor' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombres o apellidos '><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             <thead class="grey darken-3 white-text">
                             <tr>
                                 <th>Cliente</th>
-                                <th>Estado del pedido</th>
+                                <th>Estado de la importaci&oacute;n</th>
                                 <th>Producto solicitado</th>
                                 <th>Cantidad</th>
                                 <th>Fecha estimada</th>

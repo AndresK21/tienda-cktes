@@ -24,7 +24,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_nuevo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_nuevo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_com' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_com' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                                 <label for="buscar_label" class="black-text">Buscar sustrato</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_sustrato' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_sustrato' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre del sustrato'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -196,8 +196,8 @@
                                             <tr>
                                                 <td>$row[sustrato]</td>
                                                 <td>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar producto' href='update_sustrato.php?id=$row[id_sustrato]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar producto' href='delete_sustrato.php?id=$row[id_sustrato]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar sustrato' href='update_sustrato.php?id=$row[id_sustrato]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar sustrato' href='delete_sustrato.php?id=$row[id_sustrato]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
                                                 </td>
                                             </tr>
                                             ");
@@ -231,7 +231,7 @@
                                 <label for="buscar_label" class="black-text">Buscar tipo de placa</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por tipo de placa'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -269,8 +269,8 @@
                                             <tr>
                                                 <td>$row[tipo_placa]</td>
                                                 <td>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar producto' href='update_tipo.php?id=$row[id_tipo_placa]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar producto' href='delete_tipo.php?id=$row[id_tipo_placa]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Editar tipo de placa' href='update_tipo.php?id=$row[id_tipo_placa]'><i class='material-icons blue-text text-darken-3 prefix'>edit</i></a>
+                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Eliminar tipo de placa' href='delete_tipo.php?id=$row[id_tipo_placa]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
                                                 </td>
                                             </tr>
                                             ");

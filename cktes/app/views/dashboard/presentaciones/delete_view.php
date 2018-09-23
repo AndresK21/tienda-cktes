@@ -1,3 +1,6 @@
+<div class="white-text">.</div>
+<div class="white-text">.</div>
+
 <form method='post'>
 	<div class='row center-align'>
 		<h4>Una presentaci&oacute;n ser&aacute; borrada ¿est&aacute; seguro?</h4>

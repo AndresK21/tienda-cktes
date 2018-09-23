@@ -1,3 +1,6 @@
+<div class="white-text">.</div>
+<div class="white-text">.</div>
+
 <form method='post'>
 	<div class='row center-align'>
 		<h4>Un tipo de producto ser&aacute; borrado ¿est&aacute; seguro?</h4>
