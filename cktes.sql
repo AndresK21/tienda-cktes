@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2018 a las 03:17:52
+-- Tiempo de generación: 23-09-2018 a las 02:57:52
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -57,39 +57,47 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`id_carrito`, `fecha`, `id_cliente`, `estado_carrito`) VALUES
-(1, '2018-05-14', 1, NULL),
-(2, '2018-05-14', 2, NULL),
-(3, '2018-05-14', 3, NULL),
-(4, '2018-05-14', 4, NULL),
-(5, '2018-05-14', 5, NULL),
-(6, '2018-05-14', 6, NULL),
-(7, '2018-05-14', 7, NULL),
-(8, '2018-05-14', 8, NULL),
-(9, '2018-05-14', 9, NULL),
-(10, '2018-05-14', 10, NULL),
-(11, '2018-05-14', 11, NULL),
-(12, '2018-05-14', 12, NULL),
-(13, '2018-05-14', 13, NULL),
-(14, '2018-05-14', 14, NULL),
-(15, '2018-05-14', 15, NULL),
-(16, '2018-05-14', 16, NULL),
-(17, '2018-05-14', 17, NULL),
-(18, '2018-05-14', 18, NULL),
-(19, '2018-05-14', 19, NULL),
-(20, '2018-05-14', 20, NULL),
-(21, '2018-05-16', NULL, NULL),
-(22, '2018-05-30', NULL, NULL),
-(23, '2018-05-30', NULL, 5),
-(24, '2018-06-04', NULL, NULL),
-(25, '2018-06-04', NULL, 5),
-(26, '2018-09-03', NULL, NULL),
-(27, '2018-09-03', NULL, 5),
-(28, '2018-09-03', NULL, NULL),
+(1, '2018-05-14', 1, 6),
+(2, '2018-05-14', 2, 6),
+(3, '2018-05-14', 3, 6),
+(4, '2018-05-14', 4, 6),
+(5, '2018-05-14', 5, 6),
+(6, '2018-05-14', 6, 6),
+(7, '2018-05-14', 7, 6),
+(8, '2018-05-14', 8, 6),
+(9, '2018-05-14', 9, 6),
+(10, '2018-05-14', 10, 6),
+(11, '2018-05-14', 11, 6),
+(12, '2018-05-14', 12, 6),
+(13, '2018-05-14', 13, 6),
+(14, '2018-05-14', 14, 6),
+(15, '2018-05-14', 15, 6),
+(16, '2018-05-14', 16, 6),
+(17, '2018-05-14', 17, 6),
+(18, '2018-05-14', 18, 6),
+(19, '2018-05-14', 19, 6),
+(20, '2018-05-14', 20, 6),
+(21, '2018-05-16', 26, 6),
+(22, '2018-05-30', 26, 6),
+(23, '2018-05-30', 26, 6),
+(24, '2018-06-04', 26, 6),
+(25, '2018-06-04', 26, 6),
+(26, '2018-09-03', NULL, 6),
+(27, '2018-09-03', NULL, 6),
+(28, '2018-09-03', NULL, 6),
 (29, '2018-09-05', NULL, 6),
-(30, '2018-09-05', NULL, 5),
-(31, '2018-09-05', NULL, 5),
-(32, '2018-09-17', 26, NULL),
-(33, '2018-09-17', 26, 5);
+(30, '2018-09-05', NULL, 6),
+(31, '2018-09-05', NULL, 6),
+(32, '2018-09-17', 26, 6),
+(33, '2018-09-18', 26, 6),
+(34, '2018-09-18', 26, 6),
+(35, '2018-09-18', 26, 6),
+(36, '2018-09-19', 26, 6),
+(37, '2018-09-19', 26, 6),
+(38, '2018-09-19', 26, 6),
+(39, '2018-09-19', 27, NULL),
+(40, '2018-09-19', 27, 6),
+(41, '2018-09-19', 27, 5);
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,8 @@ INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidos`, `correo_electronic
 (18, 'Justin', 'Blackburn', 'congue@necleoMorbi.net', 'tempor arcu.', 'Quisque purus', 0, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 1, 4),
 (19, 'Elizabeth', 'Blackburn', 'urna@musDonecdignissim.ca', 'Mauris nulla.', 'varius', 0, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 4),
 (20, 'Nelle', 'Spears', 'libero.Integer.in@turpis.ca', 'magna.', 'iaculis quis,', 0, NULL, '0000-00-00', NULL, NULL, 0, '', '', NULL, '', '', NULL, NULL, 2, 3),
-(26, 'Andres Oswaldo', 'Henriquez Gomez', 'andresdosmil@gmail.com', '$2y$10$6V75oVqho/4StPh9wr94/OTCwXCmyawlmcl1QTokNTxOKciZy0RFW', 'no-user.png', 0, NULL, '2018-09-17', 3595, '89j7j9lh1165govv1il2vllph5', 1, '06015522-1', '0614-040300-140-4', NULL, 'Estudia', 'Mi casa', NULL, NULL, 1, 3);
+(26, 'Andres Oswaldo', 'Henriquez Gomez', 'andresdosmil@gmail.com', '$2y$10$YYNa13jMdPTJQb08JlUPfuv1XrDmR6BXG1r3U.AZvALPykO9CZ..i', 'no-user.png', 0, NULL, '2018-09-21', 3595, 'c8d6l1eqh4dik52joln1qib0v7', 1, '06015522-1', '0614-040300-140-4', NULL, 'Estudia', 'Mi casa', NULL, NULL, 1, 3),
+(27, 'Diego', 'Guzman', 'diego@gmail.com', '$2y$10$2wq05X7FNOtY2/ZRIpHpQe.3DygucJDCpV0.0Vv6Zz5Uxm/Gnpye6', NULL, 0, NULL, '2018-09-19', 9433, NULL, 2, '12345678-9', '1234-567890-876-9', NULL, 'Estudia', 'Casa', NULL, NULL, 1, 3);
 
 --
 -- Disparadores `clientes`
@@ -185,8 +194,32 @@ CREATE TABLE `desarrollo` (
 --
 
 INSERT INTO `desarrollo` (`id_desarrollo`, `mensaje`, `archivo`, `id_tipo_desarrollo`, `id_cliente`) VALUES
-(1, 'Este es un mensaje de la idea', '5b16b00a15f44.zip', 1, 26),
-(2, 'Otro mensaje de idea', '5b16b00a15f44.zip', 2, 11);
+(9, 'Esta es mi idea del proyecto', NULL, 2, 26),
+(10, 'Mi idea del proyecto es...', '5ba558e857854.zip', 4, 26),
+(11, 'El proyecto consiste en...', NULL, 2, 26);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `descuentos`
+--
+
+CREATE TABLE `descuentos` (
+  `id_descuento` int(11) NOT NULL,
+  `descuento` double NOT NULL,
+  `valor` varchar(5) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `descuentos`
+--
+
+INSERT INTO `descuentos` (`id_descuento`, `descuento`, `valor`) VALUES
+(2, 0, '0.00'),
+(3, 15, '0.15'),
+(5, 25, '0.25'),
+(6, 50, '0.50'),
+(7, 70, '0.70');
 
 -- --------------------------------------------------------
 
@@ -229,7 +262,15 @@ INSERT INTO `detalle_carrito` (`id_detalle`, `cantidad`, `id_carrito`, `id_produ
 (21, 7, 1, 1),
 (22, 1, 29, 1),
 (23, 4, 29, 8),
-(24, 2, 33, 2);
+(24, 1, 33, 2),
+(25, 3, 33, 8),
+(26, 5, 35, 10),
+(27, 3, 36, 10),
+(28, 5, 37, 2),
+(29, 1, 38, 2),
+(30, 2, 38, 8),
+(32, 4, 40, 10),
+(33, 1, 41, 2);
 
 --
 -- Disparadores `detalle_carrito`
@@ -278,8 +319,9 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `nombres`, `apellidos`, `imagen`, `correo_electronico`, `contrasena`, `fecha_registro`, `estado`, `fecha_bloqueo`, `contador`, `ip`, `autenticacion`, `estado_autenticacion`, `id_permiso`) VALUES
-(26, 'Andres Oswaldo', 'Henriquez Gomez', '5b89f9e4877c5.jpg', 'andresdosmil@gmail.com', '$2y$10$tEESMEYYQL60.NSsPwamLuSN8zRtC1ZFQOm3l5jBsmbN34TEgf3IS', '2018-09-18 00:00:00', 1, '2018-09-01 09:10:42', 0, 'vg903rshjejod7n5etidpeqlg0', 5126, 1, 1),
-(27, 'hola', 'hola', '5ba006510bcda.png', 'andresdosmilg@gmailc.om', '$2y$10$tfhq4ifrqW1LAuOkLIIgRePyo42.0V/FqF6W0WaSl3FEgc0cUDRZu', '2018-09-17 00:00:00', 0, '2018-09-17 01:54:39', 0, NULL, NULL, 1, 2);
+(26, 'Andres Oswaldo', 'Henriquez Gomez', '5b89f9e4877c5.jpg', 'andresdosmil@gmail.com', '$2y$10$F7hi2jxGikTqAQQsAoMFuOFXHMZCjt9uWne4.YgjITkW2znXRtf0K', '2018-09-21 00:00:00', 1, NULL, 0, NULL, 4697, 1, 1),
+(27, 'hola', 'hola', '5ba006510bcda.png', 'andresdosmilg@gmailc.om', '$2y$10$tfhq4ifrqW1LAuOkLIIgRePyo42.0V/FqF6W0WaSl3FEgc0cUDRZu', '2018-09-17 00:00:00', 1, '2018-09-17 01:54:39', 0, NULL, NULL, 1, 2),
+(28, 'Diego Edgardo', 'Guzman', '5ba2595d25373.jpg', 'diego@gmail.com', '$2y$10$DytJ2O2qaKo8KdR7EuLrpelVqxopMrX9F7fJ73nJQsVv9qfGvQ3f2', '2018-09-19 00:00:00', 1, NULL, 0, NULL, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -330,8 +372,9 @@ CREATE TABLE `importacion_especial` (
 --
 
 INSERT INTO `importacion_especial` (`id_importacion`, `fecha`, `nombre`, `cantidad`, `fecha_estimada`, `id_cliente`, `id_estado`) VALUES
-(1, '2018-05-15', 'Este es el producto que necesitosfgdfadgsdtghsdhdfsfhsghdfz', 25, '2018-10-27', 9, 10),
-(2, '2018-05-15', 'Este es otr', 25, '2018-12-14', 13, 9);
+(1, '2018-05-15', 'Este es el producto que necesitosfgdfadgsdtghsdhdfs', 25, '2018-10-27', 9, 10),
+(2, '2018-05-15', 'Este es otr', 25, '2018-12-14', 13, 9),
+(3, '2018-09-19', 'sdfsdf', 34, '2018-09-19', 26, 9);
 
 -- --------------------------------------------------------
 
@@ -353,19 +396,6 @@ CREATE TABLE `impuestos` (
 INSERT INTO `impuestos` (`id_impuesto`, `nombre`, `porcentaje`, `valor`) VALUES
 (1, 'IVA', 13, '0.13'),
 (2, 'El impuesto', 9, '0.09');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `manejo_impuesto`
---
-
-CREATE TABLE `manejo_impuesto` (
-  `id_manejo` int(11) NOT NULL,
-  `precio_final` int(11) NOT NULL,
-  `id_producto` int(11) DEFAULT NULL,
-  `id_impuesto` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -408,8 +438,17 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`id_pedido`, `fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES
-(1, '2018-07-11', 11, 26, 8, '5b16b00a15f44.zip', 2, 23),
-(2, '2018-11-02', 12, 26, 7, '5b16b00a15f44.zip', 1, 12);
+(7, '2018-09-21', 26, 26, 7, '5ba557eb7b97c.zip', 7, 23),
+(8, '2018-09-21', 26, 26, 7, '5ba55c3465c2b.zip', 8, 23),
+(9, '2018-09-21', 26, 26, 7, '5ba55c5a5faf9.zip', 9, 43),
+(10, '2018-09-21', 26, 26, 7, '5ba55c6c90439.zip', 10, 23),
+(11, '2018-09-21', 26, 26, 7, '5ba55c83e0cce.zip', 11, 12),
+(12, '2018-09-21', 26, 26, 7, '5ba560af1524a.zip', 12, 342),
+(13, '2018-09-21', 26, 26, 7, '5ba56111136cf.zip', 13, 12),
+(14, '2018-09-21', 26, 26, 7, '5ba5618999c56.zip', 14, 21),
+(15, '2018-09-21', 26, 26, 7, '5ba561df0af4e.zip', 15, 21),
+(16, '2018-09-21', 26, 26, 7, '5ba568e2c5d11.zip', 16, 232),
+(17, '2018-09-21', 26, 26, 7, '5ba56aa33b199.zip', 17, 12);
 
 -- --------------------------------------------------------
 
@@ -450,7 +489,22 @@ CREATE TABLE `placa` (
 
 INSERT INTO `placa` (`id_placa`, `capas`, `medida`, `id_tipo_placa`, `id_sustrato`) VALUES
 (1, 3, '125mm x 45mm ', 1, 1),
-(2, 3, '45mm x 10mm', 2, 2);
+(2, 3, '45mm x 10mm', 2, 2),
+(3, 43, 'iuI78uj', 3, 1),
+(4, 23, 'srdtfyguh56', 3, 2),
+(5, 23, 'awsfdgc4', 4, 2),
+(6, 32, '3sw', 2, 2),
+(7, 23, 'efsd', 4, 1),
+(8, 234, 'a23w4se5xtf', 4, 2),
+(9, 43, '234etrtxy', 5, 1),
+(10, 32, 'q23a4wr', 3, 1),
+(11, 12, '3a4', 6, 2),
+(12, 324, 'a3w5er', 2, 1),
+(13, 21, 'q23', 5, 1),
+(14, 21, 'q23a', 4, 1),
+(15, 12, 'q4w', 4, 1),
+(16, 12, '34d5f6g7', 5, 1),
+(17, 12, '2w', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -492,37 +546,42 @@ CREATE TABLE `productos` (
   `id_marca` int(11) DEFAULT NULL,
   `id_estado` int(11) DEFAULT NULL,
   `id_tipo_producto` int(11) DEFAULT NULL,
-  `id_impuesto` int(11) DEFAULT NULL
+  `id_impuesto` int(11) DEFAULT NULL,
+  `id_descuento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `precio_total`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`, `id_impuesto`) VALUES
-(1, 'Conan', 'ultricies', 'erat vitae risus. Duis a', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 18, 9.73, 10.61, '46381', 1, 1, 1, 2, 1, 2),
-(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 98, 4.69, 5.30, '29558', 3, 1, 2, 1, 1, 1),
-(3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', 250, 8.97, 10.14, '55284', 1, 2, 1, 1, 2, 1),
-(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, 6.93, '37494', 3, 2, 2, 2, 1, 1),
-(5, 'Julian', 'nisl', 'Donec porttitor tellus non magna. Nam ligula elit, pretium', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 46, 8.5, 9.61, '35709', 1, 1, 2, 2, 2, 1),
-(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 13, 6.39, 7.22, '44854', 1, 1, 1, 1, 1, 1),
-(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 21, 1.99, 2.25, '80369', 1, 1, 2, 1, 2, 1),
-(9, 'Orla', 'quam', 'tristique senectus et netus et malesuada fames ac turpis egestas.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 37, 8.24, 9.31, '70089', 1, 1, 2, 2, 1, 1),
-(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 14, 9.47, 10.70, '01601', 3, 1, 1, 1, 1, 1),
-(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, 5.44, '77279', 1, 2, 1, 2, 2, 1),
-(12, 'Candace', 'lectus. Cum', 'Sed auctor odio a purus. Duis elementum, dui quis accumsan', 'Lorem ipsum dolor sit amet, consectetuer', 25, 5.24, 5.92, '09190', 1, 1, 2, 2, 1, 1),
-(13, 'Giacomo', 'ac', 'nisi dictum augue malesuada malesuada. Integer id', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 58, 2.47, 2.79, '24909', 1, 1, 1, 2, 1, 1),
-(14, 'Ima', 'vulputate,', 'ornare tortor at risus. Nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 567, 8.25, 9.32, '35028', 1, 1, 2, 2, 2, 1),
-(15, 'Ivan', 'molestie', 'lectus convallis est, vitae', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 49, 5.87, 6.63, '86512', 1, 1, 1, 1, 2, 1),
-(16, 'Desiree', 'fermentum', 'dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 5, 1.28, 1.45, '98858', 1, 1, 2, 2, 1, 1),
-(17, 'Candice', 'fringilla euismod', 'ridiculus mus. Proin', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 29, 5.3, 5.99, '14795', 1, 2, 2, 1, 1, 1),
-(18, 'Brianna', 'ut,', 'in, cursus et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec', 48, 0.67, 0.76, '91704', 1, 1, 1, 1, 2, 1),
-(19, 'Russell', 'enim. Mauris', 'velit. Aliquam', 'Lorem ipsum dolor sit', 21, 9.06, 10.24, '23157', 3, 1, 2, 1, 2, 1),
-(20, 'Wade', 'Curabitur', 'risus. In mi pede, nonummy ut, molestie in, tempus eu,', 'Lorem ipsum', 74, 2.42, 2.73, '31103', 1, 1, 1, 2, 1, 1),
-(22, 'Producto 2', '5b09e71c2a62a.jpg', 'hjb', 'jh', 24, 2.25, 2.54, '125 mm x 100 mm', 1, 1, 1, 1, 2, 1),
-(25, 'Producto 2', '5b0d63b936750.jpg', 'huy', 'flu', 34, 2.25, 2.54, '125 mm x 10mm', 1, 1, 1, 1, 2, 1),
-(26, 'Otra pintura', '5b0edf2dc83b5.jpg', 'vbv', 'cv', 23, 2.25, 2.54, '125 mm x 10mm', 1, 1, 1, 1, 2, 1),
-(27, 'Prueba', '5ba12352756bf.jpg', 'ly', 'guygouygiu', 56, 5, 5.65, 'sgdfsñsaoigfnañeriohgre', 1, 1, 1, 1, 2, 1);
+INSERT INTO `productos` (`id_producto`, `nombre`, `url_imagen`, `descripcion`, `ficha_tecnica`, `cantidad`, `precio`, `precio_total`, `tamano`, `id_presentacion`, `id_proveedor`, `id_marca`, `id_estado`, `id_tipo_producto`, `id_impuesto`, `id_descuento`) VALUES
+(1, 'Conan222', 'ultricies', 'erat vitae risus. Duis agzdxfhcgvj', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 18, 8.5, 8.17, '46381', 1, 1, 1, 2, 1, 1, 3),
+(2, 'Basia', 'dapibus', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'Lorem', 85, 4.69, 3.98, '29558', 3, 1, 2, 1, 1, 1, 5),
+(3, 'Abigail', 'et', 'orci sem', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque', 250, 8.97, 7.60, '55284', 1, 2, 1, 1, 2, 1, 5),
+(4, 'Jasper', 'orci', 'nec, euismod in, dolor. Fusce feugiat.', 'Lorem ipsum dolor sit', 64, 6.13, 5.89, '37494', 3, 2, 2, 2, 1, 1, 3),
+(5, 'Julian', 'nisl', 'Donec porttitor tellus non magna. Nam ligula elit, pretium', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 46, 8.5, 8.17, '35709', 1, 1, 2, 2, 2, 1, 3),
+(7, 'Isadora', 'Nunc', 'enim consequat purus. Maecenas libero est,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet', 11, 6.39, 3.62, '44854', 1, 1, 1, 1, 1, 1, 6),
+(8, 'Ivan', 'Aliquam auctor,', 'mauris, rhoncus id, mollis nec,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing', 13, 1.99, 1.68, '80369', 1, 1, 2, 1, 2, 1, 5),
+(9, 'Orla', 'quam', 'tristique senectus et netus et malesuada fames ac turpis egestas.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 37, 8.24, 9.31, '70089', 1, 1, 2, 2, 1, 1, 5),
+(10, 'Colt', 'In nec', 'nulla. In tincidunt congue', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 980, 9.47, 10.70, '01601', 3, 1, 1, 1, 1, 1, 2),
+(11, 'Ulysses', 'dui quis', 'sed dolor. Fusce mi lorem, vehicula et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 48, 4.81, 4.62, '77279', 1, 2, 1, 2, 2, 1, 3),
+(12, 'Candace', 'lectus. Cum', 'Sed auctor odio a purus. Duis elementum, dui quis accumsan', 'Lorem ipsum dolor sit amet, consectetuer', 25, 5.24, 4.44, '09190', 1, 1, 2, 2, 1, 1, 5),
+(13, 'Giacomo', 'ac', 'nisi dictum augue malesuada malesuada. Integer id', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 58, 2.47, 1.40, '24909', 1, 1, 1, 2, 1, 1, 6),
+(14, 'Ima', 'vulputate,', 'ornare tortor at risus. Nunc', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 567, 8.25, 4.67, '35028', 1, 1, 2, 2, 2, 1, 6),
+(15, 'Ivan', 'molestie', 'lectus convallis est, vitae', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 49, 5.87, 5.64, '86512', 1, 1, 1, 1, 2, 1, 3),
+(16, 'Desiree', 'fermentum', 'dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 5, 1.28, 0.72, '98858', 1, 1, 2, 2, 1, 1, 6),
+(17, 'Candice', 'fringilla euismod', 'ridiculus mus. Proin', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed', 29, 5.3, 5.10, '14795', 1, 2, 2, 1, 1, 1, 3),
+(18, 'Brianna', 'ut,', 'in, cursus et,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec', 48, 0.67, 0.23, '91704', 1, 1, 1, 1, 2, 1, 7),
+(19, 'Russell', 'enim. Mauris', 'velit. Aliquam', 'Lorem ipsum dolor sit', 21, 9.06, 10.24, '23157', 3, 1, 2, 1, 2, 1, 2),
+(20, 'Wade', 'Curabitur', 'risus. In mi pede, nonummy ut, molestie in, tempus eu,', 'Lorem ipsum', 74, 2.42, 2.73, '31103', 1, 1, 1, 2, 1, 1, 2),
+(22, 'Producto 2', '5b09e71c2a62a.jpg', 'hjb', 'jh', 24, 2.25, 1.91, '125 mm x 100 mm', 1, 1, 1, 1, 2, 1, 5),
+(25, 'Producto 22345', '5b0d63b936750.jpg', 'huyfjh', 'flu', 34, 2.25, 1.28, '125 mm x 10mm', 1, 1, 1, 1, 2, 1, 6),
+(26, 'Otra pintura', '5b0edf2dc83b5.jpg', 'vbv', 'cv', 23, 2.25, 2.54, '125 mm x 10mm', 1, 1, 1, 1, 2, 1, 2),
+(27, 'Prueba', '5ba12352756bf.jpg', 'ly', 'guygouygiu', 56, 5, 4.24, 'sgdfsñsaoigfnañeriohgre', 1, 1, 1, 1, 2, 1, 5),
+(28, 'yuvhbjiuij', '5ba1b6eb454d9.jpg', 'lubluhb', 'piubiubpiubp', 67, 5, 5.65, '6768yuhin', 1, 1, 2, 1, 2, 1, 2),
+(29, 'argrth', '5ba1b74a7e8bc.jpg', 'sthsfgh', 'srthstrht', 46, 5, 5.65, 'sghfgh54', 1, 1, 1, 1, 2, 1, 2),
+(30, 'rgtrsg', '5ba1b791d5525.jpg', 'srthstrh', 'htrshtrh', 46, 5, 5.37, 'sfghs6r', 1, 1, 1, 1, 2, 1, 2),
+(31, 'afgaerg', '5ba1b7d538e0f.jpg', 'aregtr', 'hgstrh', 45, 5, 5.65, 'sdgh45', 1, 1, 2, 1, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -567,7 +626,9 @@ CREATE TABLE `reservaciones` (
 
 INSERT INTO `reservaciones` (`id_reservacion`, `cantidad`, `fecha`, `hora`, `fecha_estimada`, `id_producto`, `id_cliente`, `id_estado`) VALUES
 (1, 23, '2018-05-10', '11:10:06', '2018-11-23', 11, 15, 9),
-(2, 12, '2018-05-14', '18:24:09', '2018-10-25', 12, 5, 9);
+(2, 12, '2018-05-14', '18:24:09', '2018-10-25', 12, 5, 9),
+(3, 2, '2018-09-18', '11:30:27', '2018-09-20', 8, 26, 9),
+(4, 23, '2018-09-19', '09:24:00', '2018-09-20', 3, 26, 9);
 
 -- --------------------------------------------------------
 
@@ -741,7 +802,8 @@ INSERT INTO `valoraciones` (`id_valoracion`, `estrellas`, `comentario`, `id_prod
 (39, 5, 'ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis', 13, 13),
 (40, 1, 'dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae,', 3, 15),
 (41, 5, 'et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat', 13, 8),
-(42, 2, 'porta elit, a feugiat tellus lorem eu metus. In lorem.', 4, 19);
+(42, 2, 'porta elit, a feugiat tellus lorem eu metus. In lorem.', 4, 19),
+(43, 4, 'Comentario', 10, 27);
 
 --
 -- Índices para tablas volcadas
@@ -771,6 +833,12 @@ ALTER TABLE `desarrollo`
   ADD PRIMARY KEY (`id_desarrollo`),
   ADD KEY `desarrollo_ibfk_2` (`id_cliente`),
   ADD KEY `desarrollo_ibfk_3` (`id_tipo_desarrollo`);
+
+--
+-- Indices de la tabla `descuentos`
+--
+ALTER TABLE `descuentos`
+  ADD PRIMARY KEY (`id_descuento`);
 
 --
 -- Indices de la tabla `detalle_carrito`
@@ -808,14 +876,6 @@ ALTER TABLE `importacion_especial`
 --
 ALTER TABLE `impuestos`
   ADD PRIMARY KEY (`id_impuesto`);
-
---
--- Indices de la tabla `manejo_impuesto`
---
-ALTER TABLE `manejo_impuesto`
-  ADD PRIMARY KEY (`id_manejo`),
-  ADD KEY `manejo_impuesto_ibfk_1` (`id_impuesto`),
-  ADD KEY `manejo_impuesto_ibfk_2` (`id_producto`);
 
 --
 -- Indices de la tabla `marca`
@@ -863,7 +923,8 @@ ALTER TABLE `productos`
   ADD KEY `productos_ibfk_3` (`id_presentacion`),
   ADD KEY `productos_ibfk_4` (`id_proveedor`),
   ADD KEY `id_tipo_producto` (`id_tipo_producto`),
-  ADD KEY `productos_ibfk_6` (`id_impuesto`);
+  ADD KEY `productos_ibfk_6` (`id_impuesto`),
+  ADD KEY `id_descuento` (`id_descuento`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -933,31 +994,37 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `desarrollo`
 --
 ALTER TABLE `desarrollo`
-  MODIFY `id_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_desarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `descuentos`
+--
+ALTER TABLE `descuentos`
+  MODIFY `id_descuento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_carrito`
 --
 ALTER TABLE `detalle_carrito`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -969,19 +1036,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `importacion_especial`
 --
 ALTER TABLE `importacion_especial`
-  MODIFY `id_importacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_importacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `impuestos`
 --
 ALTER TABLE `impuestos`
   MODIFY `id_impuesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `manejo_impuesto`
---
-ALTER TABLE `manejo_impuesto`
-  MODIFY `id_manejo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `marca`
@@ -993,7 +1054,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -1005,7 +1066,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `placa`
 --
 ALTER TABLE `placa`
-  MODIFY `id_placa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_placa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `presentaciones`
@@ -1017,7 +1078,7 @@ ALTER TABLE `presentaciones`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -1029,7 +1090,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
-  MODIFY `id_reservacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_reservacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sustrato`
@@ -1071,7 +1132,7 @@ ALTER TABLE `tipo_producto`
 -- AUTO_INCREMENT de la tabla `valoraciones`
 --
 ALTER TABLE `valoraciones`
-  MODIFY `id_valoracion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_valoracion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Restricciones para tablas volcadas
@@ -1125,13 +1186,6 @@ ALTER TABLE `importacion_especial`
   ADD CONSTRAINT `importacion_especial_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `manejo_impuesto`
---
-ALTER TABLE `manejo_impuesto`
-  ADD CONSTRAINT `manejo_impuesto_ibfk_1` FOREIGN KEY (`id_impuesto`) REFERENCES `impuestos` (`id_impuesto`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `manejo_impuesto_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
@@ -1156,7 +1210,8 @@ ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_presentacion`) REFERENCES `presentaciones` (`id_presentacion`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `productos_ibfk_4` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `productos_ibfk_5` FOREIGN KEY (`id_tipo_producto`) REFERENCES `tipo_producto` (`id_tipo_producto`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `productos_ibfk_6` FOREIGN KEY (`id_impuesto`) REFERENCES `impuestos` (`id_impuesto`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_6` FOREIGN KEY (`id_impuesto`) REFERENCES `impuestos` (`id_impuesto`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `productos_ibfk_7` FOREIGN KEY (`id_descuento`) REFERENCES `descuentos` (`id_descuento`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `proveedores`
