@@ -46,9 +46,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class='col s12 m6'>
+                <div class='col s12 '>
                     <p>
-                        <div class='switch'>
+                        <div class='switch center'>
                             <span>Permiso:</span>
                             <label>
                                 <i>Usuario</i>
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col s12 right-align">
                     <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
-                    <button type='submit' name='crear' class='btn waves-effect grey darken-3'><i class='material-icons'>save</i>Guardar cambios</button>
+                    <button type='submit' name='crear' class='btn waves-effect colorNa'><i class='material-icons'>save</i>Guardar cambios</button>
                 </div>
             </div>
         </div>

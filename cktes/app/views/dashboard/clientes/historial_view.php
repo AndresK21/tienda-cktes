@@ -5,7 +5,7 @@
 <div class="container">
     <!--Parte de clasificacion de la tabla-->
     <table class="bordered highlight responsive-table espacio_inf"> <!--Tabla donde se mostraran las ventas realizadas-->
-        <thead class="grey darken-3 white-text"> <!--Indices de la tablas-->
+        <thead class="cktes white-text"> <!--Indices de la tablas-->
             <tr>
                 <th>Id del pedido</th>
                 <th>Fecha</th>
@@ -33,7 +33,7 @@
     </table>
 
     <div class="row right-align">
-        <a class='btn waves-effect green darken-3' href="index.php"><i class='material-icons'></i>Entendido</a> <!--Boton que regresa al inicio-->
+        <a class='btn waves-effect colorNa' href="index.php"><i class='material-icons'></i>Entendido</a> <!--Boton que regresa al inicio-->
     </div>
 
 </div>

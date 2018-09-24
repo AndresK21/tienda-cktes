@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_cliente' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_cliente' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <!--Parte de clasificacion de la tabla-->
                 <table class="bordered highlight responsive-table z-depth-2">
-                    <thead class="grey darken-3 white-text">
+                    <thead class="cktes white-text">
                         <tr>
                             <th>Apellidos</th>
                             <th>Nombres</th>
@@ -80,7 +80,7 @@
             $total_paginas = ceil($total_registros / $por_pagina);  
 
             //link a primera pagina
-            print("<ul class='pagination center'><a href='index.php?id=".$cliente->getId()."&pagina=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            print("<ul class='pagination  center'><a href='index.php?id=".$cliente->getId()."&pagina=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
             for ($i=1; $i<=$total_paginas; $i++) {
             print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$cliente->getId()."&pagina=".$i."'>".$i."</a></li>");
             };
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_cliente2' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_cliente2' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -112,7 +112,7 @@
             <div class="row">
                 <!--Parte de clasificacion de la tabla-->
                 <table class="bordered highlight responsive-table z-depth-2">
-                    <thead class="grey darken-3 white-text">
+                    <thead class="cktes white-text">
                         <tr>
                             <th>Apellidos</th>
                             <th>Nombres</th>
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_tipo' class='btn waves-effect blue-grey darken-4 tooltipped' data-tooltip='Buscar por tipo de cliente'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_tipo' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por tipo de cliente'><i class='material-icons'>search</i></button>
                     </div>
                 <form>
             </div>
@@ -192,7 +192,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de cliente" href="create_tipo.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de cliente" href="create_tipo.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -201,7 +201,7 @@
             <div class="row">
                 <!--Parte de clasificacion de la tabla-->
                 <table class="bordered highlight responsive-table z-depth-2">
-                    <thead class="grey darken-3 white-text">
+                    <thead class="cktes white-text">
                         <tr>
                             <th>Tipo de cliente</th>
                             <th></th>

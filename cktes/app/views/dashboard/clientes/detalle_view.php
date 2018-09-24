@@ -5,7 +5,7 @@
 <div class="container">
     <!--Parte de clasificacion de la tabla-->
     <table class="bordered highlight responsive-table espacio_inf">
-        <thead class="grey darken-3 white-text">
+        <thead class="cktes white-text">
             <tr>
                 <th>Producto</th>
                 <th>Precio</th>
@@ -45,8 +45,8 @@
     </div>
 
     <div class="row right-align">
-        <a class='btn waves-effect green darken-3' href="../clientes/index.php"><i class='material-icons'></i>Volver</a>
-        <a class='btn waves-effect green darken-3' href="../clientes/index.php"><i class='material-icons'></i>Entendido</a>
+        <a class='btn waves-effect  cktes' href="../clientes/index.php"><i class='material-icons'></i>Volver</a>
+        <a class='btn waves-effect colorNa' href="../clientes/index.php"><i class='material-icons'></i>Entendido</a>
     </div>
 
 </div>
