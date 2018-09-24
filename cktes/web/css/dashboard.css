@@ -7,9 +7,27 @@
     font-family: "Caviar";  
     src: url('../fonts/CaviarDreams_Bold.ttf') format('truetype');
   }
+  #fondoTotalDash{
+    background-image: url(../img/fondo2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    }
+  .fondoInicioC{
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #000000;
+background-color: #121C2C !important;
+opacity: 0.9;
+}
 body{
 font-family: 'Caviar', serif;
   }
+  .cktes2{
+    background-color: #A4A4A4 !important;
+}
 .colorNaLe{
     color: #FF4C05 !important;
   }

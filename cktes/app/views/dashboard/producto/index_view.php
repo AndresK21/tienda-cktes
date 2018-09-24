@@ -26,7 +26,7 @@
                                 <label for="buscar_label" class="black-text">Buscar producto</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre del producto'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre del producto'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
     
         <!--Boton fijo en la pantalla para agregar nuevos productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo producto" href="create.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo producto" href="create.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -45,7 +45,7 @@
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
             <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Imagen</th>
                         <th>Nombre</th>
@@ -128,7 +128,7 @@
                                 <label for="buscar_label" class="black-text">Buscar marca</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_marca' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre de marca'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_marca' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre de marca'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
     
         <!--Boton fijo en la pantalla para agregar nuevos marcas-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nueva marca" href="create_marca.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nueva marca" href="create_marca.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -146,7 +146,7 @@
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
             <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Nombre de marca</th>
                         <th></th>
@@ -193,7 +193,7 @@
                                 <label for="buscar_label" class="black-text">Buscar presentaci&oacute;n</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_presentacion' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por presentación'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_presentacion' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por presentación'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -203,15 +203,15 @@
     
         <!--Boton fijo en la pantalla para agregar nuevas presentaciones-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nueva presentación" href="create_presentacion.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nueva presentación" href="create_presentacion.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
 
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
-            <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+            <table class="bordered highlight  responsive-table espacio_inf z-depth-2">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Presentaci&oacute;n</th>
                         <th></th>
@@ -258,7 +258,7 @@
                                 <label for="buscar_label" class="black-text">Buscar tipo de producto</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por tipo de producto'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_tipo' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por tipo de producto'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
     
         <!--Boton fijo en la pantalla para agregar nuevos tipos de productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de producto" href="create_tipo.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de producto" href="create_tipo.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -276,7 +276,7 @@
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
             <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Tipo de producto</th>
                         <th></th>
@@ -322,7 +322,7 @@
                                 <label for="buscar_label" class="black-text">Buscar impuesto</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_impuesto' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre de impuesto'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_impuesto' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre de impuesto'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
     
         <!--Boton fijo en la pantalla para agregar nuevos tipos de productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo impuesto" href="create_impuesto.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo impuesto" href="create_impuesto.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -340,7 +340,7 @@
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
             <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Impuesto</th>
                         <th>Valor</th>
@@ -387,7 +387,7 @@
                                 <label for="buscar_label" class="black-text">Buscar descuento</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_descuento' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por porcentaje'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_descuento' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por porcentaje'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -397,7 +397,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos tipos de productos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo descuento" href="create_descuento.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo descuento" href="create_descuento.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -405,7 +405,7 @@
         <div class="container">
             <!--Parte de clasificacion de la tabla-->
             <table class="bordered highlight responsive-table espacio_inf z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Descuento</th>
                         <th></th>

@@ -1,6 +1,6 @@
 <div class="white-text">.</div>
 <div class="center-align"><h4>Crear empleado</h4></div>
-
+<div class="container">
 <div class="row">
     <form class="col s12" method="post" enctype='multipart/form-data'>
     <!--Formulario para ingresar nuevo usuario-->
@@ -63,10 +63,11 @@
             </div>
             <div class="row">
                 <div class="col s12 right-align">
-                    <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
+                    <a class='btn waves-effect cktes' href="index.php"><i class='material-icons'></i>Cancelar</a>
                     <button type='submit' name='crear' class='btn waves-effect colorNa'><i class='material-icons'>save</i>Guardar cambios</button>
                 </div>
             </div>
         </div>
     </form>
+</div>
 </div>
