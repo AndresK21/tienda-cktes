@@ -1,5 +1,5 @@
 <?php
-class Detalle extends Validator{
+class DetalleCliente extends Validator{
 	//Declaración de propiedade
 	private $id = null;
 	private $estado = null;
@@ -9,6 +9,7 @@ class Detalle extends Validator{
 	private $existencias = null;
 	private $cliente =null;
 	private $id_cliente = null;
+	private $id_carrito = null;
 
     
 
@@ -32,6 +33,17 @@ class Detalle extends Validator{
 			return false;
 		}
 	}
+	public function setId_carrito($value){
+		if($this->validateId($value)){
+			$this->id_carrito = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_carrito(){
+		return $this->id_carrito;
+    }
 	public function getEstado(){
 		return $this->estado;
     }
@@ -119,7 +131,20 @@ class Detalle extends Validator{
 		$sql = "SELECT id_detalle, url_imagen, nombre, precio, productos.cantidad, detalle_carrito.cantidad, estado_carrito, productos.precio_total FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING (id_carrito) WHERE detalle_carrito.id_carrito = ? AND estado_carrito=5";
 		$params = array($this->compra);
 		return Database::getRows($sql, $params);
-		
+	}
+
+	public function readDetalle2(){
+		$sql = "SELECT cantidad, id_carrito, id_producto FROM detalle_carrito WHERE id_detalle = ? ORDER BY id_detalle";
+		$params = array($this->id);
+		$detalle = Database::getRow($sql, $params);
+		if($detalle){
+            $this->cantidad = $detalle['cantidad'];
+            $this->id_carrito = $detalle['id_carrito'];
+            $this->producto = $detalle['id_producto'];
+			return true;
+		}else{
+			return null;
+		}
 	}
 	public function readProducto(){
 		$sql = "SELECT  id_producto, id_carrito, detalle_carrito.cantidad, productos.cantidad AS existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_detalle = ?";
@@ -136,6 +161,13 @@ class Detalle extends Validator{
 			return null;
 		}
 	}
+
+	public function updateDetalle3(){
+		$sql = "UPDATE detalle_carrito SET cantidad = ? WHERE id_detalle = ?";
+		$params = array($this->cantidad, $this->id);
+		return Database::executeRow($sql, $params);
+	}
+	
 	public function createCompra(){
 		$sql = "INSERT INTO carrito(fecha, id_cliente, estado_carrito) VALUES(?, ?, ?)";
 		$fechaa = date('y-m-d');
@@ -242,7 +274,7 @@ public function readCarrito(){
 		public function getComp2(){
 		$sql = "SELECT nombres, correo_electronico, fecha FROM carrito INNER JOIN clientes USING (id_cliente) WHERE id_carrito= ?";
         $param = array($this->compra);
-        return Database::getRow($sql, $param);}
-	
+		return Database::getRow($sql, $param);
+	}
 }
 ?>

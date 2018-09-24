@@ -3,7 +3,7 @@
     require_once("../app/models/detalle.class.php");
     if(isset($_SESSION['id_cliente'])){
 	try{
-			$detalle = new Detalle;
+			$detalle = new DetalleCliente;
 			// Se obtiene el id pdel cliente 
 			if($detalle->setCompra($_SESSION['id_carrito'])){
 				$detalles= $detalle->readDetalle();

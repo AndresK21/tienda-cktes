@@ -465,6 +465,17 @@ class Producto extends Validator{
 		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->ficha_tecnica, $this->cantidad, $this->precio, $this->tamano, $this->id_presentacion, $this->id_proveedor, $this->id_marca, $this->id_estado, $this->id_tipo_producto, $this->id_impuesto, $this->total, $this->id_descuento, $this->id_producto);
 		return Database::executeRow($sql, $params);
 	}
+
+	public function updateCantidad1($cantidad ,$id_producto){
+		$sql = "UPDATE productos SET cantidad = cantidad - ? WHERE id_producto = ?";
+		$params = array($cantidad, $id_producto);
+		return Database::executeRow($sql, $params);;
+	}
+	public function updateCantidad2($cantidad ,$id){
+		$sql = "UPDATE productos SET cantidad = cantidad + ? WHERE id_producto = ?";
+		$params = array($cantidad, $id);
+		return Database::executeRow($sql, $params);;
+	}
 	public function deleteProducto(){
 		$sql = "DELETE FROM productos WHERE id_producto = ?";
 		$params = array($this->id_producto);

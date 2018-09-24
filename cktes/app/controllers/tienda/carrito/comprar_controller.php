@@ -4,7 +4,7 @@ require_once("../app/models/detalle.class.php");
 try{
 // Se realizará cuando se de click al input 'comprar'   
 if(isset($_POST['comprar'])){
-    $comprar = new Detalle;
+    $comprar = new DetalleCliente;
       $_POST = $comprar->validateForm($_POST);
             if($comprar->setCompra($_SESSION['id_carrito'])){
                   $productos = $comprar->getCarrito();

@@ -3,7 +3,7 @@
 require_once("../app/models/detalle.class.php");
 require_once("../app/models/productos.class.php");
 try{        
-    $agregar = new Detalle;
+    $agregar = new DetalleCliente;
         // Se realizará cuando se de click al input 'agregar'
         if($producto->readProducto2()){
         if(isset($_POST['agregar'])){

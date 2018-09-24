@@ -84,9 +84,15 @@ class Detalle extends Validator{
 			return null;
 		}
 	}
+	
 	public function updateDetalle(){
 		$sql = "UPDATE detalle_carrito SET cantidad = ?, id_carrito = ?, id_producto = ? WHERE id_detalle = ?";
 		$params = array($this->cantidad, $this->id_carrito, $this->id_producto, $this->id_detalle);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateDetalle3(){
+		$sql = "UPDATE detalle_carrito SET cantidad = ? WHERE id_carrito = ?";
+		$params = array($this->cantidad, $this->id_detalle);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteDetalle(){

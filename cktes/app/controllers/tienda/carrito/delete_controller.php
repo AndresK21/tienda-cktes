@@ -1,15 +1,20 @@
 <?php
 //Controlador para eliminar productos del carrito de compra
 require_once("../app/models/detalle.class.php");
+require_once("../app/models/productos.class.php");
 try{
 	//Se obtiene el id del juguete que se desea eliminar
 	if(isset($_GET['id'])){
-		$detal = new Detalle;
+		$detal = new DetalleCliente;
+		$producto = new Producto;
 		if($detal->setId($_GET['id'])){
-			if($detal->readProducto()){
+			if($detal->readDetalle2()){
+				$existencia = $detal->getCantidad();
 				if(isset($_POST['eliminar'])){
+					$id = $detal->getProducto();
 					//Se elimina el producto del carrito
 					if($detal->deleteDetalle()){
+						$producto->updateCantidad2($existencia, $id);
 							Page::showMessage(1, "Producto eliminado del carrito", "carrito.php");
 					}else{
 						throw new Exception(Database::getException());

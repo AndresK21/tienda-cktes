@@ -1,24 +1,50 @@
 <?php
 // Se actualiza la cantidad de un juguete en especifico en el carrito
 require_once("../app/models/detalle.class.php");
+require_once("../app/models/productos.class.php");
+
 try{
     if(isset($_GET['id'])){
-        $detalle = new Detalle;
+        $detalle = new DetalleCliente;
+        $producto = new Producto;
         if($detalle->setId($_GET['id'])){
-            if($detalle->readProducto()){
+            if($detalle->readDetalle2()){
+                $existencia = $detalle->getCantidad();
                 // Se realizará cuando se de clck al input 'actualizar'
                 if(isset($_POST['actualizar'])){
                     $_POST = $detalle->validateForm($_POST);
                     if($detalle->setCantidad($_POST['cantidad'])){
-                            // Se modifica la cantidad
-                            if($detalle->updateDetalle()){
-                                Page::showMessage(1, "Cantidad modificada modificado", "carrito.php");
-                            }else{
-                                throw new Exception(Database::getException());
-                            }
+						$id = $detalle->getProducto();
+						if($existencia < $_POST['cantidad']){
+							$diferencia = $_POST['cantidad'] - $existencia;
+							$producto->updateCantidad1($diferencia, $id);
+							if($detalle->updateDetalle3()){ //Edita la categoria
+								Page::showMessage(1, "Cantidad modificada", "carrito.php");
+							}else{
+								throw new Exception(Database::getException());
+							}
+							//sacar diferrencia y restarlo al inventario
+						}else if($existencia > $_POST['cantidad']){
+							$diferencia = $existencia - $_POST['cantidad'];
+							$producto->updateCantidad2($diferencia, $id);
+							if($detalle->updateDetalle3()){ //Edita la categoria
+								Page::showMessage(1, "Cantidad modificada", "carrito.php");
+							}else{
+								throw new Exception(Database::getException());
+							}
+						}else if($existencia = $_POST['cantidad']){
+							if($detalle->updateDetalle3()){ //Edita la categoria
+								Page::showMessage(1, "Cantidad modificada", "carrito.php");
+							}else{
+								throw new Exception(Database::getException());
+							}
+						}else{
+							throw new Exception("Ha habido un problema");
+						}
+												                        
                     }else{
-                        throw new Exception("Nombre incorrecto");
-                    }
+                        throw new Exception("Cantidad incorrecta");
+                    } 
                 }
             }else{
                 Page::showMessage(2, "Producto inexistente", "index.php");
