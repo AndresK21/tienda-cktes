@@ -34,7 +34,7 @@ try{
                                     throw new Exception("Seleccione un permiso");
                                 }
                             }else{
-                                throw new Exception($empleado->getImageError());
+                                throw new Exception($usuario->getImageError());
                             }
                         }else{
                             throw new Exception("Seleccione una imagen");

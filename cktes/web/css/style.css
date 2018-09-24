@@ -2,10 +2,31 @@
     max-height: 50px;
     max-width: 50px;
 }
-
-@font-face{
-    font-family: "Caviar";  
-    src: url('../../fonts/xaviar/') format('truetype');
+#fondoTotalDash{
+    background-image: url(../img/fondo2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    }
+    @font-face{
+        font-family: "Caviar";  
+        src: url('../fonts/CaviarDreams.ttf') format('truetype');
+      }
+body{
+  font-family: 'Caviar', serif;
+      }
+.colorNa{
+    background-color: #FF4C05 !important;
+}
+.colorNaLe{
+    color: #FF4C05 !important;
+}
+.icon-white{
+    color: white;
+}
+.cktes{
+  background-color: #121C2C !important;
 }
 
 .imagen_fondo{
@@ -21,9 +42,15 @@
     margin-bottom: 64px; 
 }
 
-.cktes{
-    background-color: #121C2C !important;
+.fondoInicioC{
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 0px solid #000000;
+background-color: #121C2C !important;
+opacity: 0.9;
 }
+
 
 .cktes2{
     background-color: #A4A4A4 !important;

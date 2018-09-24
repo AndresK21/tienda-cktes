@@ -16,6 +16,7 @@ class Page extends Component{
                 <meta charset='utf-8'>
                 <!--Import Google Icon Font-->
                 <link href='../../web/css/icon.css' rel='stylesheet'>
+                <link href='../../web/css/style.css' rel='stylesheet'>
                 <!--Import materialize.css-->
                 <link type='text/css' rel='stylesheet' href='../../web/css/materialize.min.css'  media='screen,projection'/>
                 <!--Let browser know website is optimized for mobile-->
@@ -31,7 +32,7 @@ class Page extends Component{
                     <div class='navbar-fixed'>  
                     <nav>
                     <!--Navbar Color gris-->
-                        <div class='nav-wrapper grey darken-3'>
+                        <div class='nav-wrapper cktes'>
                             <img class='brand-logo' src='../../web/img/logo_1.png' />
                             <a href='#' data-activates='slide-out2' class='button-collapse'><i class='material-icons'>menu</i></a>
                         </div>
@@ -249,7 +250,7 @@ class Page extends Component{
 				<div class='navbar-fixed'>  
 					<nav>
 					<!--Navbar Color gris-->
-						<div class='nav-wrapper grey darken-3'>
+						<div class='nav-wrapper cktes'>
 						<img class='brand-logo' src='../../web/img/logo_1.png' >
 						</div>
 					</nav>
@@ -271,7 +272,7 @@ class Page extends Component{
 	public static function templateFooter(){
 		print("
 				</main>
-				<footer class='page-footer cktes grey darken-3'>
+				<footer class='page-footer cktes'>
 					<div class='container'>
 						<div class='row'>
 							<p class=' center text-muted'>CKT-ES, S.A. DE C.V es un proyecto impulsado por INSERT y apoyado por el MINEC a través de la DICA y FONDEPRO</p>

@@ -7,6 +7,16 @@
     font-family: "Caviar";  
     src: url('../../fonts/caviar/') format('truetype');
 }
+.colorNaC{
+    color: #FF4C05 !important;
+  }
+#fondoTotalDash{
+    background-image: url(../img/fondo2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    }
 
 .imagen_fondo{
     background-image: url("../img/1.jpg")
