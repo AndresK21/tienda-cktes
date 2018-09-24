@@ -3,7 +3,7 @@
     require_once("../../app/models/detalle.class.php");
     if(isset($_GET['id'])){
 	try{	
-			$detalle = new Detalle;
+			$detalle = new DetalleCliente;
 			// Se obtiene el id pdel cliente 
 			if($detalle->setCompra($_GET['id'])){
 				//Se obtienen los detalles del historial de compra

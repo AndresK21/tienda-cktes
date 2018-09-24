@@ -229,7 +229,7 @@ public function readCarrito(){
 		    return Database::executeRow($sql, $params);
 					}
 	public function readHistorialdetalle(){
-			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito =?";
+			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad AS cant, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito =?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 						
