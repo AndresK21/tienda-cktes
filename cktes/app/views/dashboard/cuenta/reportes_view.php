@@ -1,5 +1,5 @@
 <div class="left-align"><a href='index.php' class='waves-effect waves-light tooltipped' data-tooltip='Volver'><i class='material-icons blue-grey-text text-darken-4 medium prefix'>arrow_back</i></a></div>
-<div class="center-align"><h3>Reportes</h3></div>
+<div class="center-align colorNaLe"><h3>REPORTES</h3></div>
 <div class="white-text">.</div>
 
 <div class='row'>

@@ -10,7 +10,7 @@
 
                         <form method="post">
                             <div class="row">
-                                <img class="responsive-img imagen_sesion circle" src="../../web/img/paralaxinicio2.jpg">
+                               
                                 <div class="input-field col s12">
                                     <input id="correoo" name="correo" type="text" class="validate white-text " autocomplete="off" value='<?php print($object->getCorreo()) ?>' required/>
                                     <label class="white-text" for="correoo">Correo electr&oacute;nico</label>

@@ -5,11 +5,24 @@
 
 @font-face{
     font-family: "Caviar";  
-    src: url('../../fonts/caviar/') format('truetype');
-}
-.colorNaC{
+    src: url('../fonts/CaviarDreams_Bold.ttf') format('truetype');
+  }
+body{
+font-family: 'Caviar', serif;
+  }
+.colorNaLe{
     color: #FF4C05 !important;
   }
+  .colorNa{
+    background-color: #FF4C05 !important;
+  }
+  .cktes2{
+    background-color: #A4A4A4 !important;
+}
+.boldLe
+{
+    font-weight: bold;
+}
 #fondoTotalDash{
     background-image: url(../img/fondo2.png);
     background-position: center;

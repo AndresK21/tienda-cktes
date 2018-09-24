@@ -1,17 +1,17 @@
 <div class="left-align"><a href='index.php' class='waves-effect waves-light tooltipped' data-tooltip='Volver'><i class='material-icons blue-grey-text text-darken-4 medium prefix'>arrow_back</i></a></div>
-<div class="center-align"><h3>Gr&aacute;ficos</h3></div>
+<div class="center-align colorNaLe"><h3>GR&Aacute;FICOS</h3></div>
 <div class="white-text">.</div>
 
 <div class='row'>
-	<div class='col s12 m4 l4'>
+	<div class='col s12 m6 '>
 		<div class="center-align"><h5>Productos m&aacute;s vendidos</h5></div>
 		<canvas id="myChart" height="215"></canvas>
 	</div>
-	<div class='col s12 m4 l4'>
+	<div class='col s12 m6'>
 		<div class="center-align"><h5>Productos mejor valorados</h5></div>
 		<canvas id="myChart2" height="215"></canvas>
 	</div>
-	<div class='col s12 m4 l4'>
+	<div class='col s12 m6'>
 		<div class="center-align"><h5>Categor&iacute;as mejor valoradas</h5></div>
 		<canvas id="myChart3" height="215"></canvas>
 	</div>

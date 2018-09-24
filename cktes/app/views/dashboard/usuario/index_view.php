@@ -21,14 +21,14 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 </form>
             </div>
         </div>
 
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="create.php">
+            <a class="btn-floating btn-large colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="create.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <table class="bordered highlight responsive-table z-depth-2">
-                    <thead class="grey darken-3 white-text">
+                    <thead class="cktes white-text">
                         <tr>
                             <th>Nombres</th>
                             <th>Apellidos</th>
@@ -84,14 +84,14 @@
                     </div>
                 </div>
                 <div class="input-field col s2">
-                    <button type='submit' name='buscar2' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                    <button type='submit' name='buscar2' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                 </div>
             </form>
         </div>
     </div>
 
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="create.php">
+        <a class="btn-floating btn-large colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo usuario" href="create.php">
             <i class="large material-icons">add</i>
         </a>
     </div>
@@ -100,7 +100,7 @@
     <div class="container">
         <div class="row">
             <table class="bordered highlight responsive-table z-depth-2">
-                <thead class="grey darken-3 white-text">
+                <thead class="cktes white-text">
                     <tr>
                         <th>Nombres</th>
                         <th>Apellidos</th>
