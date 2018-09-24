@@ -19,6 +19,7 @@ class Producto extends Validator{
 	private $total = null;
 	
 	private $proveedor = null;
+	private $presentacion = null;
 	private $marca = null;
 	private $existencias = null;
 
@@ -199,8 +200,30 @@ class Producto extends Validator{
 	}
 	
 	public function setId_proveedor($value){
-		if($this->validateId($value)){
-			$this->id_proveedor = $value;
+		if($this->validateAlp($value)){
+			$this->proveedor = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getProveedorG(){
+		return $this->proveedor;
+	}
+	public function setProveedorG($value){
+		if($this->validateAlphanumeric($value)){
+			$this->proveedor = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getPresentacionG(){
+		return $this->presentacion;
+	}
+	public function setPresentacion($value){
+		if($this->validateAlphanumeric($value)){
+			$this->presentacion = $value;
 			return true;
 		}else{
 			return false;
@@ -209,7 +232,6 @@ class Producto extends Validator{
 	public function getId_proveedor(){
 		return $this->id_proveedor;
 	}
-	
 	public function setId_marca($value){
 		if($this->validateId($value)){
 			$this->id_marca = $value;
@@ -403,6 +425,31 @@ class Producto extends Validator{
 			$this->tamano = $producto['tamano'];
 			$this->id_presentacion = $producto['id_presentacion'];
 			$this->id_proveedor = $producto['id_proveedor'];
+			$this->id_marca = $producto['id_marca'];
+			$this->id_estado = $producto['id_estado'];
+			$this->id_tipo_producto = $producto['id_tipo_producto'];
+			$this->total = $producto['precio_total'];
+			$this->id_descuento = $producto['id_descuento'];
+			return true;
+		}else{
+			return null;
+		}
+	}
+
+	public function readProducto3(){
+		$sql = "SELECT productos.nombre, productos.url_imagen, productos.descripcion, productos.ficha_tecnica, productos.cantidad, productos.precio, productos.precio_total, productos.tamano, presentaciones.presentacion, proveedores.proveedor, productos.id_marca, productos.id_estado, productos.id_tipo_producto, productos.precio_total, productos.id_descuento FROM productos INNER JOIN proveedores ON productos.id_proveedor = proveedores.id_proveedor INNER JOIN presentaciones ON productos.id_presentacion = presentaciones.id_presentacion WHERE id_producto = ? ORDER BY id_producto";
+		$params = array($this->id_producto);
+		$producto = Database::getRow($sql, $params);
+		if($producto){
+			$this->nombre = $producto['nombre'];
+			$this->imagen = $producto['url_imagen'];
+            $this->descripcion = $producto['descripcion'];
+			$this->ficha_tecnica = $producto['ficha_tecnica'];
+			$this->cantidad = $producto['cantidad'];
+			$this->precio = $producto['precio'];
+			$this->tamano = $producto['tamano'];
+			$this->presentacion = $producto['presentacion'];
+			$this->proveedor = $producto['proveedor'];
 			$this->id_marca = $producto['id_marca'];
 			$this->id_estado = $producto['id_estado'];
 			$this->id_tipo_producto = $producto['id_tipo_producto'];

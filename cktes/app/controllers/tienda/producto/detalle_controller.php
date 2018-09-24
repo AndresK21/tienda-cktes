@@ -6,7 +6,7 @@ try{
 		$producto = new Producto;
 		$valoraciones = new Valoracion;
 		if($producto->setId_producto($_GET['id'])){
-			if($producto->readProducto2()){
+			if($producto->readProducto3()){
 				if($valoraciones->setId_producto($_GET['id'])){
 					$valoracion2 = $valoraciones->getValoracionesProducto();
 					$valoracion3 = $valoraciones->getEstrellasPromedio();

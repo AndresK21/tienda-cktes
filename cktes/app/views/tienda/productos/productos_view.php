@@ -38,7 +38,7 @@
                             </div>
                             <div class='buy'>
                                 <a href='detalle_producto.php?id=$productoA[id_producto]'>
-                                    <i class='material-icons data-tooltip='Buscar por nombre''>rate_review</i>
+                                    <i class='material-icons data-tooltip='Buscar por nombre''>add_shopping_cart</i>
                             </div>
                         </div>
                         <div class='right'>
@@ -71,18 +71,12 @@
                                     <th>Precio:</th>
                                 </tr>
                                 <tr>
-                                    <td>$productoA[precio_total]</td>
+                                    <td>$$productoA[precio_total]</td>
                                 <tr>
                                     <th>Tamaño:</th>
                                 </tr>
                                 <tr>
                                     <td>$productoA[tamano]</td>
-                                </tr>
-                                <tr>
-                                    <th>Proveedor:</th>
-                                </tr>
-                                <tr>
-                                    <td>$productoA[proveedor]</td>
                                 </tr>
                             </table>
                         </div>

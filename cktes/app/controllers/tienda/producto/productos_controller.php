@@ -2,7 +2,7 @@
 require_once("../app/models/productos.class.php"); //Llama el modelo Categoria
 try{
 		//cantidad de registros por página
-		$por_pagina=4;
+		$por_pagina=8;
 		if (isset($_GET["pagina"])) {
 		$pagina = $_GET["pagina"];
 		}
