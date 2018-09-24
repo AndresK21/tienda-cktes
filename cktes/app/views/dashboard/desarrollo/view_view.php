@@ -28,7 +28,7 @@
                 if($desarrollo->getArchivo() != null){
                     print("
                         <div class='input-field col s12 m6 l6'>
-                            <a class='waves-effect waves-light btn grey darken-3' href='../../web/archivo/desarrollo/".$desarrollo->getArchivo()."'><i class='material-icons left'>cloud_download</i>Descargar archivo</a>
+                            <a class='waves-effect waves-light btn colorNa' href='../../web/archivo/desarrollo/".$desarrollo->getArchivo()."'><i class='material-icons left'>cloud_download</i>Descargar archivo</a>
                         </div>
                     "); 
                 }else{
@@ -39,7 +39,7 @@
         </div>
         <div class='row'>
             <div class='col s12 right-align'>
-                <a class='btn waves-effect grey darken-3' href='index.php'><i class='material-icons'></i>Volver</a>
+                <a class='btn waves-effect cktes' href='index.php'><i class='material-icons'></i>Volver</a>
             </div>
         </div>
     </form>

@@ -1,6 +1,7 @@
 <div class="white-text">.</div>
 <div class="center-align"><h4>Editar producto</h4></div>
 
+<div class="container">
 <form class="col s12" method="post" enctype='multipart/form-data'>
     <div class="row">
         <div class="input-field col s12 m6 l6">
@@ -34,7 +35,7 @@
     </div>
     <div class="row">
         <div class='file-field input-field col s12 m6 l6'>
-            <div class='waves-effect waves-light btn grey darken-3'>
+            <div class='waves-effect waves-light btn colorNa'>
                 <span><i class='material-icons'>image</i></span>
                 <input type='file' name='archivo' autocomplete="off"/>
             </div>
@@ -86,8 +87,9 @@
     </div>
     <div class="row">
         <div class="col s12 right-align">
-            <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
-            <button type='submit' name='actualizar' class='btn waves-effect blue-grey darken-4'><i class='material-icons'>save</i>Guardar</button>
+            <a class='btn waves-effect cktes' href="index.php"><i class='material-icons'></i>Cancelar</a>
+            <button type='submit' name='actualizar' class='btn waves-effect colorNa'><i class='material-icons'>save</i>Guardar</button>
         </div>
     </div>
 </form>
+</div>

@@ -24,7 +24,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_nuevo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_nuevo' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Pedidos</th>
                                 <th>Estado del pedido</th>
@@ -91,7 +91,7 @@
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_com' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_com' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Pedidos</th>
                                 <th>Estado del pedido</th>
@@ -158,7 +158,7 @@
                                 <label for="buscar_label" class="black-text">Buscar sustrato</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_sustrato' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre del sustrato'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_sustrato' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre del sustrato'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo sustrato" href="create_sustrato.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo sustrato" href="create_sustrato.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -180,7 +180,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Sustrato</th>
                                 <th></th>
@@ -231,7 +231,7 @@
                                 <label for="buscar_label" class="black-text">Buscar tipo de placa</label>
                             </div>
                             <div class="input-field col s2">
-                                <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por tipo de placa'><i class='material-icons'>search</i></button>
+                                <button type='submit' name='buscar_tipo' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por tipo de placa'><i class='material-icons'>search</i></button>
                             </div>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="create_tipo.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de placa" href="create_tipo.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>

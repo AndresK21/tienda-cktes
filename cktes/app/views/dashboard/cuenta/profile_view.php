@@ -1,6 +1,6 @@
 <div class="white-text">.</div>
 
-<div class="center-align"><h4>Editar empleado</h4></div>
+<div class="center-align"><h4>Editar cuenta</h4></div>
 
 <div class="container">
     <form class="col s12" method="post" enctype='multipart/form-data'>
@@ -23,7 +23,7 @@
                 <label for="email">Correo electr&oacute;nico</label>
             </div>
             <div class='file-field input-field col s12 m6 l6'>
-            <div class='waves-effect waves-light btn grey darken-3'>
+            <div class='waves-effect waves-light btn colorNa'>
                 <span><i class='material-icons'>image</i></span>
                 <input type='file' name='archivo'/>
             </div>
@@ -34,7 +34,7 @@
         <div class="row">
             <div class='col s12'>
                 <p>
-                    <div class='switch'>
+                    <div class='switch center'>
                         <span>Autenticaci&oacute;n en dos pasos</span>
                         <label>
                             <i>Desactivado</i>
@@ -52,8 +52,8 @@
 
         <div class="row">
             <div class="right-align">
-                <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
-                <button type='submit' name='editar' class='btn grey darken-3 waves-effect'><i class="material-icons left">save</i>Guardar cambios</button>
+                <a class='btn waves-effect cktes' href="index.php"><i class='material-icons'></i>Cancelar</a>
+                <button type='submit' name='editar' class='btn colorNa waves-effect'><i class="material-icons left">save</i>Guardar cambios</button>
             </div>
         </div>
     </form>

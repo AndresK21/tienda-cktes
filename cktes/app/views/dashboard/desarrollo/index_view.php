@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por nombre o apellido'><i class='material-icons'>search</i></button>
                     </div>
                 </form>
             </div>
@@ -36,7 +36,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Pedidos</th>
                                 <th>Ver/Responder</th>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="input-field col s2">
-                        <button type='submit' name='buscar_tipo' class='btn waves-effect grey darken-3 tooltipped' data-tooltip='Buscar por tipo de desarrollo'><i class='material-icons'>search</i></button>
+                        <button type='submit' name='buscar_tipo' class='btn waves-effect colorNa tooltipped' data-tooltip='Buscar por tipo de desarrollo'><i class='material-icons'>search</i></button>
                     </div>
                 </form>
             </div>
@@ -95,7 +95,7 @@
 
         <!--Boton fijo en la pantalla para agregar nuevos sutratos-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large modal-trigger grey darken-4 tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de desarrollo" href="create.php">
+            <a class="btn-floating btn-large modal-trigger colorNa tooltipped" data-position="top" data-delay="50" data-tooltip="Agregar nuevo tipo de desarrollo" href="create.php">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -107,7 +107,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Tipo de desarrollo</th>
                                 <th>Descripci&oacute;n</th>

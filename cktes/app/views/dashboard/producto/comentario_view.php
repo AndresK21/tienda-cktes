@@ -35,6 +35,6 @@
         </tbody>
     </table>
     <div class="row right-align">
-        <a class='btn waves-effect green darken-3' href="index.php"><i class='material-icons'></i>Entendido</a> <!--Boton que lleva a inicio-->
+        <a class='btn waves-effect colorNa' href="index.php"><i class='material-icons'></i>Entendido</a> <!--Boton que lleva a inicio-->
     </div>
 </div>
