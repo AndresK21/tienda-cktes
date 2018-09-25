@@ -5,7 +5,7 @@
     require_once("../../app/helpers/validator.class.php");
     require_once("../../app/models/detalle.class.php");
     
-    $detalles = new Detalle;
+    $detalles = new DetalleCliente;
     
 	// L- Landscape(horizontal), mm- milimetros, A5- tamaño de la pagina
     $comp = new COMP('L', 'mm', 'A5');
