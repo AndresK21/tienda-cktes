@@ -23,7 +23,7 @@ foreach($detalles as $detalle){
       <td>$detalle[estado]</td>
         <td>$detalle[fecha]</td>
         <td><a class='modal-trigger black-text' href='historialdetalle.php?id=$detalle[id_carrito]' >Ver más</a></td>
-        <td><a class='modal-trigger cyan-text' href='reportes/comprobante.php?id=$detalle[id_carrito]' >Comprobante de compra</a></td>
+        <td><a class='modal-trigger colorNaLe' href='reportes/comprobante.php?id=$detalle[id_carrito]' >Comprobante de compra</a></td>
       </tr>
     ");
 }

@@ -18,7 +18,7 @@
             $this->SetFont('Arial','B',18);
             /* Función SETTEXTCOLOR sirve para cambiar el color de la letra, ya que el color predeterminado es negro
             SetTextColor(r,g,b) */
-            $this->SetTextColor(24,158,197);
+            $this->SetTextColor(255,76,5);
             // Función LN sirve para dar un salto de línea
             $this->Ln(7);
             //Se agrega una celda en blanco para que el texto no quede sobre el logo

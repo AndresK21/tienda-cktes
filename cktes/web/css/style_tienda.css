@@ -28,6 +28,9 @@ body {
 .colorNa{
   background-color: #FF4C05 !important;
 }
+.colorNaLe{
+  color: #FF4C05 !important;
+}
   main {
     flex: 1 0 auto;
   }
