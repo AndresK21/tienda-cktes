@@ -18,7 +18,7 @@
 				throw new Exception("Cliente incorrecto");
 			}
 		}catch(Exception $error){
-		Page::showMessage(3, $error->getMessage(), "principal.php");
+		Page::showMessage(3, $error->getMessage(), "historial.php");
     }
 }
 ?>
