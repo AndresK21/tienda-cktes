@@ -12,7 +12,7 @@
                     </div> 
                     <div class="input-field col s12">
                         <textarea id="textarea1" name= "mensaje" class="materialize-textarea"></textarea>
-                        <label for="textarea1">¿Qué proyecto necesita?</label>
+                        <label class="black-text" for="textarea1">¿Qué proyecto necesita?</label>
                     </div>
                     <div class='file-field input-field col s12'>
                     <div class='btn waves-effect colorNa'>

@@ -31,15 +31,15 @@
                 <form method="post" enctype='multipart/form-data'>
                     <div class="input-field col s12 m12 ">
                         <input id="medida" name="medida" type="text" autocomplete="off" class="validate transparent" >
-                        <label for="medida">Medida</label>
+                        <label class="black-text" for="medida">Medida</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input id="capas" name="cantidad" type="number" autocomplete="off" class="validate transparent" >
-                        <label for="cantidad">Cantidad</label>
+                        <label class="black-text" for="cantidad">Cantidad</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input id="capas" name="capas" type="number" autocomplete="off" class="validate transparent" >
-                        <label for="capas">Capas</label>
+                        <label class="black-text" for="capas">Capas</label>
                     </div>
                     <div class='input-field col s12'>
                         <?php
