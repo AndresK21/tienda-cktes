@@ -4,7 +4,7 @@
     include('../../app/views/dashboard/reportes/clientes_compras_view.php');
     require_once("../../app/helpers/validator.class.php");
     require_once("../../app/models/detalle.class.php");
-    $detalle = new Detalle;
+    $detalle = new DetalleCliente;
 
     // Creaci�n del objeto de la clase heredada
     $pdf = new PDF();

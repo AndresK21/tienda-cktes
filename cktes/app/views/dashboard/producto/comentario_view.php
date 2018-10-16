@@ -17,19 +17,21 @@
         <tbody> <!--Contenido de la tabla-->
         <!--Producto de ejemplo 1-->
             <?php
-            if($valoracion2){
-                foreach($valoracion2 as $row){
-                    print("
-                    <tr>
-                        <td>$row[comentario]</td>
-                        <td>$row[correo_electronico]</td>
-                        <td>
-                            <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='right' data-delay='50' data-tooltip='Eliminar comentario' href='delete_comentario.php?id=$row[id_valoracion]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
-                        </td>
-                    </tr>
-                    ");
+                if($valoracion2){
+                    foreach($valoracion2 as $row){
+                        print("
+                        <tr>
+                            <td>$row[comentario]</td>
+                            <td>$row[correo_electronico]</td>
+                            <td>
+                                <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='right' data-delay='50' data-tooltip='Eliminar comentario' href='delete_comentario.php?id=$row[id_valoracion]'><i class='material-icons red-text text-darken-3 prefix'>delete</i></a>
+                            </td>
+                        </tr>
+                        ");
+                    }
+                }else{
+                    
                 }
-            }
             ?>
 
         </tbody>

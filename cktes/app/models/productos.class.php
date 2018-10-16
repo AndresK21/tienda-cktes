@@ -192,15 +192,15 @@ class Producto extends Validator{
 			$this->id_presentacion = $value;
 			return true;
 		}else{
-			return false;
+			return false;   
 		}
 	}
 	public function getId_presentacion(){
 		return $this->id_presentacion;
 	}
-	
+
 	public function setId_proveedor($value){
-		if($this->validateAlp($value)){
+		if($this->validateAlphanumeric($value, 1, 150)){
 			$this->proveedor = $value;
 			return true;
 		}else{

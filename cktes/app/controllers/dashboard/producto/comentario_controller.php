@@ -11,6 +11,7 @@ try{
 					if($valoraciones->getValoracionesProducto()){
 						$valoracion2 = $valoraciones->getValoracionesProducto();
 					}else{
+						$valoracion2 = null;
 						throw new Exception("Este producto no tiene comentarios");
 					}
 				}else{

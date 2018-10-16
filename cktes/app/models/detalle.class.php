@@ -267,13 +267,13 @@ public function readCarrito(){
 		return Database::getRows($sql, $params);
 	}
 	public function getComp(){
-		$sql = "SELECT fecha, nombres, apellidos, nombre, precio_total, detalle_carrito.cantidad FROM carrito INNER JOIN clientes USING (id_cliente) INNER JOIN detalle_carrito USING (id_carrito) INNER JOIN productos USING (id_producto) WHERE id_carrito= ?";
-		$params = array($this->compra);
+		$sql = "SELECT nombre, precio_total, detalle_carrito.cantidad FROM carrito INNER JOIN detalle_carrito USING (id_carrito) INNER JOIN productos USING (id_producto) WHERE id_carrito= ?";
+		$params = array($this->id_carrito);
 		return  Database::getRows($sql, $params);
 		}
 		public function getComp2(){
 		$sql = "SELECT nombres, correo_electronico, fecha FROM carrito INNER JOIN clientes USING (id_cliente) WHERE id_carrito= ?";
-        $param = array($this->compra);
+        $param = array($this->id_carrito);
 		return Database::getRow($sql, $param);
 	}
 }

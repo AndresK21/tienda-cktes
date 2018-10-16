@@ -33,9 +33,14 @@
 
         <div class="handle"></div>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
        
            
-            <!-- Sección de los trabajos de la empresa-->
+            <!-- Sección de los trabajos de la empresa
             <section>
                 <div class="container">
                 <h2 class="center"><b>NUESTROS TRABAJOS</b></h2>
@@ -55,5 +60,5 @@
                         </ul>
                     </div>
                 </div>
-            </section>
+            </section>-->
         </main>

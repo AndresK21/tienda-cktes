@@ -28,6 +28,9 @@ body {
 .colorNa{
   background-color: #FF4C05 !important;
 }
+.colorNaLe{
+  color: #FF4C05 !important;
+}
   main {
     flex: 1 0 auto;
   }
@@ -40,7 +43,7 @@ body {
   
   @font-face{
     font-family: "Caviar";  
-    src: url('../fonts/CaviarDreams.ttf') format('truetype');
+    src: url('../fonts/CaviarDreams_Bold.ttf') format('truetype');
   }
   body{
     font-family: 'Caviar', serif;

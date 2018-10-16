@@ -32,7 +32,7 @@ foreach($detalles as $detalle){
         <td><img class='responsive-img' height='75' width='100' src='../web/img/productos/$detalle[url_imagen]'></td>
         <td class='green-text'>$detalle[nombre]</td>
         <td class='green-text'>$detalle[precio]</td>
-        <td class='green-text'>$detalle[cantidad]</td>
+        <td class='green-text'>$detalle[cant]</td>
         <td class='green-text'>$$subtotal</td>
         <td><a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='right' data-delay='50' data-tooltip='Valorar' href='valoracion.php?id=$detalle[id_producto]'><i class='material-icons blue-grey-text text-darken-4 prefix'>comment</i></a></td>
 

@@ -69,7 +69,7 @@ class Page extends Component{
                             </li>
                         </ul>
                     </li>
-                    <li><a href='../base.php'>Base de datos</a></li>
+                    <!-- <li><a href='../base.php'>Base de datos</a></li>-->
                     <li class='no-padding'>
                         <ul class='collapsible collapsible-accordion'>
                             <li>
@@ -115,7 +115,7 @@ class Page extends Component{
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href='../base.php'>Base de datos</a></li>
+                            <!--<li><a href='../base.php'>Base de datos</a></li>-->
                             <li class='no-padding'>
                                 <ul class='collapsible collapsible-accordion'>
                                     <li>
@@ -178,7 +178,7 @@ class Page extends Component{
                         </li>
                     </ul>
                 </li>
-                <li><a href='../base.php'>Base de datos</a></li>
+                <!--<li><a href='../base.php'>Base de datos</a></li>-->
                 <li class='no-padding'>
                     <ul class='collapsible collapsible-accordion'>
                         <li>
@@ -223,7 +223,7 @@ class Page extends Component{
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='../base.php'>Base de datos</a></li>
+                        <!-- <li><a href='../base.php'>Base de datos</a></li>-->
                         <li class='no-padding'>
                             <ul class='collapsible collapsible-accordion'>
                                 <li>
