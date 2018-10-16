@@ -21,17 +21,17 @@
                 //Imagen del rectangulo superior del reporte
                 $this->Image('../../web/img/reporte.png', 0, 0, 220,200 );
                 //Salto
-                $this->Ln(15);
                 //Líneas horizontales (x1,y1,x2,y2)
-                $this->Line(10,25,200,25);
-                $this->Line(10,46,200,46);
+                $this->Line(10,15,200,15);
+                $this->Line(10,36,200,36);
                 // Logo
-                $this->Image('../../web/img/logo.png',10,24.3,23);
+                $this->Image('../../web/img/logo.png',10,14.3,23);
                 // Arial 15
                 $this->SetFont('Arial','',15);
+                $this->Ln();
                 // Movernos a la derecha
                 $this->Cell(80);
-                $this->Cell(40,10,'CKTE-ES, S.A DE C.V',0,1,'C');
+                $this->Cell(40,17,'CKT-ES, S.A DE C.V',0,1,'C');
                 // Arial 15
                 $this->SetFont('Arial','',13);
                 // Movernos a la derecha

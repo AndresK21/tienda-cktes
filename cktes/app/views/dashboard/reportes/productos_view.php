@@ -19,19 +19,20 @@
                 /*en la función "IMAGE" se coloca la ruta de la imagen que se desea, ubicación en "x" y "y", el tamaño de esta
                 Image(string file [, float x [, float y [, float w [, float h [, string type [, mixed link]]]]]])  */
                 //Imagen del rectangulo superior del reporte
+                //Imagen del rectangulo superior del reporte
                 $this->Image('../../web/img/reporte.png', 0, 0, 280,200 );
                 //Salto
-                $this->Ln(15);
                 //Líneas horizontales (x1,y1,x2,y2)
-                $this->Line(10,25,265,25);
-                $this->Line(10,46,265,46);
+                $this->Line(10,15,265,15);
+                $this->Line(10,36,265,36);
                 // Logo
-                $this->Image('../../web/img/logo.png',12,24.3,23);
+                $this->Image('../../web/img/logo.png',10,14.3,23);
                 // Arial 15
                 $this->SetFont('Arial','',15);
+                $this->Ln();
                 // Movernos a la derecha
                 $this->Cell(112);
-                $this->Cell(40,10,'CKTE-ES, S.A DE C.V',0,1,'C');
+                $this->Cell(40,17,'CKT-ES, S.A DE C.V',0,1,'C');
                 // Arial 15
                 $this->SetFont('Arial','',13);
                 // Movernos a la derecha
