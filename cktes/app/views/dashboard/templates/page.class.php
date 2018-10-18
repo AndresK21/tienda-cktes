@@ -120,6 +120,7 @@ class Page extends Component{
                                                 <li><a href='../usuarios/index.php'>Usuarios</a></li>
                                                 <li><a href='../clientes/index.php'>Clientes</a></li>
                                                 <li><a href='../productos/index.php'>Productos</a></li>
+                                                <li><a href='../ordenes/index.php'>Ordenes</a></li>
                                                 <li class='no-padding'>
                                                     <ul class='collapsible collapsible-accordion'>
                                                         <li>
@@ -165,7 +166,9 @@ class Page extends Component{
                                                         </div></li>
                                                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                         <li><a href='../usuarios/index.php'>Usuarios</a></li>
+                                                        <li><a href='../clientes/index.php'>Clientes</a></li>
                                                         <li><a href='../productos/index.php'>Productos</a></li>
+                                                        <li><a href='../ordenes/index.php'>Ordenes</a></li>
                                                         <li class='no-padding'>
                                                             <ul class='collapsible collapsible-accordion'>
                                                                 <li>
@@ -322,6 +325,7 @@ class Page extends Component{
                                                 </div></li>
                                                 <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                 <li><a href='../productos/index.php'>Productos</a></li>
+                                                <li><a href='../ordenes/index.php'>Ordenes</a></li>
                                                 <li class='no-padding'>
                                                     <ul class='collapsible collapsible-accordion'>
                                                         <li>
@@ -367,6 +371,7 @@ class Page extends Component{
                                                         </div></li>
                                                         <li><a href='../cuenta/index.php'>Dashboard</a></li>
                                                         <li><a href='../productos/index.php'>Productos</a></li>
+                                                        <li><a href='../ordenes/index.php'>Ordenes</a></li>
                                                         <li class='no-padding'>
                                                             <ul class='collapsible collapsible-accordion'>
                                                                 <li>
@@ -462,7 +467,7 @@ class Page extends Component{
 	public static function templateFooter(){
 		print("
 				</main>
-				<footer class='page-footer cktes grey darken-3 hide-on-large-only'>
+				<footer class='page-footer cktes hide-on-large-only'>
 					<div class='container'>
 						<div class='row'>
 							<p class=' center text-muted'>CKT-ES, S.A. DE C.V es un proyecto impulsado por INSERT y apoyado por el MINEC a través de la DICA y FONDEPRO</p>

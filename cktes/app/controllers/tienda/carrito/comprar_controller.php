@@ -28,7 +28,7 @@ if(isset($_POST['comprar'])){
                           $comprar->createCompra();
                           $comprar->maxId();
                           $_SESSION['id_carrito'] = $comprar->getCompra();
-                          Page::showMessage(1, "Compra Realizada", 'categorias.php');
+                          Page::showMessage(1, "Compra solicitada", 'categorias.php');
                         }
                   
                     else {
@@ -46,5 +46,4 @@ if(isset($_POST['comprar'])){
 }catch(Exception $error){
 Page::showMessage(2, $error->getMessage(), 'index.php');
 }
-//--------------------------------------------------------------------------
 ?>

@@ -86,7 +86,7 @@ class Page extends Component{
 	public static function templateFooter(){
 		print("
 				</main>
-				<footer class='page-footer cktes grey darken-3'>
+				<footer class='page-footer cktes'>
 					<div class='container'>
 						<div class='row'>
 							<p class=' center text-muted'>CKT-ES, S.A. DE C.V es un proyecto impulsado por INSERT y apoyado por el MINEC a través de la DICA y FONDEPRO</p>
