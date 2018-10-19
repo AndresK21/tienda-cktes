@@ -153,7 +153,7 @@
                         <label for="password3">Contrase&ntilde;a</label>
                     </div>
                     <div class="right-align">
-                        <a href="correo.php">&iquest;Olvido su contrase&ntilde;a&#63;</a>
+                        <a href="correo.php" class="colorNaLe">&iquest;Olvido su contrase&ntilde;a&#63;</a>
                         <div class="transparent-text">.</div>
                         <div class="transparent-text">.</div>
                     </div>

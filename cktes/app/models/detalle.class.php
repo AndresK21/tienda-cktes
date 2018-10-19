@@ -258,7 +258,7 @@ public function readCarrito(){
 		return Database::executeRow($sql, $params);
 	}
 	public function readHistorial(){
-		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado  WHERE id_cliente = ? AND estado_carrito = 6";
+		$sql = "SELECT id_carrito, id_cliente,fecha, estado FROM carrito INNER JOIN estado ON carrito.estado_carrito= estado.id_estado WHERE id_cliente = ? AND (estado_carrito = 11 OR estado_carrito = 6) ORDER BY id_estado DESC";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}
@@ -270,7 +270,7 @@ public function readCarrito(){
 		return Database::getRows($sql, $params);
 	}
 	public function getOrden(){
-		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 11 ORDER BY fecha DESC";
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 11 ORDER BY id_carrito DESC";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}
@@ -281,7 +281,7 @@ public function readCarrito(){
 		return Database::getRows($sql, $params);
 	}
 	public function getOrden2(){
-		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 6 ORDER BY fecha DESC";
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 6 ORDER BY id_carrito DESC";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}
