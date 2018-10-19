@@ -9,9 +9,7 @@ class DetalleCliente extends Validator{
 	private $existencias = null;
 	private $cliente =null;
 	private $id_cliente = null;
-	private $id_carrito = null;
-
-    
+	private $id_carrito = null;    
 
 	//Métodos para sobrecarga de propiedades
 	public function setId($value){
@@ -120,8 +118,13 @@ class DetalleCliente extends Validator{
  
 
 
+	//Metodos para el manejo del SCRUD
+	public function getEstados(){
+		$sql = "SELECT id_estado, estado FROM estado WHERE id_tipo_estado = 4 AND id_estado >= 6";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 
-	//Metodos para el manejo del CRUD
 	public function createDetalle(){
 		$sql = "INSERT INTO detalle_carrito( cantidad, id_carrito, id_producto) VALUES(?,?,?)";
 		$params = array( $this->cantidad, $this->compra, $this->producto );
@@ -267,9 +270,37 @@ public function readCarrito(){
 		return Database::getRows($sql, $params);
 	}
 	public function getOrden(){
-		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 11";
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 11 ORDER BY fecha DESC";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
+	}
+
+	public function searchOrden2($value){
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE (nombres = ? OR apellidos = ?) AND estado_carrito = 6";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function getOrden2(){
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 6 ORDER BY fecha DESC";
+		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
+
+	public function readEstado(){
+		$sql = "SELECT estado_carrito FROM carrito WHERE id_carrito = ?";
+		$params = array($this->id);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->estado = $data['estado_carrito'];
+			return true;
+		}else{
+			return null;
+		}
+	}
+	public function updateOrden(){
+		$sql = "UPDATE carrito SET estado_carrito = ? WHERE id_carrito = ?";
+		$params = array($this->estado, $this->id);
+		return Database::executeRow($sql, $params);
 	}
 	
 	//Metodos para reportes

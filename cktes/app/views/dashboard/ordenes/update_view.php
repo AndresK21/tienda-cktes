@@ -1,13 +1,14 @@
 <div class="white-text">.</div>
-<div class="center-align"><h4>Editar descuento</h4></div>
+<div class="center-align"><h4>Editar estado de la orden</h4></div>
 
 <div class="container">
     <div class="row">
         <form class="col s12" method="post">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="valor" type="number" min="0" max="100" step="any" name="descuento" class="validate" autocomplete="off" value='<?php print($descuento->getDescuento()) ?>' required />
-                    <label for="valor" class="black-text">valor del descuento (%)</label>
+                    <?php
+                        Page::showSelect("Estado", "estado", $orden->getEstado(), $orden->getEstados());
+                    ?>
                 </div>
             </div>
             <div class="row">

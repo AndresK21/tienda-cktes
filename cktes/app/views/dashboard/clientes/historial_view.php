@@ -4,7 +4,7 @@
 
 <div class="container">
     <!--Parte de clasificacion de la tabla-->
-    <table class="bordered highlight responsive-table espacio_inf"> <!--Tabla donde se mostraran las ventas realizadas-->
+    <table class="bordered highlight responsive-table espacio_inf z-depth-2"> <!--Tabla donde se mostraran las ventas realizadas-->
         <thead class="cktes white-text"> <!--Indices de la tablas-->
             <tr>
                 <th>Id del pedido</th>
