@@ -22,6 +22,7 @@
     $detalles->setId_carrito($_GET['id']);
     $detalle= $detalles->getComp2();
     $result= $detalles->getComp();
+    $comp->Cell($w[0],6,'Id del pedido: '.$detalle['id_carrito'],0,1,'L');
     $comp->Cell($w[0],6,'Cliente: '.$detalle['nombres'],0,1,'L');
     $comp->Cell($w[1],6,'Correo: '.$detalle['correo_electronico'],0,1,'L');         
     $comp->Cell($w[1],6, 'Fecha de compra: '.$detalle['fecha'],0,1,'L' );
