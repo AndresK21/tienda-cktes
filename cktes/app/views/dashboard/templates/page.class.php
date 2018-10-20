@@ -37,7 +37,7 @@ class Page extends Component{
 			}*/ //Para usar en un hosting
 
 			$id = session_id();
-			
+
 			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 				if($empleado->readEmpleado()){					
 					if($id == $empleado->getIp()){ //Si el id de la sesion es igual al de la base continua con lo demas

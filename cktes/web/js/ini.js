@@ -14,7 +14,7 @@ $(document).ready(function(){
     $(".leftside").sideNav({edge: 'left'});
     $(".rightside").sideNav({edge: 'right'});
     $(".button-collapse").sideNav();
-    $('.sidenav').sidenav();
+    
 });
 
 function readURL(input){

@@ -223,7 +223,7 @@ class Empleado extends Validator{
 		}
 	}
 	public function checkPassword(){
-		$sql = "SELECT contrasena, estado, fecha_bloqueo FROM empleado WHERE id_empleado = ?";
+		$sql = "SELECT contrasena, estado, fecha_bloqueo, dashboard, usuarios, clientes, productos, ordenes, manufacturacion, desarrollo, importacion FROM empleado INNER JOIN permisos USING(id_permiso) WHERE id_empleado = ?";
 		$params = array($this->id_empleado);
 		$data = Database::getRow($sql, $params);
 		if(password_verify($this->contrasena, $data['contrasena'])){
