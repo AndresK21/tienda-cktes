@@ -29,14 +29,10 @@ class Page extends Component{
 			</head>
             <body>
 		");
-		if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 1){
+		if(isset($_SESSION['id_empleado_d'])){
             $empleado = new Empleado;
 
-			/*if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)){
-				$ip= $_SERVER['HTTP_CLIENT_IP'];
-			}*/ //Para usar en un hosting
-
-			$id = session_id();
+            $id = session_id();
 
 			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
 				if($empleado->readEmpleado()){					
@@ -115,28 +111,104 @@ class Page extends Component{
                                                 <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
                                                 <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
                                                 <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
-                                                </div></li>
-                                                <li><a href='../cuenta/index.php'>Dashboard</a></li>
-                                                <li><a href='../usuarios/index.php'>Usuarios</a></li>
-                                                <li><a href='../clientes/index.php'>Clientes</a></li>
-                                                <li><a href='../productos/index.php'>Productos</a></li>
-                                                <li><a href='../ordenes/index.php'>Ordenes</a></li>
-                                                <li class='no-padding'>
-                                                    <ul class='collapsible collapsible-accordion'>
-                                                        <li>
-                                                            <a class='collapsible-header'>Servicios<i class='material-icons'>arrow_drop_down</i></a>
-                                                            <div class='collapsible-body'>
-                                                                <ul>
-                                                                    <li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
-                                                                    <li class='divider'></li>
-                                                                    <li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
-                                                                    <li class='divider'></li>
-                                                                    <li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>
-                                                                </ul>
-                                                            </div>
+                                                </div></li>"
+                                        );
+
+                                                switch($_SESSION['dashboard']){
+                                                    case 1:
+                                                        print("");
+                                                        break;
+                                                    case 2:
+                                                        print("<li><a href='../cuenta/index.php'>Dashboard</a></li>");
+                                                        break;
+                                                }
+                                                switch($_SESSION['usuarios']){
+                                                    case 1:
+                                                        print("");
+                                                        break;
+                                                    case 2:
+                                                        print("<li><a href='../usuarios/index.php'>Usuarios</a></li>");
+                                                        break;
+                                                }
+                                                switch($_SESSION['clientes']){
+                                                    case 1:
+                                                        print("");
+                                                        break;
+                                                    case 2:
+                                                        print("<li><a href='../clientes/index.php'>Clientes</a></li>");
+                                                        break;
+                                                }
+                                                switch($_SESSION['productos']){
+                                                    case 1:
+                                                        print("");
+                                                        break;
+                                                    case 2:
+                                                        print("<li><a href='../productos/index.php'>Productos</a></li>");
+                                                        break;
+                                                }
+                                                switch($_SESSION['ordenes']){
+                                                    case 1:
+                                                        print("");
+                                                        break;
+                                                    case 2:
+                                                        print("<li><a href='../ordenes/index.php'>Ordenes</a></li>");
+                                                        break;
+                                                }
+
+                                    if($_SESSION['manufacturacion'] == 1 && $_SESSION['desarrollo'] == 1 && $_SESSION['importacion'] == 1){
+                                        print("");
+                                    }else{
+
+                                        print("
+                                                        
+                                                        <li class='no-padding'>
+                                                            <ul class='collapsible collapsible-accordion'>
+                                                                <li>
+                                                                    <a class='collapsible-header'>Servicios<i class='material-icons'>arrow_drop_down</i></a>
+                                                                    <div class='collapsible-body'>
+                                                                        <ul>
+                                        ");
+
+                                                                            switch($_SESSION['manufacturacion']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
+                                                                                        <li class='divider'></li>");
+                                                                                    break;
+                                                                            }
+                                                                            switch($_SESSION['desarrollo']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
+                                                                                        <li class='divider'></li>");
+                                                                                    break;
+                                                                            }
+                                                                            switch($_SESSION['importacion']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>");
+                                                                                    break;
+                                                                            }
+
+
+                                        print("                      
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
                                                         </li>
-                                                    </ul>
-                                                </li>
+                                        ");
+
+                                    }
+
+
+                                        print("                                        
                                                 <!--<li><a href='../base/base.php'>Base de datos</a></li>-->
                                                 <li class='no-padding'>
                                                     <ul class='collapsible collapsible-accordion'>
@@ -164,27 +236,102 @@ class Page extends Component{
                                                         <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
                                                         <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                         </div></li>
-                                                        <li><a href='../cuenta/index.php'>Dashboard</a></li>
-                                                        <li><a href='../usuarios/index.php'>Usuarios</a></li>
-                                                        <li><a href='../clientes/index.php'>Clientes</a></li>
-                                                        <li><a href='../productos/index.php'>Productos</a></li>
-                                                        <li><a href='../ordenes/index.php'>Ordenes</a></li>
+                                        ");
+
+                                                        switch($_SESSION['dashboard']){
+                                                            case 1:
+                                                                print("");
+                                                                break;
+                                                            case 2:
+                                                                print("<li><a href='../cuenta/index.php'>Dashboard</a></li>");
+                                                                break;
+                                                        }
+                                                        switch($_SESSION['usuarios']){
+                                                            case 1:
+                                                                print("");
+                                                                break;
+                                                            case 2:
+                                                                print("<li><a href='../usuarios/index.php'>Usuarios</a></li>");
+                                                                break;
+                                                        }
+                                                        switch($_SESSION['clientes']){
+                                                            case 1:
+                                                                print("");
+                                                                break;
+                                                            case 2:
+                                                                print("<li><a href='../clientes/index.php'>Clientes</a></li>");
+                                                                break;
+                                                        }
+                                                        switch($_SESSION['productos']){
+                                                            case 1:
+                                                                print("");
+                                                                break;
+                                                            case 2:
+                                                                print("<li><a href='../productos/index.php'>Productos</a></li>");
+                                                                break;
+                                                        }
+                                                        switch($_SESSION['ordenes']){
+                                                            case 1:
+                                                                print("");
+                                                                break;
+                                                            case 2:
+                                                                print("<li><a href='../ordenes/index.php'>Ordenes</a></li>");
+                                                                break;
+                                                        }
+
+                                    if($_SESSION['manufacturacion'] == 1 && $_SESSION['desarrollo'] == 1 && $_SESSION['importacion'] == 1){
+                                        print("");
+                                    }else{
+
+                                        print("
+                                                        
                                                         <li class='no-padding'>
                                                             <ul class='collapsible collapsible-accordion'>
                                                                 <li>
                                                                     <a class='collapsible-header'>Servicios<i class='material-icons'>arrow_drop_down</i></a>
                                                                     <div class='collapsible-body'>
                                                                         <ul>
-                                                                            <li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
-                                                                            <li class='divider'></li>
-                                                                            <li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
-                                                                            <li class='divider'></li>
-                                                                            <li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>
+                                        ");
+
+                                                                            switch($_SESSION['manufacturacion']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
+                                                                                        <li class='divider'></li>");
+                                                                                    break;
+                                                                            }
+                                                                            switch($_SESSION['desarrollo']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
+                                                                                        <li class='divider'></li>");
+                                                                                    break;
+                                                                            }
+                                                                            switch($_SESSION['importacion']){
+                                                                                case 1:
+                                                                                    print("");
+                                                                                    break;
+                                                                                case 2:
+                                                                                    print("<li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>");
+                                                                                    break;
+                                                                            }
+
+
+                                        print("                      
                                                                         </ul>
                                                                     </div>
                                                                 </li>
                                                             </ul>
                                                         </li>
+                                        ");
+
+                                    }
+
+                                        print("
                                                         <!--<li><a href='../base/base.php'>Base de datos</a></li>-->
                                                         <li class='no-padding'>
                                                             <ul class='collapsible collapsible-accordion'>
@@ -205,7 +352,9 @@ class Page extends Component{
                                             
                                             <main class=''>
 												
-										");
+                                        ");
+                                        
+                                        
 									}
 								}
 							}
@@ -235,209 +384,6 @@ class Page extends Component{
                 }
 			}
 
-
-		}else if(isset($_SESSION['id_empleado_d']) && ($_SESSION['id_permiso_d']) == 2){
-            $empleado = new Empleado;
-
-			/*if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)){
-				$ip= $_SERVER['HTTP_CLIENT_IP'];
-			}*/ //Para usar en un hosting
-
-			$id = session_id();
-			
-			if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
-				if($empleado->readEmpleado()){					
-					if($id == $empleado->getIp()){
-
-						$fechaGuardada = $_SESSION["ultimoAcceso_d"];  
-						$ahora = time();  
-						$tiempo_transcurrido = $ahora-$fechaGuardada;   
-
-						//comparamos el tiempo transcurrido  
-						if($tiempo_transcurrido >= 600) {  
-							//si pasaron 10 minutos o más  
-							$empleado->unsetIp($_SESSION['correo_electronico2_d']);
-							session_destroy(); // destruyo la sesión
-							print("
-								<header>
-									<div class='navbar-fixed'>  
-										<nav>
-										<!--Navbar Color gris azulado-->
-											<div class='nav-wrapper  blue-grey darken-4'>
-											<img class='brand-logo' src='../../web/img/logo_1.png'>
-											</div>
-										</nav>
-									</div>
-								</header>
-									<main class=''>
-								");
-							Page::showMessage(3, "Se ha cerrado la sesión por tiempo de inactividad", "index.php"); //envío al usuario a la pag. de autenticación  
-							//sino, actualizo la fecha de la sesión  
-						}else{  
-							$_SESSION["ultimoAcceso_d"] = $ahora;
-							
-							$hoy = date('Y-m-d h:i:s');
-							$hoy2 = new DateTime($hoy);
-							if($empleado->setId_empleado($_SESSION['id_empleado_d'])){//Establece el id empleado para obtener los registros del empleado
-								if($empleado->readEmpleado()){
-									$fecha1 = new DateTime($empleado->getFecha());
-									$tiempo = $fecha1->diff($hoy2);
-									if($tiempo->m >= 3){
-										print("
-											<header>
-												<div class='navbar-fixed'>  
-													<nav>
-													<!--Navbar Color gris azulado-->
-														<div class='nav-wrapper  blue-grey darken-4'>
-														<img class='brand-logo' src='../../web/img/logo_1.png'>
-														</div>
-													</nav>
-												</div>
-											</header>
-												<main class=''>
-											");
-											self::showMessage(3, "¡Debe cambiar su contraseña!", "../cuenta/password2.php");
-											self::templateFooter();
-											exit;						
-									}else{
-										print("
-                                            <header>
-                                                <div class='navbar-fixed'>  
-                                                    <nav>
-                                                        <!--Navbar Color gris-->
-                                                        <div class='nav-wrapper grey darken-3'>
-                                                            <img class='brand-logo' src='../../web/img/logo_1.png' />
-                                                            <a href='#' data-activates='slide-out2' class='button-collapse'><i class='material-icons'>menu</i></a>
-                                                        </div>
-                                                    </nav>
-                                                </div>
-                                
-                                
-                                            <!--Vista movil-->
-                                            <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
-                                                <li><div class='user-view'>
-                                                <div class='background'>
-                                                    <img src='../../web/img/1.jpg'>
-                                                </div>
-                                                <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
-                                                <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
-                                                <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
-                                                </div></li>
-                                                <li><a href='../cuenta/index.php'>Dashboard</a></li>
-                                                <li><a href='../productos/index.php'>Productos</a></li>
-                                                <li><a href='../ordenes/index.php'>Ordenes</a></li>
-                                                <li class='no-padding'>
-                                                    <ul class='collapsible collapsible-accordion'>
-                                                        <li>
-                                                            <a class='collapsible-header'>Servicios<i class='material-icons'>arrow_drop_down</i></a>
-                                                            <div class='collapsible-body'>
-                                                                <ul>
-                                                                    <li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
-                                                                    <li class='divider'></li>
-                                                                    <li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
-                                                                    <li class='divider'></li>
-                                                                    <li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <!--<li><a href='../base/base.php'>Base de datos</a></li>-->
-                                                <li class='no-padding'>
-                                                    <ul class='collapsible collapsible-accordion'>
-                                                        <li>
-                                                            <a class='collapsible-header'>Cuenta<i class='material-icons'>arrow_drop_down</i></a>
-                                                            <div class='collapsible-body'>
-                                                                <ul>
-                                                                    <li><a href='../cuenta/password.php'>Cambiar contraseña</a></li>
-                                                                    <li class='divider'></li>
-                                                                    <li><a href='../cuenta/logout.php'>Cerrar sesi&oacute;n</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            
-                                            
-                                                    <ul id='slide-out2' class='side-nav'>
-                                                        <li><div class='user-view'>
-                                                        <div class='background'>
-                                                            <img src='../../web/img/1.jpg'>
-                                                        </div>
-                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
-                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
-                                                        <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
-                                                        </div></li>
-                                                        <li><a href='../cuenta/index.php'>Dashboard</a></li>
-                                                        <li><a href='../productos/index.php'>Productos</a></li>
-                                                        <li><a href='../ordenes/index.php'>Ordenes</a></li>
-                                                        <li class='no-padding'>
-                                                            <ul class='collapsible collapsible-accordion'>
-                                                                <li>
-                                                                    <a class='collapsible-header'>Servicios<i class='material-icons'>arrow_drop_down</i></a>
-                                                                    <div class='collapsible-body'>
-                                                                        <ul>
-                                                                            <li><a href='../manufacturacion/index.php'>Manufacturaci&oacute;n</a></li>
-                                                                            <li class='divider'></li>
-                                                                            <li><a href='../desarrollo/index.php'>Desarrollo de proyectos</a></li>
-                                                                            <li class='divider'></li>
-                                                                            <li><a href='../importacion/index.php'>Importaci&oacute;n de productos</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <!-- <li><a href='../base/base.php'>Base de datos</a></li>-->
-                                                        <li class='no-padding'>
-                                                            <ul class='collapsible collapsible-accordion'>
-                                                                <li>
-                                                                    <a class='collapsible-header'>Cuenta<i class='material-icons'>arrow_drop_down</i></a>
-                                                                    <div class='collapsible-body'>
-                                                                        <ul>
-                                                                            <li><a href='../cuenta/password.php'>Cambiar contraseña</a></li>
-                                                                            <li class='divider'></li>
-                                                                            <li><a href='../cuenta/logout.php'>Cerrar sesi&oacute;n</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                            </header>
-                            
-                                            <main class=''>
-												
-										");
-									}
-								}
-							}
-						}
-
-					}else{
-						print("
-							<header>
-								<div class='navbar-fixed'>  
-									<nav>
-									<!--Navbar Color gris azulado-->
-										<div class='nav-wrapper  grey darken-3'>
-										<img class='brand-logo' src='../../web/img/logo_1.png'>
-										</div>
-									</nav>
-								</div>
-							</header>
-								<main class=''>
-                            ");
-                        $correo = new Correo;
-                        $empleado->unsetIp($_SESSION['correo_electronico2_d']);  //Vuelve nulo el campo del id de la base
-                        session_destroy();
-                        self::showMessage(3, "¡Esta cuenta esta iniciada en otro terminal!", "../cuenta/login.php");
-                        self::templateFooter();
-                        exit;
-					}
-				}
-			}
-          
 
 		}else{
 			print("

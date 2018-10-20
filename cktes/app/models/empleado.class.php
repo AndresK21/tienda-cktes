@@ -17,6 +17,15 @@ class Empleado extends Validator{
 	private $autenticacion = null;
 	private $est_aut = null;
 
+	private $dashboard = null;
+	private $usuarios = null;
+	private $clientes = null;
+	private $productos = null;
+	private $ordenes = null;
+	private $manufacturacion = null;
+	private $desarrollo = null;
+	private $importacion = null;
+
     //Métodos para sobrecarga de propiedades
     public function setId_empleado($value){
 		if($this->validateId($value)){
@@ -205,6 +214,99 @@ class Empleado extends Validator{
 		return $this->ip;
 	}
 
+
+	
+	public function setDashboard($value){
+		if($this->validateId($value)){
+			$this->dashboard = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getDashboard(){
+		return $this->dashboard;
+	}
+	public function setUsuarios($value){
+		if($this->validateId($value)){
+			$this->usuarios = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getUsuarios(){
+		return $this->usuarios;
+	}
+	public function setClientes($value){
+		if($this->validateId($value)){
+			$this->clientes = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getClientes(){
+		return $this->clientes;
+	}
+	public function setProductos($value){
+		if($this->validateId($value)){
+			$this->productos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getProductos(){
+		return $this->productos;
+	}
+	public function setOrdenes($value){
+		if($this->validateId($value)){
+			$this->ordenes = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getOrdenes(){
+		return $this->ordenes;
+	}
+	public function setManufacturacion($value){
+		if($this->validateId($value)){
+			$this->manufacturacion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getManufacturacion(){
+		return $this->manufacturacion;
+	}
+	public function setDesarrollo($value){
+		if($this->validateId($value)){
+			$this->desarrollo = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getDesarrollo(){
+		return $this->desarrollo;
+	}
+	public function setImportacion($value){
+		if($this->validateId($value)){
+			$this->importacion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getImportacion(){
+		return $this->importacion;
+	}
+	
+
+
 	//Métodos para manejar la sesión del usuario
 	public function checkCorreo(){
 		$sql = "SELECT id_empleado, correo_electronico, nombres, apellidos, imagen, id_permiso FROM empleado WHERE correo_electronico = ?";
@@ -229,6 +331,14 @@ class Empleado extends Validator{
 		if(password_verify($this->contrasena, $data['contrasena'])){
 			$this->estado = $data['estado'];
 			$this->fecha2 = $data['fecha_bloqueo'];
+			$this->dashboard = $data['dashboard'];
+			$this->usuarios = $data['usuarios'];
+			$this->clientes = $data['clientes'];
+			$this->productos = $data['productos'];
+			$this->ordenes = $data['ordenes'];
+			$this->manufacturacion = $data['manufacturacion'];
+			$this->desarrollo = $data['desarrollo'];
+			$this->importacion = $data['importacion'];
 			return true;
 		}else{
 			return false;

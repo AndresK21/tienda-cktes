@@ -24,6 +24,16 @@ try{
 											$_SESSION['apellidos2_d'] = $object->getApellidos();
 											$_SESSION['imagen_d'] = $object->getImagen();
 											$_SESSION['id_permiso_d'] = $object->getId_permiso();
+
+											$_SESSION['dashboard'] = $object->getDashboard();
+											$_SESSION['usuarios'] = $object->getUsuarios();
+											$_SESSION['clientes'] = $object->getClientes();
+											$_SESSION['productos'] = $object->getProductos();
+											$_SESSION['ordenes'] = $object->getOrdenes();
+											$_SESSION['manufacturacion'] = $object->getManufacturacion();
+											$_SESSION['desarrollo'] = $object->getDesarrollo();
+											$_SESSION['importacion'] = $object->getImportacion();
+
 											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 											$object->intentoCero($_SESSION['usuario_d']);
 											Page::showMessage(1, "Autenticación correcta", "index.php");
@@ -34,6 +44,16 @@ try{
 											$_SESSION['apellidos2_d'] = $object->getApellidos();
 											$_SESSION['imagen_d'] = $object->getImagen();
 											$_SESSION['id_permiso_d'] = $object->getId_permiso();
+
+											$_SESSION['dashboard'] = $object->getDashboard();
+											$_SESSION['usuarios'] = $object->getUsuarios();
+											$_SESSION['clientes'] = $object->getClientes();
+											$_SESSION['productos'] = $object->getProductos();
+											$_SESSION['ordenes'] = $object->getOrdenes();
+											$_SESSION['manufacturacion'] = $object->getManufacturacion();
+											$_SESSION['desarrollo'] = $object->getDesarrollo();
+											$_SESSION['importacion'] = $object->getImportacion();
+
 											$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 											$object->intentoCero($_SESSION['usuario_d']);
 											$correo = new Correo;
@@ -63,6 +83,16 @@ try{
 												$_SESSION['apellidos2_d'] = $object->getApellidos();
 												$_SESSION['imagen_d'] = $object->getImagen();
 												$_SESSION['id_permiso_d'] = $object->getId_permiso();
+
+												$_SESSION['dashboard'] = $object->getDashboard();
+												$_SESSION['usuarios'] = $object->getUsuarios();
+												$_SESSION['clientes'] = $object->getClientes();
+												$_SESSION['productos'] = $object->getProductos();
+												$_SESSION['ordenes'] = $object->getOrdenes();
+												$_SESSION['manufacturacion'] = $object->getManufacturacion();
+												$_SESSION['desarrollo'] = $object->getDesarrollo();
+												$_SESSION['importacion'] = $object->getImportacion();
+
 												$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 												$object->intentoCero($_SESSION['usuario_d']);
 												Page::showMessage(1, "Autenticación correcta", "index.php");
@@ -74,6 +104,16 @@ try{
 												$_SESSION['apellidos2_d'] = $object->getApellidos();
 												$_SESSION['imagen_d'] = $object->getImagen();
 												$_SESSION['id_permiso_d'] = $object->getId_permiso();
+
+												$_SESSION['dashboard'] = $object->getDashboard();
+												$_SESSION['usuarios'] = $object->getUsuarios();
+												$_SESSION['clientes'] = $object->getClientes();
+												$_SESSION['productos'] = $object->getProductos();
+												$_SESSION['ordenes'] = $object->getOrdenes();
+												$_SESSION['manufacturacion'] = $object->getManufacturacion();
+												$_SESSION['desarrollo'] = $object->getDesarrollo();
+												$_SESSION['importacion'] = $object->getImportacion();
+
 												$_SESSION['ultimoAcceso_d'] = time(); //Obtiene el tiempo de cuando se logea para posteriormente usarlo para cerrar la sesion por inactividad
 												$object->intentoCero($_SESSION['usuario_d']);
 												$correo = new Correo;
