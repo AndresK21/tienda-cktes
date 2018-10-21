@@ -36,40 +36,57 @@
                 <!--muestra la lista de pedidos-->
                 <div class="col s12">
                         
-                        <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="cktes white-text">
-                            <tr>
-                                <th>Pedidos</th>
-                                <th>Ver/Responder</th>
-                                <th></th>
-                            </tr>
-                            </thead>
+                    <table class="bordered highlight responsive-table z-depth-2">
+                        <thead class="cktes white-text">
+                        <tr>
+                            <th>Pedidos</th>
+                            <th>Ver/Responder</th>
+                            <th></th>
+                        </tr>
+                        </thead>
 
-                            <tbody>
-                                <?php
-                                if($data){
-                                    foreach($data as $row){
-                                        print("
-                                        <tr>
-                                            <td>$row[nombres] $row[apellidos]</td>
-                                            <td>
-                                                <a href='view.php?id=$row[id_desarrollo]' class='grey-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>visibility</i></a>
-                                                <a href='answer.php?id=$row[id_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Responder mensaje'><i class='material-icons'>mail</i></a>
-                                            </td>
-                                        </tr>
-                                            ");
-                                    }
-                                }else{
-
+                        <tbody>
+                            <?php
+                            if($data){
+                                foreach($data as $row){
+                                    print("
+                                    <tr>
+                                        <td>$row[nombres] $row[apellidos]</td>
+                                        <td>
+                                            <a href='view.php?id=$row[id_desarrollo]' class='grey-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>visibility</i></a>
+                                            <a href='answer.php?id=$row[id_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Responder mensaje'><i class='material-icons'>mail</i></a>
+                                        </td>
+                                    </tr>
+                                        ");
                                 }
-                                ?>
-                            </tbody>
-                        </table>
+                            }else{
 
-                    </div>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado=$desarrollo->getDesarrolloss();
+
+            //Contar el total de registros
+            $total_registros = count($resultado);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas = ceil($total_registros / $por_pagina);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina=$total_paginas'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 
     <!--Contenido del tab de pedidos-->
@@ -100,40 +117,56 @@
                 <!--muestra la lista de pedidos-->
                 <div class="col s12">
                         
-                        <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="cktes white-text">
-                            <tr>
-                                <th>Pedidos</th>
-                                <th>Ver/Responder</th>
-                                <th></th>
-                            </tr>
-                            </thead>
+                    <table class="bordered highlight responsive-table z-depth-2">
+                        <thead class="cktes white-text">
+                        <tr>
+                            <th>Pedidos</th>
+                            <th>Ver/Responder</th>
+                            <th></th>
+                        </tr>
+                        </thead>
 
-                            <tbody>
-                                <?php
-                                if($data){
-                                    foreach($data2 as $row2){
-                                        print("
-                                        <tr>
-                                            <td>$row2[nombres] $row2[apellidos]</td>
-                                            <td>
-                                                <a href='view.php?id=$row2[id_desarrollo]' class='grey-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>visibility</i></a>
-                                                <a href='answer.php?id=$row2[id_desarrollo]' class='blue-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Responder mensaje'><i class='material-icons'>mail</i></a>
-                                            </td>
-                                        </tr>
-                                            ");
-                                    }
-                                }else{
-
+                        <tbody>
+                            <?php
+                            if($data2){
+                                foreach($data3 as $row3){
+                                    print("
+                                    <tr>
+                                        <td>$row3[nombres] $row3[apellidos]</td>
+                                        <td>
+                                            <a href='view.php?id=$row3[id_desarrollo]' class='grey-text text-darken-3 tooltipped' data-position='top' data-delay='50' data-tooltip='Ver mensaje'><i class='material-icons'>visibility</i></a>
+                                        </td>
+                                    </tr>
+                                        ");
                                 }
-                                ?>
-                            </tbody>
-                        </table>
+                            }else{
 
-                    </div>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado2=$desarrollo->getDesarrollosCom();
+
+            //Contar el total de registros
+            $total_registros2 = count($resultado2);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas2 = ceil($total_registros2 / $por_pagina2);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina2=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas2; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina2=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$desarrollo->getId_desarrollo()."&pagina2=$total_paginas2'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 
     <!--Contenido del tab de tipos de desarrollo-->

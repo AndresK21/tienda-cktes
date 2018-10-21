@@ -6,6 +6,18 @@ try{
             $desarrollo = new Desarrollo;
             if($desarrollo->setId_Desarrollo($_GET['id'])){ //Establece el id en una varible para usarla despues
                 if($desarrollo->readDesarrollo()){
+                    if(isset($_POST['editar'])){
+                        $_POST = $desarrollo->validateForm($_POST);
+                        if($desarrollo->setid_estado($_POST['estado'])){  //Recibe el tipo de prodcuto
+                            if($desarrollo->updateDesarrollo()){ //Crea el tipo de producto
+                                Page::showMessage(1, "Estado del desarrollo actualizado", "index.php");
+                            }else{
+                                throw new Exception("No se pudo cambiar el estado");        
+                            }
+                        }else{
+                            throw new Exception("Ingrese un estado");
+                        }
+                    }
                 }else{
                     Page::showMessage(2, "Desarrollo inexistente", "index.php");
                 }

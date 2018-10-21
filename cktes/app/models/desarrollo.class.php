@@ -6,6 +6,7 @@ class Desarrollo extends Validator{
     private $archivo = null;
     private $id_tipo_desarrollo = null;
 	private $id_cliente = null;
+	private $estado = null;
 	
 	private $nombres = null;
 	private $apellidos = null;
@@ -81,6 +82,17 @@ class Desarrollo extends Validator{
 	public function getId_cliente(){
 		return $this->id_cliente;
 	}
+	public function setId_estado($value){
+		if($this->validateId($value)){
+			$this->estado = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getId_estado(){
+		return $this->estado;
+	}
 
 
 	public function setNombres($value){
@@ -134,8 +146,38 @@ class Desarrollo extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	public function getEstados(){
+		$sql = "SELECT id_estado, estado FROM estado WHERE id_tipo_estado = 7";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getDesarrolloss(){
+		$sql = "SELECT id_desarrollo, mensaje, archivo, id_tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN clientes USING(id_cliente) WHERE id_estado = 12 ORDER BY id_desarrollo";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getDesarrolloss2($empieza, $por_pagina){
+		$sql = "SELECT id_desarrollo, mensaje, archivo, id_tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN clientes USING(id_cliente) WHERE id_estado = 12 ORDER BY id_desarrollo LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getDesarrollosCom(){
+		$sql = "SELECT id_desarrollo, mensaje, archivo, id_tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN clientes USING(id_cliente) WHERE id_estado = 13 ORDER BY id_desarrollo";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getDesarrollosCom2($empieza, $por_pagina){
+		$sql = "SELECT id_desarrollo, mensaje, archivo, id_tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN clientes USING(id_cliente) WHERE id_estado = 13 ORDER BY id_desarrollo LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function searchDesarrollo($value){
-		$sql = "SELECT id_desarrollo, mensaje, archivo, tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_desarrollo";
+		$sql = "SELECT id_desarrollo, mensaje, archivo, tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND estado = 1 ORDER BY id_desarrollo";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function searchDesarrollo2($value){
+		$sql = "SELECT id_desarrollo, mensaje, archivo, tipo_desarrollo, nombres, apellidos FROM desarrollo INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND estado = 0 ORDER BY id_desarrollo";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
@@ -145,7 +187,7 @@ class Desarrollo extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readDesarrollo(){
-		$sql = "SELECT mensaje, archivo, id_tipo_desarrollo, id_cliente, nombres, apellidos, correo_electronico, tipo_desarrollo FROM desarrollo INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) WHERE id_desarrollo = ? ORDER BY id_desarrollo";
+		$sql = "SELECT mensaje, archivo, id_tipo_desarrollo, id_cliente, id_estado, nombres, apellidos, correo_electronico, tipo_desarrollo FROM desarrollo INNER JOIN clientes USING(id_cliente) INNER JOIN tipo_desarrollo USING(id_tipo_desarrollo) WHERE id_desarrollo = ? ORDER BY id_desarrollo";
 		$params = array($this->id_desarrollo);
 		$desarrollo = Database::getRow($sql, $params);
 		if($desarrollo){
@@ -153,6 +195,7 @@ class Desarrollo extends Validator{
             $this->archivo = $desarrollo['archivo'];
             $this->id_tipo_desarrollo = $desarrollo['id_tipo_desarrollo'];
 			$this->id_cliente = $desarrollo['id_cliente'];
+			$this->estado = $desarrollo['id_estado'];
 			
 			$this->nombres = $desarrollo['nombres'];
 			$this->apellidos = $desarrollo['apellidos'];
@@ -163,9 +206,9 @@ class Desarrollo extends Validator{
 			return null;
 		}
 	}
-	public function updateMarca(){
-		$sql = "UPDATE desarrollo SET mensaje = ?, archivo = ?, id_tipo_desarrollo = ?, id_cliente = ? WHERE id_desarrollo = ?";
-		$params = array($this->mensaje, $this->archivo, $this->id_tipo_desarrollo, $this->id_cliente, $this->id_desarrollo);
+	public function updateDesarrollo(){
+		$sql = "UPDATE desarrollo SET mensaje = ?, archivo = ?, id_tipo_desarrollo = ?, id_cliente = ?, id_estado = ? WHERE id_desarrollo = ?";
+		$params = array($this->mensaje, $this->archivo, $this->id_tipo_desarrollo, $this->id_cliente, $this->estado, $this->id_desarrollo);
 		return Database::executeRow($sql, $params);
 	}
 	public function deleteDesarrollo(){

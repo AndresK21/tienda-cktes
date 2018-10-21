@@ -73,8 +73,8 @@ class Desarrollo extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function createDesarrollo(){
-		$sql = "INSERT INTO desarrollo(mensaje, archivo, id_tipo_desarrollo, id_cliente) VALUES (?, ?, ?, ?)";
-		$params = array($this->mensaje, $this->archivo, $this->tipo_desa, $this->id);
+		$sql = "INSERT INTO desarrollo(mensaje, archivo, id_tipo_desarrollo, id_cliente, id_estado) VALUES (?, ?, ?, ?, ?)";
+		$params = array($this->mensaje, $this->archivo, $this->tipo_desa, $this->id, 12);
 		return Database::executeRow($sql, $params);
 	}
 

@@ -157,12 +157,32 @@ class Reservacion extends Validator{
 	}
 
 	public function getReservacion(){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 9 ORDER BY id_reservacion";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getReservacion2($empieza, $por_pagina){
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 9 ORDER BY id_reservacion LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getReservacionCom(){
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 10 ORDER BY id_reservacion";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getReservacionCom2($empieza, $por_pagina){
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE reservaciones.id_estado = 10 ORDER BY id_reservacion LIMIT $empieza, $por_pagina";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchReservacion($value){
-		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_reservacion";
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND reservaciones.id_estado = 9 ORDER BY id_reservacion";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function searchReservacion2($value){
+		$sql = "SELECT id_reservacion, reservaciones.cantidad, fecha, hora, fecha_estimada, nombre, nombres, apellidos, estado FROM reservaciones INNER JOIN estado USING(id_estado) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND reservaciones.id_estado = 10 ORDER BY id_reservacion";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}

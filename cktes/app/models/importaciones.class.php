@@ -145,12 +145,32 @@ class Importacion extends Validator{
 	}
 
 	public function getImportacion(){
-		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) ORDER BY id_importacion";
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE importacion_especial.id_estado = 9 ORDER BY id_importacion";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getImportacion2($empieza, $por_pagina){
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE importacion_especial.id_estado = 9 ORDER BY id_importacion LIMIT $empieza, $por_pagina";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getImportacionCom(){
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE importacion_especial.id_estado = 10 ORDER BY id_importacion";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function getImportacionCom2($empieza, $por_pagina){
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE importacion_especial.id_estado = 10 ORDER BY id_importacion LIMIT $empieza, $por_pagina";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 	public function searchImportacion($value){
-		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE nombres LIKE ? OR apellidos LIKE ? ORDER BY id_importacion";
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND importacion_especial.id_estado = 9 ORDER BY id_importacion";
+		$params = array("%$value%", "%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function searchImportacion2($value){
+		$sql = "SELECT id_importacion, importacion_especial.cantidad, nombre, fecha, fecha_estimada, nombres, apellidos, estado FROM importacion_especial INNER JOIN estado USING(id_estado) INNER JOIN clientes USING(id_cliente) WHERE (nombres LIKE ? OR apellidos LIKE ?) AND importacion_especial.id_estado = 10 ORDER BY id_importacion";
 		$params = array("%$value%", "%$value%");
 		return Database::getRows($sql, $params);
 	}
