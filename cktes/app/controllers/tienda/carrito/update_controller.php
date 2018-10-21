@@ -12,39 +12,44 @@ try{
                 $existencia = $detalle->getCantidad();
                 // Se realizará cuando se de clck al input 'actualizar'
                 if(isset($_POST['actualizar'])){
-                    $_POST = $detalle->validateForm($_POST);
-                    if($detalle->setCantidad($_POST['cantidad'])){
-						$id = $detalle->getProducto();
-						if($existencia < $_POST['cantidad']){
-							$diferencia = $_POST['cantidad'] - $existencia;
-							$producto->updateCantidad1($diferencia, $id);
-							if($detalle->updateDetalle3()){ //Edita la categoria
-								Page::showMessage(1, "Cantidad modificada", "carrito.php");
+					$cantidad_a_comprar = $_POST['cantidad'];
+            		if($cantidad_a_comprar <= $existencia){
+						$_POST = $detalle->validateForm($_POST);
+						if($detalle->setCantidad($_POST['cantidad'])){
+							$id = $detalle->getProducto();
+							if($existencia < $_POST['cantidad']){
+								$diferencia = $_POST['cantidad'] - $existencia;
+								$producto->updateCantidad1($diferencia, $id);
+								if($detalle->updateDetalle3()){ //Edita la categoria
+									Page::showMessage(1, "Cantidad modificada", "carrito.php");
+								}else{
+									throw new Exception(Database::getException());
+								}
+								//sacar diferrencia y restarlo al inventario
+							}else if($existencia > $_POST['cantidad']){
+								$diferencia = $existencia - $_POST['cantidad'];
+								$producto->updateCantidad2($diferencia, $id);
+								if($detalle->updateDetalle3()){ //Edita la categoria
+									Page::showMessage(1, "Cantidad modificada", "carrito.php");
+								}else{
+									throw new Exception(Database::getException());
+								}
+							}else if($existencia = $_POST['cantidad']){
+								if($detalle->updateDetalle3()){ //Edita la categoria
+									Page::showMessage(1, "Cantidad modificada", "carrito.php");
+								}else{
+									throw new Exception(Database::getException());
+								}
 							}else{
-								throw new Exception(Database::getException());
+								throw new Exception("Ha habido un problema");
 							}
-							//sacar diferrencia y restarlo al inventario
-						}else if($existencia > $_POST['cantidad']){
-							$diferencia = $existencia - $_POST['cantidad'];
-							$producto->updateCantidad2($diferencia, $id);
-							if($detalle->updateDetalle3()){ //Edita la categoria
-								Page::showMessage(1, "Cantidad modificada", "carrito.php");
-							}else{
-								throw new Exception(Database::getException());
-							}
-						}else if($existencia = $_POST['cantidad']){
-							if($detalle->updateDetalle3()){ //Edita la categoria
-								Page::showMessage(1, "Cantidad modificada", "carrito.php");
-							}else{
-								throw new Exception(Database::getException());
-							}
+																			
 						}else{
-							throw new Exception("Ha habido un problema");
-						}
-												                        
-                    }else{
-                        throw new Exception("Cantidad incorrecta");
-                    } 
+							throw new Exception("Cantidad incorrecta");
+						} 
+					}else{
+						Page::showMessage(3, "La cantidad excede las existencias", "carrito.php");
+					}
                 }
             }else{
                 Page::showMessage(2, "Producto inexistente", "index.php");
