@@ -17,7 +17,7 @@
                             </div>
                             
 						</div>
-						<div class="white-text">.</div>
+						<div class="cktes">.</div>
                         <div class="row">
                             <div class="col s12 right-align">
                                 <a class='btn waves-effect cktes2' href="login.php"><i class='material-icons'></i>Cancelar</a>

@@ -467,6 +467,11 @@ class Empleado extends Validator{
 		$params = array($permiso);
 		return Database::getRows($sql, $params);
 	}
+	public function getNomTipo($permiso){
+		$sql = "SELECT permiso FROM permisos WHERE id_permiso = ?";
+		$params = array($permiso);
+		return Database::getRow($sql, $params);
+	}
 
 
 	//Metodos para login

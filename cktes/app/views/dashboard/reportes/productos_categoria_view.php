@@ -45,7 +45,7 @@
                 // Movernos a la derecha
                 $this->Cell(80);
                 // T�tulo del reporte 
-                $this->Cell(100,10,'Lista de productos',0,0,'C');
+                $this->Cell(100,10,'Lista de productos de la marca '.$_SESSION['nomMarca'],0,0,'C');
                 // Salto de l�nea
                 $this->Ln(15);
             }
@@ -74,7 +74,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(35, 35, 25, 25, 40, 50, 50);
+                $w = array(75, 35, 25, 25, 45, 50);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -94,8 +94,7 @@
                     $this->Cell($w[2],6,'$'.$row['precio'],'LRT',0,'L',$fill);
                     $this->Cell($w[3],6,$row['cantidad'],'LRT',0,'L',$fill);
                     $this->Cell($w[4],6,$row['proveedor'],'LRT',0,'L',$fill);
-                    $this->Cell($w[5],6,$row['marca'],'LRT',0,'L',$fill);
-                    $this->Cell($w[6],6,$row['tipo_producto'],'LRT',0,'L',$fill);
+                    $this->Cell($w[5],6,$row['tipo_producto'],'LRT',0,'L',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }

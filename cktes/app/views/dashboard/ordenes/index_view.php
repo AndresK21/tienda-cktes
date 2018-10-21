@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda'>
+                                <input type="text" id="buscar_label" name='busqueda' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar por nombre del cliente</label>
                             </div>
                             <div class="input-field col s2">
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda2'>
+                                <input type="text" id="buscar_label" name='busqueda2' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar por nombre del cliente</label>
                             </div>
                             <div class="input-field col s2">

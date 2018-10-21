@@ -11,7 +11,9 @@
 		<div class="center-align"><h5>Productos mejor valorados</h5></div>
 		<canvas id="myChart2" height="215"></canvas>
 	</div>
-	<div class='col s12 m6'>
+</div>
+<div class="row">
+	<div class='col s12 m7 offset-m2'>
 		<div class="center-align"><h5>Categor&iacute;as mejor valoradas</h5></div>
 		<canvas id="myChart3" height="215"></canvas>
 	</div>
@@ -146,7 +148,7 @@
 				por eso se utiliza el "foreach", en esta primera instancia solo se necesitan los nombres
 				de los productos.*/ 
 				<?php
-					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto, nombre FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_tipo_producto = 2 GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
+					$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, nombre FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE estado_carrito = 6 GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
 					$params = array(null);
 					$result = Database::getRows($sql, $params);
 
@@ -167,7 +169,7 @@
 					por eso se utiliza el "foreach", en esta segunda instancia solo se necesitan los valores
 					de los respectivos productos.*/
 					<?php
-						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, detalle_carrito.id_producto, nombre FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_tipo_producto = 2 GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
+						$sql = "SELECT SUM(detalle_carrito.cantidad) AS cant, nombre FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) WHERE estado_carrito = 6 GROUP BY id_producto ORDER BY cant DESC LIMIT 5";
 						$params = array(null);
 						$result = Database::getRows($sql, $params);
 

@@ -10,7 +10,7 @@
     $pdf->setTitle('Reporte de ventas');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Nombre', 'Fecha', 'Cantidad', 'Precio', 'Venta');
+    $header = array('Nombre del producto', 'Fecha', 'Cantidad', 'Precio', 'Venta');
     // Carga de datos
     $result = $detalle->getVentas();
 

@@ -24,18 +24,11 @@
                     <input name="correo" id="email" type="email" class="validate" autocomplete="off" value='<?php print($usuario->getCorreo()) ?>' required />
                     <label for="email" class="black-text">Correo electr&oacute;nico</label>
                 </div>
-                <div class='col s12'>
-                    <p>
-                        <div class='switch center '>
-                            <span>Permiso:</span>
-                            <label>
-                                <i>Usuario</i>
-                                <input type='checkbox' name="id_permiso" autocomplete="off" <?php print($usuario->getId_permiso()?"checked":"") ?>/>
-                                <span class='lever'></span>
-                                <i>Administrador</i>
-                            </label>
-                        </div>
-                    </p>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <?php
+                        Page::showSelect("Tipo de usuario", "permiso", $usuario->getId_permiso(), $usuario->getPermisos());
+                    ?>
                 </div>
             </div>
             <div class="row">

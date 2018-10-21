@@ -21,7 +21,7 @@ $total=null;
 $subtotal= null;
 // se pone que el precio y el detalle y se declara que el total será total mas subtotal 
 foreach($detalles as $detalle){
-    $subtotal= $detalle['precio']* $detalle['cantidad'];
+    $subtotal= $detalle['precio']* $detalle['cant'];
     $total= $subtotal + $total;
 
     print("

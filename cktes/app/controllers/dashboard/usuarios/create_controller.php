@@ -7,7 +7,7 @@ try{
         if($usuario->setNombres($_POST['nombres'])){
             if($usuario->setApellidos($_POST['apellidos'])){
                 if($usuario->setCorreo($_POST['correo'])){
-                    if($usuario->setId_permiso(isset($_POST['id_permiso'])?1:2)){ //Establece que el id_permiso solo puede ser 1 o 2
+                    if($usuario->setId_permiso($_POST['permiso'])){
                         if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
                             if($usuario->setImagen($_FILES['archivo'])){
                                 if($_POST['clave1'] == $_POST['clave2'] ){
@@ -35,7 +35,7 @@ try{
                         }
                                              
                     }else{
-                        throw new Exception("Permiso incorrecto");
+                        throw new Exception("Seleccione un tipo de usuario");
                     }
                 }else{
                     throw new Exception("Correo incorrecto");

@@ -10,7 +10,7 @@
     $pdf->setTitle('Reporte de clientes');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Cliente', 'Correo electronico', 'Producto mas comprado', 'Cantidad');
+    $header = array('Cliente', 'Correo electronico', 'Producto mas comprado');
     // Carga de datos
     $result = $detalle->cliente_ventas();
 

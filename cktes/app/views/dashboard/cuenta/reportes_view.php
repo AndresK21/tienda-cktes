@@ -36,9 +36,10 @@
 </div>
 
 <div class="white-text">.</div>
+<div class="white-text">.</div>
 
 <div class="row">
-	<div class='col s12 m6 l6'>
+	<div class='col s12 m4 l4'>
 		<?php
 			print("
 			<div class='center-align'>
@@ -48,7 +49,7 @@
 		?>
 		<div class="center-align"><h5>Reporte de ventas</h5></div>
 	</div>
-	<div class='col s12 m6 l6'>
+	<div class='col s12 m4 l4'>
 		<?php
 			print("
 			<div class='center-align'>
@@ -58,8 +59,20 @@
 		?>
 		<div class="center-align"><h5>Clientes con m&aacute;s compras</h5></div>
 	</div>
+	<div class='col s12 m4 l4'>
+		<?php
+			print("
+			<div class='center-align'>
+				<a href='../reportes/importaciones.php' target='_blank' class='waves-effect waves-light tooltipped' data-tooltip='Generar reporte de importaciones'><i class='material-icons blue-grey-text text-darken-4 large prefix'>content_paste</i></a>
+			</div>
+			");
+		?>
+		<div class="center-align"><h5>Importaciones pendientes</h5></div>
+	</div>
 </div>
 
+<div class="white-text">.</div>
+<div class="white-text">.</div>
 <div class="white-text">.</div>
 <div class="white-text">.</div>
 
@@ -125,27 +138,7 @@
 </div>
 
 <div class="row">
-	<div class='col s12 m6 l6'>
-		<div class="center-align"><h5>Importaciones pendientes</h5></div>
-		<form method='post' action='../reportes/importaciones.php'>
-			<div class='row'>
-				<div class="input-field col s12">
-					<select name="import">
-						<option value="" disabled selected>Seleccione una opci&oacute;n</option>
-						<option value="1">Normal</option>
-						<option value="2">Pedido especial</option>
-					</select>
-					<label>Tipo de importaci&oacute;n</label>
-				</div>
-				<div class='center-align'>
-					<button type='submit' name='reporte9' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar el tipo de importacion'><i class='material-icons white-text large prefix'>content_paste</i></button>
-				</div>
-			</div>
-			
-		</form>
-		
-	</div>
-	<div class='col s12 m6 l6'>
+	<div class='col s12 m6 l6 offset-l3 offset-m3'>
 		<div class="center-align"><h5>Clientes con compras mayores a:</h5></div>
 		<form method='post' action="../reportes/clientes_compras.php">
 			<div class='row'>

@@ -60,7 +60,7 @@ try{
 		$data2 = $tipo->getTipo_clientes();
 	}
 
-	if($data){
+	if($data || $data2){
 		require_once("../../app/views/dashboard/clientes/index_view.php");
 	}else{
 		Page::showMessage(4, "No hay clientes registrados en el sistema", "../cuenta/index.php");

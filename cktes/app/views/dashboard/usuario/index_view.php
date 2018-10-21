@@ -17,7 +17,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                            <input type="text" id="input" name='busqueda'>
+                            <input type="text" id="input" name='busqueda' autocomplete="off">
                             <label for="input" class="black-text">Buscar usuario por nombre o apellido</label>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                            <input type="text" id="input" name='busqueda2'>
+                            <input type="text" id="input" name='busqueda2' autocomplete="off">
                             <label for="input" class="black-text">Buscar usuario por nombre o apellido</label>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                            <input type="text" id="input" name='busqueda3'>
+                            <input type="text" id="input" name='busqueda3' autocomplete="off">
                             <label for="input" class="black-text">Buscar tipo de usuario</label>
                         </div>
                     </div>

@@ -494,5 +494,10 @@ class Producto extends Validator{
 		$params = array($marca);
 		return Database::getRows($sql, $params);
 	}
+	public function getNombreMarca($marca){
+		$sql = "SELECT marca FROM marca WHERE id_marca = ?";
+		$params = array($marca);
+		return Database::getRow($sql, $params);
+	}
 }
 ?>

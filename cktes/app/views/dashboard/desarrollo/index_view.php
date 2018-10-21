@@ -18,7 +18,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                            <input type="text" id="input" name='busqueda'>
+                            <input type="text" id="input" name='busqueda' autocomplete="off">
                             <label for="input" class="black-text">Buscar por cliente</label>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons grey-text text-darken-3 prefix">search</i>
-                            <input type="text" id="input" name='busqueda_tipo'>
+                            <input type="text" id="input" name='busqueda_tipo' autocomplete="off">
                             <label for="input" class="black-text">Buscar tipo de desarrollo</label>
                         </div>
                     </div>

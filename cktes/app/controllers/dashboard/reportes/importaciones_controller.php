@@ -14,11 +14,7 @@
     // T�tulos de las columnas
     $header = array('Cliente', 'Cantidad', 'Fecha', 'Producto');
     // Carga de datos
-    if($_POST['import'] == 1){
-        $result = $reservacion->getReservacionR();
-    }else if($_POST['import'] == 2){
-        $result = $importacion->getImportacionR();
-    }
+    $result = $reservacion->getReservacionR();
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

@@ -16,8 +16,8 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons prefix">search</i>
-                            <input type="text" id="buscar_label" name='busqueda_cliente' class="autocomplete">
-                            <label for="buscar_label" class="black-text">Buscar cliente por nombre o apellido</label>
+                            <input type="text" id="autocomplete-input" name='busqueda_cliente' autocomplete="off" class="autocomplete">
+                            <label for="autocomplete-input" class="black-text">Buscar cliente por nombre o apellido</label>
                         </div>
                     </div>
                     <div class="input-field col s2">
@@ -26,6 +26,7 @@
                 <form>
             </div>
         </div>
+
 
         <div class="container">
             <div class="row">
@@ -97,7 +98,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons prefix">search</i>
-                            <input type="text" id="buscar_label" name='busqueda_cliente2' class="autocomplete">
+                            <input type="text" id="buscar_label" name='busqueda_cliente2' autocomplete="off" class="autocomplete">
                             <label for="buscar_label" class="black-text">Buscar cliente por nombre o apellido</label>
                         </div>
                     </div>
@@ -179,7 +180,7 @@
                     <div class="col s10">
                         <div class="input-field">
                             <i class="material-icons prefix">search</i>
-                            <input type="text" id="buscar_label" name='busqueda_tipo' class="autocomplete">
+                            <input type="text" id="buscar_label" name='busqueda_tipo' autocomplete="off" class="autocomplete">
                             <label for="buscar_label" class="black-text">Buscar tipo de cliente</label>
                         </div>
                     </div>

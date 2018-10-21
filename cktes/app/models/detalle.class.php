@@ -232,7 +232,7 @@ public function readCarrito(){
 		    return Database::executeRow($sql, $params);
 					}
 	public function readHistorialdetalle(){
-			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad AS cant, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito =?";
+			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad AS cant, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito = ?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 						
@@ -305,7 +305,7 @@ public function readCarrito(){
 	
 	//Metodos para reportes
 	public function clienteVenta($venta){
-		$sql = "SELECT ROUND(SUM(detalle_carrito.cantidad*precio), 2) AS venta, id_cliente, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) WHERE (SELECT SUM(detalle_carrito.cantidad*precio)) >= ? GROUP BY id_cliente";
+		$sql = "SELECT ROUND(SUM(detalle_carrito.cantidad*precio), 2) AS venta, id_cliente, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) WHERE ((SELECT SUM(detalle_carrito.cantidad*precio)) >= ?) AND estado_carrito = 6 GROUP BY id_cliente";
 		$params = array($venta);
 		return Database::getRows($sql, $params);
 	}

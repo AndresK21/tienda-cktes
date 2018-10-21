@@ -10,10 +10,14 @@
     $pdf->setTitle('Reporte de productos');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Nombre', 'Presentacion', 'Precio', 'Cantidad', 'Proveedor', 'Marca', 'Tipo de producto');
+    $header = array('Nombre del producto', 'Presentacion', 'Precio', 'Cantidad', 'Proveedor', 'Tipo de producto');
     // Carga de datos
 
     $result = $producto->getProductoMarca($_POST['marca']);
+    $nomMarca = $producto->getNombreMarca($_POST['marca']);
+    foreach($nomMarca as $nom){
+        $_SESSION['nomMarca'] = $nom;
+    }
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

@@ -242,7 +242,7 @@ class Pedido extends Validator{
 	}
 	public function createPedido(){
 		$sql = "INSERT INTO pedido(fecha, archivo, id_cliente, id_empleado, id_estado, id_placa) VALUES (?, ?, ?, ?, ?, ?)";
-		$params = array($this->fecha, $this->archivo, $this->id_cliente, $this->id_empleado, $this->id-estado, $this->id_placa);
+		$params = array($this->fecha, $this->archivo, $this->id_cliente, $this->id_empleado, $this->id_estado, $this->id_placa);
 		return Database::executeRow($sql, $params);
 	}
 	public function readPedido(){
@@ -299,9 +299,9 @@ class Pedido extends Validator{
 	}
 
 	public function createPedidon(){
-		$sql = "INSERT INTO `pedido`(`fecha`, `id_cliente`, `id_empleado`, `id_estado`, `archivo`, `id_placa`, `cantidad`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO `pedido`(fecha, id_cliente, id_empleado, id_estado, archivo, id_placa, cantidad) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$fecha = date('Y/m/d');
-		$id_empleado = 26;
+		$id_empleado = null;
 		$estado = 7;
 		$params = array($fecha, $this->id_cliente, $id_empleado, $estado, $this->archivo, $this->id_placa, $this->cantidad);
 		return Database::executeRow($sql, $params);

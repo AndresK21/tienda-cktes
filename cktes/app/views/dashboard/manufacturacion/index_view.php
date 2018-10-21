@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda_nuevo'>
+                                <input type="text" id="buscar_label" name='busqueda_nuevo' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
@@ -87,7 +87,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda_com'>
+                                <input type="text" id="buscar_label" name='busqueda_com' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar pedido por nombre de cliente</label>
                             </div>
                             <div class="input-field col s2">
@@ -154,7 +154,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda_sustrato'>
+                                <input type="text" id="buscar_label" name='busqueda_sustrato' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar sustrato</label>
                             </div>
                             <div class="input-field col s2">
@@ -227,7 +227,7 @@
                         <div class="row">
                             <div class="input-field col s10">
                                 <i class="material-icons prefix">search</i>
-                                <input type="text" id="buscar_label" name='busqueda_tipo'>
+                                <input type="text" id="buscar_label" name='busqueda_tipo' autocomplete="off">
                                 <label for="buscar_label" class="black-text">Buscar tipo de placa</label>
                             </div>
                             <div class="input-field col s2">

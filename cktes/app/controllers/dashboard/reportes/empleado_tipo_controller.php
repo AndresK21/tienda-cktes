@@ -10,9 +10,13 @@
     $pdf->setTitle('Reporte de empleados');
     $pdf->setMargins(10, 10, 10, 10);
     // T�tulos de las columnas
-    $header = array('Apellidos', 'Nombres', 'Tipo de usuario', 'Correo electronico');
+    $header = array('Apellidos', 'Nombres', 'Correo electronico');
     // Carga de datos
     $result = $empleado->getEmpleado3($_POST['permiso']);
+    $nomTipo = $empleado->getNomTipo($_POST['permiso']);
+    foreach($nomTipo as $nom){
+        $_SESSION['nomTipo'] = $nom;
+    }
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

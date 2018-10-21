@@ -44,7 +44,7 @@
                 // Movernos a la derecha
                 $this->Cell(80);
                 // T�tulo del reporte 
-                $this->Cell(40,10,'Empleados registrados',0,0,'C');
+                $this->Cell(40,10,'Empleados del tipo '.$_SESSION['nomTipo'],0,0,'C');
                 // Salto de l�nea
                 $this->Ln(15);
             }
@@ -73,7 +73,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(45, 45, 35, 70);
+                $w = array(65, 55, 75);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -90,8 +90,7 @@
 
                     $this->Cell($w[0],6,$row['apellidos'],'LRT',0,'L',$fill);
                     $this->Cell($w[1],6,$row['nombres'],'LRT',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['permiso'],'LRT',0,'L',$fill);
-                    $this->Cell($w[3],6,$row['correo_electronico'],'LRT',0,'L',$fill);
+                    $this->Cell($w[2],6,$row['correo_electronico'],'LRT',0,'L',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }

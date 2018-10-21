@@ -74,7 +74,7 @@
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
                 // Anchuras de las columnas
-                $w = array(85, 75, 65, 35);
+                $w = array(95, 85, 75);
                 // Cabeceras
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7, $header[$i] ,1,0,'C', true);
@@ -91,7 +91,6 @@
                     $this->Cell($w[0],6,$row['apellidos'].' '.$row['nombres'],'LRT',0,'L',$fill);
                     $this->Cell($w[1],6,$row['correo_electronico'],'LRT',0,'L',$fill);
                     $this->Cell($w[2],6,$row['producto'],'LRT',0,'L',$fill);
-                    $this->Cell($w[3],6,$row['cant'],'LRT',0,'L',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }
