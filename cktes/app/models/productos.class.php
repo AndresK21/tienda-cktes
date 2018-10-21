@@ -128,9 +128,9 @@ class Producto extends Validator{
 		return $this->descripcion;
     }
     
-    public function setFicha($value){
-		if($this->validateAlphabetic($value, 1, 550)){
-			$this->ficha_tecnica = $value;
+    public function setFicha($file){
+		if($this->validateArchive2($file, $this->ficha_tecnica, "../../web/archivo/fichas/")){
+			$this->ficha_tecnica = $this->getArchiveName();
 			return true;
 		}else{
 			return false;
@@ -138,6 +138,14 @@ class Producto extends Validator{
 	}
 	public function getFicha(){
 		return $this->ficha_tecnica;
+	}
+	public function unsetFicha(){
+		if(unlink("../../web/archivo/fichas/".$this->ficha_tecnica)){
+			$this->ficha_tecnica = null;
+			return true;
+		}else{
+			return false;
+		}
     }
     
     public function setCantidad($value){

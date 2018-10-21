@@ -15,7 +15,7 @@
     <div class='col s12 m12 l8 offset-l2'>
         <div class='card horizontal'>
             <div class='card-image'>
-            <img class='imgProductos' src='../web/img/productos/".$producto->getImagen()."'>
+            <img class='materialboxed' width='50' height='420' src='../web/img/productos/".$producto->getImagen()."'>
             </div>
             <div class='card-stacked'>
     ");
@@ -26,6 +26,11 @@
                 <h5>".$producto->getProveedorG()."</h5>
                 <h5>".$producto->getPresentacionG()."</h5>
                 <h5>Precio: $".$producto->getTotal()."</h5>
+                
+                <div>
+                    <a target='blank' class='waves-effect waves-light btn colorNa' href='../web/archivo/fichas/".$producto->getFicha()."'><i class='material-icons left'>cloud_download</i>Descargar ficha t&eacute;cnica</a>
+                </div>
+
                 <div class=' input-field col s12 m12 l12'>
                     <input id='cantidad' type='number' name='cantidad' min='1' max=".$producto->getExistencias()." class='validate'>
                     <label for='cantidad'>Cant</label>

@@ -40,11 +40,11 @@ print("
                             <div class='row center'>
                                 <div class='input-field col s12 m6'>
                                     <i class='material-icons prefix'>list</i>
-                                    <input id='cantidad' type='number' name='cantidad' min='1' max='100' class='validate black-text'>
-                                    <label for='cantidad'>Cantidad</label>
+                                    <input id='cantidad1' type='number' name='cantidad' min='1' max='100' class='validate black-text'>
+                                    <label for='cantidad1'>Cantidad</label>
                                 </div>
                                 <div class='input-field col s12 m6'>
-                                    <button type='submit' name='comprar' class='btn waves-effect waves-light fantasma tooltipped black-text' data-tooltip='Agregar al carrito'><i class='material-icons'>add_shopping_cart</i></button>
+                                    <button type='submit' name='comprar' class='btn waves-effect waves-light colorNa fantasma tooltipped white-text' data-tooltip='Solicitar importacion'><i class='material-icons'>add_shopping_cart</i></button>
                                 </div>
                             </div>
                         </form>

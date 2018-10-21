@@ -1,5 +1,5 @@
 <img class="responsive-img indeximage " src="../web/img/2.jpg"> 
-<h2 class="center"><b>IMPORTACI&Oacute;N NUEVA</b></h2>
+<h2 class="center"><b>IMPORTACI&Oacute;N ESPECIAL</b></h2>
 <div class ="container">
             <div class="col s12 m6 l6">
                 <div class="card card-panel hoverable">

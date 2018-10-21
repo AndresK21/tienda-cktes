@@ -13,7 +13,7 @@ try{
 							}
 						}
 						$desarrollo->createDesarrollo();
-						Page::showMessage(1, "Desarrollo agregado", "index.php");
+						Page::showMessage(1, "Desarrollo agregado", "desarrollo.php");
 					}else{
 						throw new Exception("Cliente desconocido");
 					}

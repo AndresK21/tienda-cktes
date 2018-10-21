@@ -52,7 +52,7 @@ try{
                         }else{
                             if ($comprar->createReservacion()) {
                                 
-                                 Page::showMessage(1, 'Reservacion realizada', 'index.php');
+                                 Page::showMessage(1, 'Reservacion realizada', 'importaciones.php');
                             }
                             else
                             {

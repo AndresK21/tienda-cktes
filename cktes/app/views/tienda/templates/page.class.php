@@ -137,7 +137,6 @@ class Page extends Component{
                     </div>
                 </li>
             
-                <li><a class='center' href='acceder.php'><b>I N I C I O</b></a></li>
                 <li>
                     <div class='divider'></div>
                 </li>
@@ -219,7 +218,7 @@ print("
     <img class='movLogo' src='../web/img/logo_2.png'>
   </div></li>
   
-  <li><a class='center' href='acceder.php'><b> I N I C I O </b></a></li>
+  <li><a class='center' href='acceder.php'><b> INICIAR SESION</b></a></li>
   <li><div class='divider'></div></li>
   <li><a class='center'  href='../portal/index.php'><b>P O R T A L</b></a></li>
   <li><div class='divider'></div></li>

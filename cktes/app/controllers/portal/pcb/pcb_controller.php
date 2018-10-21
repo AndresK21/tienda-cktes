@@ -17,7 +17,7 @@ try{
 										$id = $max[0]['Id_max'];
 										$pedido->setId_placa($id);
 										if($pedido->createPedidon()){
-											Page::showMessage(1, 'Pedido solicitado', "index.php");
+											Page::showMessage(1, 'Pedido solicitado', "pcb.php");
 										}
 										else{
 											throw new Exception("Error al solicitarlo");

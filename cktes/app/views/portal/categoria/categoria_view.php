@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-content">
                             <a href="importacion_nueva.php" class="indigo-text darken-4">
-                            <p><b ></b><br><h5><b>IMPORTACIONES NUEVAS</b></h5></p></a>
+                            <p><b ></b><br><h5><b>IMPORTACIONES ESPECIALES</b></h5></p></a>
                         </div>
             </div>
         </div> 

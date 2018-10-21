@@ -13,9 +13,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s12 m6 l6">
-            <textarea id="fich" name="ficha" type="text" class="materialize-textarea" autocomplete="off" value='<?php print($producto->getFicha()) ?>' required ></textarea>
-            <label for="fich" class="black-text">Ficha t&eacute;cnica</label>
+        <div class='file-field input-field col s12 m6 l6'>
+            <div class='waves-effect waves-light btn colorNa'>
+                <span><i class='material-icons'>content_paste</i></span>
+                <input type='file' name='ficha' autocomplete="off" required/>
+            </div>
+            <div class='file-path-wrapper'>
+                <input type='text' class='file-path validate' placeholder='Ficha tecnica'/>
+            </div>
         </div>
         <div class="input-field col s12 m6 l6">
             <input id="cantida" name="cantidad" type="number" class="validate" max="999" min="1" step="any" autocomplete="off" value='<?php print($producto->getCantidad()) ?>' required >

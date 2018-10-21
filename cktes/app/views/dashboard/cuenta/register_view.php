@@ -25,9 +25,9 @@
                 <label for="email">Correo electr&oacute;nico</label>
             </div>
             <div class='file-field input-field col l6 m6 s12'>
-                <div class='waves-effect waves-light btn grey darken-3'>
-                    <span><i class='material-icons gray-text text-darken-3 icon-white'>image</i></span>
-                    <input type='file' name='archivo' value='<?php print($usuario->getImagen()) ?>' required/>
+                <div class='waves-effect waves-light btn colorNa'>
+                    <span><i class='material-icons colorNa icon-white'>image</i></span>
+                    <input type='file' name='archivo' class="white-text" value='<?php print($usuario->getImagen()) ?>' required/>
                 </div>
                 <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' placeholder='Seleccione una imagen'/>
