@@ -638,6 +638,11 @@ class Cliente extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+	public function getClientes222(){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE estado_cliente = 4 ORDER BY apellidos";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
 	public function searchCliente2($value){
 		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico FROM clientes WHERE nombres LIKE ? OR apellidos LIKE ? AND estado_cliente = 4 ORDER BY apellidos";
 		$params = array("%$value%", "%$value%");

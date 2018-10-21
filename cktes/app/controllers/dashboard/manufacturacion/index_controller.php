@@ -3,6 +3,29 @@ require_once("../../app/models/pedido.class.php");
 require_once("../../app/models/sustrato.class.php");
 require_once("../../app/models/tipo_placa.class.php");
 try{
+	//cantidad de registros por página
+	$por_pagina=10;
+	if (isset($_GET["pagina"])) {
+	$pagina = $_GET["pagina"];
+	}
+	else {
+	$pagina=1;
+	}
+	// la pagina inicia en 0 y se multiplica $por_pagina
+	$empieza = ($pagina-1) * $por_pagina;
+
+
+
+	$por_pagina2=10;
+	if (isset($_GET["pagina2"])) {
+	$pagina2 = $_GET["pagina2"];
+	}
+	else {
+	$pagina2=1;
+	}
+	// la pagina inicia en 0 y se multiplica $por_pagina
+	$empieza2 = ($pagina2-1) * $por_pagina2;
+
 	$pedido = new Pedido;
 	if(isset($_POST['buscar_nuevo'])){
 		$_POST = $pedido->validateForm($_POST);
@@ -12,10 +35,10 @@ try{
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data = $pedido->getPedidon();
+			$data = $pedido->getPedidon2($empieza, $por_pagina);
 		}
 	}else{
-		$data = $pedido->getPedidon();
+		$data = $pedido->getPedidon2($empieza, $por_pagina);
     }
     
     $pedidoc = new Pedido;
@@ -27,10 +50,10 @@ try{
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data2 = $pedidoc->getPedidoc();
+			$data2 = $pedidoc->getPedidoc2($empieza2, $por_pagina2);
 		}
 	}else{
-		$data2 = $pedidoc->getPedidoc();
+		$data2 = $pedidoc->getPedidoc2($empieza2, $por_pagina2);
     }
 
     $sustrato = new Sustrato;

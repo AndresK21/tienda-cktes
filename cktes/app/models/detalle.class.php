@@ -274,6 +274,11 @@ public function readCarrito(){
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}
+	public function getOrden22($empieza, $por_pagina){
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 11 ORDER BY id_carrito DESC LIMIT $empieza, $por_pagina";
+		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
 
 	public function searchOrden2($value){
 		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE (nombres = ? OR apellidos = ?) AND estado_carrito = 6";
@@ -282,6 +287,11 @@ public function readCarrito(){
 	}
 	public function getOrden2(){
 		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 6 ORDER BY id_carrito DESC";
+		$params = array($this->cliente);
+		return Database::getRows($sql, $params);
+	}
+	public function getOrden222($empieza, $por_pagina){
+		$sql = "SELECT id_carrito, id_cliente, fecha, nombres, apellidos FROM carrito INNER JOIN clientes USING(id_cliente) WHERE estado_carrito = 6 ORDER BY id_carrito DESC LIMIT $empieza, $por_pagina";
 		$params = array($this->cliente);
 		return Database::getRows($sql, $params);
 	}

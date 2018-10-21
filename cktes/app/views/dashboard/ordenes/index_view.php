@@ -62,6 +62,24 @@
             </table>
 
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado=$orden->getOrden();
+
+            //Contar el total de registros
+            $total_registros = count($resultado);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas = ceil($total_registros / $por_pagina);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$orden->getId_carrito()."&pagina=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$orden->getId_carrito()."&pagina=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$orden->getId_carrito()."&pagina=$total_paginas'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 
 
@@ -123,5 +141,23 @@
             </table>
 
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado2=$orden->getOrden2();
+
+            //Contar el total de registros
+            $total_registros2 = count($resultado2);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas2 = ceil($total_registros2 / $por_pagina2);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$orden->getId_carrito()."&pagina2=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas2; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$orden->getId_carrito()."&pagina2=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$orden->getId_carrito()."&pagina2=$total_paginas2'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 </div>

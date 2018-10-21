@@ -14,6 +14,17 @@ try{
 	// la pagina inicia en 0 y se multiplica $por_pagina
 	$empieza = ($pagina-1) * $por_pagina;
 
+
+	$por_pagina2=10;
+	if (isset($_GET["pagina2"])) {
+	$pagina2 = $_GET["pagina2"];
+	}
+	else {
+	$pagina2=1;
+	}
+	// la pagina inicia en 0 y se multiplica $por_pagina
+	$empieza2 = ($pagina2-1) * $por_pagina2;
+
 	//Controlador de clientes
 	$cliente = new Cliente;
 	if(isset($_POST['buscar_cliente'])){
@@ -38,10 +49,10 @@ try{
 			Page::showMessage(4, "Se encontraron $rows resuldatos", null);
 		}else{
 			Page::showMessage(4, "No se encontraron resultados", null);
-			$data3 = $cliente->getClientes22($empieza, $por_pagina);
+			$data3 = $cliente->getClientes22($empieza2, $por_pagina2);
 		}
 	}else{
-		$data3 = $cliente->getClientes22($empieza, $por_pagina);
+		$data3 = $cliente->getClientes22($empieza2, $por_pagina2);
 	}
 
 	//Controlador de clientes

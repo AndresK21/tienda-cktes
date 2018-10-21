@@ -38,41 +38,58 @@
                 <!--muestra la lista de pedidos-->
                 <div class="col s12">
                         
-                        <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="cktes white-text">
+                    <table class="bordered highlight responsive-table z-depth-2">
+                        <thead class="cktes white-text">
                             <tr>
                                 <th>Pedidos</th>
                                 <th>Estado del pedido</th>
                                 <th></th>
                                 <th></th>
                             </tr>
-                            </thead>
+                        </thead>
 
-                            <tbody>
-                                <?php
-                                    if($data){
-                                        foreach($data as $row){
-                                            print("
-                                            <tr>
-                                                <td>$row[nombres] $row[apellidos]</td>
-                                                <td>$row[estado]</td>
-                                                <td>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_pedido.php?id=$row[id_pedido]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
-                                                </td>
-                                            </tr>
-                                            ");
-                                        }
-                                    }else{
-
+                        <tbody>
+                            <?php
+                                if($data){
+                                    foreach($data as $row){
+                                        print("
+                                        <tr>
+                                            <td>$row[nombres] $row[apellidos]</td>
+                                            <td>$row[estado]</td>
+                                            <td>
+                                                <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_pedido.php?id=$row[id_pedido]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
+                                            </td>
+                                        </tr>
+                                        ");
                                     }
-                                ?>
-                            </tbody>
-                        </table>
+                                }else{
 
-                    </div>
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado=$pedido->getPedidon();
+
+            //Contar el total de registros
+            $total_registros = count($resultado);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas = ceil($total_registros / $por_pagina);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$pedido->getId_pedido()."&pagina=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$pedido->getId_pedido()."&pagina=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$pedido->getId_pedido()."&pagina=$total_paginas'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 
 
@@ -105,41 +122,58 @@
                 <!--muestra la lista de pedidos-->
                 <div class="col s12">
                         
-                        <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="cktes white-text">
+                    <table class="bordered highlight responsive-table z-depth-2">
+                        <thead class="cktes white-text">
                             <tr>
                                 <th>Pedidos</th>
                                 <th>Estado del pedido</th>
                                 <th></th>
                                 <th></th>
                             </tr>
-                            </thead>
+                        </thead>
 
-                            <tbody>
-                                <?php
-                                    if($data2){
-                                        foreach($data2 as $row){
-                                            print("
-                                            <tr>
-                                                <td>$row[nombres] $row[apellidos]</td>
-                                                <td>$row[estado]</td>
-                                                <td>
-                                                    <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_pedido.php?id=$row[id_pedido]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
-                                                </td>
-                                            </tr>
-                                            ");
-                                        }
-                                    }else{
-
+                        <tbody>
+                            <?php
+                                if($data2){
+                                    foreach($data2 as $row){
+                                        print("
+                                        <tr>
+                                            <td>$row[nombres] $row[apellidos]</td>
+                                            <td>$row[estado]</td>
+                                            <td>
+                                                <a class='waves-effect waves-light modal-trigger espacio tooltipped' data-position='top' data-delay='50' data-tooltip='Ver detalles' href='update_pedido.php?id=$row[id_pedido]'><i class='material-icons grey-text text-darken-3 prefix'>content_paste</i></a>
+                                            </td>
+                                        </tr>
+                                        ");
                                     }
-                                ?>
-                            </tbody>
-                        </table>
+                                }else{
 
-                    </div>
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
+        <?php
+            //seleccionar todo de la tabla usuarios
+            $resultado2=$pedido->getPedidoc();
+
+            //Contar el total de registros
+            $total_registros2 = count($resultado2);
+
+            //usando ceil para dividir el total de registros entre $por_pagina este ultimo es de 5
+            $total_paginas2 = ceil($total_registros2 / $por_pagina2);  
+
+            //link a primera pagina
+            print("<ul class='pagination  center'><a href='index.php?id=".$pedido->getId_pedido()."&pagina2=1'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Primer pagina'>first_page</i></a></li>");
+            for ($i=1; $i<=$total_paginas2; $i++) {
+            print("<li class='waves-effect white-text ligactive'><a href='index.php?id=".$pedido->getId_pedido()."&pagina2=".$i."'>".$i."</a></li>");
+            };
+            // link a la ultima pagina
+            print("<a href='index.php?id=".$pedido->getId_pedido()."&pagina2=$total_paginas2'>".''."<i class='material-icons tooltipped' data-position='top' data-delay='50' data-tooltip='Ultima pagina'>last_page</i></a></li>");
+        ?>
     </div>
 
 
