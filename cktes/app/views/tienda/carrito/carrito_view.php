@@ -43,7 +43,10 @@
         <div class="col s12 m6 l12 ">
             <div class="card  grey lighten-3 ">
                 <div class="card-content black-text ">
-                    <?php print("<p class='right'> <b>TOTAL  </b>  $$total ");?>
+                    <?php 
+                        print("<p class='right'> <b>TOTAL  </b>  $$total ");
+                        $_SESSION['totalCarrito'] = $total;
+                    ?>
                 </div>
             </div>
             <form method='post'>

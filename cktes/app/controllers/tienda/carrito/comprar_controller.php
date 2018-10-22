@@ -15,7 +15,7 @@ try{
    
         $comprar->setCompra($_SESSION['id_carrito']);                
         // Se cambia el estado de "En proceso" a "Solicitado"
-        $comprar->Comprar();    
+        $comprar->Comprar($_SESSION['totalCarrito']);    
         //Se crea otra compra seleccionando el máximo Id
         $comprar->setCliente($_SESSION['id_cliente']);
         $comprar->createCompra();

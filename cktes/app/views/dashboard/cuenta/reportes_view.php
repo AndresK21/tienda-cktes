@@ -71,6 +71,7 @@
 	</div>
 </div>
 
+
 <div class="white-text">.</div>
 <div class="white-text">.</div>
 <div class="white-text">.</div>
@@ -134,24 +135,6 @@
 			
 		</form>
 		
-	</div>
-</div>
-
-<div class="row">
-	<div class='col s12 m6 l6 offset-l3 offset-m3'>
-		<div class="center-align"><h5>Clientes con compras mayores a:</h5></div>
-		<form method='post' action="../reportes/clientes_compras.php">
-			<div class='row'>
-				<div class="input-field col s12">
-					<input id="vent" name="venta" type="number" class="validate" max="9999.99" min="0.01" step="any"/>
-					<label for="venta" class="black-text">Precio</label>
-				</div>
-				<div class='center-align'>
-					<button type='submit' name='reporte10' class='btn grey darken-3 waves-effect tooltipped' data-tooltip='Ingresar el monto'><i class='material-icons white-text large prefix'>content_paste</i></button>
-				</div>
-			</div>
-			
-		</form>
 	</div>
 </div>
 

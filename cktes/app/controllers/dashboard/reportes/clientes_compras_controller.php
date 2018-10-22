@@ -13,11 +13,8 @@
     // T�tulos de las columnas
     $header = array('Apellidos', 'Nombres', 'Correo electronico', 'Compras');
     // Carga de datos
-    if($_POST['venta'] <= 0){
-        Component::showMessage(3, "Por favor ingrese datos validos", "index.php");
-    }else{
-        $result = $detalle->clienteVenta($_POST['venta']);
-    }
+
+    $result = $detalle->clienteVenta();
 
     $pdf->AliasNbPages();
     $pdf->AddPage();

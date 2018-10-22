@@ -87,16 +87,16 @@
                 $this->SetFont('');
                 // Datos
                 $fill = false;
-                foreach($result as $row)
-                {
-
-                    $this->Cell($w[0],6,$row['apellidos'],'LRT',0,'L',$fill);
-                    $this->Cell($w[1],6,$row['nombres'],'LRT',0,'L',$fill);
-                    $this->Cell($w[2],6,$row['correo_electronico'],'LRT',0,'L',$fill);
-                    $this->Cell($w[3],6,"$".$row['venta'],'LRT',0,'L',$fill);
-                    $this->Ln();
-                    $fill = !$fill;
-                }
+                
+                    foreach($result as $row)
+                    {
+                        $this->Cell($w[0],6,$row['apellidos'],'LRT',0,'L',$fill);
+                        $this->Cell($w[1],6,$row['nombres'],'LRT',0,'L',$fill);
+                        $this->Cell($w[2],6,$row['correo_electronico'],'LRT',0,'L',$fill);
+                        $this->Cell($w[3],6,"$".$row['venta'],'LRT',0,'L',$fill);
+                        $this->Ln();
+                        $fill = !$fill;
+                    }
                 // L�nea de cierre
                 $this->Cell(array_sum($w),0,'','T');
             }

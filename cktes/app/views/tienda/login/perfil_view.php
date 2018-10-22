@@ -87,7 +87,7 @@ print("
                         <span>Autenticaci&oacute;n en dos pasos</span>
                         <label>
                             <i>Desactivado</i>
-                            <input type='checkbox' name="auten" autocomplete="off" <?php print($cliente->getEst()?"":"checked") ?>/>
+                            <input type='checkbox' name="auten" autocomplete="off" <?php print($cliente->getEst()?"checked":"") ?>/>
                             <span class='lever'></span>
                             <i>Activado</i>
                         </label>

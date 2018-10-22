@@ -224,11 +224,11 @@ public function readCarrito(){
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 				}
-	public function Comprar(){
-			$sql = "UPDATE carrito SET estado_carrito = ?, fecha=? WHERE id_carrito = ?";
+	public function Comprar($total){
+			$sql = "UPDATE carrito SET estado_carrito = ?, fecha = ?, total = ? WHERE id_carrito = ?";
 			$fechaa = date('y/m/d');
 			$estadofinalizado = 11;
-		    $params = array($estadofinalizado,$fechaa,$this->compra);
+		    $params = array($estadofinalizado, $fechaa, $total, $this->compra);
 		    return Database::executeRow($sql, $params);
 					}
 	public function readHistorialdetalle(){
@@ -314,8 +314,8 @@ public function readCarrito(){
 	}
 	
 	//Metodos para reportes
-	public function clienteVenta($venta){
-		$sql = "SELECT ROUND(SUM(detalle_carrito.cantidad*precio), 2) AS venta, id_cliente, nombres, apellidos, correo_electronico FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) WHERE ((SELECT SUM(detalle_carrito.cantidad*precio)) >= ?) AND estado_carrito = 6 GROUP BY id_cliente";
+	public function clienteVenta(){
+		$sql = "SELECT id_cliente, nombres, apellidos, correo_electronico, ROUND(SUM(total), 2) AS venta FROM clientes INNER JOIN carrito USING(id_cliente) WHERE estado_carrito = 6 GROUP BY id_cliente ORDER BY venta DESC LIMIT 20";
 		$params = array($venta);
 		return Database::getRows($sql, $params);
 	}
@@ -323,7 +323,7 @@ public function readCarrito(){
 		$sql = "SELECT id_carrito nombre, precio_total, detalle_carrito.cantidad FROM carrito INNER JOIN detalle_carrito USING (id_carrito) INNER JOIN productos USING (id_producto) WHERE id_carrito= ?";
 		$params = array($this->id_carrito);
 		return  Database::getRows($sql, $params);
-		}
+	}
 		public function getComp2(){
 		$sql = "SELECT id_carrito, nombres, correo_electronico, fecha FROM carrito INNER JOIN clientes USING (id_cliente) WHERE id_carrito= ?";
         $param = array($this->id_carrito);
