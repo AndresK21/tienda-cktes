@@ -131,7 +131,7 @@ class DetalleCliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function readDetalle(){
-		$sql = "SELECT id_detalle, url_imagen, nombre, precio, productos.cantidad, detalle_carrito.cantidad, estado_carrito, productos.precio_total FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING (id_carrito) WHERE detalle_carrito.id_carrito = ? AND estado_carrito=5";
+		$sql = "SELECT id_detalle, url_imagen, nombre, precio_total, productos.cantidad, detalle_carrito.cantidad, estado_carrito, productos.precio_total FROM detalle_carrito INNER JOIN productos USING(id_producto) INNER JOIN carrito USING (id_carrito) WHERE detalle_carrito.id_carrito = ? AND estado_carrito=5";
 		$params = array($this->compra);
 		return Database::getRows($sql, $params);
 	}
@@ -179,12 +179,12 @@ class DetalleCliente extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function getVentas(){
-		$sql = "SELECT id_cliente, id_detalle, id_carrito, productos.id_producto, productos.url_imagen, productos.nombre, detalle_carrito.cantidad, precio, precio * detalle_carrito.cantidad AS subtotal FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
+		$sql = "SELECT id_cliente, id_detalle, id_carrito, productos.id_producto, productos.url_imagen, productos.nombre, detalle_carrito.cantidad, precio_total, precio_total * detalle_carrito.cantidad AS subtotal FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN productos USING(id_producto) INNER JOIN clientes USING(id_cliente) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
 		$params = array($this->id_cliente);
 		return Database::getRows($sql, $params);
 	}
 	public function getTotal(){
-		$sql = "SELECT SUM(precio * detalle_carrito.cantidad) AS total FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) INNER JOIN productos USING(id_producto) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
+		$sql = "SELECT SUM(precio_total * detalle_carrito.cantidad) AS total FROM detalle_carrito INNER JOIN carrito USING(id_carrito) INNER JOIN clientes USING(id_cliente) INNER JOIN productos USING(id_producto) WHERE detalle_carrito.estado = 0 AND id_cliente = ?";
 		$params = array($this->id_cliente);
 		return Database::getRows($sql, $params);
 	}
@@ -214,11 +214,6 @@ public function readCarrito(){
 			$params = array($this->cantidad, $this->producto);
 			return Database::executeRow($sql, $params);
 		}
-	public function getExistenciaas(){
-			$sql = "SELECT Existencias FROM juguete WHERE Id_juguete = ?";
-			$params = array($this->juguete);
-			return Database::getRows($sql, $params);
-			}
 	public function getCarrito(){
 			$sql = "SELECT id_detalle, nombre, precio , productos.url_imagen , detalle_carrito.cantidad , detalle_carrito.id_producto , productos.cantidad AS Existencias FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito=?";
 			$params = array($this->compra);
@@ -232,7 +227,7 @@ public function readCarrito(){
 		    return Database::executeRow($sql, $params);
 					}
 	public function readHistorialdetalle(){
-			$sql = "SELECT id_detalle, url_imagen, nombre, precio, detalle_carrito.cantidad AS cant, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito = ?";
+			$sql = "SELECT id_detalle, url_imagen, nombre, precio_total, detalle_carrito.cantidad AS cant, productos.cantidad, productos.id_producto FROM detalle_carrito INNER JOIN productos USING(id_producto) WHERE id_carrito = ?";
 			$params = array($this->compra);
 			return Database::getRows($sql, $params);
 						

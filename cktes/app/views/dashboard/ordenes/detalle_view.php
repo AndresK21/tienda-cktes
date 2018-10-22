@@ -21,12 +21,12 @@
                 $subtotal= null;
 
                 foreach($detalles as $row){
-                    $subtotal= $row['precio']* $row['cant'];
+                    $subtotal= $row['precio_total']* $row['cant'];
                     $total= $subtotal + $total;
                     print("
                     <tr>
                         <td>$row[nombre]</td>
-                        <td>$row[precio]</td>
+                        <td>$row[precio_total]</td>
                         <td>$row[cant]</td>
                         <td>$$subtotal</td>
                     </tr>

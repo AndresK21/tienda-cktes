@@ -91,7 +91,7 @@
 
                     $this->Cell($w[0],6,$row['nombre'],'LRT',0,'L',$fill);
                     $this->Cell($w[1],6,$row['presentacion'],'LRT',0,'L',$fill);
-                    $this->Cell($w[2],6,'$'.$row['precio'],'LRT',0,'L',$fill);
+                    $this->Cell($w[2],6,'$'.$row['precio_total'],'LRT',0,'L',$fill);
                     $this->Cell($w[3],6,$row['cantidad'],'LRT',0,'L',$fill);
                     $this->Cell($w[4],6,$row['proveedor'],'LRT',0,'L',$fill);
                     $this->Cell($w[5],6,$row['tipo_producto'],'LRT',0,'L',$fill);

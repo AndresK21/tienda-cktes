@@ -492,13 +492,13 @@ class Producto extends Validator{
 
 	//Metodos para los reportes
 	public function getProductoRe(){
-		$sql = "SELECT id_producto, nombre, cantidad, precio, presentacion, proveedor, marca, tipo_producto FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) ORDER BY id_producto";
+		$sql = "SELECT id_producto, nombre, cantidad, precio_total, presentacion, proveedor, marca, tipo_producto FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) ORDER BY id_producto";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
 
 	public function getProductoMarca($marca){
-		$sql = "SELECT id_producto, nombre, cantidad, precio, presentacion, proveedor, marca, tipo_producto FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) WHERE id_marca = ? ORDER BY id_producto";
+		$sql = "SELECT id_producto, nombre, cantidad, precio_total, presentacion, proveedor, marca, tipo_producto FROM productos INNER JOIN presentaciones USING(id_presentacion) INNER JOIN proveedores USING(id_proveedor) INNER JOIN marca USING(id_marca) INNER JOIN tipo_producto USING(id_tipo_producto) WHERE id_marca = ? ORDER BY id_producto";
 		$params = array($marca);
 		return Database::getRows($sql, $params);
 	}
