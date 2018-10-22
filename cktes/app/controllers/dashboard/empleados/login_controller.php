@@ -127,6 +127,8 @@ try{
 									}else{
 										throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 									}
+								}else{
+									throw new Exception("Su cuenta está bloqueada por exceder los intentos de inicio de sesión");
 								}
 							}
 						}else{

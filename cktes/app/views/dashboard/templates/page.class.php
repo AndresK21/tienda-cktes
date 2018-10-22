@@ -232,8 +232,8 @@ class Page extends Component{
                                                         <div class='background'>
                                                             <img src='../../web/img/1.jpg'>
                                                         </div>
-                                                        <a href='editar_perfil.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
-                                                        <a href='editar_perfil.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
+                                                        <a href='../cuenta/profile.php'><img class='circle' src='../../web/img/empleados/$_SESSION[imagen_d]'></a>
+                                                        <a href='../cuenta/profile.php'><span class='white-text name'>$_SESSION[nombres2_d] $_SESSION[apellidos2_d]</span></a>
                                                         <a href='#!email'><span class='white-text email'>$_SESSION[correo_electronico2_d]</span></a>
                                                         </div></li>
                                         ");

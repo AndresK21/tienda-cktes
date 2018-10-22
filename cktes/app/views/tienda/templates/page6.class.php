@@ -34,7 +34,7 @@ class Page6 extends Component{
         if (isset($_SESSION['tiempo'])) {
                 
           //Tiempo en segundos para dar vida a la sesión.
-          $inactivo = 300; //5min en este caso.
+          $inactivo = 600; //5min en este caso.
           
           //Calculamos tiempo de vida inactivo.
           $vida_sesion = time() - $_SESSION['tiempo'];
