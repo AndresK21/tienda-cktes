@@ -28,14 +28,6 @@ try{
                                                     if($permiso->setDesarrollo($_POST['check7'])){
                                                         if($permiso->setImportacion($_POST['check8'])){
                                                             if($permiso->updatePermiso()){ //Crea el tipo de usuario
-                                                                $_SESSION['dashboard'] = $permiso->getDashboard();
-                                                                $_SESSION['usuarios'] = $permiso->getUsuarios();
-                                                                $_SESSION['clientes'] = $permiso->getClientes();
-                                                                $_SESSION['productos'] = $permiso->getProductos();
-                                                                $_SESSION['ordenes'] = $permiso->getOrdenes();
-                                                                $_SESSION['manufacturacion'] = $permiso->getManufacturacion();
-                                                                $_SESSION['desarrollo'] = $permiso->getDesarrollo();
-                                                                $_SESSION['importacion'] = $permiso->getImportacion();
                                                                 Page::showMessage(1, "Tipo de usuario modificado", "index.php");
                                                             }else{
                                                                 throw new Exception("No se pudo crear el tipo de usuario");        
