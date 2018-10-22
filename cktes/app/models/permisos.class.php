@@ -128,7 +128,7 @@ class Permiso extends Validator{
 
 	//Metodos para el manejo del CRUD
 	public function getPermisos(){
-		$sql = "SELECT id_permiso, permiso FROM permisos ORDER BY id_permiso";
+		$sql = "SELECT id_permiso, permiso FROM permisos WHERE id_permiso >1 ORDER BY id_permiso";
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}

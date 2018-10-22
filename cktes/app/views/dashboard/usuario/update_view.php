@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col s12 right-align">
-                    <a class='btn waves-effect red darken-3' href="index.php"><i class='material-icons'></i>Cancelar</a>
+                    <a class='btn waves-effect cktes' href="index.php"><i class='material-icons'></i>Cancelar</a>
                     <button type='submit' name='actualizar' class='btn waves-effect colorNa'><i class='material-icons'>save</i>Guardar cambios</button>
                 </div>
             </div>

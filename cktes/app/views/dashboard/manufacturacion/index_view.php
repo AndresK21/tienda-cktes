@@ -287,7 +287,7 @@
                 <div class="col s12">
                         
                         <table class="bordered highlight responsive-table z-depth-2">
-                            <thead class="grey darken-3 white-text">
+                            <thead class="cktes white-text">
                             <tr>
                                 <th>Tipo de placa</th>
                                 <th></th>

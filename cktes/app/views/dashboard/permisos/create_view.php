@@ -13,6 +13,9 @@
                 </div>
             </div>
 
+            <div class="white-text">.</div>
+            <h5 class="center-align">Permisos</h5>
+
             <div class="row">
                 <p class="col s2">
                     <input id="dash" name="check1" type="checkbox" class="filled-in" value="2" <?php if($permiso->getDashboard() == 2){print("checked");} ?> />

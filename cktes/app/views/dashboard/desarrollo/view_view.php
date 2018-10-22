@@ -35,7 +35,7 @@
                 if($desarrollo->getArchivo() != null){
                     print("
                         <div class='input-field col s12 m6 l6'>
-                            <a class='waves-effect waves-light btn colorNa' href='../../web/archivo/desarrollo/".$desarrollo->getArchivo()."'><i class='material-icons left'>cloud_download</i>Descargar archivo</a>
+                            <a class='waves-effect waves-light btn cktes' href='../../web/archivo/desarrollo/".$desarrollo->getArchivo()."'><i class='material-icons left'>cloud_download</i>Descargar archivo</a>
                         </div>
                     "); 
                 }else{
@@ -46,8 +46,8 @@
         </div>
         <div class='row'>
             <div class='col s12 right-align'>
-                <a class='btn waves-effect red darken-3' href='index.php'><i class='material-icons'></i>Volver</a>
-                <button type='submit' name='editar' class='btn waves-effect cktes'><i class='material-icons'>save</i>Guardar cambios</button>
+                <a class='btn waves-effect cktes' href='index.php'><i class='material-icons'></i>Volver</a>
+                <button type='submit' name='editar' class='btn waves-effect colorNa'><i class='material-icons'>save</i>Guardar cambios</button>
             </div>
         </div>
     </form>
